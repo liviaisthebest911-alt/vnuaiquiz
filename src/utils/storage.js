@@ -9,14 +9,31 @@ function read(key, fallback) {
     try {
         const raw = localStorage.getItem(key)
 
-        return raw ? JSON.parse(raw) : fallback
-    } catch {
+        if (!raw) {
+            return fallback
+        }
+
+        const parsed = JSON.parse(raw)
+
+        return parsed ?? fallback
+    } catch (error) {
+        console.warn(`Không thể đọc LocalStorage: ${key}`, error)
         return fallback
     }
 }
 
 function write(key, value) {
-    localStorage.setItem(key, JSON.stringify(value))
+    try {
+        localStorage.setItem(
+            key,
+            JSON.stringify(value),
+        )
+    } catch (error) {
+        console.warn(
+            `Không thể ghi LocalStorage: ${key}`,
+            error,
+        )
+    }
 }
 
 export const storage = {
@@ -29,7 +46,11 @@ export const storage = {
     },
 
     clearQuestions() {
-        localStorage.removeItem(KEYS.questions)
+        try {
+            localStorage.removeItem(KEYS.questions)
+        } catch (error) {
+            console.warn(error)
+        }
     },
 
     getBookmarks() {
@@ -58,6 +79,10 @@ export const storage = {
 }
 
 export function toggleInArray(list, value) {
+    if (!Array.isArray(list)) {
+        return [value]
+    }
+
     return list.includes(value)
         ? list.filter((item) => item !== value)
         : [...list, value]
