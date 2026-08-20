@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-> An intelligent, open-source quiz platform designed for students at Vietnam National University (VNU). 
+> An intelligent, open-source quiz platform designed for students at Vietnam National University of Science (VNU-HUS). 
 > **VNU AI Quiz** leverages artificial intelligence to create an engaging, dynamic, and personalized learning experience.
 
 ---
