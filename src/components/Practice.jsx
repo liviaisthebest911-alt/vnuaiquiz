@@ -64,25 +64,26 @@ export default function Practice({
         onMarkProgress(current.id)
     }
 
+    // Trạng thái màu cho từng đáp án — dùng tông hồng/xanh lá/đỏ nhẹ, không rực rỡ
     const optionClass = (optionIndex) => {
         if (!answered) {
-            return 'border-slate-200 bg-white hover:border-blue-300 hover:bg-blue-50'
+            return 'border-blossom-border bg-blossom-card hover:border-blossom-accent/50 hover:bg-blossom-card-soft dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:hover:bg-blossom-card-soft-dark'
         }
 
         if (optionIndex === current.answer) {
-            return 'border-emerald-300 bg-emerald-50 text-emerald-800'
+            return 'border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300'
         }
 
         if (optionIndex === selected) {
-            return 'border-rose-300 bg-rose-50 text-rose-800'
+            return 'border-rose-300 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-300'
         }
 
-        return 'border-slate-200 bg-slate-50 text-slate-500'
+        return 'border-blossom-border bg-blossom-card-soft text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark'
     }
 
     if (!current) {
         return (
-            <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center">
+            <div className="rounded-2xl border border-blossom-border bg-blossom-card p-10 text-center text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:text-blossom-muted-dark">
                 Chưa có câu hỏi để ôn tập.
             </div>
         )
@@ -94,23 +95,24 @@ export default function Practice({
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
 
-          <span className="text-xs font-semibold uppercase tracking-wider text-blue-600">
+          <span className="text-xs font-semibold uppercase tracking-wider text-blossom-accent dark:text-blossom-accent-dark">
             Practice Mode
           </span>
 
-                    <h1 className="mt-1 text-2xl font-bold text-slate-900">
+                    <h1 className="mt-1 text-2xl font-bold text-blossom-text dark:text-blossom-text-dark">
                         Ôn tập theo chương
                     </h1>
 
-                    <p className="mt-1 text-sm text-slate-500">
+                    <p className="mt-1 text-sm text-blossom-muted dark:text-blossom-muted-dark">
                         Chọn đáp án để xem ngay kết quả và lời giải.
                     </p>
                 </div>
 
+                {/* Input focus ring đổi màu hồng — micro-interaction mục 4 */}
                 <select
                     value={chapter}
                     onChange={(e) => chooseChapter(e.target.value)}
-                    className="rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                    className="rounded-xl border border-blossom-border bg-blossom-card px-3 py-2.5 text-sm font-medium text-blossom-text outline-none transition-colors focus:border-blossom-accent focus:ring-2 focus:ring-blossom-accent/20 dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:text-blossom-text-dark dark:focus:border-blossom-accent-dark dark:focus:ring-blossom-accent-dark/20"
                 >
                     <option value="all">Tất cả chương</option>
 
@@ -124,10 +126,10 @@ export default function Practice({
 
             <div className="grid gap-5 lg:grid-cols-[1fr_280px]">
 
-                <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft sm:p-7">
+                <section className="rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark sm:p-7">
 
                     <div className="flex items-center justify-between gap-4">
-                        <div className="text-sm text-slate-500">
+                        <div className="text-sm text-blossom-muted dark:text-blossom-muted-dark">
                             Câu {index + 1}/{filtered.length}
                         </div>
 
@@ -135,10 +137,10 @@ export default function Practice({
                             onClick={() =>
                                 onToggleBookmark(current.id)
                             }
-                            className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition ${
+                            className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all hover:scale-[1.03] active:scale-95 ${
                                 bookmarks.includes(current.id)
-                                    ? 'bg-amber-50 text-amber-700'
-                                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                                    ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300'
+                                    : 'bg-blossom-card-soft text-blossom-muted hover:text-blossom-text dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark dark:hover:text-blossom-text-dark'
                             }`}
                         >
                             {bookmarks.includes(current.id) ? (
@@ -153,11 +155,11 @@ export default function Practice({
                         </button>
                     </div>
 
-                    <div className="mt-6 rounded-xl bg-slate-50 p-4 text-xs font-semibold text-blue-700">
+                    <div className="mt-6 rounded-xl bg-blossom-card-soft p-4 text-xs font-semibold text-blossom-accent dark:bg-blossom-card-soft-dark dark:text-blossom-accent-dark">
                         {current.chapterName}
                     </div>
 
-                    <h2 className="mt-5 text-xl font-bold leading-8 text-slate-900">
+                    <h2 className="mt-5 text-xl font-bold leading-8 text-blossom-text dark:text-blossom-text-dark">
                         {current.question}
                     </h2>
 
@@ -171,7 +173,9 @@ export default function Practice({
                                     onClick={() =>
                                         handleAnswer(optionIndex)
                                     }
-                                    className={`flex w-full items-start gap-3 rounded-xl border p-4 text-left text-sm font-medium transition ${optionClass(
+                                    className={`flex w-full items-start gap-3 rounded-xl border p-4 text-left text-sm font-medium transition-all ${
+                                        !answered ? 'hover:scale-[1.005]' : ''
+                                    } ${optionClass(
                                         optionIndex,
                                     )} ${
                                         answered &&
@@ -180,7 +184,7 @@ export default function Practice({
                                             : ''
                                     }`}
                                 >
-                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-white text-xs font-bold shadow-sm ring-1 ring-slate-200">
+                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-blossom-card text-xs font-bold ring-1 ring-blossom-border dark:bg-blossom-card-dark dark:ring-blossom-border-dark">
                     {String.fromCharCode(
                         65 + optionIndex,
                     )}
@@ -195,7 +199,7 @@ export default function Practice({
                                         current.answer && (
                                             <CircleCheck
                                                 size={20}
-                                                className="ml-auto mt-1 shrink-0 text-emerald-600"
+                                                className="ml-auto mt-1 shrink-0 text-emerald-600 dark:text-emerald-400"
                                             />
                                         )}
 
@@ -204,7 +208,7 @@ export default function Practice({
                                         optionIndex !== current.answer && (
                                             <CircleX
                                                 size={20}
-                                                className="ml-auto mt-1 shrink-0 text-rose-600"
+                                                className="ml-auto mt-1 shrink-0 text-rose-600 dark:text-rose-400"
                                             />
                                         )}
                                 </button>
@@ -214,26 +218,26 @@ export default function Practice({
 
                     {answered && (
                         <div
-                            className={`mt-6 rounded-xl border p-5 ${
+                            className={`mt-6 rounded-xl border p-5 animate-fade-in-up ${
                                 selected === current.answer
-                                    ? 'border-emerald-200 bg-emerald-50'
-                                    : 'border-rose-200 bg-rose-50'
+                                    ? 'border-emerald-200 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-950/30'
+                                    : 'border-rose-200 bg-rose-50 dark:border-rose-800 dark:bg-rose-950/30'
                             }`}
                         >
-                            <div className="font-bold text-slate-900">
+                            <div className="font-bold text-blossom-text dark:text-blossom-text-dark">
                                 {selected === current.answer
                                     ? 'Chính xác!'
                                     : 'Chưa đúng'}
                             </div>
 
-                            <div className="mt-1 text-sm text-slate-700">
+                            <div className="mt-1 text-sm text-blossom-text/80 dark:text-blossom-text-dark/80">
                                 Đáp án đúng:{' '}
                                 <strong>
                                     {current.options[current.answer]}
                                 </strong>
                             </div>
 
-                            <div className="mt-4 border-t border-black/5 pt-4 text-sm leading-6 text-slate-700">
+                            <div className="mt-4 border-t border-black/5 pt-4 text-sm leading-6 text-blossom-text/80 dark:border-white/10 dark:text-blossom-text-dark/80">
                                 <strong>Lời giải thích:</strong>{' '}
                                 {current.explanation}
                             </div>
@@ -245,7 +249,7 @@ export default function Practice({
                         <button
                             disabled={index === 0}
                             onClick={() => go(index - 1)}
-                            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-40 hover:bg-slate-50"
+                            className="inline-flex items-center gap-2 rounded-xl border border-blossom-border px-4 py-2.5 text-sm font-medium text-blossom-text transition-all hover:scale-[1.03] hover:bg-blossom-card-soft disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:border-blossom-border-dark dark:text-blossom-text-dark dark:hover:bg-blossom-card-soft-dark"
                         >
                             <ChevronLeft size={17} />
                             Câu trước
@@ -254,7 +258,7 @@ export default function Practice({
                         <button
                             disabled={index === filtered.length - 1}
                             onClick={() => go(index + 1)}
-                            className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-bold text-white disabled:cursor-not-allowed disabled:opacity-40 hover:bg-blue-700"
+                            className="inline-flex items-center gap-2 rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.03] hover:bg-blossom-accent-hover disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
                         >
                             Câu tiếp
                             <ChevronRight size={17} />
@@ -263,9 +267,9 @@ export default function Practice({
                     </div>
                 </section>
 
-                <aside className="h-fit rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
+                <aside className="h-fit rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark">
 
-                    <h3 className="font-bold text-slate-900">
+                    <h3 className="font-bold text-blossom-text dark:text-blossom-text-dark">
                         Danh sách câu
                     </h3>
 
@@ -275,13 +279,13 @@ export default function Practice({
                             <button
                                 key={q.id}
                                 onClick={() => go(qIndex)}
-                                className={`relative aspect-square rounded-lg text-xs font-bold ${
+                                className={`relative aspect-square rounded-lg text-xs font-bold transition-all hover:scale-105 active:scale-95 ${
                                     qIndex === index
-                                        ? 'bg-blue-600 text-white'
-                                        : 'bg-slate-100 text-slate-600 hover:bg-blue-50'
+                                        ? 'bg-blossom-accent text-white dark:bg-blossom-accent-dark'
+                                        : 'bg-blossom-card-soft text-blossom-muted hover:text-blossom-text dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark dark:hover:text-blossom-text-dark'
                                 } ${
                                     bookmarks.includes(q.id)
-                                        ? 'ring-2 ring-amber-300 ring-offset-1'
+                                        ? 'ring-2 ring-amber-300 ring-offset-1 dark:ring-offset-blossom-card-dark'
                                         : ''
                                 }`}
                             >
@@ -291,7 +295,7 @@ export default function Practice({
 
                     </div>
 
-                    <div className="mt-4 text-xs text-slate-500">
+                    <div className="mt-4 text-xs text-blossom-muted dark:text-blossom-muted-dark">
                         Viền vàng = câu đã đánh dấu.
                     </div>
                 </aside>

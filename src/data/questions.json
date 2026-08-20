@@ -969,7 +969,7 @@
     "id": 70,
     "chapter": 6,
     "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Map.of("A", 1, "B", 2) tạo ra loại Map nào về mặt tính chất?",
+    "question": "Map.of(\"A\", 1, \"B\", 2) tạo ra loại Map nào về mặt tính chất?",
     "options": [
       "Mutable và cho phép null",
       "Immutable và không cho phép null key/value",
