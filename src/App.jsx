@@ -170,9 +170,9 @@ export default function App() {
             setPage={setPage}
         >
             <AnimatePresence mode="wait">
-                <PageTransition pageKey={page}>
+                <Pagetransition pageKey={page}>
                     {renderPage()}
-                </PageTransition>
+                </Pagetransition>
             </AnimatePresence>
         </Layout>
     )
