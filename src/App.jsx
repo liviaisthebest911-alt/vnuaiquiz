@@ -8,7 +8,7 @@ import Practice from './components/Practice'
 import Flashcard from './components/Flashcard'
 import Exam from './components/Exam'
 import Admin from './components/Admin'
-import PageTransition from './components/PageTransition'
+import Pagetransition from './components/Pagetransition'
 
 import { storage, toggleInArray } from './utils/storage'
 
