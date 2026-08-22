@@ -8,50 +8,66 @@ export default {
 
     theme: {
         extend: {
+            fontFamily: {
+                sans: [
+                    '"Plus Jakarta Sans"',
+                    'Inter',
+                    'ui-sans-serif',
+                    'system-ui',
+                    'sans-serif',
+                ],
+            },
+
             colors: {
                 // ------------------------------------------------------------------
-                // Bảng màu "Hồng tối giản" — dùng chung cho cả light & dark mode.
-                // Các class thực tế trong component sẽ dùng cặp light/dark, ví dụ:
-                //   bg-blossom-bg dark:bg-blossom-bg-dark
+                // Bảng màu "Minimalist & Luxurious" — Rose Water pastel + Champagne
+                // Gold. Giữ nguyên tên token `blossom.*` để không phải sửa lại
+                // className ở từng component — chỉ đổi GIÁ TRỊ màu bên dưới.
                 // ------------------------------------------------------------------
                 blossom: {
                     // Light mode
-                    bg: '#FFF5F7',        // Nền chính — hồng phấn sữa
-                    card: '#FFFFFF',       // Vùng nội dung / card
-                    'card-soft': '#FFF0F4', // Card phụ, hồng nhạt hơn 1 chút so với nền
-                    border: '#FBE1E9',      // Viền tinh tế
-                    text: '#333333',        // Văn bản chính — xám đậm, không đen tuyền
-                    muted: '#8A7A80',       // Văn bản phụ — hồng tro nhạt
+                    bg: '#FAF9F9',            // Trắng sữa / xám cực nhạt
+                    card: '#FFFFFF',           // Nền card (dùng kèm /60 + backdrop-blur ở component để glass)
+                    'card-soft': '#FDF2F4',    // Card phụ — hồng phấn rất nhạt (rose-50)
+                    border: '#F1E4E7',         // Viền tinh tế, gần như vô hình
+                    text: '#334155',           // Charcoal (slate-700) — không dùng đen tuyền
+                    muted: '#6B7280',          // Xám nhạt (gray-500) cho văn bản phụ
 
-                    // Dark mode
-                    'bg-dark': '#2D1B22',        // Nền chính — than chì hồng
-                    'card-dark': '#1F1217',       // Card — tối hơn nền 1 chút
-                    'card-soft-dark': '#271821',  // Card phụ trong dark mode
-                    'border-dark': '#3D2530',
-                    'text-dark': '#FFEBF0',       // Văn bản chính — hồng tro rất nhạt
-                    'muted-dark': '#C9A3B0',      // Văn bản phụ
+                    // Dark mode — giữ tinh thần sang trọng, nền than nhẹ ánh hồng
+                    'bg-dark': '#221A1D',
+                    'card-dark': '#2A2023',
+                    'card-soft-dark': '#332528',
+                    'border-dark': '#3D2E32',
+                    'text-dark': '#F4E9EC',
+                    'muted-dark': '#B9A5AB',
 
-                    // Màu điểm nhấn — dùng chung 2 mode, chỉ đổi sắc độ hover
-                    accent: '#FF6B9B',
-                    'accent-hover': '#FF4785',
-                    'accent-dark': '#FF7FAE',      // nổi bật hơn 1 chút trên nền tối
-                    'accent-dark-hover': '#FF6B9B',
+                    // Primary — hồng pastel thanh lịch (rose-200 → rose-300)
+                    accent: '#FDA4AF',
+                    'accent-hover': '#FB7185',
+                    'accent-dark': '#FDA4AF',
+                    'accent-dark-hover': '#FECDD3',
+
+                    // Điểm nhấn sang trọng — vàng đồng nhạt (Champagne Gold)
+                    gold: '#C9A66B',
+                    'gold-soft': '#E8D9BC',
+                    'gold-dark': '#D8BE8C',
                 },
             },
 
-            // Bo góc chuẩn hoá 8–12px cho card/button/input
+            // Bo góc sâu hơn — cảm giác cao cấp, "thở" hơn
             borderRadius: {
-                DEFAULT: '8px',
-                lg: '10px',
-                xl: '12px',
-                '2xl': '16px',
+                DEFAULT: '12px',
+                lg: '16px',
+                xl: '20px',
+                '2xl': '28px',
+                '3xl': '32px',
             },
 
-            // Đổ bóng RẤT tinh tế — chỉ dùng cho trạng thái hover, không dùng mặc định
-            // (tinh thần tối giản: card mặc định chỉ có viền mỏng, không có shadow nặng)
+            // Đổ bóng như ánh sáng mờ lan toả, không phải bóng đen thô
             boxShadow: {
-                soft: '0 2px 10px rgba(255, 107, 155, 0.08)',
-                'soft-dark': '0 2px 14px rgba(0, 0, 0, 0.35)',
+                soft: '0 10px 40px -8px rgba(31, 41, 55, 0.10)',
+                'soft-dark': '0 10px 40px -8px rgba(0, 0, 0, 0.5)',
+                glow: '0 0 0 1px rgba(255,255,255,0.4), 0 12px 30px -10px rgba(201, 166, 107, 0.25)',
             },
 
             keyframes: {
@@ -61,14 +77,14 @@ export default {
                 },
                 // Hiệu ứng hiện dần khi phần tử xuất hiện trong viewport (scroll reveal)
                 fadeInUp: {
-                    '0%': { opacity: '0', transform: 'translateY(16px)' },
+                    '0%': { opacity: '0', transform: 'translateY(20px)' },
                     '100%': { opacity: '1', transform: 'translateY(0)' },
                 },
             },
 
             animation: {
                 pop: 'pop 180ms ease-out',
-                'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+                'fade-in-up': 'fadeInUp 0.7s ease-in-out forwards',
             },
         },
     },
