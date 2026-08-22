@@ -8,7 +8,7 @@ const variants = {
     exit: { opacity: 0, y: -10 },
 }
 
-export default function PageTransition({ children, pageKey }) {
+export default function Pagetransition({ children, pageKey }) {
     return (
         <motion.div
             key={pageKey}
