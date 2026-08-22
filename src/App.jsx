@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import defaultQuestions from './data/questions.json'
 
 import Layout from './components/Layout'
@@ -7,6 +8,7 @@ import Practice from './components/Practice'
 import Flashcard from './components/Flashcard'
 import Exam from './components/Exam'
 import Admin from './components/Admin'
+import PageTransition from './components/PageTransition'
 
 import { storage, toggleInArray } from './utils/storage'
 
@@ -167,7 +169,11 @@ export default function App() {
             page={page}
             setPage={setPage}
         >
-            {renderPage()}
+            <AnimatePresence mode="wait">
+                <PageTransition pageKey={page}>
+                    {renderPage()}
+                </PageTransition>
+            </AnimatePresence>
         </Layout>
     )
 }

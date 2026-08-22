@@ -67,23 +67,23 @@ export default function Practice({
     // Trạng thái màu cho từng đáp án — dùng tông hồng/xanh lá/đỏ nhẹ, không rực rỡ
     const optionClass = (optionIndex) => {
         if (!answered) {
-            return 'border-blossom-border bg-blossom-card hover:border-blossom-accent/50 hover:bg-blossom-card-soft dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:hover:bg-blossom-card-soft-dark'
+            return 'border-white/40 bg-blossom-card/60 backdrop-blur-sm hover:border-blossom-accent/50 hover:bg-blossom-card-soft dark:border-white/10 dark:bg-blossom-card-dark/60 dark:hover:bg-blossom-card-soft-dark'
         }
 
         if (optionIndex === current.answer) {
-            return 'border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300'
+            return 'border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300'
         }
 
         if (optionIndex === selected) {
-            return 'border-rose-300 bg-rose-50 text-rose-800 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-300'
+            return 'border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-300'
         }
 
-        return 'border-blossom-border bg-blossom-card-soft text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark'
+        return 'border-white/40 bg-blossom-card/60 backdrop-blur-sm-soft text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark'
     }
 
     if (!current) {
         return (
-            <div className="rounded-2xl border border-blossom-border bg-blossom-card p-10 text-center text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:text-blossom-muted-dark">
+            <div className="rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-10 text-center text-blossom-muted dark:border-white/10 dark:bg-blossom-card-dark/60 dark:text-blossom-muted-dark">
                 Chưa có câu hỏi để ôn tập.
             </div>
         )
@@ -99,7 +99,7 @@ export default function Practice({
             Practice Mode
           </span>
 
-                    <h1 className="mt-1 text-2xl font-bold text-blossom-text dark:text-blossom-text-dark">
+                    <h1 className="mt-1 text-2xl font-medium text-blossom-text dark:text-blossom-text-dark">
                         Ôn tập theo chương
                     </h1>
 
@@ -112,7 +112,7 @@ export default function Practice({
                 <select
                     value={chapter}
                     onChange={(e) => chooseChapter(e.target.value)}
-                    className="rounded-xl border border-blossom-border bg-blossom-card px-3 py-2.5 text-sm font-medium text-blossom-text outline-none transition-colors focus:border-blossom-accent focus:ring-2 focus:ring-blossom-accent/20 dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:text-blossom-text-dark dark:focus:border-blossom-accent-dark dark:focus:ring-blossom-accent-dark/20"
+                    className="rounded-xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm px-3 py-2.5 text-sm font-medium text-blossom-text outline-none transition-colors focus:border-blossom-accent focus:ring-2 focus:ring-blossom-accent/20 dark:border-white/10 dark:bg-blossom-card-dark/60 dark:text-blossom-text-dark dark:focus:border-blossom-accent-dark dark:focus:ring-blossom-accent-dark/20"
                 >
                     <option value="all">Tất cả chương</option>
 
@@ -126,7 +126,7 @@ export default function Practice({
 
             <div className="grid gap-5 lg:grid-cols-[1fr_280px]">
 
-                <section className="rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark sm:p-7">
+                <section className="rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-7">
 
                     <div className="flex items-center justify-between gap-4">
                         <div className="text-sm text-blossom-muted dark:text-blossom-muted-dark">
@@ -137,7 +137,7 @@ export default function Practice({
                             onClick={() =>
                                 onToggleBookmark(current.id)
                             }
-                            className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all hover:scale-[1.03] active:scale-95 ${
+                            className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all hover:scale-[1.015] active:scale-[0.985] ${
                                 bookmarks.includes(current.id)
                                     ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300'
                                     : 'bg-blossom-card-soft text-blossom-muted hover:text-blossom-text dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark dark:hover:text-blossom-text-dark'
@@ -174,7 +174,7 @@ export default function Practice({
                                         handleAnswer(optionIndex)
                                     }
                                     className={`flex w-full items-start gap-3 rounded-xl border p-4 text-left text-sm font-medium transition-all ${
-                                        !answered ? 'hover:scale-[1.005]' : ''
+                                        !answered ? 'hover:scale-[1.008]' : ''
                                     } ${optionClass(
                                         optionIndex,
                                     )} ${
@@ -249,7 +249,7 @@ export default function Practice({
                         <button
                             disabled={index === 0}
                             onClick={() => go(index - 1)}
-                            className="inline-flex items-center gap-2 rounded-xl border border-blossom-border px-4 py-2.5 text-sm font-medium text-blossom-text transition-all hover:scale-[1.03] hover:bg-blossom-card-soft disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:border-blossom-border-dark dark:text-blossom-text-dark dark:hover:bg-blossom-card-soft-dark"
+                            className="inline-flex items-center gap-2 rounded-xl border border-blossom-border px-4 py-2.5 text-sm font-medium text-blossom-text transition-all hover:scale-[1.015] hover:bg-blossom-card-soft disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:border-blossom-border-dark dark:text-blossom-text-dark dark:hover:bg-blossom-card-soft-dark"
                         >
                             <ChevronLeft size={17} />
                             Câu trước
@@ -258,7 +258,7 @@ export default function Practice({
                         <button
                             disabled={index === filtered.length - 1}
                             onClick={() => go(index + 1)}
-                            className="inline-flex items-center gap-2 rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.03] hover:bg-blossom-accent-hover disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
+                            className="inline-flex items-center gap-2 rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
                         >
                             Câu tiếp
                             <ChevronRight size={17} />
@@ -267,7 +267,7 @@ export default function Practice({
                     </div>
                 </section>
 
-                <aside className="h-fit rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark">
+                <aside className="h-fit rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60">
 
                     <h3 className="font-bold text-blossom-text dark:text-blossom-text-dark">
                         Danh sách câu
@@ -279,7 +279,7 @@ export default function Practice({
                             <button
                                 key={q.id}
                                 onClick={() => go(qIndex)}
-                                className={`relative aspect-square rounded-lg text-xs font-bold transition-all hover:scale-105 active:scale-95 ${
+                                className={`relative aspect-square rounded-lg text-xs font-bold transition-all hover:scale-[1.02] active:scale-[0.985] ${
                                     qIndex === index
                                         ? 'bg-blossom-accent text-white dark:bg-blossom-accent-dark'
                                         : 'bg-blossom-card-soft text-blossom-muted hover:text-blossom-text dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark dark:hover:text-blossom-text-dark'

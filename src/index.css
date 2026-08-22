@@ -4,6 +4,7 @@
 
 :root {
     font-family:
+            "Plus Jakarta Sans",
             Inter,
             ui-sans-serif,
             system-ui,
@@ -23,10 +24,23 @@ html {
 body {
     margin: 0;
     min-width: 320px;
-    background: #f8fafc;
 
-    /* Chuyển màu mượt mà khi đổi Light/Dark mode (yêu cầu mục 3) */
-    transition: background-color 0.35s ease, color 0.35s ease;
+    /* Nền trắng sữa + dải gradient hồng nhạt / vàng đồng mờ ảo, không dùng màu rực */
+    background:
+            radial-gradient(ellipse 900px 500px at 15% -10%, rgba(253, 164, 175, 0.14), transparent 60%),
+            radial-gradient(ellipse 700px 500px at 100% 10%, rgba(201, 166, 107, 0.08), transparent 55%),
+            #FAF9F9;
+    background-attachment: fixed;
+
+    /* Chuyển màu êm ái hơn khi đổi Light/Dark mode (yêu cầu mục 3) */
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+.dark body {
+    background:
+            radial-gradient(ellipse 900px 500px at 15% -10%, rgba(253, 164, 175, 0.06), transparent 60%),
+            radial-gradient(ellipse 700px 500px at 100% 10%, rgba(201, 166, 107, 0.07), transparent 55%),
+            #221A1D;
 }
 
 button,
@@ -36,21 +50,21 @@ textarea {
 }
 
 ::selection {
-    background: #ffd3e2;
+    background: #fecdd3;
     color: #7a1e42;
 }
 
 /* ==========================================================================
    THEME TRANSITION
-   Áp dụng transition mượt cho mọi phần tử khi đổi theme, tránh "giật" màu.
+   Áp dụng transition êm ái cho mọi phần tử khi đổi theme, tránh "giật" màu.
    Giới hạn ở các thuộc tính màu để không ảnh hưởng hiệu năng animation khác.
    ========================================================================== */
 *,
 *::before,
 *::after {
     transition-property: background-color, border-color, color, box-shadow, transform;
-    transition-duration: 0.3s;
-    transition-timing-function: ease;
+    transition-duration: 0.35s;
+    transition-timing-function: ease-in-out;
 }
 
 /* ==========================================================================
@@ -66,33 +80,34 @@ textarea {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #f3c7d5;
+    background: #F1D9DC;
     border-radius: 999px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-    background: #4a2c37;
+    background: #3D2E32;
 }
 
 /* ==========================================================================
-   THEME TOGGLE SWITCH
-   Toggle nhỏ gọn bo tròn hoàn toàn, thumb trượt mượt bằng transform.
+   THEME TOGGLE SWITCH — điểm nhấn Champagne Gold
+   Toggle nhỏ gọn bo tròn hoàn toàn, thumb trượt êm bằng transform.
    ========================================================================== */
 .theme-toggle {
     position: relative;
     width: 44px;
     height: 24px;
     border-radius: 999px;
-    border: 1px solid #fbe1e9;
-    background: #fff0f4;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
     cursor: pointer;
     flex-shrink: 0;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 }
 
 .dark .theme-toggle {
-    background: #3d2530;
-    border-color: #4a2c37;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .theme-toggle__thumb {
@@ -102,18 +117,18 @@ textarea {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: #ff6b9b;
+    background: #C9A66B;
     display: grid;
     place-items: center;
     color: white;
 
-    /* Micro-interaction: trượt mượt bằng transform (GPU-accelerated, không giật) */
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+    /* Micro-interaction: trượt êm bằng transform (GPU-accelerated, không giật) */
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.35s ease-in-out;
 }
 
 .dark .theme-toggle__thumb {
     transform: translateX(20px);
-    background: #ff7fae;
+    background: #D8BE8C;
 }
 
 /* ==========================================================================
@@ -126,7 +141,7 @@ textarea {
 .flashcard-inner {
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .flashcard-inner.is-flipped {
@@ -146,17 +161,17 @@ textarea {
 
 /* ==========================================================================
    SCROLL REVEAL — dùng cùng với hook useScrollReveal (Intersection Observer)
-   Phần tử bắt đầu ẩn nhẹ + lệch xuống, khi vào viewport thì thêm class
+   Phần tử bắt đầu ẩn nhẹ + lệch lên, khi vào viewport thì thêm class
    'is-visible' để trigger animation 'fade-in-up' đã khai báo trong
-   tailwind.config.js. Giữ chuyển động tinh tế, không làm phân tâm.
+   tailwind.config.js. Giữ chuyển động êm ái, không làm phân tâm.
    ========================================================================== */
 .reveal {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
 }
 
 .reveal.is-visible {
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation: fadeInUp 0.7s ease-in-out forwards;
 }
 
 @keyframes fadeInUp {

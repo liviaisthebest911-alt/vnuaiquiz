@@ -19,7 +19,7 @@ function StatCard({
                   }) {
     return (
         // Card tối giản: chỉ viền mỏng, hover mới hiện shadow rất nhẹ + nhấc nhẹ lên
-        <div className="rounded-xl border border-blossom-border bg-blossom-card p-5 transition-all hover:-translate-y-0.5 hover:shadow-soft dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:hover:shadow-soft-dark">
+        <div className="rounded-xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 transition-all hover:-translate-y-0.5 hover:shadow-soft dark:border-white/10 dark:bg-blossom-card-dark/60 dark:hover:shadow-soft-dark">
             <div className="flex items-start justify-between">
 
                 <div>
@@ -82,7 +82,7 @@ export default function Dashboard({
                         Dành cho sinh viên VNU
                     </div>
 
-                    <h1 className="text-2xl font-bold tracking-tight sm:text-4xl">
+                    <h1 className="text-2xl font-medium tracking-tight sm:text-4xl">
                         Ôn tập môn Nhập môn công nghệ số & Trí tuệ nhân tạo
                     </h1>
 
@@ -95,7 +95,7 @@ export default function Dashboard({
 
                         <button
                             onClick={() => onNavigate('practice')}
-                            className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-bold text-blossom-accent transition-transform hover:scale-[1.03] hover:bg-blossom-card-soft active:scale-95"
+                            className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-bold text-blossom-accent transition-transform hover:scale-[1.015] hover:bg-blossom-card-soft active:scale-[0.985]"
                         >
                             <BookOpen size={18} />
                             Ôn tập ngay
@@ -103,7 +103,7 @@ export default function Dashboard({
 
                         <button
                             onClick={() => onNavigate('exam')}
-                            className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm font-bold text-white transition-transform hover:scale-[1.03] hover:bg-white/20 active:scale-95"
+                            className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm font-bold text-white transition-transform hover:scale-[1.015] hover:bg-white/20 active:scale-[0.985]"
                         >
                             <PlayCircle size={18} />
                             Thi thử 30 phút
@@ -111,7 +111,7 @@ export default function Dashboard({
 
                         <button
                             onClick={() => onNavigate('admin')}
-                            className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm font-bold text-white transition-transform hover:scale-[1.03] hover:bg-white/20 active:scale-95"
+                            className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm font-bold text-white transition-transform hover:scale-[1.015] hover:bg-white/20 active:scale-[0.985]"
                         >
                             <Database size={18} />
                             Quản lý dữ liệu
@@ -160,7 +160,7 @@ export default function Dashboard({
                 delay={140}
                 className="grid gap-6 lg:grid-cols-[1.3fr_.7fr]"
             >
-                <div className="rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark sm:p-6">
+                <div className="rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-6">
                     <div className="flex items-center justify-between gap-4">
 
                         <div>
@@ -193,7 +193,7 @@ export default function Dashboard({
                     </div>
                 </div>
 
-                <div className="rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark sm:p-6">
+                <div className="rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-6">
 
                     <h2 className="font-bold text-blossom-text dark:text-blossom-text-dark">
                         Bắt đầu nhanh
@@ -232,7 +232,7 @@ export default function Dashboard({
             <Reveal
                 as="section"
                 delay={200}
-                className="rounded-2xl border border-blossom-border bg-blossom-card dark:border-blossom-border-dark dark:bg-blossom-card-dark"
+                className="rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm dark:border-white/10 dark:bg-blossom-card-dark/60"
             >
 
                 <div className="flex items-center justify-between border-b border-blossom-border px-5 py-4 dark:border-blossom-border-dark sm:px-6">

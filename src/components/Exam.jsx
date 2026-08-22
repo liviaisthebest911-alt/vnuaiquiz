@@ -41,7 +41,7 @@ function ReviewItem({
     const correct = answer === question.answer
 
     return (
-        <div className="rounded-xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark">
+        <div className="rounded-xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60">
             <div className="flex items-start gap-3">
 
                 {correct ? (
@@ -127,7 +127,7 @@ export default function Exam({
             spread: 80,
             startVelocity: 45,
             origin: { y: 0.6 },
-            colors: ['#FF6B9B', '#FF4785', '#FFD1E1', '#FFFFFF'],
+            colors: ['#FDA4AF', '#C9A66B', '#E8D9BC', '#FFFFFF'],
         })
 
         // Bắn thêm 1 đợt nhỏ lệch 2 bên cho hiệu ứng "confetti cannon"
@@ -137,7 +137,7 @@ export default function Exam({
                 angle: 60,
                 spread: 55,
                 origin: { x: 0, y: 0.7 },
-                colors: ['#FF6B9B', '#FF4785'],
+                colors: ['#FDA4AF', '#C9A66B'],
             })
 
             confetti({
@@ -145,7 +145,7 @@ export default function Exam({
                 angle: 120,
                 spread: 55,
                 origin: { x: 1, y: 0.7 },
-                colors: ['#FF6B9B', '#FF4785'],
+                colors: ['#FDA4AF', '#C9A66B'],
             })
         }, 250)
 
@@ -267,7 +267,7 @@ export default function Exam({
         return (
             <div className="mx-auto max-w-3xl">
 
-                <div className="rounded-3xl border border-blossom-border bg-blossom-card p-6 text-center dark:border-blossom-border-dark dark:bg-blossom-card-dark sm:p-10">
+                <div className="rounded-3xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-6 text-center dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-10">
 
                     <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-blossom-accent/10 text-blossom-accent dark:bg-blossom-accent-dark/15 dark:text-blossom-accent-dark">
                         <Clock3 size={30} />
@@ -277,7 +277,7 @@ export default function Exam({
                         Exam Mode
                     </div>
 
-                    <h1 className="mt-2 text-3xl font-bold text-blossom-text dark:text-blossom-text-dark">
+                    <h1 className="mt-2 text-3xl font-medium text-blossom-text dark:text-blossom-text-dark">
                         Thi thử 30 phút
                     </h1>
 
@@ -341,7 +341,7 @@ export default function Exam({
                     <button
                         disabled={questions.length === 0}
                         onClick={startExam}
-                        className="mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-blossom-accent px-6 py-3 text-sm font-bold text-white transition-all hover:scale-[1.03] hover:bg-blossom-accent-hover disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
+                        className="mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-blossom-accent px-6 py-3 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
                     >
                         <Flag size={18} />
                         Bắt đầu làm bài
@@ -355,7 +355,7 @@ export default function Exam({
         return (
             <div className="space-y-5">
 
-                <section className="rounded-3xl border border-blossom-border bg-blossom-card p-6 dark:border-blossom-border-dark dark:bg-blossom-card-dark sm:p-8">
+                <section className="rounded-3xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-6 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-8">
 
                     <div className="text-xs font-semibold uppercase tracking-wider text-blossom-accent dark:text-blossom-accent-dark">
                         Kết quả
@@ -378,7 +378,7 @@ export default function Exam({
                         </div>
 
                         <div>
-                            <h1 className="text-2xl font-bold text-blossom-text dark:text-blossom-text-dark">
+                            <h1 className="text-2xl font-medium text-blossom-text dark:text-blossom-text-dark">
                                 Bạn hoàn thành bài thi!
                             </h1>
 
@@ -390,7 +390,7 @@ export default function Exam({
 
                             <button
                                 onClick={startExam}
-                                className="mt-5 rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.03] hover:bg-blossom-accent-hover dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
+                                className="mt-5 rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
                             >
                                 Làm đề mới
                             </button>
@@ -433,7 +433,7 @@ export default function Exam({
     return (
         <div className="grid gap-5 lg:grid-cols-[1fr_300px]">
 
-            <section className="rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark sm:p-7">
+            <section className="rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-7">
 
                 <div className="flex flex-wrap items-center justify-between gap-3">
 
@@ -484,7 +484,7 @@ export default function Exam({
                                             }),
                                         )
                                     }
-                                    className={`flex w-full items-start gap-3 rounded-xl border p-4 text-left text-sm font-medium transition-all hover:scale-[1.005] ${
+                                    className={`flex w-full items-start gap-3 rounded-xl border p-4 text-left text-sm font-medium transition-all hover:scale-[1.008] ${
                                         selected
                                             ? 'border-blossom-accent bg-blossom-accent/10 ring-2 ring-blossom-accent/20 dark:border-blossom-accent-dark dark:bg-blossom-accent-dark/15 dark:ring-blossom-accent-dark/20'
                                             : 'border-blossom-border hover:border-blossom-accent/40 hover:bg-blossom-card-soft dark:border-blossom-border-dark dark:hover:bg-blossom-card-soft-dark'
@@ -515,7 +515,7 @@ export default function Exam({
                                 (value) => value - 1,
                             )
                         }
-                        className="rounded-xl border border-blossom-border px-4 py-2.5 text-sm font-medium text-blossom-text transition-all hover:scale-[1.03] disabled:opacity-30 disabled:hover:scale-100 dark:border-blossom-border-dark dark:text-blossom-text-dark"
+                        className="rounded-xl border border-blossom-border px-4 py-2.5 text-sm font-medium text-blossom-text transition-all hover:scale-[1.015] disabled:opacity-30 disabled:hover:scale-100 dark:border-blossom-border-dark dark:text-blossom-text-dark"
                     >
                         Câu trước
                     </button>
@@ -526,7 +526,7 @@ export default function Exam({
                             onClick={() =>
                                 setConfirmSubmit(true)
                             }
-                            className="inline-flex items-center gap-2 rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.03] hover:bg-blossom-accent-hover dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
+                            className="inline-flex items-center gap-2 rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
                         >
                             <Send size={17} />
                             Nộp bài
@@ -538,7 +538,7 @@ export default function Exam({
                                     (value) => value + 1,
                                 )
                             }
-                            className="rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.03] hover:bg-blossom-accent-hover dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
+                            className="rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
                         >
                             Câu tiếp
                         </button>
@@ -547,7 +547,7 @@ export default function Exam({
                 </div>
             </section>
 
-            <aside className="h-fit rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark lg:sticky lg:top-24">
+            <aside className="h-fit rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 lg:sticky lg:top-24">
 
                 <div className="flex items-center justify-between">
                     <h3 className="font-bold text-blossom-text dark:text-blossom-text-dark">
@@ -569,7 +569,7 @@ export default function Exam({
                                 onClick={() =>
                                     setCurrent(index)
                                 }
-                                className={`aspect-square rounded-lg text-xs font-bold transition-all hover:scale-105 active:scale-95 ${
+                                className={`aspect-square rounded-lg text-xs font-bold transition-all hover:scale-[1.02] active:scale-[0.985] ${
                                     current === index
                                         ? 'bg-blossom-accent text-white dark:bg-blossom-accent-dark'
                                         : answers[item.id] !== undefined
@@ -592,7 +592,7 @@ export default function Exam({
                     onClick={() =>
                         setConfirmSubmit(true)
                     }
-                    className="mt-4 w-full rounded-xl border border-blossom-accent/30 bg-blossom-accent/10 px-4 py-2.5 text-sm font-bold text-blossom-accent transition-all hover:scale-[1.02] hover:bg-blossom-accent/15 dark:border-blossom-accent-dark/30 dark:bg-blossom-accent-dark/15 dark:text-blossom-accent-dark"
+                    className="mt-4 w-full rounded-xl border border-blossom-accent/30 bg-blossom-accent/10 px-4 py-2.5 text-sm font-bold text-blossom-accent transition-all hover:scale-[1.015] hover:bg-blossom-accent/15 dark:border-blossom-accent-dark/30 dark:bg-blossom-accent-dark/15 dark:text-blossom-accent-dark"
                 >
                     Nộp bài
                 </button>
@@ -639,7 +639,7 @@ export default function Exam({
 
                             <button
                                 onClick={submit}
-                                className="rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.03] hover:bg-blossom-accent-hover dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
+                                className="rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
                             >
                                 Nộp bài
                             </button>

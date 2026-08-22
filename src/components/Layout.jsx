@@ -68,7 +68,7 @@ export default function Layout({
                     {/* Logo / tên dự án */}
                     <button
                         onClick={() => navigate('dashboard')}
-                        className="flex items-center gap-3 text-left transition-transform hover:scale-[1.02] active:scale-95"
+                        className="flex items-center gap-3 text-left transition-transform hover:scale-[1.015] active:scale-[0.985]"
                     >
                         <div className="grid h-10 w-10 place-items-center rounded-xl bg-blossom-accent text-white dark:bg-blossom-accent-dark">
                             <BrainCircuit size={22} />
@@ -91,7 +91,7 @@ export default function Layout({
                             <button
                                 key={id}
                                 onClick={() => navigate(id)}
-                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all hover:scale-[1.03] active:scale-95 ${
+                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all hover:scale-[1.015] active:scale-[0.985] ${
                                     page === id
                                         ? 'bg-blossom-accent/10 text-blossom-accent dark:bg-blossom-accent-dark/15 dark:text-blossom-accent-dark'
                                         : 'text-blossom-muted hover:bg-blossom-card-soft hover:text-blossom-text dark:text-blossom-muted-dark dark:hover:bg-blossom-card-soft-dark dark:hover:text-blossom-text-dark'
@@ -112,7 +112,7 @@ export default function Layout({
 
                         <button
                             onClick={() => setOpen((value) => !value)}
-                            className="rounded-lg p-2 text-blossom-muted transition-transform hover:scale-105 hover:bg-blossom-card-soft active:scale-95 dark:text-blossom-muted-dark dark:hover:bg-blossom-card-soft-dark md:hidden"
+                            className="rounded-lg p-2 text-blossom-muted transition-transform hover:scale-[1.02] hover:bg-blossom-card-soft active:scale-[0.985] dark:text-blossom-muted-dark dark:hover:bg-blossom-card-soft-dark md:hidden"
                             aria-label="Mở menu"
                         >
                             {open ? <X size={22} /> : <Menu size={22} />}
