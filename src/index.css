@@ -117,6 +117,34 @@ textarea {
 }
 
 /* ==========================================================================
+   FLASHCARD 3D FLIP — dùng thuần CSS transform, không cần thư viện animation
+   ========================================================================== */
+.flashcard-scene {
+    perspective: 1200px;
+}
+
+.flashcard-inner {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flashcard-inner.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.flashcard-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.flashcard-face--back {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+}
+
+/* ==========================================================================
    SCROLL REVEAL — dùng cùng với hook useScrollReveal (Intersection Observer)
    Phần tử bắt đầu ẩn nhẹ + lệch xuống, khi vào viewport thì thêm class
    'is-visible' để trigger animation 'fade-in-up' đã khai báo trong

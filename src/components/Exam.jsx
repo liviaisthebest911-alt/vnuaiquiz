@@ -7,6 +7,8 @@ import {
     XCircle,
 } from 'lucide-react'
 
+import confetti from 'canvas-confetti'
+
 import {
     useEffect,
     useMemo,
@@ -113,6 +115,43 @@ export default function Exam({
 
     const [confirmSubmit, setConfirmSubmit] =
         useState(false)
+
+    // Bắn pháo hoa khi đạt điểm cao (>= 8/10) — chỉ bắn 1 lần khi result vừa xuất hiện
+    useEffect(() => {
+        if (!result || result.score < 8) {
+            return
+        }
+
+        confetti({
+            particleCount: 140,
+            spread: 80,
+            startVelocity: 45,
+            origin: { y: 0.6 },
+            colors: ['#FF6B9B', '#FF4785', '#FFD1E1', '#FFFFFF'],
+        })
+
+        // Bắn thêm 1 đợt nhỏ lệch 2 bên cho hiệu ứng "confetti cannon"
+        const timer = window.setTimeout(() => {
+            confetti({
+                particleCount: 60,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0, y: 0.7 },
+                colors: ['#FF6B9B', '#FF4785'],
+            })
+
+            confetti({
+                particleCount: 60,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1, y: 0.7 },
+                colors: ['#FF6B9B', '#FF4785'],
+            })
+        }, 250)
+
+        return () => window.clearTimeout(timer)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [result])
 
     const actualSize = Math.min(
         EXAM_SIZE,

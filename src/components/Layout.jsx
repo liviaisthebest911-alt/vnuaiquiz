@@ -2,6 +2,7 @@ import {
     BrainCircuit,
     Database,
     GraduationCap,
+    Layers,
     LayoutDashboard,
     Menu,
     PenLine,
@@ -23,6 +24,11 @@ const navItems = [
         id: 'practice',
         label: 'Ôn tập',
         icon: GraduationCap,
+    },
+    {
+        id: 'flashcard',
+        label: 'Flashcard',
+        icon: Layers,
     },
     {
         id: 'exam',

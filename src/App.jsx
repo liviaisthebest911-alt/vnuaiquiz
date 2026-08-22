@@ -4,6 +4,7 @@ import defaultQuestions from './data/questions.json'
 import Layout from './components/Layout'
 import Dashboard from './components/Dashboard'
 import Practice from './components/Practice'
+import Flashcard from './components/Flashcard'
 import Exam from './components/Exam'
 import Admin from './components/Admin'
 
@@ -119,6 +120,13 @@ export default function App() {
                         bookmarks={bookmarks}
                         onToggleBookmark={handleToggleBookmark}
                         onMarkProgress={handleProgress}
+                    />
+                )
+
+            case 'flashcard':
+                return (
+                    <Flashcard
+                        questions={questions}
                     />
                 )
 
