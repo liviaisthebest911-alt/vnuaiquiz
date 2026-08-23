@@ -13,6 +13,7 @@ import { useState } from 'react'
 
 import { useTheme } from '../hooks/useTheme'
 import ThemeToggle from './ThemeToggle'
+import AppBackground from './AppBackground'
 
 const navItems = [
     {
@@ -56,8 +57,9 @@ export default function Layout({
     }
 
     return (
-        // min-h-screen + bảng màu hồng tối giản (light) / than chì hồng (dark)
-        <div className="min-h-screen bg-blossom-bg text-blossom-text dark:bg-blossom-bg-dark dark:text-blossom-text-dark">
+        // Nền trong suốt để lộ gradient của <body> (index.css) + AppBackground orbs
+        <div className="min-h-screen text-blossom-text dark:text-blossom-text-dark">
+            <AppBackground />
 
             {/* ==================================================================
                 HEADER — tối giản: viền mỏng thay vì shadow, không backdrop-blur nặng

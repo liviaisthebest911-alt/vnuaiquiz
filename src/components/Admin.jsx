@@ -3,6 +3,7 @@ import {
     CheckCircle2,
     Download,
     FileJson,
+    ListChecks,
     RotateCcw,
     Upload,
 } from 'lucide-react'
@@ -217,7 +218,7 @@ export default function Admin({
 
             <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
 
-                <section className="rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-6">
+                <section className="rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-6">
 
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 
@@ -293,9 +294,10 @@ export default function Admin({
 
                 <aside className="h-fit space-y-4">
 
-                    <div className="rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60">
+                    <div className="rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60">
 
-                        <h2 className="font-bold text-blossom-text dark:text-blossom-text-dark">
+                        <h2 className="flex items-center gap-2 font-bold text-blossom-text dark:text-blossom-text-dark">
+                            <ListChecks size={18} className="text-blossom-gold dark:text-blossom-gold-dark" />
                             Quy tắc dữ liệu
                         </h2>
 

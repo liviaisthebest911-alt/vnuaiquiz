@@ -3,7 +3,11 @@ import {
     CheckCircle2,
     Clock3,
     Flag,
+    LayoutGrid,
+    ListChecks,
     Send,
+    Sparkles,
+    Trophy,
     XCircle,
 } from 'lucide-react'
 
@@ -41,7 +45,7 @@ function ReviewItem({
     const correct = answer === question.answer
 
     return (
-        <div className="rounded-xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60">
+        <div className="rounded-xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60">
             <div className="flex items-start gap-3">
 
                 {correct ? (
@@ -267,7 +271,7 @@ export default function Exam({
         return (
             <div className="mx-auto max-w-3xl">
 
-                <div className="rounded-3xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-6 text-center dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-10">
+                <div className="rounded-3xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-6 text-center dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-10">
 
                     <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-blossom-accent/10 text-blossom-accent dark:bg-blossom-accent-dark/15 dark:text-blossom-accent-dark">
                         <Clock3 size={30} />
@@ -355,7 +359,7 @@ export default function Exam({
         return (
             <div className="space-y-5">
 
-                <section className="rounded-3xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-6 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-8">
+                <section className="rounded-3xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-6 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-8">
 
                     <div className="text-xs font-semibold uppercase tracking-wider text-blossom-accent dark:text-blossom-accent-dark">
                         Kết quả
@@ -397,11 +401,30 @@ export default function Exam({
                         </div>
 
                     </div>
+
+                    {result.score >= 8 && (
+                        <div className="mt-6 flex items-center gap-4 overflow-hidden rounded-xl border border-blossom-gold/25 bg-gradient-to-r from-blossom-gold/10 via-blossom-accent/10 to-blossom-gold/10 p-4 dark:border-blossom-gold-dark/25">
+                            <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-blossom-gold to-blossom-accent text-white shadow-glow">
+                                <Trophy size={22} />
+                            </div>
+
+                            <div>
+                                <div className="flex items-center gap-1.5 font-semibold text-blossom-text dark:text-blossom-text-dark">
+                                    Xuất sắc!
+                                    <Sparkles size={15} className="text-blossom-gold dark:text-blossom-gold-dark" />
+                                </div>
+                                <p className="text-sm text-blossom-muted dark:text-blossom-muted-dark">
+                                    Bạn nằm trong nhóm điểm cao — hãy giữ phong độ này ở đề tiếp theo!
+                                </p>
+                            </div>
+                        </div>
+                    )}
                 </section>
 
                 <section className="space-y-3">
 
-                    <h2 className="text-lg font-bold text-blossom-text dark:text-blossom-text-dark">
+                    <h2 className="flex items-center gap-2 text-lg font-bold text-blossom-text dark:text-blossom-text-dark">
+                        <ListChecks size={19} className="text-blossom-gold dark:text-blossom-gold-dark" />
                         Xem lại chi tiết
                     </h2>
 
@@ -433,7 +456,7 @@ export default function Exam({
     return (
         <div className="grid gap-5 lg:grid-cols-[1fr_300px]">
 
-            <section className="rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-7">
+            <section className="rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-7">
 
                 <div className="flex flex-wrap items-center justify-between gap-3">
 
@@ -547,10 +570,11 @@ export default function Exam({
                 </div>
             </section>
 
-            <aside className="h-fit rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 lg:sticky lg:top-24">
+            <aside className="h-fit rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 lg:sticky lg:top-24">
 
                 <div className="flex items-center justify-between">
-                    <h3 className="font-bold text-blossom-text dark:text-blossom-text-dark">
+                    <h3 className="flex items-center gap-2 font-bold text-blossom-text dark:text-blossom-text-dark">
+                        <LayoutGrid size={17} className="text-blossom-gold dark:text-blossom-gold-dark" />
                         Danh sách câu
                     </h3>
 

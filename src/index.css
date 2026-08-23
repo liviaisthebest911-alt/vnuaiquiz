@@ -132,6 +132,33 @@ textarea {
 }
 
 /* ==========================================================================
+   CARD ACCENT — dải viền gradient Champagne Gold → Rose Pink ở cạnh trên
+   của card, tạo điểm nhấn cấu trúc mà không cần sửa markup bên trong.
+   Dùng ::before tuyệt đối định vị, .card-accent tự thiết lập `position:
+   relative` nên áp được lên bất kỳ card nào chỉ bằng cách thêm class.
+   ========================================================================== */
+.card-accent {
+    position: relative;
+}
+
+.card-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 14px;
+    right: 14px;
+    height: 3px;
+    border-radius: 0 0 999px 999px;
+    background: linear-gradient(90deg, #C9A66B, #FDA4AF);
+    opacity: 0.85;
+}
+
+.dark .card-accent::before {
+    background: linear-gradient(90deg, #D8BE8C, #FDA4AF);
+    opacity: 0.7;
+}
+
+/* ==========================================================================
    FLASHCARD 3D FLIP — dùng thuần CSS transform, không cần thư viện animation
    ========================================================================== */
 .flashcard-scene {

@@ -5,6 +5,7 @@ import {
     ChevronRight,
     CircleCheck,
     CircleX,
+    LayoutGrid,
 } from 'lucide-react'
 
 import { useMemo, useState } from 'react'
@@ -67,7 +68,7 @@ export default function Practice({
     // Trạng thái màu cho từng đáp án — dùng tông hồng/xanh lá/đỏ nhẹ, không rực rỡ
     const optionClass = (optionIndex) => {
         if (!answered) {
-            return 'border-white/40 bg-blossom-card/60 backdrop-blur-sm hover:border-blossom-accent/50 hover:bg-blossom-card-soft dark:border-white/10 dark:bg-blossom-card-dark/60 dark:hover:bg-blossom-card-soft-dark'
+            return 'card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm hover:border-blossom-accent/50 hover:bg-blossom-card-soft dark:border-white/10 dark:bg-blossom-card-dark/60 dark:hover:bg-blossom-card-soft-dark'
         }
 
         if (optionIndex === current.answer) {
@@ -78,12 +79,12 @@ export default function Practice({
             return 'border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-300'
         }
 
-        return 'border-white/40 bg-blossom-card/60 backdrop-blur-sm-soft text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark'
+        return 'card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm-soft text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark'
     }
 
     if (!current) {
         return (
-            <div className="rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-10 text-center text-blossom-muted dark:border-white/10 dark:bg-blossom-card-dark/60 dark:text-blossom-muted-dark">
+            <div className="rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-10 text-center text-blossom-muted dark:border-white/10 dark:bg-blossom-card-dark/60 dark:text-blossom-muted-dark">
                 Chưa có câu hỏi để ôn tập.
             </div>
         )
@@ -112,7 +113,7 @@ export default function Practice({
                 <select
                     value={chapter}
                     onChange={(e) => chooseChapter(e.target.value)}
-                    className="rounded-xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm px-3 py-2.5 text-sm font-medium text-blossom-text outline-none transition-colors focus:border-blossom-accent focus:ring-2 focus:ring-blossom-accent/20 dark:border-white/10 dark:bg-blossom-card-dark/60 dark:text-blossom-text-dark dark:focus:border-blossom-accent-dark dark:focus:ring-blossom-accent-dark/20"
+                    className="rounded-xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm px-3 py-2.5 text-sm font-medium text-blossom-text outline-none transition-colors focus:border-blossom-accent focus:ring-2 focus:ring-blossom-accent/20 dark:border-white/10 dark:bg-blossom-card-dark/60 dark:text-blossom-text-dark dark:focus:border-blossom-accent-dark dark:focus:ring-blossom-accent-dark/20"
                 >
                     <option value="all">Tất cả chương</option>
 
@@ -126,7 +127,7 @@ export default function Practice({
 
             <div className="grid gap-5 lg:grid-cols-[1fr_280px]">
 
-                <section className="rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-7">
+                <section className="rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-7">
 
                     <div className="flex items-center justify-between gap-4">
                         <div className="text-sm text-blossom-muted dark:text-blossom-muted-dark">
@@ -267,9 +268,10 @@ export default function Practice({
                     </div>
                 </section>
 
-                <aside className="h-fit rounded-2xl border border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60">
+                <aside className="h-fit rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60">
 
-                    <h3 className="font-bold text-blossom-text dark:text-blossom-text-dark">
+                    <h3 className="flex items-center gap-2 font-bold text-blossom-text dark:text-blossom-text-dark">
+                        <LayoutGrid size={17} className="text-blossom-gold dark:text-blossom-gold-dark" />
                         Danh sách câu
                     </h3>
 
