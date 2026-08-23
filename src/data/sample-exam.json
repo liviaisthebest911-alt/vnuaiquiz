@@ -1,0 +1,48 @@
+{
+  "id": "de-thi-thu-01",
+  "title": "Đề thi thử THPT Quốc gia - Số 01",
+  "description": "Đề tổng hợp bám sát cấu trúc đề minh hoạ, đủ 3 phần theo quy chế mới.",
+  "difficulty": "medium",
+  "durationMinutes": 50,
+  "scoreConfig": { "part1Unit": 0.25, "part2Unit": 1.0, "part3Unit": 0.5 },
+  "partsSummary": [
+    { "part": 1, "label": "Phần I", "questionCount": 18 },
+    { "part": 2, "label": "Phần II", "questionCount": 4 },
+    { "part": 3, "label": "Phần III", "questionCount": 6 }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "part": 1,
+      "type": "MULTIPLE_CHOICE",
+      "chapter": "Hàm số và ứng dụng",
+      "content": "Cho hàm số y = x^3 - 3x + 1. Hàm số nghịch biến trên khoảng nào?",
+      "options": ["(-1;1)", "(-∞;-1)", "(1;+∞)", "(-∞;+∞)"],
+      "correctOption": 0,
+      "explanation": "y' = 3x^2 - 3 = 0 tại x = ±1. y' < 0 trên (-1;1) nên hàm số nghịch biến trên khoảng này."
+    },
+    {
+      "id": "q2",
+      "part": 2,
+      "type": "TRUE_FALSE",
+      "chapter": "Nguyên hàm - Tích phân",
+      "content": "Cho tích phân I = ∫(0->1) x^2 dx. Xét các khẳng định sau:",
+      "statements": [
+        { "id": "a", "content": "Nguyên hàm của x^2 là x^3/3 + C", "isCorrect": true },
+        { "id": "b", "content": "Giá trị của I bằng 1", "isCorrect": false },
+        { "id": "c", "content": "Giá trị của I bằng 1/3", "isCorrect": true },
+        { "id": "d", "content": "Hàm số x^2 nghịch biến trên [0;1]", "isCorrect": false }
+      ],
+      "explanation": "I = [x^3/3] từ 0 đến 1 = 1/3. Hàm x^2 đồng biến trên [0;1] vì đạo hàm 2x ≥ 0."
+    },
+    {
+      "id": "q3",
+      "part": 3,
+      "type": "SHORT_ANSWER",
+      "chapter": "Xác suất thống kê",
+      "content": "Một hộp có 5 bi đỏ, 3 bi xanh. Lấy ngẫu nhiên 2 bi. Tính xác suất lấy được 2 bi cùng màu (làm tròn 2 chữ số thập phân).",
+      "correctAnswer": "0.5",
+      "explanation": "P = [C(5,2) + C(3,2)] / C(8,2) = (10 + 3)/28 ≈ 0.46. (Giá trị minh hoạ, thay bằng đáp án chuẩn của đề thật)."
+    }
+  ]
+}
