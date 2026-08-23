@@ -1,7 +1,7 @@
 // Nền chiều sâu cho toàn ứng dụng: 3 khối "gradient orb" lớn, mờ cực mạnh,
 // đặt cố định (fixed) ở các góc màn hình. Luôn nằm dưới nội dung (-z-10),
 // không chặn tương tác (pointer-events-none), không đổi theo scroll.
-export default function Appbackground() {
+export default function AppBackground() {
     return (
         <div
             aria-hidden="true"
