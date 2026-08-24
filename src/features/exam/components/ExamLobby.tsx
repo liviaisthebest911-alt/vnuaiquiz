@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { ExamMeta } from '../types';
 import { examStorage } from '../examStorage';
 
 interface Props {
     exam: ExamMeta;
+    onStart: () => void;
 }
 
 const DIFFICULTY_LABEL: Record<string, string> = {
@@ -13,8 +13,7 @@ const DIFFICULTY_LABEL: Record<string, string> = {
     hard: 'Khó',
 };
 
-export default function ExamLobby({ exam }: Props) {
-    const navigate = useNavigate();
+export default function ExamLobby({ exam, onStart }: Props) {
     const [targetScore, setTargetScore] = useState<number>(8);
     const [showConfirm, setShowConfirm] = useState(false);
 
@@ -27,7 +26,7 @@ export default function ExamLobby({ exam }: Props) {
             answers: {},
             currentQuestionIndex: 0,
         });
-        navigate(`/thi-thu/${exam.id}/lam-bai`);
+        onStart();
     };
 
     return (

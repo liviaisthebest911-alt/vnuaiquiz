@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import defaultQuestions from './data/questions.json'
 
@@ -12,6 +12,7 @@ import Pagetransition from './components/Pagetransition'
 import ExamLobby from './features/exam/components/ExamLobby'
 import ExamRoom from './features/exam/components/ExamRoom'
 import ExamReport from './features/exam/components/ExamReport'
+import { buildThptqgExam } from './features/exam/examData'
 
 import { storage, toggleInArray } from './utils/storage'
 
@@ -41,8 +42,9 @@ export default function App() {
         return Array.isArray(saved) ? saved : []
     })
 
+    const thptqgExam = useMemo(() => buildThptqgExam(), [])
     const [thptqgStage, setThptqgStage] = useState('lobby') // lobby | room | report
-    const [thptqgResult, setThptqgResult] = useState(null)
+    const [thptqgSubmission, setThptqgSubmission] = useState(null) // { result, questions, answers }
 
     useEffect(() => {
         storage.setQuestions(questions)
@@ -173,32 +175,33 @@ export default function App() {
                 if (thptqgStage === 'room') {
                     return (
                         <ExamRoom
-                            questions={questions}
-                            onSubmit={(result) => {
-                                setThptqgResult(result)
+                            exam={thptqgExam}
+                            onSubmit={(submission) => {
+                                setThptqgSubmission(submission)
                                 setThptqgStage('report')
-                                handleExamFinish(result)
                             }}
                         />
                     )
                 }
-                if (thptqgStage === 'report' && thptqgResult) {
+                if (thptqgStage === 'report' && thptqgSubmission) {
                     return (
                         <ExamReport
-                            result={thptqgResult}
+                            result={thptqgSubmission.result}
+                            questions={thptqgSubmission.questions}
+                            answers={thptqgSubmission.answers}
                             onRetry={() => {
-                                setThptqgResult(null)
-                                setThptqgStage('room')
+                                setThptqgSubmission(null)
+                                setThptqgStage('lobby')
                             }}
                         />
                     )
                 }
                 return (
                     <ExamLobby
-                        questions={questions}
+                        exam={thptqgExam}
                         onStart={() => setThptqgStage('room')}
                     />
-                )    
+                )
         }
     }
 

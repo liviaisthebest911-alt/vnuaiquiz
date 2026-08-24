@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import CircularScore from './CircularScore';
 import { examStorage } from '../examStorage';
 import { ExamResult, Question, UserAnswerRecord } from '../types';
 
-interface LocationState {
+interface Props {
     result: ExamResult;
     questions: Question[];
     answers: Record<string, UserAnswerRecord>;
+    onRetry: () => void;
 }
 
 const PART_LABELS: Record<number, string> = {
@@ -17,18 +17,10 @@ const PART_LABELS: Record<number, string> = {
     3: 'Phần III - Trả lời ngắn',
 };
 
-export default function ExamReport() {
-    const { state } = useLocation() as { state: LocationState | null };
-    const navigate = useNavigate();
+export default function ExamReport({ result, questions, answers, onRetry }: Props) {
     const [selectedQuestionId, setSelectedQuestionId] = useState<string | null>(null);
     const [addedToVault, setAddedToVault] = useState(false);
 
-    useEffect(() => {
-        if (!state) navigate('/');
-    }, [state, navigate]);
-
-    if (!state) return null;
-    const { result, questions, answers } = state;
     const achievedTarget = result.totalScore >= result.targetScore;
 
     // Bắn pháo hoa khi đạt/vượt mục tiêu, delay để trùng lúc vòng cung điểm đếm xong (~1.4s)
@@ -58,6 +50,14 @@ export default function ExamReport() {
             <div className="max-w-4xl mx-auto space-y-6">
                 {/* Điểm tổng + hiệu ứng */}
                 <div className="bg-white rounded-3xl border border-rose-100 shadow-sm p-8 text-center">
+                    <div className="flex justify-end">
+                        <button
+                            onClick={onRetry}
+                            className="text-xs px-3 py-1.5 rounded-full border border-rose-200 text-rose-500 hover:bg-rose-50"
+                        >
+                            ↺ Làm lại
+                        </button>
+                    </div>
                     <h2 className="text-rose-900 font-semibold text-xl mb-2">{result.examTitle}</h2>
                     <div className="flex justify-center">
                         <CircularScore score={result.totalScore} />
