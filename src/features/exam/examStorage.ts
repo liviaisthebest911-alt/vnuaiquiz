@@ -1,4 +1,4 @@
-import { ExamSession, ExamResult, Question } from './types';
+import { ExamSession, ExamResult, Question } from './types.js';
 
 const SESSION_PREFIX = 'vnuaiquiz_session_';
 const HISTORY_KEY = 'vnuaiquiz_exam_history';

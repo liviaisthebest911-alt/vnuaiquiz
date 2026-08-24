@@ -1,4 +1,4 @@
-import { Question, UserAnswerRecord, PartResult, ExamPart, ChapterDiagnosis } from './types';
+import { Question, UserAnswerRecord, PartResult, ExamPart, ChapterDiagnosis } from './types.js';
 
 // Thang điểm 1 câu Đúng/Sai (Phần II) theo số ý đúng trong 4 ý a,b,c,d
 // Đây là quy tắc đặc thù của đề thi THPT hiện hành - KHÔNG cộng điểm tuyến tính

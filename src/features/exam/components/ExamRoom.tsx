@@ -1,6 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ExamMeta, UserAnswerRecord } from '../types';
+import { ExamMeta, ExamResult, UserAnswerRecord } from '../types';
 import { examStorage } from '../examStorage';
 import { useExamTimer } from '../useExamTimer';
 import { calculatePartResults, getWrongQuestionIds, buildChapterDiagnosis } from '../scoring';
@@ -8,12 +7,18 @@ import StickyTimer from './StickyTimer';
 import QuestionMinimap from './QuestionMinimap';
 import QuestionAnswerInput from './QuestionAnswerInput';
 
-interface Props {
-    exam: ExamMeta;
+interface SubmitPayload {
+    result: ExamResult;
+    questions: ExamMeta['questions'];
+    answers: Record<string, UserAnswerRecord>;
 }
 
-export default function ExamRoom({ exam }: Props) {
-    const navigate = useNavigate();
+interface Props {
+    exam: ExamMeta;
+    onSubmit: (payload: SubmitPayload) => void;
+}
+
+export default function ExamRoom({ exam, onSubmit }: Props) {
     // Nạp lại session cũ nếu người dùng reload giữa chừng (tự phục hồi tiến độ)
     const session = useMemo(() => examStorage.loadSession(exam.id), [exam.id]);
     const [answers, setAnswers] = useState<Record<string, UserAnswerRecord>>(session?.answers || {});
@@ -86,9 +91,9 @@ export default function ExamRoom({ exam }: Props) {
         examStorage.saveResult(result);
         examStorage.clearSession(exam.id);
 
-        // Truyền kèm questions + answers qua router state để trang Report render lưới xem lại
-        navigate(`/thi-thu/${exam.id}/ket-qua`, { state: { result, questions: exam.questions, answers } });
-    }, [exam, answers, session, navigate]);
+        // Truyền kèm questions + answers để trang Report render lưới xem lại
+        onSubmit({ result, questions: exam.questions, answers });
+    }, [exam, answers, session, onSubmit]);
 
     const remaining = useExamTimer(exam.durationMinutes, session?.startedAt ?? Date.now(), submitExam);
 
