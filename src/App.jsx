@@ -9,6 +9,9 @@ import Flashcard from './components/Flashcard'
 import Exam from './components/Exam'
 import Admin from './components/Admin'
 import Pagetransition from './components/Pagetransition'
+import ExamLobby from './features/exam/components/ExamLobby'
+import ExamRoom from './features/exam/components/ExamRoom'
+import ExamReport from './features/exam/components/ExamReport'
 
 import { storage, toggleInArray } from './utils/storage'
 
@@ -37,6 +40,9 @@ export default function App() {
         const saved = storage.getHistory()
         return Array.isArray(saved) ? saved : []
     })
+
+    const [thptqgStage, setThptqgStage] = useState('lobby') // lobby | room | report
+    const [thptqgResult, setThptqgResult] = useState(null)
 
     useEffect(() => {
         storage.setQuestions(questions)
@@ -161,6 +167,38 @@ export default function App() {
                         onNavigate={setPage}
                     />
                 )
+
+
+            case 'thptqg':
+                if (thptqgStage === 'room') {
+                    return (
+                        <ExamRoom
+                            questions={questions}
+                            onSubmit={(result) => {
+                                setThptqgResult(result)
+                                setThptqgStage('report')
+                                handleExamFinish(result)
+                            }}
+                        />
+                    )
+                }
+                if (thptqgStage === 'report' && thptqgResult) {
+                    return (
+                        <ExamReport
+                            result={thptqgResult}
+                            onRetry={() => {
+                                setThptqgResult(null)
+                                setThptqgStage('room')
+                            }}
+                        />
+                    )
+                }
+                return (
+                    <ExamLobby
+                        questions={questions}
+                        onStart={() => setThptqgStage('room')}
+                    />
+                )    
         }
     }
 

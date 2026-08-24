@@ -115,6 +115,14 @@ export default function Dashboard({
                             </button>
 
                             <button
+                                onClick={() => onNavigate('thptqg')}
+                                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm font-bold text-white transition-transform hover:scale-[1.015] hover:bg-white/20 active:scale-[0.985]"
+                            >
+                                <Target size={18} />
+                                Thi thử THPTQG
+                            </button>
+
+                            <button
                                 onClick={() => onNavigate('admin')}
                                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm font-bold text-white transition-transform hover:scale-[1.015] hover:bg-white/20 active:scale-[0.985]"
                             >
