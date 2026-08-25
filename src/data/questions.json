@@ -1,1402 +1,562 @@
 [
-  {
-    "id": 1,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Java Collections Framework (JCF) được xây dựng nhằm mục đích chính nào?",
-    "options": [
-      "Cung cấp một kiến trúc thống nhất để lưu trữ và thao tác với các tập hợp đối tượng",
-      "Thay thế hoàn toàn mọi kiểu mảng trong Java",
-      "Chỉ cung cấp các thuật toán sắp xếp",
-      "Chỉ hỗ trợ kết nối cơ sở dữ liệu"
-    ],
-    "answer": 0,
-    "explanation": "JCF cung cấp một kiến trúc hợp nhất gồm các interface, lớp triển khai và thuật toán để lưu trữ, truy cập và xử lý các tập hợp đối tượng."
-  },
-  {
-    "id": 2,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Gói nào trong Java chứa phần lớn các thành phần của Java Collections Framework?",
-    "options": [
-      "java.io",
-      "java.util",
-      "java.net",
-      "java.lang"
-    ],
-    "answer": 1,
-    "explanation": "Các interface và lớp phổ biến của JCF như List, Set, Map, Queue, ArrayList và HashMap nằm trong gói java.util."
-  },
-  {
-    "id": 3,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Interface nào là nền tảng để một đối tượng có thể được duyệt bằng vòng lặp for-each?",
-    "options": [
-      "Comparator",
-      "Serializable",
-      "Iterable",
-      "Map"
-    ],
-    "answer": 2,
-    "explanation": "For-each có thể làm việc với đối tượng triển khai Iterable, vì interface này cung cấp phương thức iterator() để tạo cơ chế duyệt."
-  },
-  {
-    "id": 4,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Map khác Collection ở điểm cơ bản nào?",
-    "options": [
-      "Map lưu dữ liệu theo cặp key-value, còn Collection quản lý các phần tử",
-      "Map chỉ lưu số nguyên còn Collection chỉ lưu chuỗi",
-      "Map luôn có thứ tự còn Collection luôn không có thứ tự",
-      "Map không hỗ trợ generic còn Collection có"
-    ],
-    "answer": 0,
-    "explanation": "Map tổ chức dữ liệu thành các cặp key-value, trong khi Collection tập trung vào một tập các phần tử."
-  },
-  {
-    "id": 5,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "List có đặc điểm nào sau đây?",
-    "options": [
-      "Không cho phép phần tử trùng lặp",
-      "Cho phép phần tử trùng lặp và hỗ trợ truy cập theo index",
-      "Luôn tự động sắp xếp phần tử",
-      "Chỉ lưu được kiểu String"
-    ],
-    "answer": 1,
-    "explanation": "List duy trì các phần tử theo vị trí và cho phép phần tử trùng lặp, vì vậy có thể truy cập qua index."
-  },
-  {
-    "id": 6,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Đặc điểm cốt lõi của Set là gì?",
-    "options": [
-      "Cho phép key trùng lặp",
-      "Luôn giữ thứ tự chèn",
-      "Không cho phép các phần tử trùng lặp",
-      "Luôn sắp xếp phần tử theo thứ tự tự nhiên"
-    ],
-    "answer": 2,
-    "explanation": "Set được thiết kế để biểu diễn tập hợp các phần tử không trùng lặp; cách tổ chức thứ tự phụ thuộc vào từng implementation."
-  },
-  {
-    "id": 7,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Interface nào đại diện cho cấu trúc dữ liệu FIFO?",
-    "options": [
-      "Set",
-      "Map",
-      "Queue",
-      "Deque"
-    ],
-    "answer": 2,
-    "explanation": "Queue thường biểu diễn mô hình First-In-First-Out, trong đó phần tử vào trước được xử lý trước."
-  },
-  {
-    "id": 8,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Deque là viết tắt của cụm từ nào?",
-    "options": [
-      "Double Element Queue",
-      "Data Entry Queue",
-      "Double Ended Queue",
-      "Default Easy Queue"
-    ],
-    "answer": 2,
-    "explanation": "Deque là Double Ended Queue, cho phép thao tác thêm hoặc lấy phần tử ở cả hai đầu."
-  },
-  {
-    "id": 9,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Lớp nào triển khai Set và duy trì thứ tự chèn?",
-    "options": [
-      "HashSet",
-      "TreeSet",
-      "LinkedHashSet",
-      "PriorityQueue"
-    ],
-    "answer": 2,
-    "explanation": "LinkedHashSet giữ thêm thông tin liên kết giúp duy trì thứ tự chèn khi duyệt các phần tử."
-  },
-  {
-    "id": 10,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Lớp nào triển khai Set và duy trì các phần tử theo thứ tự tự nhiên?",
-    "options": [
-      "HashSet",
-      "LinkedHashSet",
-      "TreeSet",
-      "ArrayList"
-    ],
-    "answer": 2,
-    "explanation": "TreeSet sử dụng cấu trúc cây để duy trì thứ tự sắp xếp dựa trên thứ tự tự nhiên hoặc Comparator."
-  },
-  {
-    "id": 11,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "HashSet có đảm bảo thứ tự duyệt các phần tử hay không?",
-    "options": [
-      "Có, theo thứ tự chèn",
-      "Có, theo thứ tự tăng dần",
-      "Có, theo thứ tự giảm dần",
-      "Không đảm bảo thứ tự"
-    ],
-    "answer": 3,
-    "explanation": "HashSet không đảm bảo một thứ tự duyệt cố định; không nên dựa vào thứ tự hiện tại của nó."
-  },
-  {
-    "id": 12,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Lớp nào triển khai Map và giữ các key theo thứ tự chèn?",
-    "options": [
-      "HashMap",
-      "TreeMap",
-      "LinkedHashMap",
-      "Hashtable"
-    ],
-    "answer": 2,
-    "explanation": "LinkedHashMap duy trì liên kết giữa các entry để bảo toàn thứ tự chèn khi duyệt."
-  },
-  {
-    "id": 13,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Lớp nào triển khai Map và sắp xếp các key theo thứ tự tự nhiên?",
-    "options": [
-      "HashMap",
-      "LinkedHashMap",
-      "TreeMap",
-      "IdentityHashMap"
-    ],
-    "answer": 2,
-    "explanation": "TreeMap duy trì các key theo thứ tự tự nhiên hoặc theo Comparator được cung cấp."
-  },
-  {
-    "id": 14,
-    "chapter": 6,
-    "chapterName": "Java Collections Framework",
-    "question": "Trong Map, điều gì xảy ra khi gọi put với cùng một key lần thứ hai?",
-    "options": [
-      "Map lưu cả hai value",
-      "Lệnh thứ hai bị bỏ qua",
-      "Value mới ghi đè value cũ",
-      "Map luôn ném exception"
-    ],
-    "answer": 2,
-    "explanation": "Mỗi key trong Map chỉ có một value hiện tại; khi put cùng key, value mới thay thế value cũ."
-  },
-  {
-    "id": 15,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Các value trong một Map có thể trùng nhau không?",
-    "options": [
-      "Không bao giờ",
-      "Có",
-      "Chỉ khi key là null",
-      "Chỉ khi Map là HashMap"
-    ],
-    "answer": 1,
-    "explanation": "Map yêu cầu key không trùng nhau, nhưng nhiều key khác nhau có thể cùng tham chiếu đến cùng một value."
-  },
-  {
-    "id": 16,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức nào của Map dùng để thêm hoặc cập nhật một cặp key-value?",
-    "options": [
-      "add()",
-      "insert()",
-      "put()",
-      "set()"
-    ],
-    "answer": 2,
-    "explanation": "put(key, value) là phương thức chuẩn của Map để thêm entry mới hoặc cập nhật value của key đã tồn tại."
-  },
-  {
-    "id": 17,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức get(key) của Map thường trả về gì nếu key không tồn tại?",
-    "options": [
-      "0",
-      "Một chuỗi rỗng",
-      "null",
-      "NoSuchElementException"
-    ],
-    "answer": 2,
-    "explanation": "Nếu không tìm thấy key và không có giá trị ánh xạ tương ứng, get() trả về null."
-  },
-  {
-    "id": 18,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức nào kiểm tra một key có tồn tại trong Map?",
-    "options": [
-      "contains()",
-      "hasKey()",
-      "containsKey()",
-      "existsKey()"
-    ],
-    "answer": 2,
-    "explanation": "containsKey(key) được dùng để kiểm tra trực tiếp sự tồn tại của một key trong Map."
-  },
-  {
-    "id": 19,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức nào của Map trả về tập hợp các key?",
-    "options": [
-      "values()",
-      "keySet()",
-      "entrySet()",
-      "getKeys()"
-    ],
-    "answer": 1,
-    "explanation": "keySet() trả về một Set chứa các key của Map."
-  },
-  {
-    "id": 20,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức values() của Map trả về kiểu khái quát nào?",
-    "options": [
-      "List<V>",
-      "Map<K,V>",
-      "Collection<V>",
-      "Set<V> luôn luôn"
-    ],
-    "answer": 2,
-    "explanation": "values() trả về một Collection chứa các value; các value có thể trùng nhau nên không thể mặc định xem là Set."
-  },
-  {
-    "id": 21,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức entrySet() của Map dùng để làm gì?",
-    "options": [
-      "Lấy tất cả value dưới dạng List",
-      "Lấy tập hợp các cặp key-value",
-      "Lấy kích thước Map",
-      "Sắp xếp Map"
-    ],
-    "answer": 1,
-    "explanation": "entrySet() cung cấp tập hợp các Map.Entry, mỗi entry chứa cả key và value, rất thuận tiện cho việc duyệt Map."
-  },
-  {
-    "id": 22,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Load factor mặc định thường được nhắc đến của HashMap là bao nhiêu?",
-    "options": [
-      "0.25",
-      "0.50",
-      "0.75",
-      "1.00"
-    ],
-    "answer": 2,
-    "explanation": "Giá trị mặc định 0.75 là ngưỡng tải được dùng để quyết định khi nào HashMap cần mở rộng cấu trúc bên trong."
-  },
-  {
-    "id": 23,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Trong trường hợp trung bình, thao tác get hoặc put của HashMap thường có độ phức tạp kỳ vọng nào?",
-    "options": [
-      "O(N^2)",
-      "O(N log N)",
-      "O(log N)",
-      "O(1)"
-    ],
-    "answer": 3,
-    "explanation": "HashMap được thiết kế để cung cấp thời gian truy cập kỳ vọng O(1) cho get và put trong điều kiện băm phân bố tốt."
-  },
-  {
-    "id": 24,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Collision trong bảng băm xảy ra khi nào?",
-    "options": [
-      "Hai key khác nhau dẫn đến cùng vị trí băm",
-      "Hai value bằng nhau",
-      "Map bị rỗng",
-      "Key có giá trị null"
-    ],
-    "answer": 0,
-    "explanation": "Collision xuất hiện khi nhiều key khác nhau ánh xạ đến cùng vị trí trong cấu trúc băm."
-  },
-  {
-    "id": 25,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "ArrayList có ưu thế nào khi truy cập phần tử theo index?",
-    "options": [
-      "Thường là O(1)",
-      "Luôn là O(log N)",
-      "Luôn là O(N)",
-      "Không hỗ trợ truy cập theo index"
-    ],
-    "answer": 0,
-    "explanation": "ArrayList dựa trên mảng động nên có thể tính vị trí phần tử theo index trực tiếp, cho thời gian truy cập thường là O(1)."
-  },
-  {
-    "id": 26,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Thao tác contains(Object) trên ArrayList có độ phức tạp điển hình nào?",
-    "options": [
-      "O(1)",
-      "O(log N)",
-      "O(N)",
-      "O(N log N)"
-    ],
-    "answer": 2,
-    "explanation": "ArrayList thường phải duyệt tuần tự để tìm phần tử nên thời gian tìm kiếm là O(N)."
-  },
-  {
-    "id": 27,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Thêm một phần tử vào đầu ArrayList thường có độ phức tạp nào?",
-    "options": [
-      "O(1)",
-      "O(log N)",
-      "O(N)",
-      "O(N log N)"
-    ],
-    "answer": 2,
-    "explanation": "Các phần tử phía sau phải dịch chuyển sang phải để tạo chỗ, vì vậy thao tác chèn đầu danh sách có thể mất O(N)."
-  },
-  {
-    "id": 28,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "LinkedList có ưu thế nào khi thêm phần tử vào đầu danh sách?",
-    "options": [
-      "O(1)",
-      "O(log N)",
-      "O(N)",
-      "O(N log N)"
-    ],
-    "answer": 0,
-    "explanation": "Với LinkedList, thêm ở đầu chỉ cần cập nhật các liên kết cần thiết nên có thể thực hiện trong O(1)."
-  },
-  {
-    "id": 29,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "So với LinkedList, ArrayList thường nhanh hơn khi lấy phần tử tại một index bất kỳ vì lý do nào?",
-    "options": [
-      "ArrayList luôn được sắp xếp",
-      "ArrayList hỗ trợ truy cập trực tiếp theo index",
-      "LinkedList không lưu dữ liệu",
-      "ArrayList không sử dụng bộ nhớ"
-    ],
-    "answer": 1,
-    "explanation": "ArrayList hỗ trợ truy cập trực tiếp theo vị trí, trong khi LinkedList phải lần theo các node để đến vị trí cần tìm."
-  },
-  {
-    "id": 30,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Khi đã biết vị trí cần chèn vào giữa LinkedList và có quyền truy cập node/iterator phù hợp, vì sao thao tác chèn có thể hiệu quả hơn ArrayList?",
-    "options": [
-      "Không cần dịch chuyển hàng loạt phần tử",
-      "ArrayList không hỗ trợ chèn",
-      "LinkedList tự động sắp xếp",
-      "ArrayList luôn có O(N^2)"
-    ],
-    "answer": 0,
-    "explanation": "LinkedList chỉ cần thay đổi các liên kết lân cận tại vị trí chèn, trong khi ArrayList có thể phải dịch chuyển các phần tử phía sau."
-  },
-  {
-    "id": 31,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Nếu số phần tử trong ArrayList vượt quá sức chứa hiện tại thì điều gì xảy ra?",
-    "options": [
-      "ArrayList tự động mở rộng sức chứa",
-      "Mọi phần tử cũ bị xóa",
-      "ArrayList trở thành LinkedList",
-      "Luôn ném IndexOutOfBoundsException"
-    ],
-    "answer": 0,
-    "explanation": "ArrayList là mảng động nên sẽ cấp phát vùng nhớ lớn hơn và sao chép các phần tử khi cần mở rộng."
-  },
-  {
-    "id": 32,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một hạn chế cơ bản của mảng Java so với ArrayList là gì?",
-    "options": [
-      "Mảng không thể lưu đối tượng",
-      "Mảng không có index",
-      "Kích thước mảng là cố định",
-      "Mảng không thể duyệt bằng for"
-    ],
-    "answer": 2,
-    "explanation": "Kích thước của mảng được xác định khi tạo và không tự động tăng như ArrayList."
-  },
-  {
-    "id": 33,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức Collections.sort() dùng để làm gì?",
-    "options": [
-      "Xóa phần tử trùng",
-      "Sắp xếp danh sách",
-      "Xáo trộn danh sách",
-      "Đổi kiểu dữ liệu"
-    ],
-    "answer": 1,
-    "explanation": "Collections.sort() là thuật toán cấp framework dùng để sắp xếp các phần tử của List theo thứ tự thích hợp."
-  },
-  {
-    "id": 34,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Độ phức tạp thường được sử dụng để mô tả Collections.sort() là gì?",
-    "options": [
-      "O(1)",
-      "O(log N)",
-      "O(N)",
-      "O(N log N)"
-    ],
-    "answer": 3,
-    "explanation": "Tài liệu mô tả việc sắp xếp của Collections.sort() với độ phức tạp điển hình O(N log N)."
-  },
-  {
-    "id": 35,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức nào của Collections tìm phần tử nhỏ nhất?",
-    "options": [
-      "min()",
-      "smallest()",
-      "first()",
-      "low()"
-    ],
-    "answer": 0,
-    "explanation": "Collections.min() trả về phần tử nhỏ nhất theo thứ tự tự nhiên hoặc Comparator phù hợp."
-  },
-  {
-    "id": 36,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức nào của Collections tìm phần tử lớn nhất?",
-    "options": [
-      "maximum()",
-      "largest()",
-      "max()",
-      "high()"
-    ],
-    "answer": 2,
-    "explanation": "Collections.max() được dùng để tìm phần tử lớn nhất trong collection dựa trên thứ tự so sánh."
-  },
-  {
-    "id": 37,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Collections.shuffle() có tác dụng gì?",
-    "options": [
-      "Sắp xếp tăng dần",
-      "Xáo trộn thứ tự các phần tử",
-      "Xóa phần tử trùng",
-      "Đảo ngược từng phần tử"
-    ],
-    "answer": 1,
-    "explanation": "shuffle() thay đổi thứ tự các phần tử theo cách ngẫu nhiên hóa, hữu ích khi cần trộn danh sách."
-  },
-  {
-    "id": 38,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Collections.reverse() dùng để làm gì?",
-    "options": [
-      "Đảo ngược thứ tự các phần tử trong List",
-      "Sắp xếp tăng dần",
-      "Xóa phần tử cuối",
-      "Xoay vòng danh sách"
-    ],
-    "answer": 0,
-    "explanation": "reverse() đảo thứ tự hiện tại của các phần tử trong danh sách."
-  },
-  {
-    "id": 39,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Collections.rotate(list, distance) thực hiện thao tác nào?",
-    "options": [
-      "Đảo ngược toàn bộ danh sách",
-      "Xóa các phần tử cuối",
-      "Xoay các phần tử theo khoảng cách chỉ định",
-      "Sắp xếp các phần tử theo vòng tròn"
-    ],
-    "answer": 2,
-    "explanation": "rotate() dịch chuyển vị trí các phần tử theo một khoảng cách, trong đó các phần tử bị đẩy ra sẽ quay lại từ phía đối diện."
-  },
-  {
-    "id": 40,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Để sử dụng Collections.binarySearch() hiệu quả, danh sách thường phải có điều kiện nào?",
-    "options": [
-      "Phải là Set",
-      "Phải chứa String",
-      "Phải được sắp xếp phù hợp",
-      "Phải rỗng"
-    ],
-    "answer": 2,
-    "explanation": "Binary search dựa trên tính chất thứ tự của dãy; nếu danh sách không được sắp xếp phù hợp, kết quả tìm kiếm không được đảm bảo."
-  },
-  {
-    "id": 41,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Interface nào được dùng để định nghĩa thứ tự tự nhiên của một lớp?",
-    "options": [
-      "Comparator",
-      "Comparable",
-      "Iterator",
-      "Iterable"
-    ],
-    "answer": 1,
-    "explanation": "Comparable được triển khai bởi chính lớp đối tượng để định nghĩa cách so sánh tự nhiên thông qua compareTo()."
-  },
-  {
-    "id": 42,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức compareTo() trả về giá trị âm khi nào?",
-    "options": [
-      "Đối tượng hiện tại nhỏ hơn đối tượng được so sánh",
-      "Hai đối tượng bằng nhau",
-      "Đối tượng hiện tại lớn hơn đối tượng được so sánh",
-      "Luôn trả về số âm"
-    ],
-    "answer": 0,
-    "explanation": "Một giá trị âm từ compareTo() biểu thị rằng đối tượng hiện tại đứng trước đối tượng được so sánh theo thứ tự tự nhiên."
-  },
-  {
-    "id": 43,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Interface nào phù hợp khi muốn định nghĩa nhiều tiêu chí sắp xếp khác nhau cho cùng một lớp?",
-    "options": [
-      "Comparable",
-      "Comparator",
-      "Iterable",
-      "Collection"
-    ],
-    "answer": 1,
-    "explanation": "Comparator cho phép định nghĩa nhiều chiến lược so sánh tách biệt khỏi lớp dữ liệu, ví dụ theo tên, theo tuổi hoặc theo nhiều thuộc tính khác nhau."
-  },
-  {
-    "id": 44,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Comparator.comparing() được giới thiệu từ Java phiên bản nào?",
-    "options": [
-      "Java 5",
-      "Java 7",
-      "Java 8",
-      "Java 9"
-    ],
-    "answer": 2,
-    "explanation": "Comparator.comparing() thuộc các tiện ích Comparator được bổ sung trong Java 8, giúp tạo comparator ngắn gọn hơn."
-  },
-  {
-    "id": 45,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Khi nào Comparator thường phù hợp hơn Comparable?",
-    "options": [
-      "Khi muốn lớp có đúng một thứ tự tự nhiên",
-      "Khi không thể sửa mã nguồn của lớp cần so sánh",
-      "Khi không có thuộc tính để so sánh",
-      "Khi chỉ làm việc với primitive"
-    ],
-    "answer": 1,
-    "explanation": "Comparator cho phép tách logic so sánh ra khỏi lớp, rất hữu ích khi lớp không thuộc quyền sửa đổi hoặc cần nhiều thứ tự khác nhau."
-  },
-  {
-    "id": 46,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Interface Comparator cung cấp phương thức so sánh chính nào?",
-    "options": [
-      "compare(T o1, T o2)",
-      "compareTo(T o)",
-      "equals(T o)",
-      "sort(T o)"
-    ],
-    "answer": 0,
-    "explanation": "Comparator định nghĩa chiến lược so sánh thông qua compare(o1, o2), trong khi Comparable dùng compareTo()."
-  },
-  {
-    "id": 47,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Iterator cung cấp phương thức nào để kiểm tra còn phần tử phía trước hay không?",
-    "options": [
-      "isNext()",
-      "hasNext()",
-      "checkNext()",
-      "nextExists()"
-    ],
-    "answer": 1,
-    "explanation": "hasNext() trả về true nếu iterator vẫn còn ít nhất một phần tử có thể lấy bằng next()."
-  },
-  {
-    "id": 48,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Điều gì xảy ra khi gọi next() dù iterator không còn phần tử?",
-    "options": [
-      "Trả về null",
-      "Trả về phần tử đầu tiên",
-      "Ném NoSuchElementException",
-      "Tự động reset iterator"
-    ],
-    "answer": 2,
-    "explanation": "Khi iterator không còn phần tử, việc gọi next() sẽ vi phạm trạng thái duyệt và dẫn đến NoSuchElementException."
-  },
-  {
-    "id": 49,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Cách an toàn để xóa phần tử hiện tại trong khi đang duyệt Collection bằng Iterator là gì?",
-    "options": [
-      "Gọi list.remove(obj) tùy ý",
-      "Gọi clear()",
-      "Dùng it.remove()",
-      "Tạo lại toàn bộ Collection"
-    ],
-    "answer": 2,
-    "explanation": "Iterator.remove() được thiết kế để xóa phần tử vừa được iterator trả về mà không phá vỡ cơ chế duyệt."
-  },
-  {
-    "id": 50,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Nếu trực tiếp sửa đổi một Collection trong quá trình duyệt bằng for-each, vấn đề phổ biến nào có thể xuất hiện?",
-    "options": [
-      "UnsupportedOperationException luôn luôn",
-      "ConcurrentModificationException",
-      "ClassCastException luôn luôn",
-      "StackOverflowError"
-    ],
-    "answer": 1,
-    "explanation": "Thay đổi cấu trúc Collection trong lúc iterator của for-each đang hoạt động có thể làm phát sinh ConcurrentModificationException."
-  },
-  {
-    "id": 51,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "ListIterator khác Iterator ở điểm nổi bật nào?",
-    "options": [
-      "Không thể duyệt phần tử",
-      "Có thể duyệt theo cả hai chiều và hỗ trợ thao tác phù hợp với List",
-      "Chỉ dùng được với Set",
-      "Không thể sửa đổi List"
-    ],
-    "answer": 1,
-    "explanation": "ListIterator dành cho List và hỗ trợ duyệt tiến, lùi cùng các thao tác đặc trưng như add và set."
-  },
-  {
-    "id": 52,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Khi cần chèn phần tử ngay trong lúc đang duyệt một List, công cụ phù hợp là gì?",
-    "options": [
-      "Iterator",
-      "Iterable",
-      "ListIterator",
-      "for-each"
-    ],
-    "answer": 2,
-    "explanation": "ListIterator được thiết kế cho List và có phương thức add() cho phép chèn phần tử tại vị trí hiện tại của quá trình duyệt."
-  },
-  {
-    "id": 53,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức remove() của Iterator thường xóa phần tử nào?",
-    "options": [
-      "Phần tử đầu tiên",
-      "Phần tử cuối cùng",
-      "Phần tử vừa được next() trả về",
-      "Tất cả phần tử đã duyệt"
-    ],
-    "answer": 2,
-    "explanation": "Iterator.remove() tác động lên phần tử cuối cùng vừa được trả về bởi next(), nếu trạng thái iterator cho phép."
-  },
-  {
-    "id": 54,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Interface nào KHÔNG kế thừa từ Collection?",
-    "options": [
-      "List",
-      "Set",
-      "Queue",
-      "Map"
-    ],
-    "answer": 3,
-    "explanation": "Map là một nhánh riêng trong JCF, biểu diễn quan hệ key-value chứ không phải một Collection các phần tử đơn lẻ."
-  },
-  {
-    "id": 55,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức clear() của Collection có tác dụng gì?",
-    "options": [
-      "Xóa tất cả phần tử",
-      "Xóa một phần tử theo index",
-      "Chỉ kiểm tra Collection có rỗng hay không",
-      "Thu nhỏ capacity xuống 0"
-    ],
-    "answer": 0,
-    "explanation": "clear() loại bỏ toàn bộ các phần tử khỏi Collection, sau đó Collection trở thành rỗng."
-  },
-  {
-    "id": 56,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "retainAll(Collection<?> c) thực hiện phép toán nào về mặt ý tưởng?",
-    "options": [
-      "Hợp",
-      "Hiệu",
-      "Giao",
-      "Sắp xếp"
-    ],
-    "answer": 2,
-    "explanation": "retainAll chỉ giữ lại các phần tử của collection hiện tại cũng xuất hiện trong collection c, tương ứng với phép giao."
-  },
-  {
-    "id": 57,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức nào của Queue thêm phần tử mà có thể trả về false thay vì ném exception khi thao tác không thành công?",
-    "options": [
-      "add()",
-      "offer()",
-      "push()",
-      "insert()"
-    ],
-    "answer": 1,
-    "explanation": "offer() được thiết kế để báo thành công hoặc thất bại bằng giá trị boolean thay vì luôn dựa vào exception cho tình huống hàng đợi không nhận thêm được phần tử."
-  },
-  {
-    "id": 58,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức nào của Queue trả về phần tử đầu mà không xóa và trả về null nếu hàng đợi rỗng?",
-    "options": [
-      "element()",
-      "peek()",
-      "remove()",
-      "poll()"
-    ],
-    "answer": 1,
-    "explanation": "peek() chỉ quan sát phần tử đầu; nếu Queue rỗng, nó trả về null thay vì ném exception."
-  },
-  {
-    "id": 59,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức nào của Queue vừa xem vừa xóa phần tử đầu và trả về null nếu hàng đợi rỗng?",
-    "options": [
-      "peek()",
-      "element()",
-      "poll()",
-      "offer()"
-    ],
-    "answer": 2,
-    "explanation": "poll() lấy ra và loại bỏ phần tử đầu; khi Queue rỗng, kết quả là null."
-  },
-  {
-    "id": 60,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Phương thức nào của Queue xem phần tử đầu mà không xóa và ném exception nếu hàng đợi rỗng?",
-    "options": [
-      "peek()",
-      "poll()",
-      "element()",
-      "offer()"
-    ],
-    "answer": 2,
-    "explanation": "element() khác peek() ở chỗ trạng thái rỗng dẫn đến exception thay vì trả về null."
-  },
-  {
-    "id": 61,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "PriorityQueue xử lý phần tử đầu theo nguyên tắc nào?",
-    "options": [
-      "Luôn là phần tử được thêm cuối cùng",
-      "Luôn là phần tử được thêm đầu tiên",
-      "Theo độ ưu tiên, mặc định phần tử nhỏ nhất đứng đầu",
-      "Theo hashCode lớn nhất"
-    ],
-    "answer": 2,
-    "explanation": "PriorityQueue không đơn thuần là FIFO; head của nó được xác định theo thứ tự ưu tiên, mặc định là phần tử nhỏ nhất."
-  },
-  {
-    "id": 62,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "PriorityQueue có cho phép phần tử trùng lặp không?",
-    "options": [
-      "Không",
-      "Chỉ khi dùng Comparator",
-      "Có",
-      "Chỉ khi Queue có capacity lớn"
-    ],
-    "answer": 2,
-    "explanation": "PriorityQueue vẫn là một Queue có thể chứa các phần tử giống nhau; Comparator chỉ ảnh hưởng đến cách xác định thứ tự ưu tiên."
-  },
-  {
-    "id": 63,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Khi duyệt PriorityQueue bằng iterator, điều nào cần ghi nhớ?",
-    "options": [
-      "Iterator luôn đảm bảo thứ tự ưu tiên đầy đủ",
-      "Iterator không đảm bảo thứ tự sắp xếp như thứ tự lấy phần tử",
-      "Iterator tự động sắp xếp lại Queue",
-      "Iterator chỉ duyệt phần tử đầu"
-    ],
-    "answer": 1,
-    "explanation": "PriorityQueue đảm bảo quy tắc của head, nhưng cách iterator duyệt các phần tử không phải là phép lấy phần tử tuần tự theo thứ tự ưu tiên."
-  },
-  {
-    "id": 64,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Lớp nào triển khai cấu trúc dữ liệu Deque trong JCF?",
-    "options": [
-      "ArrayDeque",
-      "HashSet",
-      "TreeMap",
-      "PriorityQueue"
-    ],
-    "answer": 0,
-    "explanation": "ArrayDeque cung cấp cấu trúc hàng đợi hai đầu và hỗ trợ thao tác ở cả đầu và cuối."
-  },
-  {
-    "id": 65,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "LinkedList có thể được sử dụng để biểu diễn những mô hình nào?",
-    "options": [
-      "Chỉ Stack",
-      "Chỉ Queue",
-      "Cả Stack và Queue",
-      "Chỉ Set"
-    ],
-    "answer": 2,
-    "explanation": "LinkedList hỗ trợ thao tác ở hai đầu nên có thể sử dụng cho các hành vi kiểu Stack và Queue."
-  },
-  {
-    "id": 66,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Trong một linked list điển hình, một node thường chứa gì?",
-    "options": [
-      "Chỉ dữ liệu",
-      "Dữ liệu và liên kết tới node tiếp theo",
-      "Chỉ index",
-      "Chỉ địa chỉ của toàn bộ danh sách"
-    ],
-    "answer": 1,
-    "explanation": "Một node của linked list thường chứa dữ liệu và thông tin liên kết tới node kế tiếp, từ đó hình thành chuỗi các phần tử."
-  },
-  {
-    "id": 67,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Từ góc nhìn cấu trúc dữ liệu, TreeSet dựa trên cấu trúc nào?",
-    "options": [
-      "ArrayList",
-      "Hash table",
-      "Red-Black Tree",
-      "Doubly linked list"
-    ],
-    "answer": 2,
-    "explanation": "TreeSet được xây dựng dựa trên cây cân bằng Red-Black Tree, cho phép duy trì thứ tự và hỗ trợ các thao tác cây hiệu quả."
-  },
-  {
-    "id": 68,
-    "chapter": 6,
-    "chapterName": "Java Collections Framework",
-    "question": "Độ phức tạp tìm kiếm điển hình trong cây cân bằng là bao nhiêu?",
-    "options": [
-      "O(1)",
-      "O(log N)",
-      "O(N)",
-      "O(N^2)"
-    ],
-    "answer": 1,
-    "explanation": "Trong cây cân bằng, chiều cao cây thường là O(log N), vì vậy việc tìm kiếm có thể thực hiện trong O(log N)."
-  },
-  {
-    "id": 69,
-    "chapter": 6,
-    "chapterName": "Java Collections Framework",
-    "question": "List.of(1, 2, 3) tạo ra List có đặc điểm nào?",
-    "options": [
-      "Có thể thay đổi và cho phép null",
-      "Không thể thay đổi và không cho phép null",
-      "Tự động sắp xếp",
-      "Luôn là ArrayList có thể thêm phần tử"
-    ],
-    "answer": 1,
-    "explanation": "List.of() tạo immutable List; các thao tác sửa đổi bị cấm và các phần tử null cũng không được phép."
-  },
-  {
-    "id": 70,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Map.of(\"A\", 1, \"B\", 2) tạo ra loại Map nào về mặt tính chất?",
-    "options": [
-      "Mutable và cho phép null",
-      "Immutable và không cho phép null key/value",
-      "Luôn tự động sắp xếp key",
-      "Luôn giữ thứ tự chèn bằng LinkedHashMap"
-    ],
-    "answer": 1,
-    "explanation": "Map.of() tạo một Map không thể sửa đổi và không chấp nhận null ở key hoặc value."
-  },
-  {
-    "id": 71,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một nhóm sinh viên cần lưu danh sách điểm theo đúng thứ tự nhập và cho phép nhiều sinh viên có cùng điểm. Cấu trúc nào phù hợp nhất?",
-    "options": [
-      "HashSet",
-      "TreeSet",
-      "ArrayList",
-      "HashMap"
-    ],
-    "answer": 2,
-    "explanation": "ArrayList duy trì thứ tự các phần tử theo vị trí và cho phép trùng lặp, phù hợp với yêu cầu lưu một danh sách điểm."
-  },
-  {
-    "id": 72,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một hệ thống cần lưu mã sinh viên duy nhất và không muốn có phần tử trùng. Cấu trúc nào phù hợp nhất nếu thứ tự không quan trọng?",
-    "options": [
-      "HashSet",
-      "ArrayList",
-      "LinkedList",
-      "PriorityQueue"
-    ],
-    "answer": 0,
-    "explanation": "HashSet đảm bảo mỗi phần tử chỉ xuất hiện một lần và không yêu cầu duy trì thứ tự."
-  },
-  {
-    "id": 73,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một ứng dụng cần lưu tên sinh viên và điểm số tương ứng, trong đó mã sinh viên phải là duy nhất. Cấu trúc nào phù hợp nhất?",
-    "options": [
-      "List",
-      "Set",
-      "Map",
-      "Queue"
-    ],
-    "answer": 2,
-    "explanation": "Map được thiết kế để ánh xạ một key duy nhất, chẳng hạn mã sinh viên, tới value như điểm số."
-  },
-  {
-    "id": 74,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một website cần lưu danh sách các bài đăng theo đúng thứ tự người dùng tạo ra. Người dùng có thể tạo nhiều bài có cùng tiêu đề. Bạn nên chọn gì?",
-    "options": [
-      "TreeSet",
-      "HashSet",
-      "ArrayList",
-      "TreeMap"
-    ],
-    "answer": 2,
-    "explanation": "ArrayList vừa duy trì thứ tự chèn vừa cho phép phần tử trùng lặp, đúng với yêu cầu của danh sách bài đăng."
-  },
-  {
-    "id": 75,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một hệ thống cần hiển thị danh sách tên sinh viên theo thứ tự A-Z và không cho phép tên trùng. Cấu trúc nào phù hợp nhất?",
-    "options": [
-      "HashSet",
-      "TreeSet",
-      "ArrayList",
-      "LinkedList"
-    ],
-    "answer": 1,
-    "explanation": "TreeSet vừa loại bỏ phần tử trùng vừa duy trì thứ tự tự nhiên của các phần tử."
-  },
-  {
-    "id": 76,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một ứng dụng chat cần duy trì danh sách người dùng theo đúng thứ tự họ tham gia. Sau này danh sách cần được duyệt theo thứ tự chèn. Lựa chọn hợp lý nhất là gì?",
-    "options": [
-      "HashSet",
-      "TreeSet",
-      "LinkedHashSet",
-      "PriorityQueue"
-    ],
-    "answer": 2,
-    "explanation": "LinkedHashSet vừa loại bỏ trùng lặp vừa giữ thứ tự chèn, phù hợp với danh sách người dùng tham gia."
-  },
-  {
-    "id": 77,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một thư viện có danh sách sách và cần sắp xếp một lần theo tên, lần khác theo năm xuất bản, trong khi không muốn sửa lớp Book. Cách tiếp cận phù hợp nhất là gì?",
-    "options": [
-      "Viết lại Book để có nhiều compareTo()",
-      "Dùng nhiều Comparator",
-      "Dùng HashSet",
-      "Dùng Queue"
-    ],
-    "answer": 1,
-    "explanation": "Comparator cho phép tạo nhiều tiêu chí so sánh độc lập với lớp Book mà không phải thay đổi định nghĩa lớp."
-  },
-  {
-    "id": 78,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Bạn đang duyệt ArrayList bằng for-each và muốn xóa phần tử ngay khi thỏa điều kiện. Cách nào an toàn nhất theo cơ chế duyệt trong tài liệu?",
-    "options": [
-      "Gọi list.remove() trong for-each",
-      "Gọi list.clear()",
-      "Dùng Iterator và it.remove()",
-      "Dùng System.gc()"
-    ],
-    "answer": 2,
-    "explanation": "Iterator.remove() được thiết kế để đồng bộ việc xóa với trạng thái của iterator, tránh việc sửa đổi cấu trúc collection theo cách không an toàn trong quá trình duyệt."
-  },
-  {
-    "id": 79,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một hàng đợi xử lý tác vụ cần ưu tiên tác vụ có mức ưu tiên cao hơn thay vì xử lý thuần FIFO. Cấu trúc phù hợp nhất là gì?",
-    "options": [
-      "ArrayList",
-      "PriorityQueue",
-      "HashSet",
-      "LinkedHashMap"
-    ],
-    "answer": 1,
-    "explanation": "PriorityQueue lấy phần tử theo thứ tự ưu tiên thay vì đơn giản theo thứ tự chèn, nên phù hợp với bài toán lập lịch ưu tiên."
-  },
-  {
-    "id": 80,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một chương trình có List<Integer> numbers = List.of(1, 2, 3); và sau đó gọi numbers.add(4). Người lập trình nên dự đoán điều gì?",
-    "options": [
-      "Phần tử 4 được thêm bình thường",
-      "Danh sách tự động chuyển thành ArrayList",
-      "Một UnsupportedOperationException xảy ra khi chạy",
-      "Compiler luôn báo lỗi cú pháp"
-    ],
-    "answer": 2,
-    "explanation": "List.of() tạo immutable List nên không hỗ trợ thao tác add; lỗi phát sinh khi thực hiện thao tác sửa đổi tại runtime."
-  },
-  {
-    "id": 81,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một nhóm phát triển cần dùng một thư viện có sẵn nhưng không thể sửa class Person để thêm Comparable. Họ vẫn cần sắp xếp Person theo tuổi. Lựa chọn tốt nhất là gì?",
-    "options": [
-      "Dùng Comparator so sánh theo tuổi",
-      "Dùng HashSet",
-      "Dùng Iterator",
-      "Dùng Map thay thế"
-    ],
-    "answer": 0,
-    "explanation": "Comparator tách logic so sánh khỏi lớp Person, nên có thể sắp xếp theo tuổi mà không cần thay đổi mã nguồn của Person."
-  },
-  {
-    "id": 82,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một ứng dụng thường xuyên lấy phần tử ở vị trí 500000 của danh sách lớn nhưng hiếm khi chèn ở đầu. Bạn nên ưu tiên cấu trúc nào?",
-    "options": [
-      "ArrayList",
-      "LinkedList",
-      "TreeSet",
-      "PriorityQueue"
-    ],
-    "answer": 0,
-    "explanation": "Truy cập theo index là ưu thế rõ rệt của ArrayList với thời gian thường O(1), trong khi LinkedList cần lần theo node."
-  },
-  {
-    "id": 83,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một ứng dụng cần thường xuyên thêm phần tử vào đầu danh sách và ít khi truy cập theo index. Lựa chọn nào hợp lý hơn?",
-    "options": [
-      "ArrayList",
-      "LinkedList",
-      "TreeSet",
-      "HashMap"
-    ],
-    "answer": 1,
-    "explanation": "LinkedList phù hợp với thao tác ở đầu danh sách vì có thể thực hiện việc thêm ở đầu trong O(1), trong khi ArrayList phải dịch chuyển phần tử."
-  },
-  {
-    "id": 84,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một giáo viên muốn bốc ngẫu nhiên thứ tự 40 câu hỏi từ một List trước khi tạo đề thi. Phương thức nào phù hợp nhất?",
-    "options": [
-      "Collections.sort()",
-      "Collections.shuffle()",
-      "Collections.min()",
-      "Collections.binarySearch()"
-    ],
-    "answer": 1,
-    "explanation": "shuffle() được thiết kế để xáo trộn thứ tự phần tử, phù hợp cho việc tạo thứ tự câu hỏi ngẫu nhiên."
-  },
-  {
-    "id": 85,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một nhóm sinh viên cần tìm nhanh xem mã sinh viên đã tồn tại trong danh sách đăng ký hay chưa, nhưng họ không quan tâm thứ tự. Cấu trúc nào thường phù hợp hơn?",
-    "options": [
-      "HashSet",
-      "ArrayList",
-      "LinkedList",
-      "Stack"
-    ],
-    "answer": 0,
-    "explanation": "HashSet được thiết kế cho việc kiểm tra sự tồn tại dựa trên hashing và không yêu cầu duy trì thứ tự."
-  },
-  {
-    "id": 86,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một chương trình đang duyệt HashSet và hiển thị người dùng danh sách theo đúng thứ tự thêm vào. Sau một thời gian thứ tự thay đổi. Nguyên nhân hợp lý nhất là gì?",
-    "options": [
-      "HashSet đảm bảo thứ tự chèn nhưng JVM bị lỗi",
-      "HashSet không đảm bảo thứ tự duyệt",
-      "Iterator tự động đảo thứ tự",
-      "Set luôn sắp xếp giảm dần"
-    ],
-    "answer": 1,
-    "explanation": "HashSet không đảm bảo thứ tự duyệt, vì vậy chương trình không nên dựa vào thứ tự quan sát được ở một lần chạy."
-  },
-  {
-    "id": 87,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một công ty cần lưu danh sách nhân viên theo thứ tự thêm vào, nhưng đồng thời muốn tra cứu theo mã nhân viên. Cách thiết kế nào hợp lý hơn?",
-    "options": [
-      "Chỉ dùng TreeSet",
-      "Chỉ dùng ArrayList và tìm tuyến tính mã",
-      "Có thể kết hợp Collection phù hợp cho thứ tự và Map cho tra cứu key-value",
-      "Chỉ dùng PriorityQueue"
-    ],
-    "answer": 2,
-    "explanation": "Hai yêu cầu khác nhau có thể được giải quyết bằng cấu trúc dữ liệu phù hợp: Collection giữ danh sách theo yêu cầu thứ tự và Map hỗ trợ ánh xạ mã nhân viên tới dữ liệu."
-  },
-  {
-    "id": 88,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Bạn có một Map điểm số và muốn kiểm tra một mã sinh viên có tồn tại trước khi đọc điểm. Vì sao containsKey() phù hợp hơn việc chỉ gọi get()?",
-    "options": [
-      "containsKey() tự động sắp xếp Map",
-      "containsKey() phân biệt rõ trạng thái key có tồn tại với tình huống get() trả null",
-      "containsKey() nhanh hơn trong mọi implementation",
-      "get() không bao giờ trả null"
-    ],
-    "answer": 1,
-    "explanation": "containsKey() trực tiếp trả lời câu hỏi key có tồn tại hay không, tránh việc suy luận chỉ từ value nhận được."
-  },
-  {
-    "id": 89,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một ứng dụng cần hiển thị danh sách sản phẩm theo thứ tự alphabet nhưng sản phẩm trùng tên vẫn bị coi là hai bản ghi khác nhau. Lựa chọn nào phù hợp hơn?",
-    "options": [
-      "TreeSet với chính tên làm tiêu chí duy nhất",
-      "ArrayList rồi sắp xếp bằng Comparator",
-      "HashSet",
-      "PriorityQueue"
-    ],
-    "answer": 1,
-    "explanation": "Vì các bản ghi có thể trùng tên nhưng vẫn cần tồn tại độc lập, List phù hợp hơn Set; sau đó có thể sắp xếp bằng Comparator theo tên."
-  },
-  {
-    "id": 90,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một lập trình viên thấy đoạn code List<String> list = new ArrayList<>(); for (String s : list) { list.remove(s); } và muốn tránh lỗi khi xóa phần tử trong lúc duyệt. Cải tiến nào phù hợp nhất?",
-    "options": [
-      "Tiếp tục dùng for-each và remove trực tiếp",
-      "Dùng Iterator và it.remove()",
-      "Đổi List thành Map nhưng vẫn dùng for-each",
-      "Gọi clear() sau mỗi lần next()"
-    ],
-    "answer": 1,
-    "explanation": "Iterator cung cấp cơ chế remove đồng bộ với quá trình duyệt, giúp xử lý việc xóa phần tử an toàn hơn so với sửa đổi Collection trực tiếp trong for-each."
-  },
-  {
-    "id": 91,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một hệ thống cần lấy nhiệm vụ có độ ưu tiên cao nhất trước, nhưng cũng muốn chấp nhận nhiều nhiệm vụ có cùng mức ưu tiên. Lựa chọn nào phù hợp?",
-    "options": [
-      "PriorityQueue",
-      "TreeSet",
-      "HashSet",
-      "ArrayList"
-    ],
-    "answer": 0,
-    "explanation": "PriorityQueue phục vụ mô hình xử lý theo ưu tiên và cho phép các phần tử trùng lặp, phù hợp với các nhiệm vụ có cùng mức ưu tiên."
-  },
-  {
-    "id": 92,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một chương trình cần duyệt Map và đồng thời xử lý cả key lẫn value ở mỗi lần lặp. Cách tiếp cận nào trực tiếp nhất?",
-    "options": [
-      "Duyệt map.values() rồi tìm lại key",
-      "Duyệt map.keySet() rồi gọi get()",
-      "Duyệt map.entrySet()",
-      "Duyệt map.size()"
-    ],
-    "answer": 2,
-    "explanation": "entrySet() cung cấp trực tiếp từng cặp key-value, tránh phải thực hiện thêm thao tác tra cứu value từ key trong mỗi vòng lặp."
-  },
-  {
-    "id": 93,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một nhóm phát triển muốn công khai một danh sách cấu hình mà không cho phép mã gọi bên ngoài thêm hoặc xóa phần tử. Cách sử dụng nào phù hợp nhất?",
-    "options": [
-      "List.of(...) hoặc một List immutable phù hợp",
-      "ArrayList rồi yêu cầu người dùng không sửa",
-      "HashSet",
-      "PriorityQueue"
-    ],
-    "answer": 0,
-    "explanation": "Một List immutable cung cấp hợp đồng rõ ràng rằng các thao tác sửa đổi không được phép, giúp bảo vệ dữ liệu khỏi thay đổi ngoài ý muốn."
-  },
-  {
-    "id": 94,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một lớp Order đã được cung cấp bởi thư viện bên thứ ba và không thể sửa. Bạn cần sắp xếp Order theo tổng tiền trong hai màn hình khác nhau. Thiết kế nào linh hoạt nhất?",
-    "options": [
-      "Dùng một Comparator theo tổng tiền và tái sử dụng nó",
-      "Cố gắng thêm Comparable vào Order",
-      "Chuyển tất cả Order sang Set",
-      "Không thể sắp xếp nếu không sửa Order"
-    ],
-    "answer": 0,
-    "explanation": "Comparator tách tiêu chí sắp xếp khỏi Order nên có thể sử dụng ngay cả khi lớp nguồn không thể chỉnh sửa."
-  },
-  {
-    "id": 95,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một lập trình viên dùng TreeSet cho các đối tượng tùy chỉnh nhưng không triển khai Comparable và cũng không truyền Comparator. Rủi ro nào cần được lường trước?",
-    "options": [
-      "TreeSet tự động dùng hashCode để sắp xếp",
-      "TreeSet có thể không biết cách so sánh và phát sinh ClassCastException khi thêm phần tử",
-      "TreeSet luôn chuyển object thành String",
-      "TreeSet tự động chuyển sang HashSet"
-    ],
-    "answer": 1,
-    "explanation": "TreeSet cần một cách xác định thứ tự giữa các phần tử; nếu không có Comparable hoặc Comparator phù hợp, việc thêm các đối tượng có thể dẫn tới ClassCastException."
-  },
-  {
-    "id": 96,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một sinh viên muốn dùng binarySearch() trên danh sách điểm nhưng kết quả bất thường. Kiểm tra đầu tiên nên là gì?",
-    "options": [
-      "Danh sách có phải là LinkedList không",
-      "Danh sách đã được sắp xếp phù hợp chưa",
-      "Danh sách có chứa null không",
-      "Tên biến có phải là list không"
-    ],
-    "answer": 1,
-    "explanation": "Binary search phụ thuộc vào tính có thứ tự của dữ liệu; nếu danh sách chưa được sắp xếp phù hợp, kết quả không đáng tin cậy."
-  },
-  {
-    "id": 97,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một ứng dụng cần lưu danh sách thao tác theo thứ tự nhập, cho phép thao tác ở cả đầu và cuối. Cấu trúc nào trong JCF phù hợp nhất?",
-    "options": [
-      "ArrayDeque",
-      "TreeSet",
-      "HashMap",
-      "TreeMap"
-    ],
-    "answer": 0,
-    "explanation": "ArrayDeque được thiết kế cho thao tác ở cả hai đầu, nên phù hợp với bài toán yêu cầu xử lý hai đầu của chuỗi phần tử."
-  },
-  {
-    "id": 98,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một hệ thống chỉ cần một danh sách các ID và chấp nhận ID trùng nhau vì mỗi lần xuất hiện đều có ý nghĩa. Vì sao không nên dùng Set?",
-    "options": [
-      "Set không hỗ trợ iteration",
-      "Set loại bỏ các phần tử trùng lặp",
-      "Set chỉ chứa String",
-      "Set luôn sắp xếp"
-    ],
-    "answer": 1,
-    "explanation": "Nếu từng lần xuất hiện của ID đều cần được giữ lại, tính chất loại bỏ trùng của Set sẽ làm mất thông tin; List phù hợp hơn."
-  },
-  {
-    "id": 99,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Một hệ thống quản lý tài khoản cần ánh xạ duy nhất username tới thông tin người dùng. Nếu hai lần cập nhật dùng cùng username, logic nào nên được kỳ vọng?",
-    "options": [
-      "Map lưu hai bản ghi với cùng username",
-      "Map bỏ qua cập nhật thứ hai",
-      "Value mới ghi đè value cũ của cùng key",
-      "Map luôn ném exception"
-    ],
-    "answer": 2,
-    "explanation": "Map không cho phép một key đồng thời đại diện cho hai value khác nhau; thao tác put cùng key sẽ cập nhật ánh xạ hiện tại."
-  },
-  {
-    "id": 100,
-    "chapter": 6,
-    "chapterName": "Chương 6: Java Collections Framework",
-    "question": "Bạn được giao tối ưu một chương trình đang dùng LinkedList để đọc liên tục phần tử tại các index ngẫu nhiên trong một danh sách rất lớn. Thay đổi nào hợp lý nhất?",
-    "options": [
-      "Giữ LinkedList vì nó tốt nhất cho index",
-      "Đổi sang ArrayList vì truy cập index thường là O(1)",
-      "Đổi sang HashSet để có index O(1)",
-      "Đổi sang TreeSet vì TreeSet hỗ trợ index"
-    ],
-    "answer": 1,
-    "explanation": "Khi thao tác chính là truy cập theo index ngẫu nhiên, ArrayList phù hợp hơn vì hỗ trợ truy cập trực tiếp với độ phức tạp thường O(1)."
-  }
+{
+"id": 1,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Điểm khác biệt cơ bản giữa dữ liệu (Data) và thông tin (Information) là gì?",
+"options": [
+"Dữ liệu là kết quả xử lý, còn thông tin là dữ liệu thô",
+"Dữ liệu là các sự kiện, số liệu, ký hiệu thô; thông tin là dữ liệu đã được xử lý và tổ chức có ý nghĩa",
+"Dữ liệu chỉ tồn tại dưới dạng số, còn thông tin chỉ tồn tại dưới dạng văn bản",
+"Dữ liệu luôn có ý nghĩa, còn thông tin không nhất thiết có ý nghĩa"
+],
+"answer": 1,
+"explanation": "Dữ liệu là các sự kiện, số liệu, ký hiệu thô chưa được xử lý; thông tin là kết quả của việc xử lý, tổ chức và sắp xếp dữ liệu theo một cách có ý nghĩa."
+},
+{
+"id": 2,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Quá trình xử lý thông tin cơ bản của máy tính được mô tả đúng theo trình tự nào?",
+"options": [
+"Input → Processing → Output → Storage",
+"Processing → Input → Storage → Output",
+"Input → Storage → Processing → Output",
+"Output → Input → Processing → Storage"
+],
+"answer": 0,
+"explanation": "Bài giảng mô tả bốn giai đoạn cơ bản là tiếp nhận dữ liệu (Input), xử lý (Processing), xuất thông tin (Output) và lưu trữ (Storage)."
+},
+{
+"id": 3,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Cốt lõi của việc máy tính xử lý thông tin số là gì?",
+"options": [
+"Biểu diễn mọi dữ liệu bằng các tín hiệu nhị phân 0 và 1",
+"Chuyển mọi dữ liệu thành tín hiệu analog",
+"Lưu mọi dữ liệu trực tiếp trên ổ cứng",
+"Chỉ xử lý được dữ liệu dạng số nguyên"
+],
+"answer": 0,
+"explanation": "Máy tính xử lý thông tin dưới dạng số hóa, trong đó các loại dữ liệu được biểu diễn bằng các tín hiệu nhị phân gồm bit 0 và 1."
+},
+{
+"id": 4,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Đâu là mô tả phù hợp nhất về công nghệ số?",
+"options": [
+"Chỉ bao gồm máy tính và điện thoại thông minh",
+"Chỉ là các phần mềm sử dụng trên Internet",
+"Là hệ sinh thái gồm công cụ, hệ thống, thiết bị và tài nguyên điện tử tạo, lưu trữ, xử lý hoặc truyền dữ liệu số",
+"Chỉ bao gồm các mạng xã hội và dịch vụ lưu trữ đám mây"
+],
+"answer": 2,
+"explanation": "Công nghệ số có phạm vi rộng, bao gồm thiết bị điện tử, hệ thống và nền tảng, cùng tài nguyên và nội dung số."
+},
+{
+"id": 5,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Trong giáo dục đại học, hệ thống LMS chủ yếu được sử dụng để làm gì?",
+"options": [
+"Chỉ dùng để tổ chức họp trực tuyến",
+"Cung cấp tài liệu, giao bài, tổ chức kiểm tra và quản lý điểm số",
+"Chỉ dùng để lưu trữ ảnh cá nhân của sinh viên",
+"Thay thế hoàn toàn hệ điều hành của máy tính"
+],
+"answer": 1,
+"explanation": "LMS là hệ thống quản lý học tập, hỗ trợ cung cấp tài liệu, giao bài tập, tổ chức thi và quản lý điểm số một cách có hệ thống."
+},
+{
+"id": 6,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Mối quan hệ giữa phần cứng và phần mềm trong hệ thống máy tính được mô tả đúng là gì?",
+"options": [
+"Phần cứng ra lệnh, phần mềm thực thi",
+"Phần mềm ra lệnh, phần cứng thực thi",
+"Hai thành phần hoạt động hoàn toàn độc lập",
+"Phần mềm chỉ dùng để lưu trữ, phần cứng chỉ dùng để xử lý"
+],
+"answer": 1,
+"explanation": "Phần mềm chứa chương trình và lệnh hướng dẫn, còn phần cứng thực hiện các tác vụ theo những chỉ dẫn đó."
+},
+{
+"id": 7,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Chức năng cốt lõi của CPU là gì?",
+"options": [
+"Lưu trữ dữ liệu lâu dài",
+"Hiển thị thông tin cho người dùng",
+"Thực hiện lệnh, phép tính số học và logic, đồng thời điều khiển hoạt động xử lý dữ liệu",
+"Cung cấp kết nối không dây cho máy tính"
+],
+"answer": 2,
+"explanation": "CPU được ví như bộ não của máy tính, chịu trách nhiệm thực hiện lệnh, tính toán và điều khiển các hoạt động xử lý dữ liệu."
+},
+{
+"id": 8,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "NPU trong các CPU hiện đại có vai trò chính nào?",
+"options": [
+"Chuyên xử lý các tác vụ AI với hiệu quả năng lượng cao",
+"Thay thế hoàn toàn RAM trong máy tính",
+"Chuyên lưu trữ hệ điều hành",
+"Chuyên điều khiển màn hình và máy in"
+],
+"answer": 0,
+"explanation": "NPU là bộ xử lý chuyên dụng cho các tác vụ AI, giúp tăng tốc ứng dụng AI và tiết kiệm năng lượng so với chỉ sử dụng CPU hoặc GPU."
+},
+{
+"id": 9,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Đặc điểm nào đúng với RAM?",
+"options": [
+"Lưu dữ liệu lâu dài và không mất dữ liệu khi tắt máy",
+"Là bộ nhớ làm việc tạm thời và dữ liệu thường mất khi tắt nguồn",
+"Chỉ chứa firmware do nhà sản xuất cài đặt",
+"Không thể được CPU truy cập trực tiếp"
+],
+"answer": 1,
+"explanation": "RAM là không gian làm việc tạm thời chứa dữ liệu của hệ điều hành và ứng dụng đang chạy; dữ liệu trong RAM bị mất khi tắt nguồn."
+},
+{
+"id": 10,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Đặc điểm nào phù hợp với ROM theo bài giảng?",
+"options": [
+"Lưu dữ liệu tạm thời của các ứng dụng đang chạy",
+"Chứa chương trình khởi động và firmware thiết yếu của hệ thống",
+"Có tốc độ đọc ghi cao hơn SSD NVMe",
+"Dữ liệu luôn bị mất khi tắt máy"
+],
+"answer": 1,
+"explanation": "ROM chứa các chương trình khởi động và firmware thiết yếu do nhà sản xuất cài đặt, đồng thời dữ liệu không bị mất khi tắt nguồn."
+},
+{
+"id": 11,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Ưu điểm nổi bật của SSD so với HDD là gì?",
+"options": [
+"SSD sử dụng đĩa từ quay nên bền hơn",
+"SSD có bộ phận chuyển động nhiều hơn HDD",
+"SSD sử dụng chip nhớ flash, không có bộ phận chuyển động và có tốc độ đọc/ghi nhanh hơn",
+"SSD luôn có dung lượng lớn hơn HDD với cùng mức giá"
+],
+"answer": 2,
+"explanation": "SSD dùng chip nhớ flash và không có bộ phận chuyển động, nhờ đó tốc độ đọc/ghi nhanh hơn đáng kể so với HDD."
+},
+{
+"id": 12,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Chuẩn NVMe trong hệ thống lưu trữ được mô tả như thế nào?",
+"options": [
+"Là giao thức sử dụng giao tiếp PCIe để đạt hiệu năng cao",
+"Là loại RAM thay thế DDR5",
+"Là chuẩn kết nối dành riêng cho bàn phím",
+"Là công nghệ đĩa từ quay dùng trong HDD"
+],
+"answer": 0,
+"explanation": "NVMe sử dụng giao tiếp PCIe và mang lại tốc độ vượt trội so với chuẩn SATA cũ, đặc biệt trong các hệ thống SSD hiệu năng cao."
+},
+{
+"id": 13,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Thiết bị nào sau đây thuộc nhóm thiết bị đầu vào?",
+"options": [
+"Màn hình",
+"Loa",
+"Máy in",
+"Microphone"
+],
+"answer": 3,
+"explanation": "Microphone thu âm thanh từ người dùng và đưa dữ liệu vào máy tính nên thuộc nhóm thiết bị đầu vào."
+},
+{
+"id": 14,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Vai trò chính của bo mạch chủ (Mainboard/Motherboard) là gì?",
+"options": [
+"Lưu trữ toàn bộ dữ liệu cá nhân",
+"Kết nối các thành phần phần cứng để chúng giao tiếp và hoạt động đồng bộ",
+"Chuyên xử lý các tác vụ AI",
+"Chỉ cung cấp nguồn điện cho màn hình"
+],
+"answer": 1,
+"explanation": "Mainboard là bảng mạch chính, đóng vai trò như xương sống kết nối CPU, RAM, ổ cứng và các thành phần phần cứng khác."
+},
+{
+"id": 15,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Phần mềm hệ thống có chức năng chủ yếu nào?",
+"options": [
+"Trực tiếp phục vụ các tác vụ cụ thể như chỉnh sửa ảnh và soạn thảo văn bản",
+"Quản lý và điều phối phần cứng, đồng thời tạo môi trường cho phần mềm khác hoạt động",
+"Chỉ dùng để truy cập mạng xã hội",
+"Chỉ dùng để tạo bài trình chiếu"
+],
+"answer": 1,
+"explanation": "Phần mềm hệ thống quản lý và điều phối hoạt động của phần cứng; hệ điều hành, driver và utility là các thành phần tiêu biểu."
+},
+{
+"id": 16,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Đâu là ví dụ đúng về phần mềm ứng dụng?",
+"options": [
+"Windows",
+"Driver thiết bị",
+"Microsoft Word",
+"Firmware khởi động"
+],
+"answer": 2,
+"explanation": "Microsoft Word là phần mềm ứng dụng được thiết kế để phục vụ trực tiếp nhu cầu soạn thảo văn bản của người dùng."
+},
+{
+"id": 17,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Nếu ưu tiên hiệu năng trên giá thành, khả năng nâng cấp và tản nhiệt, loại máy nào phù hợp nhất?",
+"options": [
+"Điện thoại thông minh",
+"Máy tính bảng",
+"Laptop",
+"Máy tính để bàn"
+],
+"answer": 3,
+"explanation": "Desktop có hiệu năng trên giá thành tốt, tản nhiệt tốt và dễ sửa chữa, thay thế hoặc nâng cấp linh kiện."
+},
+{
+"id": 18,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Đặc điểm nào là lợi thế nổi bật của laptop so với desktop?",
+"options": [
+"Khả năng nâng cấp linh kiện gần như không giới hạn",
+"Tính di động cao và có pin để sử dụng khi không có nguồn điện",
+"Hiệu năng trên giá thành luôn cao hơn desktop",
+"Tản nhiệt luôn tốt hơn desktop"
+],
+"answer": 1,
+"explanation": "Laptop tích hợp màn hình, bàn phím, touchpad và pin trong một thiết bị gọn nhẹ, vì vậy có tính di động cao."
+},
+{
+"id": 19,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Thiết bị nào phù hợp nhất cho việc đọc tài liệu, ghi chú bằng bút cảm ứng và tiêu thụ nội dung?",
+"options": [
+"Máy tính bảng",
+"Máy tính để bàn",
+"Máy chủ",
+"Máy in"
+],
+"answer": 0,
+"explanation": "Tablet có thiết kế mỏng nhẹ, màn hình cảm ứng, thời lượng pin tốt và phù hợp với đọc sách, ghi chú và trình chiếu cơ bản."
+},
+{
+"id": 20,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Điểm hạn chế đáng chú ý của smartphone khi thực hiện công việc nặng là gì?",
+"options": [
+"Không thể kết nối Internet",
+"Không thể cài đặt ứng dụng",
+"Màn hình nhỏ và hiệu năng không thể so sánh với máy tính cho các tác vụ nặng",
+"Không thể sử dụng cảm ứng"
+],
+"answer": 2,
+"explanation": "Smartphone rất tiện dụng nhưng màn hình nhỏ và hiệu năng hạn chế hơn máy tính khi xử lý các tác vụ nặng."
+},
+{
+"id": 21,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Chức năng cốt lõi của hệ điều hành là gì?",
+"options": [
+"Là trung gian giữa người dùng và phần cứng, đồng thời quản lý tài nguyên hệ thống",
+"Chỉ là một phần mềm để duyệt web",
+"Chỉ dùng để lưu trữ tài liệu",
+"Thay thế hoàn toàn CPU trong việc xử lý lệnh"
+],
+"answer": 0,
+"explanation": "Hệ điều hành là phần mềm hệ thống làm trung gian giữa người dùng và phần cứng, đồng thời quản lý CPU, RAM, lưu trữ, thiết bị ngoại vi và tiến trình."
+},
+{
+"id": 22,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Hệ điều hành nào trong bài giảng được mô tả là mã nguồn mở, miễn phí và có khả năng tùy biến rất cao?",
+"options": [
+"Windows",
+"macOS",
+"Linux",
+"iOS"
+],
+"answer": 2,
+"explanation": "Linux là họ hệ điều hành mã nguồn mở và miễn phí, nổi bật với tính linh hoạt, bảo mật và khả năng tùy biến cao."
+},
+{
+"id": 23,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Đặc điểm nào phân biệt GUI với CLI?",
+"options": [
+"GUI chủ yếu dùng các yếu tố đồ họa trực quan, còn CLI tương tác bằng cách nhập lệnh văn bản",
+"GUI chỉ có trên Windows, còn CLI chỉ có trên Linux",
+"GUI luôn nhanh hơn CLI trong mọi tác vụ",
+"CLI không thể thực hiện tự động hóa"
+],
+"answer": 0,
+"explanation": "GUI sử dụng cửa sổ, biểu tượng và các thành phần đồ họa; CLI yêu cầu người dùng nhập lệnh văn bản và đặc biệt hữu ích cho tự động hóa, quản trị và lập trình."
+},
+{
+"id": 24,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Phần mở rộng của tệp tin có vai trò chính nào?",
+"options": [
+"Xác định dung lượng của tệp",
+"Giúp hệ điều hành và người dùng nhận biết loại tệp",
+"Xác định vị trí vật lý của tệp trên RAM",
+"Tự động mã hóa nội dung tệp"
+],
+"answer": 1,
+"explanation": "Phần mở rộng như .docx hoặc .jpg giúp nhận biết loại dữ liệu mà tệp chứa và hỗ trợ hệ điều hành xác định ứng dụng phù hợp."
+},
+{
+"id": 25,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Đường dẫn (Path) trong hệ thống tệp dùng để làm gì?",
+"options": [
+"Xác định địa chỉ và vị trí của một tệp hoặc thư mục trong cấu trúc cây",
+"Đo tốc độ xử lý của CPU",
+"Xác định dung lượng RAM còn trống",
+"Xác định tốc độ kết nối Internet"
+],
+"answer": 0,
+"explanation": "Path là địa chỉ đầy đủ chỉ vị trí của tệp hoặc thư mục trong cấu trúc cây của hệ thống tệp."
+},
+{
+"id": 26,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Khi tải phần mềm từ Internet, nguồn nào được bài giảng đánh giá là an toàn và đáng tin cậy nhất?",
+"options": [
+"Trang web chính thức của nhà phát triển",
+"Liên kết quảng cáo bất kỳ",
+"Trang web không rõ nguồn gốc",
+"Tệp đính kèm từ email lạ"
+],
+"answer": 0,
+"explanation": "Trang web chính thức của nhà phát triển được xem là nguồn cài đặt an toàn và đáng tin cậy nhất; cần tránh các nguồn không rõ ràng."
+},
+{
+"id": 27,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Trên Windows, tệp cài đặt phần mềm thường có phần mở rộng nào?",
+"options": [
+".dmg hoặc .app",
+".exe hoặc .msi",
+".apk hoặc .ipa",
+".docx hoặc .xlsx"
+],
+"answer": 1,
+"explanation": "Theo bài giảng, trên Windows tệp cài đặt thường có đuôi .exe hoặc .msi; .dmg thường được dùng trên macOS."
+},
+{
+"id": 28,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Tại sao việc cập nhật ứng dụng thường xuyên lại quan trọng?",
+"options": [
+"Chỉ để thay đổi biểu tượng ứng dụng",
+"Chỉ để tăng dung lượng ổ cứng",
+"Để có tính năng mới và vá các lỗ hổng bảo mật đã phát hiện",
+"Để xóa toàn bộ dữ liệu người dùng"
+],
+"answer": 2,
+"explanation": "Bản cập nhật không chỉ bổ sung tính năng mà còn thường sửa lỗi và vá các lỗ hổng bảo mật."
+},
+{
+"id": 29,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Mạng LAN được hiểu là loại mạng nào?",
+"options": [
+"Mạng kết nối các thiết bị trong phạm vi địa lý hẹp",
+"Mạng kết nối toàn bộ các quốc gia trên thế giới",
+"Mạng chỉ sử dụng kết nối Bluetooth",
+"Mạng chỉ dùng cho điện thoại thông minh"
+],
+"answer": 0,
+"explanation": "LAN kết nối các thiết bị trong phạm vi địa lý hẹp như nhà ở, văn phòng hoặc một tòa nhà trong trường học."
+},
+{
+"id": 30,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Mối quan hệ giữa LAN và WAN được mô tả đúng như thế nào?",
+"options": [
+"LAN luôn có phạm vi lớn hơn WAN",
+"WAN có thể kết nối nhiều mạng LAN trên phạm vi địa lý rộng",
+"LAN và WAN chỉ khác nhau về tốc độ",
+"WAN chỉ sử dụng kết nối không dây"
+],
+"answer": 1,
+"explanation": "WAN kết nối các thiết bị trên phạm vi rộng và thường kết nối nhiều mạng LAN lại với nhau; Internet là WAN lớn nhất thế giới."
+},
+{
+"id": 31,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Ưu điểm nổi bật của kết nối Ethernet có dây so với Wi-Fi là gì?",
+"options": [
+"Linh hoạt hơn vì không cần dây",
+"Ít bị giới hạn bởi khoảng cách vật lý",
+"Thường nhanh, ổn định, độ trễ thấp và ít bị nhiễu hơn",
+"Không cần bất kỳ thiết bị mạng nào"
+],
+"answer": 2,
+"explanation": "Kết nối có dây thường có tốc độ và độ ổn định cao hơn, độ trễ thấp và ít bị ảnh hưởng bởi nhiễu sóng."
+},
+{
+"id": 32,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Công nghệ nào sử dụng sóng vô tuyến theo các chuẩn IEEE 802.11 để kết nối thiết bị vào LAN và Internet?",
+"options": [
+"NFC",
+"Bluetooth",
+"Wi-Fi",
+"Thunderbolt"
+],
+"answer": 2,
+"explanation": "Wi-Fi sử dụng sóng vô tuyến theo các chuẩn IEEE 802.11 và thường được dùng để kết nối thiết bị vào mạng LAN và Internet."
+},
+{
+"id": 33,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Công nghệ nào có phạm vi hoạt động khoảng 10 mét và tiêu thụ ít năng lượng, thường dùng để kết nối tai nghe và chuột không dây?",
+"options": [
+"Bluetooth",
+"NFC",
+"Ethernet",
+"Wi-Fi 7"
+],
+"answer": 0,
+"explanation": "Bluetooth là công nghệ kết nối không dây tầm ngắn khoảng 10 mét, có ưu điểm tiêu thụ ít năng lượng và thường dùng cho tai nghe, chuột, bàn phím."
+},
+{
+"id": 34,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Đặc điểm nào đúng nhất về NFC?",
+"options": [
+"Hoạt động trong phạm vi hàng trăm mét",
+"Là kết nối không dây tầm cực ngắn, thường chỉ vài centimet",
+"Chỉ dùng để truyền video độ phân giải cao",
+"Luôn yêu cầu cáp Ethernet"
+],
+"answer": 1,
+"explanation": "NFC là công nghệ giao tiếp trường gần, hoạt động ở khoảng cách rất ngắn, thường chỉ vài centimet và được dùng cho thanh toán không chạm, ghép nối nhanh và xác thực."
+},
+{
+"id": 35,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Điểm nào cần đặc biệt lưu ý khi nói về cổng USB-C?",
+"options": [
+"Mọi cổng USB-C đều có tốc độ và chức năng giống hệt nhau",
+"USB-C chỉ dùng để sạc và không truyền dữ liệu",
+"USB-C chỉ là kiểu dáng cổng; khả năng thực tế phụ thuộc vào giao thức được hỗ trợ",
+"USB-C luôn đồng nghĩa với Thunderbolt 5"
+],
+"answer": 2,
+"explanation": "USB-C mô tả hình dạng đầu nối chứ không xác định hoàn toàn hiệu năng. Một cổng USB-C có thể hỗ trợ USB 3.2, USB4 hoặc Thunderbolt với khả năng khác nhau."
+},
+{
+"id": 36,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Thiết bị nào đặc biệt phù hợp để số hóa tài liệu giấy, sách hoặc ghi chú viết tay thành tệp PDF hoặc hình ảnh?",
+"options": [
+"Webcam",
+"Scanner",
+"Monitor",
+"Printer"
+],
+"answer": 1,
+"explanation": "Scanner có chức năng số hóa tài liệu giấy, trang sách hoặc ghi chú viết tay thành các tệp PDF hoặc hình ảnh trên máy tính."
+},
+{
+"id": 37,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Phần mềm nào phù hợp nhất để xử lý số liệu, thực hiện tính toán và lập biểu đồ?",
+"options": [
+"Microsoft Word hoặc Google Docs",
+"Microsoft Excel hoặc Google Sheets",
+"Microsoft PowerPoint hoặc Google Slides",
+"Google Chrome hoặc Mozilla Firefox"
+],
+"answer": 1,
+"explanation": "Excel và Google Sheets là các công cụ bảng tính, phù hợp để xử lý số liệu, tính toán, phân tích dữ liệu và trực quan hóa bằng biểu đồ."
+},
+{
+"id": 38,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Lợi ích quan trọng nhất của phần mềm quản lý tài liệu tham khảo như Mendeley và Zotero là gì?",
+"options": [
+"Tự động tăng tốc CPU",
+"Quản lý tài liệu tham khảo và hỗ trợ tạo trích dẫn, danh mục tài liệu theo chuẩn",
+"Thay thế hoàn toàn phần mềm trình chiếu",
+"Chỉ dùng để lưu trữ ảnh cá nhân"
+],
+"answer": 1,
+"explanation": "Các công cụ như Mendeley và Zotero giúp thu thập, tổ chức tài liệu tham khảo, chèn trích dẫn và tạo danh mục tài liệu theo các chuẩn như APA hoặc Harvard."
+},
+{
+"id": 39,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Công cụ nào phù hợp nhất để quản lý thời gian, lịch học, lịch thi và theo dõi tiến độ dự án?",
+"options": [
+"Google Calendar, Trello hoặc Asana",
+"Photoshop, Canva hoặc Paint",
+"Chrome, Firefox hoặc Safari",
+"Word, Excel hoặc PowerPoint"
+],
+"answer": 0,
+"explanation": "Google Calendar, Trello và Asana thuộc nhóm công cụ lập kế hoạch, hỗ trợ quản lý thời gian, lịch học, lịch thi và tiến độ công việc."
+},
+{
+"id": 40,
+"chapter": 1,
+"chapterName": "Chương 1: Máy tính và các thiết bị ngoại vi",
+"question": "Trong học tập trực tuyến, LMS và phần mềm hội nghị truyền hình có vai trò khác nhau như thế nào?",
+"options": [
+"LMS chủ yếu là lớp học ảo để quản lý tài liệu, bài tập và điểm; phần mềm hội nghị truyền hình phục vụ tương tác trực tiếp qua video",
+"LMS chỉ dùng để gọi video; phần mềm hội nghị chỉ dùng để lưu điểm",
+"Cả hai đều chỉ có chức năng lưu trữ tài liệu",
+"LMS thay thế hệ điều hành, còn phần mềm hội nghị thay thế trình duyệt"
+],
+"answer": 0,
+"explanation": "LMS như VNU-LMS, Moodle hoặc Canvas quản lý tài liệu, bài tập, kiểm tra và điểm số; Zoom, Google Meet và Teams hỗ trợ các buổi học đồng bộ với tương tác trực tiếp."
+}
 ]
