@@ -558,5 +558,566 @@
 ],
 "answer": 0,
 "explanation": "LMS như VNU-LMS, Moodle hoặc Canvas quản lý tài liệu, bài tập, kiểm tra và điểm số; Zoom, Google Meet và Teams hỗ trợ các buổi học đồng bộ với tương tác trực tiếp."
+},
+{
+"id": 1,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Theo bài giảng, dữ liệu (Data) được hiểu là gì?",
+"options": [
+"Các sự kiện, số liệu, ký hiệu, hình ảnh, âm thanh ở dạng thô, chưa được xử lý và chưa có ngữ cảnh cụ thể",
+"Dữ liệu đã được xử lý và đặt trong một ngữ cảnh cụ thể",
+"Sự hiểu biết có được từ việc phân tích và áp dụng thông tin",
+"Những quyết định được đưa ra dựa trên kinh nghiệm"
+],
+"answer": 0,
+"explanation": "Dữ liệu là các sự kiện, số liệu, ký hiệu, hình ảnh hoặc âm thanh ở dạng thô, chưa được xử lý và chưa có ngữ cảnh cụ thể. "
+},
+{
+"id": 2,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Điểm khác biệt quan trọng nhất giữa thông tin và dữ liệu là gì?",
+"options": [
+"Thông tin luôn tồn tại dưới dạng số, còn dữ liệu luôn tồn tại dưới dạng chữ",
+"Thông tin là dữ liệu đã được xử lý, tổ chức và đặt trong ngữ cảnh để có ý nghĩa",
+"Thông tin chỉ có thể được tạo ra bởi con người",
+"Thông tin không thể được lưu trữ dưới dạng tệp"
+],
+"answer": 1,
+"explanation": "Thông tin là dữ liệu đã được xử lý, tổ chức, cấu trúc và đặt trong một ngữ cảnh cụ thể để trở nên có ý nghĩa. "
+},
+{
+"id": 3,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Tri thức (Knowledge) chủ yếu giúp con người trả lời nhóm câu hỏi nào?",
+"options": [
+"Cái gì? Bao nhiêu?",
+"Ai? Ở đâu? Khi nào?",
+"Tại sao? Như thế nào? Nên làm gì?",
+"Dữ liệu được lưu ở đâu?"
+],
+"answer": 2,
+"explanation": "Tri thức được hình thành từ việc phân tích, tổng hợp, đánh giá và áp dụng thông tin, giúp trả lời tại sao, như thế nào và nên làm gì. "
+},
+{
+"id": 4,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Trình tự chuyển đổi trong mô hình DIKW được trình bày trong bài giảng là gì?",
+"options": [
+"Information → Data → Knowledge → Wisdom",
+"Data → Information → Knowledge → Wisdom",
+"Data → Knowledge → Information → Wisdom",
+"Knowledge → Data → Information → Wisdom"
+],
+"answer": 1,
+"explanation": "Mô hình DIKW mô tả quá trình Data → Information → Knowledge → Wisdom. "
+},
+{
+"id": 5,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Ví dụ nào sau đây là dữ liệu thô theo cách phân loại của bài giảng?",
+"options": [
+"Điểm thi 4 môn của sinh viên A lần lượt là 8, 7, 9, 5 và điểm trung bình là 7.25",
+"Phương pháp học tập mới giúp cải thiện kết quả thi",
+"Danh sách các con số 8, 7, 9, 5",
+"Sinh viên A nên thay đổi phương pháp học để cải thiện kết quả"
+],
+"answer": 2,
+"explanation": "Danh sách các con số 8, 7, 9, 5 là dữ liệu rời rạc, chưa được đặt trong ngữ cảnh hay xử lý thành thông tin. "
+},
+{
+"id": 6,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Tệp JSON thuộc loại dữ liệu nào khi phân loại theo cấu trúc?",
+"options": [
+"Có cấu trúc",
+"Bán cấu trúc",
+"Phi cấu trúc",
+"Không có cấu trúc dữ liệu"
+],
+"answer": 1,
+"explanation": "JSON và XML được xếp vào nhóm dữ liệu bán cấu trúc vì có cấu trúc nhưng không cố định. "
+},
+{
+"id": 7,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Đặc điểm nào sau đây phù hợp nhất với dữ liệu phi cấu trúc?",
+"options": [
+"Luôn được tổ chức theo hàng và cột",
+"Chỉ sử dụng các thẻ XML",
+"Không có cấu trúc rõ ràng, ví dụ như hình ảnh, video và email",
+"Chỉ tồn tại trong cơ sở dữ liệu quan hệ"
+],
+"answer": 2,
+"explanation": "Dữ liệu phi cấu trúc không có cấu trúc rõ ràng, bao gồm văn bản Word, email, hình ảnh, video và audio. "
+},
+{
+"id": 8,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Định dạng nào được mô tả là giữ nguyên định dạng trên mọi thiết bị, phù hợp để chia sẻ và in ấn?",
+"options": [
+".txt",
+".csv",
+".pdf",
+".xlsx"
+],
+"answer": 2,
+"explanation": "PDF giữ nguyên định dạng trên các thiết bị, lý tưởng cho chia sẻ và in ấn, dù khó chỉnh sửa trực tiếp. "
+},
+{
+"id": 9,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Định dạng nào phù hợp nhất với việc trao đổi dữ liệu giữa các phần mềm phân tích dữ liệu?",
+"options": [
+".csv",
+".pptx",
+".png",
+".mp3"
+],
+"answer": 0,
+"explanation": "CSV là dữ liệu được phân tách bằng dấu phẩy, dễ dàng trao đổi giữa các phần mềm phân tích dữ liệu. "
+},
+{
+"id": 10,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Đặc điểm nào sau đây KHÔNG thuộc mô hình 5Vs của Big Data?",
+"options": [
+"Volume",
+"Velocity",
+"Visualization",
+"Veracity"
+],
+"answer": 2,
+"explanation": "5Vs gồm Volume, Velocity, Variety, Veracity và Value. Visualization không thuộc mô hình 5Vs được trình bày. "
+},
+{
+"id": 11,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Trong Big Data, 'Velocity' đề cập đến yếu tố nào?",
+"options": [
+"Khối lượng dữ liệu",
+"Tốc độ tạo ra và xử lý dữ liệu",
+"Độ tin cậy của dữ liệu",
+"Giá trị kinh tế của dữ liệu"
+],
+"answer": 1,
+"explanation": "Velocity là tốc độ dữ liệu được tạo ra và cần được xử lý, có thể gần như theo thời gian thực. "
+},
+{
+"id": 12,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Trong 5Vs, 'Value' được xem là yếu tố quan trọng nhất vì lý do nào?",
+"options": [
+"Nó quyết định dữ liệu có bao nhiêu terabyte",
+"Nó cho biết dữ liệu có bao nhiêu định dạng",
+"Nó thể hiện khả năng khai thác dữ liệu để tìm insight, quy luật và xu hướng hỗ trợ quyết định",
+"Nó đảm bảo mọi dữ liệu đều chính xác tuyệt đối"
+],
+"answer": 2,
+"explanation": "Giá trị thực sự của Big Data nằm ở khả năng khai thác và phân tích để tìm hiểu sâu, phát hiện quy luật, xu hướng và hỗ trợ ra quyết định. "
+},
+{
+"id": 13,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Ứng dụng Big Data nào được bài giảng đề cập trong lĩnh vực giáo dục?",
+"options": [
+"Tự động thay thế toàn bộ giảng viên",
+"Phân tích dữ liệu học tập để cá nhân hóa lộ trình học và phát hiện sớm sinh viên có nguy cơ học kém",
+"Chỉ dùng để lưu trữ giáo trình",
+"Chỉ dùng để quản lý điểm danh bằng giấy"
+],
+"answer": 1,
+"explanation": "Trong giáo dục, Big Data có thể được dùng để phân tích dữ liệu học tập, cá nhân hóa lộ trình và phát hiện sớm sinh viên có nguy cơ học kém. "
+},
+{
+"id": 14,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Một cấu trúc thư mục được tổ chức tốt cho sinh viên nên có đặc điểm nào?",
+"options": [
+"Không cần phân cấp để tránh phức tạp",
+"Phân cấp rõ ràng, logic và nhất quán",
+"Mỗi tài liệu phải nằm trong một thư mục riêng",
+"Càng nhiều cấp thư mục càng tốt"
+],
+"answer": 1,
+"explanation": "Bài giảng khuyến nghị tạo cấu trúc thư mục phân cấp, rõ ràng và nhất quán; đồng thời tránh tạo quá nhiều cấp. "
+},
+{
+"id": 15,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Theo bài giảng, nên tránh tạo cấu trúc thư mục sâu hơn khoảng bao nhiêu cấp?",
+"options": [
+"1 cấp",
+"2 cấp",
+"4-5 cấp",
+"10-15 cấp"
+],
+"answer": 2,
+"explanation": "Bài giảng khuyến nghị tránh tạo quá nhiều cấp thư mục, đặc biệt sâu hơn 4-5 cấp, vì sẽ khó điều hướng. "
+},
+{
+"id": 16,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Trong quy ước đặt tên tệp được đề xuất, định dạng ngày YYYY-MM-DD có lợi ích gì?",
+"options": [
+"Giúp tệp tự động sắp xếp theo thứ tự thời gian",
+"Làm giảm kích thước tệp",
+"Tự động mã hóa nội dung tệp",
+"Ngăn hoàn toàn việc tệp bị xóa"
+],
+"answer": 0,
+"explanation": "Định dạng YYYY-MM-DD giúp các tệp được sắp xếp theo thứ tự thời gian một cách tự nhiên. "
+},
+{
+"id": 17,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Công cụ nào được bài giảng mô tả là không gian làm việc 'tất cả trong một', hỗ trợ ghi chú, quản lý công việc và xây dựng cơ sở dữ liệu cá nhân?",
+"options": [
+"OneNote",
+"Notion",
+"Zotero",
+"Google Scholar"
+],
+"answer": 1,
+"explanation": "Notion là không gian làm việc linh hoạt, có thể dùng để ghi chú, quản lý công việc, xây dựng cơ sở dữ liệu cá nhân và cộng tác nhóm. "
+},
+{
+"id": 18,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Lợi ích nào sau đây gắn trực tiếp với Zotero và Mendeley?",
+"options": [
+"Tự động tạo video bài giảng",
+"Tự động quản lý tài liệu tham khảo, chèn trích dẫn và tạo danh mục tài liệu tham khảo",
+"Tăng dung lượng ổ cứng máy tính",
+"Tìm kiếm mọi nội dung trên mạng xã hội"
+],
+"answer": 1,
+"explanation": "Zotero và Mendeley hỗ trợ thu thập, tổ chức tài liệu tham khảo, tự động chèn trích dẫn và tạo danh mục tài liệu theo nhiều chuẩn. "
+},
+{
+"id": 19,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Theo bài giảng, lưu trữ đám mây (Cloud Storage) là gì?",
+"options": [
+"Lưu dữ liệu trực tiếp vào RAM của máy tính",
+"Lưu dữ liệu trên các máy chủ từ xa thông qua Internet",
+"Chỉ lưu dữ liệu trên USB",
+"Một phương pháp nén dữ liệu thành tệp ZIP"
+],
+"answer": 1,
+"explanation": "Cloud Storage lưu trữ dữ liệu trên các máy chủ từ xa thông qua Internet, cho phép truy cập, đồng bộ và chia sẻ dữ liệu. "
+},
+{
+"id": 20,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Dịch vụ nào được bài giảng mô tả có khả năng cộng tác theo thời gian thực rất mạnh và cung cấp 15GB miễn phí?",
+"options": [
+"Dropbox",
+"OneDrive",
+"Google Drive",
+"Evernote"
+],
+"answer": 2,
+"explanation": "Google Drive cung cấp 15GB miễn phí, tích hợp với Google Workspace và nổi bật về khả năng cộng tác theo thời gian thực. "
+},
+{
+"id": 21,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Quy tắc 3-2-1 trong sao lưu dữ liệu yêu cầu điều gì?",
+"options": [
+"3 tài khoản, 2 mật khẩu và 1 thiết bị",
+"3 bản sao, 2 loại phương tiện lưu trữ và 1 bản sao ở địa điểm khác",
+"3 lần sao lưu mỗi ngày, 2 ổ cứng và 1 USB",
+"3 tệp gốc, 2 tệp nén và 1 tệp PDF"
+],
+"answer": 1,
+"explanation": "Quy tắc 3-2-1 gồm ít nhất 3 bản sao, lưu trên ít nhất 2 loại phương tiện khác nhau và giữ ít nhất 1 bản sao ở địa điểm khác. "
+},
+{
+"id": 22,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Tính năng 'Version History' của dịch vụ lưu trữ đám mây đặc biệt hữu ích trong trường hợp nào?",
+"options": [
+"Khi cần tăng tốc độ Internet",
+"Khi muốn quay lại phiên bản cũ của tệp sau khi xóa nhầm hoặc lưu đè nội dung",
+"Khi cần chuyển tệp thành hình ảnh",
+"Khi muốn thay đổi mật khẩu Wi-Fi"
+],
+"answer": 1,
+"explanation": "Lịch sử phiên bản cho phép khôi phục các phiên bản cũ hơn của tệp, đặc biệt hữu ích khi vô tình xóa hoặc lưu đè nội dung quan trọng. "
+},
+{
+"id": 23,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Biện pháp nào sau đây phù hợp nhất để tăng cường bảo vệ tài khoản theo bài giảng?",
+"options": [
+"Dùng cùng một mật khẩu cho tất cả tài khoản",
+"Dùng mật khẩu ngắn để dễ nhớ",
+"Bật xác thực hai yếu tố (2FA)",
+"Tắt cập nhật phần mềm để tránh lỗi"
+],
+"answer": 2,
+"explanation": "2FA bổ sung một lớp xác thực ngoài mật khẩu và được bài giảng nhấn mạnh là lớp bảo vệ quan trọng cho các tài khoản. "
+},
+{
+"id": 24,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Khi sử dụng Wi-Fi công cộng không được mã hóa, hành động nào nên tránh?",
+"options": [
+"Đọc một tài liệu học tập đã tải về",
+"Thực hiện giao dịch ngân hàng hoặc mua sắm trực tuyến",
+"Xem một tệp PDF ngoại tuyến",
+"Gõ ghi chú cá nhân không chứa thông tin nhạy cảm"
+],
+"answer": 1,
+"explanation": "Bài giảng khuyến cáo tránh thực hiện các giao dịch nhạy cảm như ngân hàng và mua sắm khi dùng Wi-Fi công cộng không được mã hóa. "
+},
+{
+"id": 25,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Bước đầu tiên trong một chiến lược tìm kiếm thông tin hiệu quả là gì?",
+"options": [
+"Mở càng nhiều kết quả tìm kiếm càng tốt",
+"Xác định rõ nhu cầu thông tin",
+"Chọn kết quả đầu tiên xuất hiện",
+"Chỉ sử dụng một từ khóa duy nhất"
+],
+"answer": 1,
+"explanation": "Trước khi tìm kiếm cần xác định rõ mình cần thông tin gì, tổng quan hay chi tiết, dữ liệu, khái niệm hay hướng dẫn thực hành. "
+},
+{
+"id": 26,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Toán tử Google nào dùng để tìm kiếm chính xác một cụm từ?",
+"options": [
+"site:",
+"OR",
+"\"...\"",
+"filetype:"
+],
+"answer": 2,
+"explanation": "Dấu ngoặc kép được dùng để tìm kiếm chính xác cụm từ, ví dụ \"trí tuệ nhân tạo tạo sinh\". "
+},
+{
+"id": 27,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Muốn tìm tài liệu PDF về biến đổi khí hậu bằng Google, cách sử dụng toán tử nào đúng?",
+"options": [
+"biến đổi khí hậu site:pdf",
+"biến đổi khí hậu filetype:pdf",
+"biến đổi khí hậu OR pdf",
+"biến đổi khí hậu -pdf"
+],
+"answer": 1,
+"explanation": "Toán tử filetype: dùng để giới hạn kết quả theo loại tệp; ví dụ biến đổi khí hậu filetype:pdf. "
+},
+{
+"id": 28,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Toán tử nào giúp giới hạn kết quả tìm kiếm trong một website hoặc tên miền cụ thể?",
+"options": [
+"site:",
+"related:",
+"AROUND(n)",
+"*",
+"OR"
+],
+"answer": 0,
+"explanation": "Toán tử site: dùng để tìm kiếm chỉ trong một trang web hoặc một tên miền cụ thể, chẳng hạn tuyển sinh site:vnu.edu.vn. "
+},
+{
+"id": 29,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Google Scholar tập trung chủ yếu vào loại tài liệu nào?",
+"options": [
+"Video giải trí và bài đăng mạng xã hội",
+"Tài liệu học thuật như bài báo khoa học, luận văn, sách và báo cáo hội nghị",
+"Chỉ các tệp hình ảnh",
+"Chỉ các bài viết quảng cáo"
+],
+"answer": 1,
+"explanation": "Google Scholar là công cụ tìm kiếm học thuật, tập trung vào bài báo khoa học, luận văn, sách và báo cáo hội nghị từ các nguồn học thuật. "
+},
+{
+"id": 30,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Trong Google Scholar, chỉ số 'Cited by' có thể được sử dụng để làm gì?",
+"options": [
+"Xác định dung lượng của bài báo",
+"Đánh giá mức độ ảnh hưởng của một bài báo thông qua số lần được trích dẫn",
+"Kiểm tra tác giả có phải sinh viên hay không",
+"Xác định bài báo có bao nhiêu hình ảnh"
+],
+"answer": 1,
+"explanation": "Google Scholar cho phép xem số lần một bài báo được trích dẫn thông qua 'Cited by', qua đó hỗ trợ đánh giá mức độ ảnh hưởng của bài báo. "
+},
+{
+"id": 31,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Công cụ AI nào trong bài giảng cho phép đặt câu hỏi nghiên cứu, tìm bài báo liên quan và tóm tắt các kết luận chính thành bảng so sánh?",
+"options": [
+"Elicit",
+"OneNote",
+"Dropbox",
+"Zotero"
+],
+"answer": 0,
+"explanation": "Elicit hỗ trợ đặt câu hỏi nghiên cứu, tìm các bài báo liên quan và tóm tắt kết luận chính thành bảng so sánh. "
+},
+{
+"id": 32,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Nguyên tắc quan trọng nhất khi sử dụng nội dung do AI tạo ra trong nghiên cứu là gì?",
+"options": [
+"Có thể sao chép nguyên văn nếu AI trả lời tự tin",
+"Không cần kiểm tra vì AI luôn sử dụng nguồn học thuật",
+"Phải kiểm tra, kiểm chứng và ghi nhận đúng cách; xem AI như trợ lý chứ không phải người làm thay",
+"Chỉ cần thay đổi tiêu đề trước khi sử dụng"
+],
+"answer": 2,
+"explanation": "Bài giảng yêu cầu luôn kiểm tra lại thông tin do AI cung cấp, không sao chép nguyên văn mà không chỉnh sửa và kiểm chứng, đồng thời coi AI là trợ lý. "
+},
+{
+"id": 33,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "CRAAP là viết tắt của nhóm tiêu chí nào?",
+"options": [
+"Currency, Relevance, Authority, Accuracy, Purpose",
+"Context, Reliability, Analysis, Authority, Privacy",
+"Currency, Reliability, Accuracy, Accessibility, Privacy",
+"Content, Relevance, Analysis, Accuracy, Permission"
+],
+"answer": 0,
+"explanation": "CRAAP gồm Currency (Tính cập nhật), Relevance (Sự liên quan), Authority (Tác giả/Nguồn gốc), Accuracy (Tính chính xác) và Purpose (Mục đích). "
+},
+{
+"id": 34,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Khi đánh giá tiêu chí Currency trong CRAAP, yếu tố nào cần được xem xét?",
+"options": [
+"Tác giả có bao nhiêu người theo dõi",
+"Thông tin được xuất bản hoặc cập nhật khi nào",
+"Website có bao nhiêu quảng cáo",
+"Bài viết có bao nhiêu hình ảnh"
+],
+"answer": 1,
+"explanation": "Currency đánh giá mức độ mới của thông tin, bao gồm thời điểm xuất bản và lần cập nhật gần nhất. "
+},
+{
+"id": 35,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Trong CRAAP, Authority chủ yếu nhằm đánh giá điều gì?",
+"options": [
+"Thông tin có phù hợp với câu hỏi nghiên cứu không",
+"Thông tin có mới hay không",
+"Tác giả và tổ chức đứng sau thông tin có đủ uy tín, chuyên môn hay không",
+"Mục đích thương mại của bài viết"
+],
+"answer": 2,
+"explanation": "Authority tập trung xác định ai là tác giả, nhà xuất bản hoặc tổ chức bảo trợ và họ có đủ chuyên môn, uy tín trong lĩnh vực hay không. "
+},
+{
+"id": 36,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Một bài viết đưa ra tuyên bố quan trọng nhưng không có số liệu, bằng chứng hoặc nguồn trích dẫn. Tiêu chí CRAAP nào bị ảnh hưởng rõ nhất?",
+"options": [
+"Currency",
+"Relevance",
+"Accuracy",
+"Purpose"
+],
+"answer": 2,
+"explanation": "Accuracy liên quan đến độ tin cậy và tính đúng đắn của nội dung; việc thiếu bằng chứng, số liệu và nguồn kiểm chứng là dấu hiệu cho thấy độ chính xác thấp. "
+},
+{
+"id": 37,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Trong nghiên cứu tình huống về bài viết '90% việc làm tại Việt Nam sẽ bị AI thay thế', yếu tố nào khiến tiêu chí Purpose bị đánh giá thấp?",
+"options": [
+"Bài viết được đăng vào năm 2025",
+"Bài viết trực tiếp đề cập đến thị trường việc làm Việt Nam",
+"Bài viết có quảng cáo khóa học, ngôn ngữ gây sốc và thiên về thuyết phục hơn cung cấp thông tin khách quan",
+"Bài viết sử dụng tên miền .vn"
+],
+"answer": 2,
+"explanation": "Bài viết có dấu hiệu quảng cáo khóa học, dùng ngôn ngữ gây sợ hãi và chỉ nhấn mạnh tác động tiêu cực, cho thấy mục đích thiên về quảng cáo và gây chú ý. "
+},
+{
+"id": 38,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Hành vi nào sau đây được xem là đạo văn theo bài giảng?",
+"options": [
+"Diễn giải ý tưởng của người khác bằng từ ngữ của mình và ghi rõ nguồn",
+"Sử dụng một ý tưởng của người khác nhưng ghi nhận tác giả",
+"Sao chép nguyên văn hoặc diễn giải ý tưởng của người khác mà không ghi nhận nguồn",
+"Tự viết ý tưởng của mình và không sử dụng tài liệu nào"
+],
+"answer": 2,
+"explanation": "Đạo văn bao gồm sao chép nguyên văn không trích dẫn và cả việc diễn giải ý tưởng của người khác bằng từ ngữ của mình nhưng không ghi nhận nguồn. "
+},
+{
+"id": 39,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Theo chuẩn Harvard, một trích dẫn đầy đủ trong bài viết gồm những thành phần nào?",
+"options": [
+"Chỉ có danh mục tài liệu tham khảo ở cuối bài",
+"Trích dẫn trong bài và danh mục tài liệu tham khảo ở cuối văn bản",
+"Chỉ có URL của nguồn",
+"Tên tác giả và tiêu đề tài liệu nhưng không cần năm xuất bản"
+],
+"answer": 1,
+"explanation": "Chuẩn Harvard yêu cầu hai thành phần: trích dẫn trong bài (in-text citation) và danh mục tài liệu tham khảo (reference list) ở cuối văn bản. "
+},
+{
+"id": 40,
+"chapter": 2,
+"chapterName": "Chương 2: Khai thác dữ liệu và thông tin",
+"question": "Theo chuẩn Harvard được trình bày trong bài giảng, danh mục tài liệu tham khảo ở cuối văn bản được sắp xếp như thế nào?",
+"options": [
+"Theo thứ tự tài liệu được đọc",
+"Theo độ dài của tài liệu",
+"Theo thứ tự ABC của họ tác giả",
+"Theo số lần tài liệu được trích dẫn"
+],
+"answer": 2,
+"explanation": "Danh mục tài liệu tham khảo theo Harvard liệt kê đầy đủ thông tin của các nguồn đã trích dẫn và được xếp theo thứ tự ABC của họ tác giả. "
 }
 ]
