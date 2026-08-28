@@ -1119,5 +1119,565 @@
 ],
 "answer": 2,
 "explanation": "Danh mục tài liệu tham khảo theo Harvard liệt kê đầy đủ thông tin của các nguồn đã trích dẫn và được xếp theo thứ tự ABC của họ tác giả. "
+},
+{
+"id": 1,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Năm 1950, Alan Turing đã đặt ra câu hỏi nền tảng nào liên quan đến Trí tuệ nhân tạo?",
+"options": [
+"Máy móc có thể suy nghĩ không?",
+"Máy móc có thể tự lập trình không?",
+"Máy móc có thể thay thế con người không?",
+"Máy móc có thể tự học mà không cần dữ liệu không?"
+],
+"answer": 0,
+"explanation": "Năm 1950, Alan Turing đặt câu hỏi 'Máy móc có thể suy nghĩ không?' và đề xuất Phép thử Turing để đánh giá hành vi thông minh của máy."
+},
+{
+"id": 2,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Thuật ngữ 'Trí tuệ nhân tạo' (Artificial Intelligence) chính thức được khai sinh vào năm nào?",
+"options": [
+"1950",
+"1956",
+"1966",
+"2017"
+],
+"answer": 1,
+"explanation": "Thuật ngữ Artificial Intelligence được John McCarthy sử dụng chính thức tại Hội nghị Dartmouth năm 1956, đánh dấu sự hình thành AI như một lĩnh vực nghiên cứu."
+},
+{
+"id": 3,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Đặc điểm nào mô tả đúng nhất về 'những mùa đông AI'?",
+"options": [
+"Các giai đoạn AI phát triển nhanh nhờ dữ liệu lớn",
+"Các giai đoạn AI bị cấm nghiên cứu trên toàn thế giới",
+"Những thời kỳ kỳ vọng giảm sút, đầu tư và sự quan tâm đối với AI suy giảm",
+"Những giai đoạn chỉ tập trung phát triển robot hình người"
+],
+"answer": 2,
+"explanation": "Lịch sử AI có những giai đoạn bùng nổ xen kẽ các thời kỳ trầm lắng, thường gọi là 'mùa đông AI', khi kỳ vọng, đầu tư và sự quan tâm dành cho AI suy giảm."
+},
+{
+"id": 4,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Mối quan hệ phân cấp đúng giữa AI, Machine Learning (ML) và Deep Learning (DL) là gì?",
+"options": [
+"AI nằm trong ML, ML nằm trong DL",
+"DL nằm trong AI nhưng không liên quan đến ML",
+"ML là một nhánh của AI và DL là một nhánh chuyên sâu của ML",
+"AI, ML và DL là ba lĩnh vực hoàn toàn độc lập"
+],
+"answer": 2,
+"explanation": "AI là lĩnh vực bao trùm. Machine Learning là một nhánh của AI, còn Deep Learning là một phương pháp/nhánh chuyên sâu của Machine Learning, chủ yếu dựa trên mạng nơ-ron nhiều lớp."
+},
+{
+"id": 5,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Đặc điểm nào phân biệt AI hẹp (Narrow AI) với AI tổng quát (AGI)?",
+"options": [
+"AI hẹp chỉ hoạt động khi không có dữ liệu",
+"AI hẹp được thiết kế cho một hoặc một vài nhiệm vụ cụ thể, còn AGI hướng tới khả năng trí tuệ tổng quát như con người",
+"AI hẹp luôn thông minh hơn AGI",
+"AGI đã được triển khai rộng rãi trong các thiết bị hiện nay"
+],
+"answer": 1,
+"explanation": "Narrow AI được thiết kế và huấn luyện cho nhiệm vụ cụ thể. AGI là khái niệm giả định về hệ thống có khả năng hiểu, học và giải quyết nhiều loại vấn đề ở mức tổng quát."
+},
+{
+"id": 6,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Machine Learning khác với cách lập trình truyền thống chủ yếu ở điểm nào?",
+"options": [
+"ML không sử dụng thuật toán",
+"ML cho phép máy học các mẫu và quy luật từ dữ liệu thay vì chỉ được lập trình tường minh bằng các quy tắc nếu-thì",
+"ML không cần dữ liệu để huấn luyện",
+"ML chỉ có thể xử lý dữ liệu dạng văn bản"
+],
+"answer": 1,
+"explanation": "Machine Learning cho phép thuật toán học các mẫu và quy luật từ dữ liệu, thay vì con người phải viết toàn bộ quy tắc xử lý một cách tường minh."
+},
+{
+"id": 7,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Điểm nổi bật của Deep Learning so với Machine Learning truyền thống là gì?",
+"options": [
+"Không cần dữ liệu huấn luyện",
+"Chủ yếu dựa trên mạng nơ-ron nhân tạo nhiều lớp để tự động học các biểu diễn phức tạp từ dữ liệu",
+"Chỉ dùng cho các bài toán tính toán số học đơn giản",
+"Không thể xử lý hình ảnh hoặc âm thanh"
+],
+"answer": 1,
+"explanation": "Deep Learning sử dụng các mạng nơ-ron nhiều lớp để học các đặc trưng và biểu diễn ngày càng phức tạp từ dữ liệu, đặc biệt hiệu quả với dữ liệu lớn và phức tạp."
+},
+{
+"id": 8,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Sự kiện nào được xem là bước ngoặt quan trọng mở đường cho sự phát triển của các mô hình ngôn ngữ lớn?",
+"options": [
+"Sự ra đời của ELIZA năm 1966",
+"Sự ra đời của kiến trúc Transformer năm 2017",
+"Sự ra đời của Phép thử Turing năm 1950",
+"Sự xuất hiện của hệ chuyên gia vào thập niên 1970"
+],
+"answer": 1,
+"explanation": "Kiến trúc Transformer ra đời năm 2017 đã mở đường cho sự phát triển mạnh mẽ của Large Language Models như GPT, LLaMA và Gemini."
+},
+{
+"id": 9,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Sự kiện nào đưa Generative AI đến với hàng trăm triệu người dùng và tạo ra một hiện tượng toàn cầu?",
+"options": [
+"Sự ra mắt ELIZA",
+"Hội nghị Dartmouth",
+"Sự ra mắt ChatGPT cuối năm 2022",
+"Sự xuất hiện của xe tự lái"
+],
+"answer": 2,
+"explanation": "ChatGPT được ra mắt vào cuối năm 2022 và nhanh chóng trở thành hiện tượng toàn cầu, góp phần đưa Generative AI đến với đông đảo người dùng."
+},
+{
+"id": 10,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Generative AI khác biệt với các hệ thống AI chỉ phân loại hoặc dự đoán ở khả năng nào?",
+"options": [
+"Có thể tạo ra nội dung mới dựa trên những gì mô hình đã học",
+"Không cần bất kỳ dữ liệu nào",
+"Chỉ có thể xử lý dữ liệu dạng số",
+"Luôn tạo ra kết quả chính xác tuyệt đối"
+],
+"answer": 0,
+"explanation": "Generative AI có khả năng tạo ra nội dung mới như văn bản, hình ảnh, âm thanh hoặc mã nguồn dựa trên các mẫu mà mô hình đã học được."
+},
+{
+"id": 11,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Mô hình ngôn ngữ lớn (LLM) về cơ bản tạo văn bản bằng cách nào?",
+"options": [
+"Tra cứu nguyên văn từng câu trong một cơ sở dữ liệu cố định",
+"Dự đoán token hoặc từ tiếp theo dựa trên ngữ cảnh trước đó",
+"Tạo câu trả lời bằng cách tung ngẫu nhiên các từ",
+"Luôn sao chép nguyên văn dữ liệu huấn luyện"
+],
+"answer": 1,
+"explanation": "LLM hoạt động dựa trên nguyên lý dự đoán token tiếp theo trong một chuỗi dựa trên ngữ cảnh, từ đó tạo thành câu và đoạn văn."
+},
+{
+"id": 12,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Trong quy trình xử lý prompt của LLM, Tokenization là bước nào?",
+"options": [
+"Chuyển token thành hình ảnh",
+"Chia prompt thành các đơn vị token để mô hình xử lý",
+"Đánh giá câu trả lời bởi con người",
+"Xóa các từ không quan trọng khỏi prompt"
+],
+"answer": 1,
+"explanation": "Tokenization là quá trình chia chuỗi đầu vào thành các token. Token có thể là một từ, một phần của từ hoặc dấu câu."
+},
+{
+"id": 13,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Embedding trong LLM có vai trò gì?",
+"options": [
+"Biến các token thành các biểu diễn số/vector để mô hình có thể xử lý",
+"Xóa hoàn toàn ngữ cảnh của câu",
+"Chuyển văn bản thành tệp PDF",
+"Kiểm tra chính tả của prompt"
+],
+"answer": 0,
+"explanation": "Máy tính xử lý các biểu diễn số. Embedding ánh xạ token thành các vector số có thể biểu diễn thông tin và mối quan hệ ngữ nghĩa."
+},
+{
+"id": 14,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Một hạn chế quan trọng của AI tạo sinh mà người dùng cần lưu ý là gì?",
+"options": [
+"AI luôn từ chối các câu hỏi khó",
+"AI có thể tạo ra thông tin sai nhưng trình bày rất thuyết phục, thường được gọi là 'ảo giác'",
+"AI chỉ tạo được câu trả lời dưới 10 từ",
+"AI không thể tạo nội dung bằng ngôn ngữ tự nhiên"
+],
+"answer": 1,
+"explanation": "AI tạo sinh có thể tạo ra thông tin không chính xác nhưng diễn đạt rất tự tin và mạch lạc. Hiện tượng này thường được gọi là hallucination hay 'ảo giác'."
+},
+{
+"id": 15,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Năng lực số trong kỷ nguyên AI được hiểu đầy đủ nhất là gì?",
+"options": [
+"Chỉ là khả năng sử dụng máy tính",
+"Chỉ là khả năng sử dụng mạng xã hội",
+"Tập hợp kiến thức, kỹ năng và thái độ để sống, học tập và làm việc tự tin, hiệu quả, có trách nhiệm trong môi trường số",
+"Khả năng sử dụng càng nhiều công cụ AI càng tốt"
+],
+"answer": 2,
+"explanation": "Năng lực số không chỉ là thao tác kỹ thuật mà bao gồm kiến thức, kỹ năng và thái độ cần thiết để sử dụng công nghệ một cách hiệu quả và có trách nhiệm."
+},
+{
+"id": 16,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "AI tác động đến năng lực số của người học theo hướng nào?",
+"options": [
+"AI chỉ làm giảm nhu cầu phát triển kỹ năng số",
+"AI vừa cung cấp công cụ hỗ trợ vừa tạo ra những yêu cầu năng lực mới",
+"AI khiến mọi kỹ năng số trở nên không cần thiết",
+"AI chỉ tác động đến kỹ năng lập trình"
+],
+"answer": 1,
+"explanation": "Mối quan hệ giữa AI và năng lực số là hai chiều: AI hỗ trợ phát triển năng lực số nhưng đồng thời đòi hỏi người học phải có thêm các năng lực như tư duy phản biện và trách nhiệm số."
+},
+{
+"id": 17,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Ứng dụng AI nào thể hiện rõ nhất khả năng cá nhân hóa việc học?",
+"options": [
+"Tự động xóa toàn bộ bài tập sai",
+"Phân tích điểm mạnh, điểm yếu của sinh viên và đề xuất lộ trình học tập phù hợp",
+"Chỉ cung cấp cùng một giáo trình cho mọi sinh viên",
+"Thay thế hoàn toàn mọi hoạt động tự học"
+],
+"answer": 1,
+"explanation": "AI có thể phân tích kết quả học tập để nhận diện điểm mạnh, điểm yếu và đề xuất nội dung hoặc lộ trình phù hợp với từng người học."
+},
+{
+"id": 18,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "AI tạo sinh làm thay đổi lĩnh vực sáng tạo nội dung số như thế nào?",
+"options": [
+"Chỉ những người có chuyên môn thiết kế mới có thể tạo sản phẩm số",
+"Người dùng có thể biến ý tưởng thành văn bản, hình ảnh, video hoặc sản phẩm khác bằng các mô tả ngôn ngữ tự nhiên",
+"AI loại bỏ hoàn toàn nhu cầu sáng tạo của con người",
+"AI chỉ hỗ trợ chỉnh sửa các sản phẩm đã hoàn thiện"
+],
+"answer": 1,
+"explanation": "GenAI hạ thấp rào cản kỹ thuật, cho phép người dùng tạo nhiều loại nội dung số từ những mô tả bằng ngôn ngữ tự nhiên."
+},
+{
+"id": 19,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Deepfake đặt ra yêu cầu nào đối với năng lực số của người học?",
+"options": [
+"Chỉ cần tăng tốc độ gõ bàn phím",
+"Phát triển tư duy phản biện để nhận diện và kiểm chứng thông tin sai lệch",
+"Không cần kiểm tra nguồn vì hình ảnh luôn là bằng chứng",
+"Chỉ cần sử dụng nhiều mạng xã hội hơn"
+],
+"answer": 1,
+"explanation": "Deepfake có thể tạo hình ảnh và video giả mạo rất tinh vi, vì vậy người học cần tăng cường tư duy phản biện và kỹ năng kiểm chứng thông tin."
+},
+{
+"id": 20,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Rủi ro nào có thể xảy ra nếu sinh viên phụ thuộc quá mức vào AI trong học tập?",
+"options": [
+"Tăng khả năng tự phân tích trong mọi trường hợp",
+"Làm cho sinh viên luôn kiểm chứng thông tin kỹ hơn",
+"Làm suy giảm các kỹ năng viết, nghiên cứu và giải quyết vấn đề do không tự tư duy",
+"Tăng khả năng ghi nhớ mà không cần học"
+],
+"answer": 2,
+"explanation": "Nếu chỉ sao chép câu trả lời của AI mà không tự phân tích và tổng hợp, các kỹ năng nền tảng như viết, nghiên cứu và giải quyết vấn đề có thể bị thui chột."
+},
+{
+"id": 21,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Tại sao việc đưa thông tin cá nhân hoặc nhạy cảm vào prompt AI có thể gây rủi ro?",
+"options": [
+"Vì AI không thể đọc dữ liệu văn bản",
+"Vì dữ liệu nhập vào có thể tiềm ẩn nguy cơ bị sử dụng hoặc làm lộ thông tin",
+"Vì prompt càng dài thì AI càng chậm",
+"Vì AI chỉ chấp nhận thông tin công khai"
+],
+"answer": 1,
+"explanation": "Bài giảng lưu ý rằng thông tin đưa vào các công cụ AI, đặc biệt ở một số phiên bản miễn phí, có thể tiềm ẩn rủi ro về quyền riêng tư và bảo mật dữ liệu."
+},
+{
+"id": 22,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Theo bài giảng, hành vi nào là vấn đề nghiêm trọng về liêm chính học thuật?",
+"options": [
+"Dùng AI để brainstorm ý tưởng rồi tự viết bài",
+"Dùng AI để giải thích một khái niệm khó rồi tự kiểm chứng",
+"Nộp nguyên một bài luận do AI tạo ra như sản phẩm hoàn toàn của bản thân",
+"Dùng AI để tìm từ khóa nghiên cứu"
+],
+"answer": 2,
+"explanation": "Việc nộp một bài luận do AI viết hoàn toàn mà trình bày như sản phẩm của mình vi phạm nguyên tắc liêm chính học thuật theo nội dung bài giảng."
+},
+{
+"id": 23,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Thiên vị (Bias) trong AI có thể xuất hiện vì nguyên nhân nào?",
+"options": [
+"AI luôn tự tạo dữ liệu hoàn toàn khách quan",
+"Mô hình học từ dữ liệu do con người tạo ra nên có thể kế thừa và khuếch đại các định kiến có sẵn",
+"AI không sử dụng dữ liệu huấn luyện",
+"Người dùng không thể tác động đến kết quả AI"
+],
+"answer": 1,
+"explanation": "Dữ liệu do con người tạo ra có thể chứa định kiến xã hội. Mô hình AI học từ dữ liệu đó có thể kế thừa hoặc thậm chí khuếch đại thiên vị."
+},
+{
+"id": 24,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Thái độ phù hợp nhất của sinh viên khi sử dụng AI là gì?",
+"options": [
+"Xem AI là nguồn thông tin tuyệt đối chính xác",
+"Để AI suy nghĩ và quyết định thay mình",
+"Xem AI như một trợ lý thông minh, đồng thời giữ vai trò chủ động và tư duy phản biện",
+"Chỉ sử dụng AI khi không còn cách nào khác"
+],
+"answer": 2,
+"explanation": "Bài giảng nhấn mạnh người học phải là 'người cầm lái', sử dụng AI để mở rộng tư duy và năng lực chứ không để AI suy nghĩ thay mình."
+},
+{
+"id": 25,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Prompt Engineering được hiểu đúng nhất là gì?",
+"options": [
+"Việc lập trình lại toàn bộ mô hình AI",
+"Kỹ thuật thiết kế prompt để giao tiếp, dẫn dắt và khai thác AI nhằm tạo ra kết quả phù hợp",
+"Việc nhập càng nhiều từ khóa càng tốt",
+"Việc sửa mã nguồn của chatbot"
+],
+"answer": 1,
+"explanation": "Prompt Engineering là kỹ năng thiết kế và diễn đạt yêu cầu nhằm định hướng mô hình AI tạo ra kết quả chính xác, phù hợp với mục tiêu."
+},
+{
+"id": 26,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Nguyên tắc 'Clarity and Specificity' khi viết prompt yêu cầu điều gì?",
+"options": [
+"Viết yêu cầu càng ngắn càng tốt dù thiếu thông tin",
+"Nêu chính xác và cụ thể những gì muốn AI thực hiện",
+"Không được cung cấp bất kỳ ví dụ nào",
+"Chỉ sử dụng các thuật ngữ kỹ thuật phức tạp"
+],
+"answer": 1,
+"explanation": "Prompt càng rõ ràng và cụ thể thì AI càng dễ hiểu mục tiêu. Ví dụ, thay vì 'Viết về đọc sách', nên yêu cầu cụ thể số lượng và đối tượng."
+},
+{
+"id": 27,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Trong Prompt Engineering, tại sao cần cung cấp 'Context'?",
+"options": [
+"Để làm prompt dài hơn bất kể nội dung",
+"Để cung cấp thông tin nền giúp AI hiểu đúng tình huống và nhu cầu của người dùng",
+"Để ngăn AI tạo câu trả lời",
+"Để thay thế hoàn toàn yêu cầu chính"
+],
+"answer": 1,
+"explanation": "AI không tự biết người dùng là ai, đang làm gì và cần gì. Cung cấp bối cảnh giúp mô hình định hướng câu trả lời phù hợp hơn."
+},
+{
+"id": 28,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Trong mô hình CLEAR, chữ 'C' đại diện cho yếu tố nào?",
+"options": [
+"Command",
+"Context",
+"Content",
+"Correction"
+],
+"answer": 1,
+"explanation": "Trong CLEAR, C là Context (Bối cảnh), tức cung cấp thông tin nền liên quan để AI hiểu đúng vấn đề."
+},
+{
+"id": 29,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Trong mô hình CLEAR, 'Role' có tác dụng chủ yếu gì?",
+"options": [
+"Xác định dung lượng dữ liệu huấn luyện của AI",
+"Giao cho AI một vai trò cụ thể để định hướng cách tiếp cận và phong cách trả lời",
+"Xác định tốc độ xử lý của máy tính",
+"Buộc AI phải sử dụng một nguồn dữ liệu duy nhất"
+],
+"answer": 1,
+"explanation": "Role yêu cầu AI đóng một vai trò cụ thể, chẳng hạn chuyên gia môi trường, từ đó giúp định hình góc nhìn, văn phong và mức độ chuyên sâu."
+},
+{
+"id": 30,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Trong mô hình CLEAR, thành phần 'Explicit Instruction' nhấn mạnh điều gì?",
+"options": [
+"Nêu rõ AI phải làm gì, theo định dạng nào và với số lượng hoặc phạm vi ra sao",
+"Không đưa ra yêu cầu cụ thể để AI tự sáng tạo",
+"Chỉ xác định tên người dùng",
+"Chỉ mô tả lịch sử của chủ đề"
+],
+"answer": 0,
+"explanation": "Explicit Instruction là chỉ dẫn rõ ràng, trong đó người dùng cần nêu cụ thể nhiệm vụ, định dạng, độ dài, số lượng hoặc yêu cầu đầu ra."
+},
+{
+"id": 31,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Xác định 'Audience' trong prompt giúp ích chủ yếu ở điểm nào?",
+"options": [
+"Giúp AI biết đối tượng đọc hoặc nghe để điều chỉnh nội dung và mức độ diễn đạt",
+"Làm tăng dung lượng mô hình",
+"Giúp AI tự động kiểm tra đạo văn",
+"Thay thế hoàn toàn phần Context"
+],
+"answer": 0,
+"explanation": "Audience xác định người tiếp nhận kết quả, giúp AI điều chỉnh ngôn ngữ, mức độ chuyên môn và cách trình bày cho phù hợp."
+},
+{
+"id": 32,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Chuỗi tư duy (Chain of Thought - CoT) được sử dụng nhằm mục đích gì?",
+"options": [
+"Giúp định hướng mô hình thực hiện quá trình suy luận theo các bước đối với những nhiệm vụ cần lập luận",
+"Buộc AI chỉ trả lời bằng một từ",
+"Loại bỏ hoàn toàn khả năng suy luận của AI",
+"Chuyển mọi câu hỏi thành câu hỏi trắc nghiệm"
+],
+"answer": 0,
+"explanation": "CoT là kỹ thuật prompt nhằm khuyến khích quá trình suy luận theo từng bước, hữu ích đối với các nhiệm vụ có nhiều bước lập luận."
+},
+{
+"id": 33,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Công cụ nào được bài giảng mô tả là có khả năng tích hợp trong Word, Excel, PowerPoint, Outlook và Teams?",
+"options": [
+"Microsoft Copilot",
+"Grok",
+"Perplexity AI",
+"Meta AI"
+],
+"answer": 0,
+"explanation": "Microsoft Copilot hoạt động như một trợ lý thông minh bên trong hệ sinh thái Microsoft 365, bao gồm Word, Excel, PowerPoint, Outlook và Teams."
+},
+{
+"id": 34,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Trong PowerPoint, Copilot có thể hỗ trợ nhiệm vụ nào được nêu trong bài giảng?",
+"options": [
+"Tạo bài thuyết trình từ nội dung của tài liệu Word",
+"Tự động thay đổi hệ điều hành",
+"Xóa toàn bộ lịch sử chỉnh sửa PowerPoint",
+"Chỉ kiểm tra lỗi chính tả trong email"
+],
+"answer": 0,
+"explanation": "Copilot có thể dựa trên một tài liệu Word có sẵn để tạo bài thuyết trình PowerPoint, bao gồm slide, hình ảnh minh họa và ghi chú người nói."
+},
+{
+"id": 35,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Điểm mạnh nổi bật của Perplexity AI theo bảng so sánh trong bài giảng là gì?",
+"options": [
+"Tập trung vào tạo hình ảnh cho mạng xã hội",
+"Cung cấp câu trả lời kèm trích dẫn nguồn, phù hợp cho nghiên cứu và kiểm chứng thông tin",
+"Tích hợp sâu nhất với Microsoft Office",
+"Chuyên biệt cho việc tạo slide PowerPoint"
+],
+"answer": 1,
+"explanation": "Perplexity AI được mô tả là phù hợp cho nghiên cứu nhờ khả năng cung cấp câu trả lời kèm nguồn, hỗ trợ tìm tài liệu, kiểm chứng và viết tổng quan."
+},
+{
+"id": 36,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Đặc điểm nào nổi bật của Grok theo nội dung bài giảng?",
+"options": [
+"Tích hợp với X và có khả năng truy cập dữ liệu thời gian thực từ nền tảng này",
+"Chỉ hoạt động trong Microsoft Word",
+"Chuyên biệt để trò chuyện với tệp PDF",
+"Không thể phân tích các xu hướng trên mạng xã hội"
+],
+"answer": 0,
+"explanation": "Grok được mô tả có khả năng truy cập dữ liệu thời gian thực từ X (Twitter), phù hợp với việc nắm bắt xu hướng, sự kiện mới và phân tích dư luận trên mạng xã hội."
+},
+{
+"id": 37,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Công cụ nào được mô tả là có khả năng tải một bài báo PDF lên rồi 'trò chuyện' với tài liệu?",
+"options": [
+"SciSpace",
+"Grok",
+"Meta AI",
+"Microsoft Copilot"
+],
+"answer": 0,
+"explanation": "SciSpace cho phép người dùng tải bài báo PDF lên, đặt câu hỏi về nội dung, yêu cầu giải thích thuật ngữ hoặc tóm tắt các phần phức tạp."
+},
+{
+"id": 38,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Elicit phù hợp nhất với nhiệm vụ nào?",
+"options": [
+"Tạo hình ảnh minh họa cho mạng xã hội",
+"Tìm các bài báo liên quan và tổng hợp các kết luận chính thành bảng so sánh",
+"Tạo bài thuyết trình PowerPoint từ Word",
+"Phân tích dư luận trên X theo thời gian thực"
+],
+"answer": 1,
+"explanation": "Elicit là công cụ hỗ trợ nghiên cứu: người dùng đặt câu hỏi nghiên cứu, công cụ tìm bài báo liên quan và tóm tắt các kết luận chính thành bảng so sánh."
+},
+{
+"id": 39,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Nếu cần tạo nội dung sáng tạo đa dạng như dàn ý, văn bản, ý tưởng hoặc hỗ trợ lập luận cho một bài học, công cụ nào trong bài giảng được mô tả là có tính linh hoạt và khả năng sáng tạo văn bản mạnh?",
+"options": [
+"ChatGPT",
+"Zotero",
+"VNU-LIC",
+"SciSpace"
+],
+"answer": 0,
+"explanation": "ChatGPT được mô tả là có khả năng sáng tạo văn bản đa dạng, linh hoạt và lập luận tốt, phù hợp với nhiều nhiệm vụ học tập và sáng tạo nội dung."
+},
+{
+"id": 40,
+"chapter": 3,
+"chapterName": "Chương 3: Tổng quan về Trí tuệ nhân tạo",
+"question": "Theo tinh thần tổng kết của chương, cách sử dụng AI nào là phù hợp nhất đối với sinh viên?",
+"options": [
+"Chọn một công cụ duy nhất và sử dụng cho mọi nhiệm vụ",
+"Tin tưởng tuyệt đối vào mọi câu trả lời do AI tạo ra",
+"Lựa chọn công cụ theo nhiệm vụ, sử dụng AI chủ động nhưng luôn kiểm chứng, tư duy phản biện và chịu trách nhiệm về sản phẩm",
+"Để AI thực hiện toàn bộ quá trình học tập và nghiên cứu"
+],
+"answer": 2,
+"explanation": "Chương nhấn mạnh tư duy lựa chọn công cụ chiến lược theo từng nhiệm vụ, đồng thời người học phải giữ vai trò chủ động, kiểm chứng thông tin và chịu trách nhiệm về việc sử dụng AI."
 }
 ]
