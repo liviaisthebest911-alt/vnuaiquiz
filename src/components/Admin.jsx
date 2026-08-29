@@ -199,6 +199,15 @@ export default function Admin({
         })
     }
 
+    const resetGuideModal = () => {
+        localStorage.removeItem('vnuaiquiz_data_guide_seen')
+        
+        setMessage({
+            type: 'success',
+            text: 'Đã reset hướng dẫn. Modal sẽ hiển thị khi tải lại trang.',
+        })
+    }
+
     return (
         <div className="space-y-5">
 
@@ -332,6 +341,14 @@ export default function Admin({
                         Dữ liệu import được ưu tiên từ
                         LocalStorage trong trình duyệt này.
                     </div>
+
+                    <button
+                        onClick={resetGuideModal}
+                        className="w-full inline-flex items-center justify-center gap-2 rounded-xl border border-blossom-border px-4 py-3 text-sm font-medium text-blossom-text transition-all hover:scale-[1.015] hover:bg-blossom-card-soft dark:border-blossom-border-dark dark:text-blossom-text-dark dark:hover:bg-blossom-card-soft-dark"
+                    >
+                        <RotateCcw size={17} />
+                        Reset Hướng dẫn
+                    </button>
 
                 </aside>
             </div>

@@ -39,7 +39,6 @@ export default function ExamLobby({ exam, onStart }: Props) {
                 <h1 className="text-2xl font-semibold text-rose-900 mt-3">{exam.title}</h1>
                 <p className="text-rose-700/70 mt-2 leading-relaxed">{exam.description}</p>
 
-                {/* Bảng tóm tắt cấu trúc đề */}
                 <div className="grid grid-cols-3 gap-3 mt-6">
                     {exam.partsSummary.map(p => (
                         <div key={p.part} className="rounded-2xl bg-rose-50 border border-rose-100 p-4 text-center">
@@ -53,14 +52,12 @@ export default function ExamLobby({ exam, onStart }: Props) {
                     ⏱ Thời gian làm bài: <strong>{exam.durationMinutes} phút</strong>
                 </div>
 
-                {/* Cảnh báo quy chế chấm điểm Phần II */}
                 <div className="mt-4 text-sm text-amber-800 bg-amber-50 border border-amber-200 rounded-xl p-3 leading-relaxed">
                     <strong>⚠ Lưu ý cách tính điểm Phần II (Đúng/Sai):</strong> Mỗi câu gồm 4 ý a, b, c, d.
                     Đúng 1 ý = 0.1đ · Đúng 2 ý = 0.25đ · Đúng 3 ý = 0.5đ · Đúng cả 4 ý = 1đ.
                     Đây KHÔNG phải thang điểm cộng dồn tuyến tính, hãy cẩn trọng khi phân bổ thời gian.
                 </div>
 
-                {/* Đặt mục tiêu điểm số */}
                 <div className="mt-6">
                     <label className="block text-sm font-medium text-rose-800 mb-1">🎯 Đặt mục tiêu điểm số của bạn</label>
                     <div className="flex items-center gap-2">
