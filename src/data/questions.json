@@ -1679,5 +1679,565 @@
 ],
 "answer": 2,
 "explanation": "Chương nhấn mạnh tư duy lựa chọn công cụ chiến lược theo từng nhiệm vụ, đồng thời người học phải giữ vai trò chủ động, kiểm chứng thông tin và chịu trách nhiệm về việc sử dụng AI."
+},
+{
+"id": 1,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Giao tiếp số (Digital Communication) được hiểu là gì?",
+"options": [
+"Quá trình trao đổi thông tin giữa các cá nhân, tổ chức thông qua các nền tảng và công nghệ kỹ thuật số",
+"Quá trình chỉ sử dụng mạng xã hội để chia sẻ thông tin cá nhân",
+"Quá trình tạo ra các sản phẩm số bằng phần mềm máy tính",
+"Quá trình lưu trữ dữ liệu trên các thiết bị điện tử"
+],
+"answer": 0,
+"explanation": "Giao tiếp số là quá trình trao đổi thông tin giữa cá nhân hoặc tổ chức thông qua các nền tảng và công nghệ kỹ thuật số như email, mạng xã hội và các nền tảng trực tuyến."
+},
+{
+"id": 2,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Đặc điểm nào sau đây KHÔNG phải là đặc điểm nổi bật của giao tiếp số được trình bày trong bài?",
+"options": [
+"Vượt qua giới hạn không gian và thời gian",
+"Có khả năng lưu trữ và truy vết",
+"Chỉ truyền tải được thông tin dưới dạng văn bản",
+"Có nhiều hình thức truyền tải như văn bản, âm thanh, hình ảnh và video"
+],
+"answer": 2,
+"explanation": "Giao tiếp số hỗ trợ nhiều định dạng đa phương tiện như văn bản, âm thanh, hình ảnh và video, chứ không chỉ giới hạn ở văn bản."
+},
+{
+"id": 3,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Đặc điểm cốt lõi của giao tiếp đồng bộ (Synchronous Communication) là gì?",
+"options": [
+"Người gửi và người nhận không cần có mặt cùng thời điểm",
+"Các bên tham gia tương tác trong thời gian thực và thường cần có mặt cùng lúc",
+"Thông tin luôn được lưu lại dưới dạng văn bản",
+"Chỉ được sử dụng trong môi trường học thuật"
+],
+"answer": 1,
+"explanation": "Giao tiếp đồng bộ diễn ra trong thời gian thực và đòi hỏi các bên tham gia phải có mặt cùng một lúc, ví dụ họp video hoặc gọi thoại."
+},
+{
+"id": 4,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Phương thức nào sau đây là ví dụ điển hình của giao tiếp đồng bộ?",
+"options": [
+"Email",
+"Bình luận trên Google Docs",
+"Diễn đàn thảo luận",
+"Cuộc họp qua Google Meet"
+],
+"answer": 3,
+"explanation": "Google Meet là công cụ họp video theo thời gian thực, vì vậy các bên thường phải tham gia đồng thời."
+},
+{
+"id": 5,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Ưu điểm nổi bật của giao tiếp đồng bộ là gì?",
+"options": [
+"Cho phép người nhận phản hồi bất cứ lúc nào mà không bị giới hạn",
+"Có tốc độ phản hồi tức thì và khai thác được các yếu tố phi ngôn ngữ",
+"Luôn tạo ra bản ghi văn bản chi tiết",
+"Không cần sắp xếp thời gian giữa những người tham gia"
+],
+"answer": 1,
+"explanation": "Giao tiếp đồng bộ cho phép phản hồi ngay lập tức và trong cuộc gọi video còn có thể quan sát giọng điệu, biểu cảm, giúp giảm hiểu lầm."
+},
+{
+"id": 6,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Điểm hạn chế chính của giao tiếp đồng bộ là gì?",
+"options": [
+"Không thể trao đổi thông tin nhanh chóng",
+"Không thể sử dụng âm thanh hoặc hình ảnh",
+"Đòi hỏi các bên phải sắp xếp và có mặt đồng thời",
+"Không thể dùng cho các cuộc họp nhóm"
+],
+"answer": 2,
+"explanation": "Giao tiếp đồng bộ yêu cầu các bên tham gia cùng thời điểm, do đó cần sắp xếp lịch và có thể gây gián đoạn công việc nếu không được lên lịch trước."
+},
+{
+"id": 7,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Giao tiếp bất đồng bộ (Asynchronous Communication) có đặc điểm nào?",
+"options": [
+"Các bên bắt buộc phải phản hồi ngay lập tức",
+"Các bên không cần có mặt đồng thời và có thể phản hồi vào thời điểm thuận tiện",
+"Chỉ có thể thực hiện thông qua cuộc gọi video",
+"Không thể lưu lại nội dung trao đổi"
+],
+"answer": 1,
+"explanation": "Giao tiếp bất đồng bộ không yêu cầu các bên có mặt cùng lúc. Người nhận có thể tiếp nhận, xử lý và phản hồi khi thuận tiện."
+},
+{
+"id": 8,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Trong trường hợp nào sau đây nên ưu tiên giao tiếp bất đồng bộ?",
+"options": [
+"Cần giải quyết ngay một sự cố khẩn cấp",
+"Cần tranh luận trực tiếp để đưa ra quyết định trong vài phút",
+"Muốn gửi thông báo chính thức để người nhận đọc và xử lý khi có thời gian",
+"Cần trao đổi trực tiếp về một vấn đề phức tạp"
+],
+"answer": 2,
+"explanation": "Thông báo chính thức phù hợp với email vì đây là phương thức bất đồng bộ, trang trọng và cho phép người nhận chủ động xử lý thông tin."
+},
+{
+"id": 9,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Theo bảng lựa chọn phương thức giao tiếp, khi xin nghỉ học với giảng viên, phương thức nào phù hợp nhất?",
+"options": [
+"Chat Messenger",
+"Gọi điện đột xuất",
+"Email",
+"Tin nhắn mạng xã hội"
+],
+"answer": 2,
+"explanation": "Email phù hợp vì đây là phương thức trang trọng, có bằng chứng lưu lại và cho phép giảng viên đọc, xử lý khi có thời gian."
+},
+{
+"id": 10,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Khi nhóm cần trao đổi nhanh về một ý tưởng ngắn cho bài tập, phương thức nào phù hợp nhất?",
+"options": [
+"Email",
+"Chat nhóm",
+"Báo cáo chính thức",
+"Họp video kéo dài"
+],
+"answer": 1,
+"explanation": "Chat nhóm như Messenger, Zalo hoặc Teams Chat phù hợp với trao đổi nhanh, không chính thức và thuận tiện cho việc trao đổi qua lại các ý tưởng ngắn."
+},
+{
+"id": 11,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Khi cần họp nhóm để phân công nhiệm vụ và thảo luận chi tiết dự án, phương thức nào được khuyến nghị?",
+"options": [
+"Họp video",
+"Email một chiều",
+"Bình luận trên mạng xã hội",
+"Tin nhắn ngắn liên tục"
+],
+"answer": 0,
+"explanation": "Họp video qua Zoom, Meet hoặc Teams cho phép tương tác trực tiếp, chia sẻ màn hình và thảo luận sâu, phù hợp với các vấn đề quan trọng."
+},
+{
+"id": 12,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Để xin góp ý chi tiết cho bản nháp báo cáo mà không làm thay đổi bản gốc, công cụ nào phù hợp nhất?",
+"options": [
+"Gửi file Word qua chat",
+"Google Docs với chế độ bình luận",
+"Gọi điện thoại",
+"Đăng bản nháp lên mạng xã hội"
+],
+"answer": 1,
+"explanation": "Google Docs với chế độ bình luận cho phép góp ý trực tiếp, không làm thay đổi bản gốc, đồng thời lưu lại lịch sử chỉnh sửa và thảo luận."
+},
+{
+"id": 13,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Trong môi trường học thuật, loại địa chỉ email nào nên được ưu tiên?",
+"options": [
+"Email có nickname vui nhộn",
+"Email cá nhân không thể hiện danh tính",
+"Email do trường cấp",
+"Email tạm thời dùng một lần"
+],
+"answer": 2,
+"explanation": "Bài học khuyến nghị ưu tiên email do trường cấp, ví dụ địa chỉ có tên miền của trường, vì thể hiện tính chuyên nghiệp."
+},
+{
+"id": 14,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Một tiêu đề email chuyên nghiệp gửi giảng viên nên có đặc điểm nào?",
+"options": [
+"Càng dài càng tốt và không cần nêu nội dung",
+"Ngắn gọn, rõ ràng và nêu bật nội dung chính",
+"Chỉ cần ghi tên người gửi",
+"Chỉ cần ghi từ 'Quan trọng'"
+],
+"answer": 1,
+"explanation": "Tiêu đề email cần ngắn gọn, rõ ràng và nêu nội dung chính. Cấu trúc được gợi ý là [Mã môn học] - [Nội dung chính] - [Họ tên]."
+},
+{
+"id": 15,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Khi viết nội dung chính của email học thuật, cách trình bày nào phù hợp nhất?",
+"options": [
+"Dùng nhiều từ viết tắt và tiếng lóng để tiết kiệm thời gian",
+"Viết một đoạn duy nhất thật dài",
+"Giới thiệu ngắn gọn bản thân, nêu mục đích rõ ràng và chia đoạn hợp lý",
+"Chỉ gửi câu hỏi mà không cần giới thiệu"
+],
+"answer": 2,
+"explanation": "Email chuyên nghiệp cần giới thiệu ngắn gọn tên, lớp, môn học; trình bày mục đích ngay từ đầu và chia đoạn theo từng ý chính."
+},
+{
+"id": 16,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Việc nào sau đây cần thực hiện trước khi nhấn nút gửi email?",
+"options": [
+"Chỉ kiểm tra người nhận",
+"Đọc lại để kiểm tra lỗi chính tả, ngữ pháp và tệp đính kèm",
+"Xóa tiêu đề để email ngắn hơn",
+"Chuyển email sang dạng tin nhắn"
+],
+"answer": 1,
+"explanation": "Bài học yêu cầu đọc lại email để kiểm tra chính tả, ngữ pháp và đặc biệt phải chắc chắn tệp đính kèm đã được gửi đúng."
+},
+{
+"id": 17,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Thông tin nào nên có trong chữ ký email chuyên nghiệp của sinh viên?",
+"options": [
+"Họ tên đầy đủ, mã số sinh viên, lớp và khoa/trường",
+"Mật khẩu tài khoản cá nhân",
+"Chỉ nickname trên mạng xã hội",
+"Thông tin tài khoản ngân hàng"
+],
+"answer": 0,
+"explanation": "Chữ ký email chuyên nghiệp nên bao gồm họ tên đầy đủ, mã số sinh viên, lớp, khoa/trường và có thể thêm số điện thoại."
+},
+{
+"id": 18,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Trước một cuộc họp trực tuyến, người tham gia nên kiểm tra camera, microphone và kết nối Internet vào thời điểm nào?",
+"options": [
+"Đúng lúc cuộc họp bắt đầu",
+"Sau khi cuộc họp kết thúc",
+"Ít nhất 5 phút trước giờ họp",
+"Chỉ khi xảy ra sự cố"
+],
+"answer": 2,
+"explanation": "Bài học yêu cầu người tham gia chuẩn bị kỹ thuật và kiểm tra camera, microphone, Internet ít nhất 5 phút trước giờ họp."
+},
+{
+"id": 19,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Mục đích chính của việc lập Agenda trước cuộc họp là gì?",
+"options": [
+"Làm cho cuộc họp dài hơn",
+"Liệt kê chủ đề cần thảo luận và thời gian dự kiến cho từng mục",
+"Thay thế hoàn toàn việc chuẩn bị tài liệu",
+"Cho phép người tham gia không cần đọc trước tài liệu"
+],
+"answer": 1,
+"explanation": "Agenda giúp xác định rõ các chủ đề cần thảo luận và thời gian dự kiến, từ đó giúp cuộc họp có tổ chức và bám sát mục tiêu."
+},
+{
+"id": 20,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Trong cuộc họp trực tuyến, quy tắc 'vàng' về microphone là gì?",
+"options": [
+"Luôn bật microphone dù không phát biểu",
+"Tắt microphone khi không nói",
+"Chỉ bật microphone khi người điều phối yêu cầu",
+"Không sử dụng microphone"
+],
+"answer": 1,
+"explanation": "Tắt micro khi không nói giúp tránh tạp âm và làm cuộc họp dễ theo dõi hơn."
+},
+{
+"id": 21,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Thay vì ngắt lời người khác trong cuộc họp trực tuyến, người tham gia nên làm gì?",
+"options": [
+"Rời khỏi cuộc họp",
+"Gửi email cho người điều phối sau cuộc họp",
+"Sử dụng tính năng 'Giơ tay' (Raise Hand)",
+"Tắt camera của người đang nói"
+],
+"answer": 2,
+"explanation": "Tính năng Raise Hand giúp báo hiệu muốn phát biểu mà không làm gián đoạn người đang nói."
+},
+{
+"id": 22,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Sau cuộc họp trực tuyến, meeting minutes nên tập trung vào nội dung nào?",
+"options": [
+"Các câu chuyện ngoài lề trong cuộc họp",
+"Các quyết định đã thống nhất và action items kèm người phụ trách, hạn chót",
+"Toàn bộ lịch sử trò chuyện cá nhân của thành viên",
+"Chỉ danh sách người tham dự"
+],
+"answer": 1,
+"explanation": "Meeting minutes cần tóm tắt các quyết định quan trọng và công việc tiếp theo, bao gồm người phụ trách và hạn chót."
+},
+{
+"id": 23,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Theo bài học, nền tảng nào được xem là mạng xã hội chuyên nghiệp quan trọng đối với sinh viên?",
+"options": [
+"TikTok",
+"Instagram",
+"LinkedIn",
+"Messenger"
+],
+"answer": 2,
+"explanation": "LinkedIn được xác định là nền tảng mạng xã hội chuyên nghiệp quan trọng, hỗ trợ kết nối chuyên gia, theo dõi công ty và tìm cơ hội thực tập, việc làm."
+},
+{
+"id": 24,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Theo nguyên tắc Netiquette, khi tranh luận trên mạng xã hội, cách ứng xử nào phù hợp?",
+"options": [
+"Công kích cá nhân để bảo vệ quan điểm",
+"Tập trung vào lập luận và tôn trọng sự khác biệt",
+"Chia sẻ thông tin chưa kiểm chứng để tăng sức thuyết phục",
+"Đăng lại mọi bình luận gây tranh cãi"
+],
+"answer": 1,
+"explanation": "Netiquette yêu cầu tranh luận văn minh, tập trung vào lập luận thay vì công kích cá nhân và tôn trọng sự khác biệt."
+},
+{
+"id": 25,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Quy tắc vàng khi đăng nội dung lên mạng xã hội được bài học đề cập là gì?",
+"options": [
+"Chỉ đăng những nội dung có nhiều lượt thích",
+"Đăng mọi thứ miễn là tài khoản ở chế độ riêng tư",
+"Không đăng bất cứ điều gì mà bạn không muốn người thân hoặc nhà tuyển dụng tương lai nhìn thấy",
+"Chỉ đăng nội dung liên quan đến học tập"
+],
+"answer": 2,
+"explanation": "Bài học nhấn mạnh cần suy nghĩ kỹ trước khi đăng và tránh đăng nội dung mà bạn không muốn ông bà hoặc nhà tuyển dụng tương lai nhìn thấy."
+},
+{
+"id": 26,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Cộng tác số (Digital Collaboration) khác với giao tiếp số ở điểm cốt lõi nào?",
+"options": [
+"Cộng tác số chỉ sử dụng email",
+"Cộng tác số nhấn mạnh việc cùng nhau tạo ra một kết quả chung",
+"Cộng tác số không cần nền tảng trực tuyến",
+"Cộng tác số chỉ dành cho doanh nghiệp"
+],
+"answer": 1,
+"explanation": "Cộng tác số không chỉ trao đổi thông tin mà nhấn mạnh việc cùng tạo sản phẩm, giải quyết vấn đề hoặc đưa ra quyết định chung."
+},
+{
+"id": 27,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Nền tảng nào nổi bật với khả năng cộng tác thời gian thực trên Docs, Sheets và Slides?",
+"options": [
+"Google Workspace",
+"Microsoft 365",
+"Trello",
+"Calendly"
+],
+"answer": 0,
+"explanation": "Google Workspace nổi bật với khả năng cộng tác thời gian thực trên Docs, Sheets và Slides, đồng thời tích hợp với Gmail, Drive và Meet."
+},
+{
+"id": 28,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Ba yếu tố văn hóa nền tảng của hợp tác số hiệu quả là gì?",
+"options": [
+"Tốc độ, cạnh tranh và kiểm soát",
+"Tin tưởng, rõ ràng và tôn trọng",
+"Sáng tạo, cá nhân hóa và giải trí",
+"Kỷ luật, quyền lực và tốc độ"
+],
+"answer": 1,
+"explanation": "Bài học xác định ba yếu tố cốt lõi là Trust (tin tưởng), Clarity (rõ ràng) và Respect (tôn trọng)."
+},
+{
+"id": 29,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Team Charter nên được thiết lập vào thời điểm nào?",
+"options": [
+"Sau khi dự án kết thúc",
+"Chỉ khi nhóm xảy ra xung đột",
+"Ngay từ đầu dự án",
+"Sau khi hoàn thành một nửa dự án"
+],
+"answer": 2,
+"explanation": "Team Charter nên được thống nhất ngay từ đầu để quy định kênh giao tiếp, lịch họp, cách cập nhật tiến độ và cách ra quyết định."
+},
+{
+"id": 30,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Khi thành viên gặp khó khăn hoặc có nguy cơ trễ hạn trong dự án trực tuyến, cách xử lý phù hợp là gì?",
+"options": [
+"Im lặng cho đến khi hoàn thành",
+"Chủ động thông báo sớm cho nhóm",
+"Xóa nhiệm vụ khỏi bảng quản lý",
+"Đợi thành viên khác phát hiện"
+],
+"answer": 1,
+"explanation": "Trong môi trường ảo, người khác không thể biết bạn đang gặp khó khăn nếu bạn không nói ra. Vì vậy cần giao tiếp chủ động và minh bạch."
+},
+{
+"id": 31,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Khi xảy ra bất đồng quan điểm qua tin nhắn, phương pháp nào được khuyến nghị để giảm hiểu lầm?",
+"options": [
+"Tiếp tục tranh luận bằng nhiều tin nhắn hơn",
+"Ngừng giao tiếp hoàn toàn",
+"Đề nghị một cuộc gọi video ngắn",
+"Đăng tranh luận lên mạng xã hội"
+],
+"answer": 2,
+"explanation": "Cuộc gọi video giúp làm rõ ý định nhờ giọng điệu và nét mặt, từ đó giảm hiểu lầm so với tranh luận chỉ bằng tin nhắn."
+},
+{
+"id": 32,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Công cụ nào phù hợp nhất cho nhóm nhỏ và dự án đơn giản nhờ giao diện Kanban kéo-thả trực quan?",
+"options": [
+"Asana",
+"Notion",
+"Trello",
+"Reclaim.ai"
+],
+"answer": 2,
+"explanation": "Trello sử dụng phương pháp Kanban với Board, List và Card kéo-thả, dễ sử dụng và phù hợp với nhóm nhỏ hoặc dự án đơn giản."
+},
+{
+"id": 33,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Điểm mạnh nổi bật của Asana so với Trello là gì?",
+"options": [
+"Chỉ hỗ trợ ghi chú cá nhân",
+"Có nhiều chế độ xem và quản lý tốt công việc phụ, sự phụ thuộc giữa các nhiệm vụ",
+"Không cần người dùng học cách sử dụng",
+"Chỉ hỗ trợ giao tiếp bằng email"
+],
+"answer": 1,
+"explanation": "Asana cung cấp nhiều chế độ xem như danh sách, lịch, timeline và mạnh hơn trong quản lý công việc phụ cũng như sự phụ thuộc giữa các nhiệm vụ."
+},
+{
+"id": 34,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Điểm đặc trưng của Notion trong quản lý công việc là gì?",
+"options": [
+"Chỉ dùng để quản lý deadline",
+"Là không gian làm việc tích hợp, kết hợp ghi chú, tài liệu, cơ sở dữ liệu và bảng công việc",
+"Chỉ cung cấp bảng Kanban đơn giản",
+"Tự động lập lịch họp cho toàn bộ nhóm"
+],
+"answer": 1,
+"explanation": "Notion là công cụ 'tất cả trong một', kết hợp quản lý công việc với ghi chú, tài liệu, cơ sở dữ liệu và kiến thức."
+},
+{
+"id": 35,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Calendly hỗ trợ sinh viên chủ yếu trong hoạt động nào?",
+"options": [
+"Tự động dịch tài liệu khoa học",
+"Tự động tìm và sắp xếp lịch hẹn thông qua các khung giờ có sẵn",
+"Tạo bảng Kanban",
+"Tóm tắt bài báo nghiên cứu"
+],
+"answer": 1,
+"explanation": "Calendly kết nối với lịch như Google Calendar hoặc Outlook Calendar, cho phép thiết lập thời gian rảnh và gửi một đường link để người khác tự chọn lịch phù hợp."
+},
+{
+"id": 36,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Điểm nổi bật của Reclaim.ai được trình bày trong bài là gì?",
+"options": [
+"Chỉ tạo đường link đặt lịch",
+"Tự động sắp xếp và bảo vệ thời gian cho thói quen, công việc và có thể linh hoạt dời chúng",
+"Chỉ dùng để dịch email",
+"Chỉ dùng để quản lý tài liệu"
+],
+"answer": 1,
+"explanation": "Reclaim.ai có thể tự động tìm khoảng trống trong lịch để xếp Tasks và Habits, đồng thời linh hoạt dời chúng khi có cuộc họp quan trọng hơn."
+},
+{
+"id": 37,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Microsoft Copilot trong Outlook và Google Gemini trong Gmail có thể hỗ trợ việc nào?",
+"options": [
+"Chỉ tạo bảng tính",
+"Soạn email, tóm tắt chuỗi email và điều chỉnh giọng văn",
+"Chỉ quản lý thành viên nhóm",
+"Chỉ tạo lịch họp trực tuyến"
+],
+"answer": 1,
+"explanation": "Các trợ lý AI này có thể tạo bản nháp email từ prompt, tóm tắt chuỗi email dài và điều chỉnh văn phong như trang trọng hoặc ngắn gọn hơn."
+},
+{
+"id": 38,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Theo nguyên tắc sử dụng AI có trách nhiệm, sau khi AI tạo ra nội dung email, người dùng nên làm gì?",
+"options": [
+"Sao chép nguyên văn và gửi ngay",
+"Xóa toàn bộ nội dung vì AI không đáng tin cậy",
+"Đọc lại, chỉnh sửa và cá nhân hóa nội dung",
+"Gửi cho nhiều người để kiểm tra thay mình"
+],
+"answer": 2,
+"explanation": "AI chỉ là trợ lý. Người dùng phải đọc lại, chỉnh sửa và cá nhân hóa nội dung để đảm bảo tính chính xác, phù hợp ngữ cảnh và thể hiện suy nghĩ của chính mình."
+},
+{
+"id": 39,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Theo bảng so sánh trong bài, lựa chọn nào phù hợp nhất khi sinh viên cần đọc nhanh tài liệu để nắm ý chính?",
+"options": [
+"DeepL vì luôn hỗ trợ mọi ngôn ngữ",
+"Google Translate vì phù hợp để dịch nhanh và nắm ý chính",
+"Chỉ sử dụng từ điển giấy",
+"Không cần kiểm tra bản dịch"
+],
+"answer": 1,
+"explanation": "Bài học khuyến nghị Google Translate cho việc lướt nhanh và nắm ý chính. DeepL được đánh giá cao hơn về ngữ cảnh và sắc thái trong các văn bản quan trọng."
+},
+{
+"id": 40,
+"chapter": 4,
+"chapterName": "Chương 4: Giao tiếp và hợp tác trong môi trường số",
+"question": "Theo bài học, việc nộp bản tóm tắt tài liệu do AI tạo ra như sản phẩm của chính mình bị xem là gì?",
+"options": [
+"Một hình thức cộng tác số bình thường",
+"Một phương pháp học tập bắt buộc",
+"Hành vi đạo văn và vi phạm nghiêm trọng liêm chính học thuật",
+"Một cách trích dẫn tài liệu hợp lệ"
+],
+"answer": 2,
+"explanation": "Bài học nhấn mạnh AI chỉ nên hỗ trợ đọc hiểu và nghiên cứu cá nhân. Nộp bản tóm tắt do AI tạo như sản phẩm của mình bị xem là đạo văn và vi phạm nghiêm trọng liêm chính học thuật."
 }
 ]
