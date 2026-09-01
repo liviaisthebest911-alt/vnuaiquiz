@@ -2239,5 +2239,565 @@
 ],
 "answer": 2,
 "explanation": "Bài học nhấn mạnh AI chỉ nên hỗ trợ đọc hiểu và nghiên cứu cá nhân. Nộp bản tóm tắt do AI tạo như sản phẩm của mình bị xem là đạo văn và vi phạm nghiêm trọng liêm chính học thuật."
+},
+{
+"id": 1,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Nội dung số (Digital Content) được định nghĩa là gì?",
+"options": [
+"Bất kỳ nội dung nào tồn tại dưới dạng dữ liệu số và có thể được tạo, xem, phân phối, sửa đổi và lưu trữ bằng công nghệ số",
+"Chỉ những nội dung được đăng tải trên mạng xã hội",
+"Chỉ những sản phẩm được tạo ra hoàn toàn bằng trí tuệ nhân tạo",
+"Chỉ những tài liệu được lưu trữ dưới dạng PDF"
+],
+"answer": 0,
+"explanation": "Nội dung số là bất kỳ nội dung nào tồn tại dưới dạng dữ liệu số, được mã hóa để máy tính có thể đọc và cho phép tạo, xem, phân phối, sửa đổi, lưu trữ bằng công nghệ số."
+},
+{
+"id": 2,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Có bao nhiêu loại hình nội dung số phổ biến được trình bày trong bài?",
+"options": [
+"3 loại",
+"4 loại",
+"5 loại",
+"6 loại"
+],
+"answer": 2,
+"explanation": "Bài học phân loại 5 dạng nội dung số phổ biến: văn bản, hình ảnh, âm thanh, video và đa phương tiện."
+},
+{
+"id": 3,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Ưu điểm nổi bật của nội dung văn bản là gì?",
+"options": [
+"Luôn hấp dẫn hơn video",
+"Dễ sản xuất, dễ được công cụ tìm kiếm lập chỉ mục và phù hợp với thông tin chi tiết, phức tạp",
+"Không cần chỉnh sửa trước khi xuất bản",
+"Có khả năng truyền tải cảm xúc tốt hơn âm thanh"
+],
+"answer": 1,
+"explanation": "Văn bản dễ sản xuất, chi phí thấp, dễ được công cụ tìm kiếm lập chỉ mục và đặc biệt phù hợp với việc truyền tải thông tin chi tiết, phức tạp."
+},
+{
+"id": 4,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Hạn chế đáng chú ý của nội dung hình ảnh là gì?",
+"options": [
+"Không thể thu hút sự chú ý",
+"Không thể truyền tải dữ liệu",
+"Cần kỹ năng thiết kế hoặc nhiếp ảnh và đôi khi khó diễn đạt ý tưởng trừu tượng, phức tạp",
+"Luôn có chi phí sản xuất cao hơn video"
+],
+"answer": 2,
+"explanation": "Hình ảnh có ưu thế về tính trực quan nhưng để tạo hình ảnh chất lượng cần kỹ năng thiết kế hoặc nhiếp ảnh, đồng thời một số ý tưởng trừu tượng rất khó diễn đạt chỉ bằng hình ảnh."
+},
+{
+"id": 5,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Đặc điểm nào là ưu điểm tiêu biểu của nội dung âm thanh?",
+"options": [
+"Có thể tiếp thu trong khi người dùng đang làm việc khác",
+"Luôn dễ tìm kiếm từng thông tin cụ thể",
+"Không cần thiết bị nghe",
+"Luôn giữ sự tập trung của người nghe tốt hơn video"
+],
+"answer": 0,
+"explanation": "Âm thanh cho phép người dùng tiếp thu thông tin linh hoạt, chẳng hạn nghe podcast khi đang đi xe buýt hoặc làm công việc khác."
+},
+{
+"id": 6,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Video có ưu điểm nổi bật nào sau đây?",
+"options": [
+"Không cần kỹ năng sản xuất",
+"Tác động đa giác quan, hấp dẫn, dễ lan truyền và thể hiện quy trình tốt",
+"Luôn có chi phí thấp nhất",
+"Dễ tìm kiếm thông tin cụ thể hơn văn bản"
+],
+"answer": 1,
+"explanation": "Video kết hợp hình ảnh chuyển động và âm thanh, tạo tác động đa giác quan, hấp dẫn, dễ lan truyền và đặc biệt phù hợp để thể hiện các quy trình."
+},
+{
+"id": 7,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Điểm khác biệt quan trọng của nội dung đa phương tiện là gì?",
+"options": [
+"Chỉ sử dụng văn bản và hình ảnh",
+"Tích hợp nhiều loại hình nội dung để tạo trải nghiệm phong phú và có tính tương tác cao",
+"Chỉ được sử dụng trong các khóa học trực tuyến",
+"Có quy trình sản xuất đơn giản nhất"
+],
+"answer": 1,
+"explanation": "Nội dung đa phương tiện tích hợp nhiều loại hình như văn bản, hình ảnh, âm thanh, video nhằm tạo trải nghiệm phong phú và tương tác cao."
+},
+{
+"id": 8,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Loại nội dung nào thường phù hợp nhất để thiết kế infographic tóm tắt một môn học?",
+"options": [
+"Văn bản",
+"Hình ảnh",
+"Âm thanh",
+"Livestream"
+],
+"answer": 1,
+"explanation": "Infographic là dạng nội dung hình ảnh, có ưu thế về tính trực quan và khả năng giúp người xem ghi nhớ thông tin."
+},
+{
+"id": 9,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Quy trình sáng tạo nội dung số trong bài được hệ thống hóa thành bao nhiêu bước cốt lõi?",
+"options": [
+"4 bước",
+"5 bước",
+"6 bước",
+"7 bước"
+],
+"answer": 2,
+"explanation": "Phần 5.1.2 trình bày 6 bước: lên ý tưởng và nghiên cứu, lập kế hoạch, sản xuất, biên tập và tinh chỉnh, xuất bản và phân phối, đo lường và tối ưu."
+},
+{
+"id": 10,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Trong bước Lên ý tưởng và Nghiên cứu, yếu tố nào cần được xác định trước?",
+"options": [
+"Chỉ số lượt thích sau khi đăng",
+"Mục tiêu nội dung và đối tượng hướng đến",
+"Màu sắc của logo",
+"Ngân sách quảng cáo sau khi xuất bản"
+],
+"answer": 1,
+"explanation": "Ở bước đầu tiên cần xác định mục tiêu của nội dung và đối tượng mục tiêu, sau đó nghiên cứu chủ đề và tìm ra góc nhìn độc đáo."
+},
+{
+"id": 11,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Nội dung nào sau đây KHÔNG thuộc bước Lập kế hoạch?",
+"options": [
+"Xây dựng dàn ý hoặc kịch bản",
+"Lựa chọn định dạng nội dung",
+"Xác định nguồn lực và mục tiêu SMART",
+"Theo dõi lượt xem và lượt chia sẻ sau khi xuất bản"
+],
+"answer": 3,
+"explanation": "Theo dõi lượt xem, lượt thích, bình luận và chia sẻ thuộc bước Đo lường và Tối ưu sau khi nội dung đã được xuất bản."
+},
+{
+"id": 12,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Trong mục tiêu SMART, chữ 'M' đại diện cho yếu tố nào?",
+"options": [
+"Meaningful",
+"Measurable",
+"Modern",
+"Manageable"
+],
+"answer": 1,
+"explanation": "SMART gồm Specific, Measurable, Achievable, Relevant và Time-bound. M là Measurable, nghĩa là đo lường được."
+},
+{
+"id": 13,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Call to Action (CTA) trong một sản phẩm nội dung nhằm mục đích gì?",
+"options": [
+"Xác định phần mềm dùng để thiết kế",
+"Yêu cầu người xem thực hiện một hành động cụ thể sau khi tiếp nhận nội dung",
+"Đo số lượng người xem",
+"Kiểm tra lỗi chính tả"
+],
+"answer": 1,
+"explanation": "CTA là lời kêu gọi hành động, xác định người xem hoặc người đọc cần làm gì sau khi tiếp nhận nội dung, chẳng hạn bình luận hoặc tải tài liệu."
+},
+{
+"id": 14,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Mục đích quan trọng nhất của bước Biên tập và Tinh chỉnh là gì?",
+"options": [
+"Đăng nội dung càng nhanh càng tốt",
+"Kiểm tra lỗi, tính logic và chất lượng của nội dung trước khi xuất bản",
+"Tăng số lượng người theo dõi",
+"Thay thế hoàn toàn bước nghiên cứu"
+],
+"answer": 1,
+"explanation": "Bước này giúp phát hiện lỗi chính tả, ngữ pháp, logic và kiểm tra chất lượng hình ảnh, âm thanh; đồng thời có thể tiếp nhận phản hồi từ người khác."
+},
+{
+"id": 15,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Ở bước Đo lường và Tối ưu, chỉ số nào có thể được sử dụng để đánh giá hiệu quả nội dung?",
+"options": [
+"Lượt xem, lượt thích, bình luận và chia sẻ",
+"Tên máy tính của người tạo",
+"Dung lượng ổ cứng cá nhân",
+"Số lượng phần mềm được cài đặt"
+],
+"answer": 0,
+"explanation": "Sau khi xuất bản, người sáng tạo cần theo dõi các KPI như lượt xem, lượt thích, bình luận và chia sẻ để rút kinh nghiệm và tối ưu nội dung."
+},
+{
+"id": 16,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Quyền sở hữu trí tuệ (IP) là thuật ngữ chung chỉ điều gì?",
+"options": [
+"Các quyền đối với sản phẩm do trí tuệ con người tạo ra",
+"Chỉ quyền sở hữu tên miền website",
+"Chỉ quyền sử dụng phần mềm miễn phí",
+"Chỉ quyền sở hữu các thiết bị kỹ thuật số"
+],
+"answer": 0,
+"explanation": "IP là thuật ngữ chung chỉ các quyền đối với sản phẩm do trí tuệ con người tạo ra, bao gồm quyền tác giả, sáng chế, nhãn hiệu và kiểu dáng công nghiệp."
+},
+{
+"id": 17,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Theo bài học, bản quyền đối với một tác phẩm phát sinh khi nào?",
+"options": [
+"Chỉ sau khi tác giả đăng ký với cơ quan nhà nước",
+"Chỉ sau khi tác phẩm được đăng lên Internet",
+"Tự động khi tác phẩm được định hình dưới một dạng vật chất nhất định",
+"Chỉ khi tác phẩm bắt đầu tạo ra doanh thu"
+],
+"answer": 2,
+"explanation": "Bản quyền phát sinh tự động ngay khi tác phẩm được định hình dưới một dạng vật chất nhất định, không bắt buộc phải đăng ký."
+},
+{
+"id": 18,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Đạo văn (Plagiarism) được hiểu đúng nhất là gì?",
+"options": [
+"Sử dụng ý tưởng của chính mình nhiều lần",
+"Sử dụng công cụ kiểm tra ngữ pháp",
+"Chuyển giao ý tưởng hoặc lời nói của người khác thành của mình mà không ghi nhận nguồn",
+"Tóm tắt một tài liệu bằng lời văn của chính mình và có trích dẫn"
+],
+"answer": 2,
+"explanation": "Đạo văn là việc lấy ý tưởng hoặc lời nói của người khác và trình bày như sản phẩm của mình mà không ghi nhận nguồn gốc."
+},
+{
+"id": 19,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Nếu sinh viên paraphrase ý tưởng của người khác bằng lời văn của mình, họ có cần trích dẫn nguồn không?",
+"options": [
+"Không, vì đã thay đổi hoàn toàn câu chữ",
+"Có, vẫn bắt buộc phải trích dẫn nguồn",
+"Chỉ cần trích dẫn nếu nội dung dài hơn 100 từ",
+"Chỉ cần trích dẫn khi đăng lên mạng xã hội"
+],
+"answer": 1,
+"explanation": "Paraphrase chỉ thay đổi cách diễn đạt, không làm thay đổi nguồn gốc ý tưởng. Vì vậy vẫn phải ghi nhận và trích dẫn nguồn."
+},
+{
+"id": 20,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Trong bối cảnh bài học, sử dụng hợp lý (Fair Use/Fair Dealing) cho phép điều gì?",
+"options": [
+"Tự do sao chép toàn bộ mọi tác phẩm có bản quyền",
+"Sử dụng một phần tác phẩm trong một số trường hợp ngoại lệ phù hợp, đồng thời phải ghi rõ nguồn",
+"Sử dụng mọi nội dung trên Internet mà không cần xin phép",
+"Bán lại tác phẩm của người khác nếu đã thay đổi tiêu đề"
+],
+"answer": 1,
+"explanation": "Sử dụng hợp lý có thể cho phép dùng một phần tác phẩm trong những trường hợp như bình luận, giới thiệu, giảng dạy hoặc nghiên cứu, nhưng mức độ sử dụng phải hợp lý và cần ghi nguồn."
+},
+{
+"id": 21,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Giấy phép CC BY cho phép người khác sử dụng tác phẩm với điều kiện chính nào?",
+"options": [
+"Không được phép sửa đổi tác phẩm",
+"Chỉ được sử dụng cho mục đích phi thương mại",
+"Phải ghi công tác giả gốc",
+"Phải chia sẻ tác phẩm phái sinh bằng đúng giấy phép CC BY-SA"
+],
+"answer": 2,
+"explanation": "CC BY cho phép sao chép, phân phối, sửa đổi và sử dụng cả cho mục đích thương mại, miễn là ghi công tác giả gốc."
+},
+{
+"id": 22,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Điểm đặc biệt của giấy phép CC BY-SA là gì?",
+"options": [
+"Không được sử dụng cho mục đích thương mại",
+"Không được sửa đổi tác phẩm",
+"Tác phẩm phái sinh phải được chia sẻ với cùng một giấy phép",
+"Không cần ghi công tác giả"
+],
+"answer": 2,
+"explanation": "SA là Share Alike, nghĩa là tác phẩm phái sinh phải được chia sẻ theo cùng một giấy phép."
+},
+{
+"id": 23,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Theo bài học, CC BY-NC có ý nghĩa gì?",
+"options": [
+"Ghi công và không được tạo tác phẩm phái sinh",
+"Ghi công và chỉ cho phép sử dụng phi thương mại",
+"Ghi công và bắt buộc chia sẻ tương tự",
+"Không cần ghi công nhưng không được sửa đổi"
+],
+"answer": 1,
+"explanation": "NC là NonCommercial, vì vậy CC BY-NC cho phép sử dụng tác phẩm cho mục đích phi thương mại nhưng phải ghi công tác giả."
+},
+{
+"id": 24,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "CC BY-ND cho phép người khác thực hiện hành động nào?",
+"options": [
+"Sao chép và phân phối tác phẩm nguyên gốc nhưng không được sửa đổi hoặc tạo tác phẩm phái sinh",
+"Sửa đổi tùy ý và không cần ghi công",
+"Chỉ sử dụng tác phẩm cho mục đích thương mại",
+"Sử dụng tác phẩm mà không cần tuân thủ điều kiện nào"
+],
+"answer": 0,
+"explanation": "ND là No Derivatives, nghĩa là được sao chép và phân phối bản gốc nhưng không được sửa đổi hoặc tạo tác phẩm phái sinh."
+},
+{
+"id": 25,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Công cụ nào phù hợp nhất để soạn thảo một luận văn cần định dạng chuẩn và chuyên nghiệp dưới dạng file?",
+"options": [
+"Microsoft Word",
+"Remove.bg",
+"Audacity",
+"Pictory"
+],
+"answer": 0,
+"explanation": "Microsoft Word mạnh về soạn thảo và định dạng văn bản, phù hợp với bài tập, báo cáo và luận văn cần trình bày chính thức."
+},
+{
+"id": 26,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Điểm mạnh nổi bật của Google Docs trong làm việc nhóm là gì?",
+"options": [
+"Chỉ hoạt động khi không có Internet",
+"Cho phép nhiều người cùng chỉnh sửa tài liệu, xem lịch sử thay đổi và bình luận",
+"Chỉ hỗ trợ chỉnh sửa hình ảnh",
+"Không lưu tài liệu trên đám mây"
+],
+"answer": 1,
+"explanation": "Google Docs hỗ trợ cộng tác trực tuyến, cho phép nhiều thành viên chỉnh sửa cùng lúc, xem lịch sử thay đổi và trao đổi qua bình luận."
+},
+{
+"id": 27,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Nhóm công cụ như Notion, Evernote và OneNote đặc biệt phù hợp với giai đoạn nào của quy trình sáng tạo?",
+"options": [
+"Đo lường hiệu quả sau xuất bản",
+"Thu thập thông tin và lên ý tưởng",
+"Dựng video chuyên nghiệp",
+"Xử lý âm thanh chuyên sâu"
+],
+"answer": 1,
+"explanation": "Các công cụ ghi chú này phù hợp để ghi chú bài giảng, lưu tài liệu tham khảo, lưu link, hình ảnh, video và phác thảo dàn ý."
+},
+{
+"id": 28,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Công cụ nào được mô tả là trợ lý kiểm tra chính tả, ngữ pháp, dấu câu, văn phong và có thể gợi ý từ đồng nghĩa?",
+"options": [
+"Grammarly",
+"Figma",
+"Gamma",
+"OpenShot"
+],
+"answer": 0,
+"explanation": "Grammarly hỗ trợ kiểm tra chính tả, ngữ pháp, dấu câu, văn phong, gợi ý từ đồng nghĩa và trong một số phiên bản còn hỗ trợ kiểm tra đạo văn."
+},
+{
+"id": 29,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Công cụ nào phù hợp nhất khi sinh viên cần thiết kế nhanh một poster đẹp mà không có kỹ năng thiết kế chuyên sâu?",
+"options": [
+"Canva",
+"Adobe Audition",
+"Descript",
+"DaVinci Resolve"
+],
+"answer": 0,
+"explanation": "Canva có giao diện kéo-thả trực quan và kho template lớn, phù hợp với người mới cần tạo sản phẩm thiết kế nhanh và chuyên nghiệp."
+},
+{
+"id": 30,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Điểm mạnh nổi bật của Figma được nhấn mạnh trong bài là gì?",
+"options": [
+"Chỉ dùng để chỉnh sửa âm thanh",
+"Thiết kế giao diện và cho phép nhiều người cùng thao tác trên một file trong thời gian thực",
+"Chỉ dùng để tạo video ngắn",
+"Tự động viết bài luận bằng AI"
+],
+"answer": 1,
+"explanation": "Figma là công cụ chuyên nghiệp cho UI/UX và đặc biệt mạnh trong cộng tác thiết kế theo thời gian thực."
+},
+{
+"id": 31,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Nếu cần xóa nền một bức ảnh thật nhanh, công cụ nào được bài học gợi ý?",
+"options": [
+"Remove.bg",
+"Gamma",
+"Audacity",
+"Microsoft Word"
+],
+"answer": 0,
+"explanation": "Remove.bg là công cụ online đơn giản chuyên thực hiện nhiệm vụ xóa nền ảnh nhanh chóng."
+},
+{
+"id": 32,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Theo bài học, nguyên lý cơ bản của mô hình AI tạo ảnh dựa trên diffusion là gì?",
+"options": [
+"Bắt đầu từ một hình ảnh hoàn chỉnh rồi xóa dần các chi tiết",
+"Bắt đầu từ nhiễu ngẫu nhiên và dần tinh chỉnh để tạo thành hình ảnh phù hợp với prompt",
+"Chỉ sao chép nguyên xi một hình ảnh trong dữ liệu huấn luyện",
+"Chuyển mọi hình ảnh thành văn bản trước khi hiển thị"
+],
+"answer": 1,
+"explanation": "Mô hình diffusion học mối liên hệ giữa văn bản và hình ảnh, sau đó thường bắt đầu từ nhiễu ngẫu nhiên và dần tinh chỉnh để tạo ảnh phù hợp với prompt."
+},
+{
+"id": 33,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Công cụ nào phù hợp để biến một file âm thanh chất lượng kém, nhiều tiếng vang hoặc tiếng ồn thành bản ghi sạch hơn?",
+"options": [
+"Adobe Podcast Enhance",
+"Figma",
+"Canva",
+"Gamma"
+],
+"answer": 0,
+"explanation": "Adobe Podcast Enhance sử dụng AI để làm sạch file âm thanh, giảm ảnh hưởng của tiếng vang và tiếng ồn, giúp giọng nói trong trẻo hơn."
+},
+{
+"id": 34,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Điểm đặc biệt của Descript trong chỉnh sửa audio là gì?",
+"options": [
+"Cho phép chỉnh sửa âm thanh thông qua việc chỉnh sửa transcript văn bản",
+"Chỉ có thể tăng âm lượng",
+"Chỉ dùng để tạo ảnh từ văn bản",
+"Chỉ dùng để thiết kế slide"
+],
+"answer": 0,
+"explanation": "Descript tự động chuyển giọng nói thành văn bản. Người dùng có thể sửa transcript, và thay đổi đó được phản ánh vào file âm thanh."
+},
+{
+"id": 35,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "CapCut phù hợp nhất với nhu cầu nào sau đây?",
+"options": [
+"Thiết kế giao diện ứng dụng chuyên nghiệp",
+"Chỉnh sửa video, đặc biệt là video ngắn, với các tính năng như tạo phụ đề và xóa nền bằng AI",
+"Soạn thảo luận văn học thuật",
+"Tạo mô hình dữ liệu quan hệ"
+],
+"answer": 1,
+"explanation": "CapCut là trình chỉnh sửa video thân thiện, đặc biệt phổ biến với video ngắn và cung cấp các tính năng AI như tạo phụ đề tự động, xóa nền video."
+},
+{
+"id": 36,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Pictory.ai và InVideo AI có khả năng nổi bật nào?",
+"options": [
+"Biến bài viết hoặc kịch bản văn bản thành video bằng cách tự động kết hợp hình ảnh/video stock và giọng đọc AI",
+"Chỉ kiểm tra lỗi chính tả",
+"Chỉ tạo biểu đồ dữ liệu",
+"Chỉ thiết kế giao diện website"
+],
+"answer": 0,
+"explanation": "Pictory.ai và InVideo AI có thể biến văn bản hoặc kịch bản thành video, tự động tìm nội dung stock phù hợp và kết hợp giọng đọc AI."
+},
+{
+"id": 37,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Trong giai đoạn lên ý tưởng, GenAI có thể hỗ trợ hiệu quả nhất bằng cách nào?",
+"options": [
+"Thay thế hoàn toàn việc kiểm chứng thông tin",
+"Brainstorm chủ đề, đưa ra nhiều góc nhìn và hỗ trợ xác định đối tượng mục tiêu",
+"Tự động đảm bảo mọi thông tin đều chính xác",
+"Loại bỏ hoàn toàn vai trò của người sáng tạo"
+],
+"answer": 1,
+"explanation": "GenAI có thể giúp mở rộng ý tưởng, đưa ra các chủ đề và góc nhìn khác nhau, đồng thời hỗ trợ mô tả chân dung đối tượng mục tiêu. Tuy nhiên, người dùng vẫn phải kiểm chứng thông tin."
+},
+{
+"id": 38,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Theo bài học, LLMs tạo văn bản chủ yếu bằng cách nào?",
+"options": [
+"Dự đoán chuỗi từ tiếp theo dựa trên prompt và ngữ cảnh",
+"Sao chép nguyên văn một tài liệu ngẫu nhiên trên Internet",
+"Chỉ ghép các câu có sẵn trong cơ sở dữ liệu",
+"Chuyển hình ảnh thành âm thanh rồi thành văn bản"
+],
+"answer": 0,
+"explanation": "Bài học mô tả LLMs là các mô hình dự đoán chuỗi từ tiếp theo dựa trên prompt và ngữ cảnh để tạo ra văn bản mạch lạc theo yêu cầu."
+},
+{
+"id": 39,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Tiêu chí nào sau đây KHÔNG thuộc checklist đánh giá nội dung do AI tạo ra?",
+"options": [
+"Tính chính xác",
+"Tính độc đáo và dấu ấn cá nhân",
+"Sự phù hợp, thiên kiến, tính mạch lạc và logic",
+"Số lượng thiết bị mà người dùng đang sở hữu"
+],
+"answer": 3,
+"explanation": "Checklist gồm tính chính xác, độc đáo và cá nhân hóa, sự phù hợp, thiên kiến, tính mạch lạc và logic, cùng yêu cầu minh bạch về việc sử dụng AI."
+},
+{
+"id": 40,
+"chapter": 5,
+"chapterName": "Chương 5: Sáng tạo nội dung số",
+"question": "Theo tinh thần cốt lõi của chương, cách sử dụng AI tạo sinh đúng đắn nhất là gì?",
+"options": [
+"Để AI làm toàn bộ sản phẩm và nộp nguyên văn",
+"Xem AI là công cụ hỗ trợ, đồng thời con người vẫn kiểm chứng, tư duy phản biện, chỉnh sửa và chịu trách nhiệm cuối cùng",
+"Chỉ sử dụng AI khi không cần trích dẫn nguồn",
+"Tin tưởng tuyệt đối vào mọi thông tin AI cung cấp"
+],
+"answer": 1,
+"explanation": "Bài học nhấn mạnh AI là công cụ hỗ trợ chứ không thay thế tư duy phản biện, sự sáng tạo và chuyên môn của con người. Người dùng phải kiểm chứng, tinh chỉnh và chịu trách nhiệm cuối cùng về sản phẩm."
 }
 ]
