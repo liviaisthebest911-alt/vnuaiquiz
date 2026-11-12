@@ -121,7 +121,8 @@ export default function Flashcard({ questions }) {
                     className="inline-flex items-center gap-2 rounded-xl bg-blossom-card-soft px-4 py-2.5 text-sm font-medium text-blossom-text transition-all hover:scale-[1.015] active:scale-[0.985] dark:bg-blossom-card-soft-dark dark:text-blossom-text-dark"
                 >
                     <Shuffle size={17} />
-                    Xáo bài
+                    {/* < 640px: chỉ hiện icon để 4 nút vừa một hàng (360px); nhãn vẫn là tên truy cập */}
+                    <span className="sr-only sm:not-sr-only">Xáo bài</span>
                 </button>
 
                 <button
@@ -129,7 +130,7 @@ export default function Flashcard({ questions }) {
                     className="inline-flex items-center gap-2 rounded-xl bg-blossom-card-soft px-4 py-2.5 text-sm font-medium text-blossom-text transition-all hover:scale-[1.015] active:scale-[0.985] dark:bg-blossom-card-soft-dark dark:text-blossom-text-dark"
                 >
                     <RotateCw size={17} />
-                    Lật thẻ
+                    <span className="sr-only sm:not-sr-only">Lật thẻ</span>
                 </button>
 
                 <button

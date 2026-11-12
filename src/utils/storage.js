@@ -1,8 +1,22 @@
+import { migrateLegacyIds } from './questionKey'
+
 const KEYS = {
     questions: 'vnu-ai-quiz:questions',
-    bookmarks: 'vnu-ai-quiz:bookmarks',
-    progress: 'vnu-ai-quiz:progress',
+    // Key cũ lưu `id` trần (trùng giữa các chương) – chỉ đọc để chuyển đổi, KHÔNG ghi đè/xoá.
+    legacyBookmarks: 'vnu-ai-quiz:bookmarks',
+    legacyProgress: 'vnu-ai-quiz:progress',
+    // Key mới lưu questionKey (môn:chương:id).
+    bookmarks: 'vnu-ai-quiz:bookmarks.v2',
+    progress: 'vnu-ai-quiz:progress.v2',
     history: 'vnu-ai-quiz:history',
+}
+
+// Lần đầu (chưa có key v2): chuyển các id cũ xác định được duy nhất; sau đó chỉ đọc v2.
+function readKeyed(key, legacyKey, questions) {
+    const current = read(key, null)
+    return Array.isArray(current)
+        ? current
+        : migrateLegacyIds(read(legacyKey, []), questions)
 }
 
 function read(key, fallback) {
@@ -53,20 +67,20 @@ export const storage = {
         }
     },
 
-    getBookmarks() {
-        return read(KEYS.bookmarks, [])
+    getBookmarks(questions) {
+        return readKeyed(KEYS.bookmarks, KEYS.legacyBookmarks, questions)
     },
 
-    setBookmarks(ids) {
-        write(KEYS.bookmarks, ids)
+    setBookmarks(keys) {
+        write(KEYS.bookmarks, keys)
     },
 
-    getProgress() {
-        return read(KEYS.progress, [])
+    getProgress(questions) {
+        return readKeyed(KEYS.progress, KEYS.legacyProgress, questions)
     },
 
-    setProgress(ids) {
-        write(KEYS.progress, ids)
+    setProgress(keys) {
+        write(KEYS.progress, keys)
     },
 
     getHistory() {

@@ -3,9 +3,11 @@ import {
     Database,
     GraduationCap,
     Layers,
+    Library,
     LayoutDashboard,
     Menu,
     PenLine,
+    UserRound,
     X,
 } from 'lucide-react'
 
@@ -37,9 +39,19 @@ const navItems = [
         icon: PenLine,
     },
     {
+        id: 'materials',
+        label: 'Tài liệu',
+        icon: Library,
+    },
+    {
         id: 'admin',
         label: 'Quản lý dữ liệu',
         icon: Database,
+    },
+    {
+        id: 'account',
+        label: 'Tài khoản',
+        icon: UserRound,
     },
 ]
 
@@ -88,10 +100,12 @@ export default function Layout({
                     </button>
 
                     {/* Thanh điều hướng — gọn nhẹ */}
+                    {/* md → lg: chỉ icon (7 mục không vừa 768px), nhãn vẫn là tên truy cập của nút */}
                     <nav className="hidden items-center gap-1 md:flex">
                         {navItems.map(({ id, label, icon: Icon }) => (
                             <button
                                 key={id}
+                                title={label}
                                 onClick={() => navigate(id)}
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all hover:scale-[1.015] active:scale-[0.985] ${
                                     page === id
@@ -99,8 +113,8 @@ export default function Layout({
                                         : 'text-blossom-muted hover:bg-blossom-card-soft hover:text-blossom-text dark:text-blossom-muted-dark dark:hover:bg-blossom-card-soft-dark dark:hover:text-blossom-text-dark'
                                 }`}
                             >
-                                <Icon size={17} />
-                                {label}
+                                <Icon size={17} aria-hidden="true" />
+                                <span className="sr-only lg:not-sr-only">{label}</span>
                             </button>
                         ))}
                     </nav>

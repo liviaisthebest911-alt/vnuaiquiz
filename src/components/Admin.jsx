@@ -7,6 +7,7 @@ import {
     RotateCcw,
     Upload,
 } from 'lucide-react'
+import { questionKey } from '../utils/questionKey'
 
 import {
     useEffect,
@@ -39,6 +40,8 @@ function validateQuestions(data) {
             'Dữ liệu phải là một mảng JSON có ít nhất 1 câu hỏi.',
         )
     }
+
+    const seenKeys = new Set()
 
     data.forEach((q, index) => {
         if (!Number.isFinite(Number(q.id))) {
@@ -106,6 +109,15 @@ function validateQuestions(data) {
                 `Câu ${index + 1}: thiếu explanation.`,
             )
         }
+
+        // Khoá câu hỏi = môn + chương + id → không được trùng (id được phép lặp ở chương khác)
+        const key = questionKey(q)
+        if (seenKeys.has(key)) {
+            throw new Error(
+                `Câu ${index + 1}: trùng id ${q.id} trong chương ${q.chapter}.`,
+            )
+        }
+        seenKeys.add(key)
     })
 }
 
@@ -313,7 +325,7 @@ export default function Admin({
                         <ul className="mt-3 space-y-2 text-sm leading-6 text-blossom-muted dark:text-blossom-muted-dark">
 
                             <li>
-                                <strong className="text-blossom-text dark:text-blossom-text-dark">id:</strong> số nguyên duy nhất.
+                                <strong className="text-blossom-text dark:text-blossom-text-dark">id:</strong> số nguyên, không trùng trong cùng một chương.
                             </li>
 
                             <li>
