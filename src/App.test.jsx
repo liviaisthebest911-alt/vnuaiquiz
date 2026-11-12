@@ -2,6 +2,7 @@
 import { afterEach, beforeEach, describe, expect, test } from 'vitest'
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import App from './App'
+import { MemoryRouter } from 'react-router-dom'
 import QuestionMinimap from './features/exam/components/QuestionMinimap'
 import questions from './data/questions.json'
 
@@ -16,7 +17,7 @@ afterEach(cleanup)
 
 describe('P0 – loại bỏ THPTQG', () => {
     test('Dashboard hiển thị, không còn nút hay chữ THPTQG', () => {
-        render(<App />)
+        render(<MemoryRouter><App /></MemoryRouter>)
         expect(screen.getByRole('button', { name: /Ôn tập ngay/ })).toBeTruthy()
         expect(screen.getAllByRole('button', { name: /Thi thử 30 phút/ }).length).toBeGreaterThan(0)
         expect(document.body.textContent).not.toMatch(/THPT/i)
@@ -25,7 +26,7 @@ describe('P0 – loại bỏ THPTQG', () => {
     test('không xoá dữ liệu cũ của người dùng trong localStorage', () => {
         localStorage.setItem('vnuaiquiz_exam_history', '[{"id":"old"}]')
         localStorage.setItem('vnu-ai-quiz:bookmarks', '[3]')
-        render(<App />)
+        render(<MemoryRouter><App /></MemoryRouter>)
         expect(localStorage.getItem('vnuaiquiz_exam_history')).toBe('[{"id":"old"}]')
         expect(localStorage.getItem('vnu-ai-quiz:bookmarks')).toBe('[3]')
     })
@@ -33,7 +34,7 @@ describe('P0 – loại bỏ THPTQG', () => {
 
 describe('chức năng hiện có vẫn hoạt động', () => {
     test('điều hướng tới mọi trang', async () => {
-        render(<App />)
+        render(<MemoryRouter><App /></MemoryRouter>)
         nav('Ôn tập');           await findTitle('Ôn tập theo chương')
         nav('Flashcard');        await findTitle('Thẻ ghi nhớ nhanh')
         nav('Thi thử');          await findTitle('Thi thử 30 phút')
@@ -41,7 +42,7 @@ describe('chức năng hiện có vẫn hoạt động', () => {
     })
 
     test('ôn tập: trả lời hiện giải thích, đánh dấu được lưu', async () => {
-        render(<App />)
+        render(<MemoryRouter><App /></MemoryRouter>)
         nav('Ôn tập')
         await findTitle('Ôn tập theo chương')
 
@@ -55,7 +56,7 @@ describe('chức năng hiện có vẫn hoạt động', () => {
     })
 
     test('thi thử 30 phút: làm bài, nộp, lưu lịch sử', async () => {
-        render(<App />)
+        render(<MemoryRouter><App /></MemoryRouter>)
         nav('Thi thử')
         await findTitle('Thi thử 30 phút')
         fireEvent.click(screen.getByRole('button', { name: /Bắt đầu làm bài/ }))

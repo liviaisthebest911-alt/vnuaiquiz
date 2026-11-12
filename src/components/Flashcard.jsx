@@ -42,7 +42,7 @@ export default function Flashcard({ questions }) {
 
     if (!card) {
         return (
-            <div className="rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-10 text-center text-blossom-muted dark:border-white/10 dark:bg-blossom-card-dark/60 dark:text-blossom-muted-dark">
+            <div className="rounded-2xl border border-blossom-border bg-blossom-card p-10 text-center text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:text-blossom-muted-dark">
                 Chưa có câu hỏi để tạo flashcard.
             </div>
         )
@@ -75,7 +75,7 @@ export default function Flashcard({ questions }) {
                     }`}
                 >
                     {/* Mặt trước: câu hỏi */}
-                    <div className="flashcard-face absolute inset-0 flex flex-col justify-between rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-6 shadow-soft dark:border-white/10 dark:bg-blossom-card-dark/60 dark:shadow-soft-dark">
+                    <div className="flashcard-face absolute inset-0 flex flex-col justify-between rounded-2xl border border-blossom-border bg-blossom-card p-6 shadow-soft dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:shadow-soft-dark">
                         <div className="rounded-lg bg-blossom-card-soft px-3 py-1.5 text-xs font-semibold text-blossom-accent dark:bg-blossom-card-soft-dark dark:text-blossom-accent-dark">
                             {card.chapterName}
                         </div>
@@ -135,7 +135,7 @@ export default function Flashcard({ questions }) {
 
                 <button
                     onClick={goNext}
-                    className="inline-flex items-center gap-2 rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover active:scale-[0.985] dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
+                    className="inline-flex items-center gap-2 rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover active:scale-[0.985] dark:bg-blossom-accent-dark dark:text-blossom-bg-dark dark:hover:bg-blossom-accent-dark-hover"
                 >
                     Tiếp
                     <ArrowRight size={17} />

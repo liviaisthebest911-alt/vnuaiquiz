@@ -16,6 +16,9 @@ export default function Practice({
                                      bookmarks,
                                      onToggleBookmark,
                                      onMarkProgress,
+                                     progress = [],
+                                     resume = false,
+                                     initialChapter,
                                  }) {
     const chapterOptions = useMemo(() => {
         const byChapter = new Map()
@@ -31,8 +34,13 @@ export default function Practice({
         )
     }, [questions])
 
-    const [chapter, setChapter] = useState('all')
-    const [index, setIndex] = useState(0)
+    const [chapter, setChapter] = useState(() => chapterOptions.some(([position]) => String(position) === initialChapter) ? initialChapter : 'all')
+    const [index, setIndex] = useState(() => {
+        if (!resume) return 0
+        const initial = chapter === 'all' ? questions : questions.filter((question) => question.chapter === Number(chapter))
+        const completed = new Set(progress)
+        return Math.max(0, initial.findIndex((question) => !completed.has(questionKey(question))))
+    })
     const [selected, setSelected] = useState(null)
 
     const filtered = useMemo(
@@ -69,7 +77,7 @@ export default function Practice({
     // Trạng thái màu cho từng đáp án — dùng tông hồng/xanh lá/đỏ nhẹ, không rực rỡ
     const optionClass = (optionIndex) => {
         if (!answered) {
-            return 'card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm hover:border-blossom-accent/50 hover:bg-blossom-card-soft dark:border-white/10 dark:bg-blossom-card-dark/60 dark:hover:bg-blossom-card-soft-dark'
+            return 'border-blossom-border bg-blossom-card hover:border-blossom-accent/50 hover:bg-blossom-card-soft dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:hover:bg-blossom-card-soft-dark'
         }
 
         if (optionIndex === current.answer) {
@@ -80,12 +88,12 @@ export default function Practice({
             return 'border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-300'
         }
 
-        return 'card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm-soft text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark'
+        return 'border-blossom-border bg-blossom-card text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark'
     }
 
     if (!current) {
         return (
-            <div className="rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-10 text-center text-blossom-muted dark:border-white/10 dark:bg-blossom-card-dark/60 dark:text-blossom-muted-dark">
+            <div className="rounded-2xl border border-blossom-border bg-blossom-card p-10 text-center text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:text-blossom-muted-dark">
                 Chưa có câu hỏi để ôn tập.
             </div>
         )
@@ -97,11 +105,7 @@ export default function Practice({
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
 
-          <span className="text-xs font-semibold uppercase tracking-wider text-blossom-accent dark:text-blossom-accent-dark">
-            Practice Mode
-          </span>
-
-                    <h1 className="mt-1 text-2xl font-medium text-blossom-text dark:text-blossom-text-dark">
+                    <h1 className="text-3xl font-bold tracking-tight text-blossom-text dark:text-blossom-text-dark">
                         Ôn tập theo chương
                     </h1>
 
@@ -110,11 +114,11 @@ export default function Practice({
                     </p>
                 </div>
 
-                {/* Input focus ring đổi màu hồng — micro-interaction mục 4 */}
                 <select
+                    aria-label="Chương ôn tập"
                     value={chapter}
                     onChange={(e) => chooseChapter(e.target.value)}
-                    className="rounded-xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm px-3 py-2.5 text-sm font-medium text-blossom-text outline-none transition-colors focus:border-blossom-accent focus:ring-2 focus:ring-blossom-accent/20 dark:border-white/10 dark:bg-blossom-card-dark/60 dark:text-blossom-text-dark dark:focus:border-blossom-accent-dark dark:focus:ring-blossom-accent-dark/20"
+                    className="rounded-xl border border-blossom-border bg-blossom-card px-3 py-2.5 text-sm font-medium text-blossom-text outline-none transition-colors focus:border-blossom-accent focus:ring-2 focus:ring-blossom-accent/20 dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:text-blossom-text-dark dark:focus:border-blossom-accent-dark dark:focus:ring-blossom-accent-dark/20"
                 >
                     <option value="all">Tất cả chương</option>
 
@@ -126,9 +130,9 @@ export default function Practice({
                 </select>
             </div>
 
-            <div className="grid gap-5 lg:grid-cols-[1fr_280px]">
+            <div className="grid items-start gap-5 lg:grid-cols-[minmax(0,1fr)_280px]">
 
-                <section className="rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-7">
+                <section className="rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark sm:p-7">
 
                     <div className="flex items-center justify-between gap-4">
                         <div className="text-sm text-blossom-muted dark:text-blossom-muted-dark">
@@ -260,7 +264,7 @@ export default function Practice({
                         <button
                             disabled={index === filtered.length - 1}
                             onClick={() => go(index + 1)}
-                            className="inline-flex items-center gap-2 rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
+                            className="inline-flex items-center gap-2 rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:bg-blossom-accent-dark dark:text-blossom-bg-dark dark:hover:bg-blossom-accent-dark-hover"
                         >
                             Câu tiếp
                             <ChevronRight size={17} />
@@ -269,22 +273,24 @@ export default function Practice({
                     </div>
                 </section>
 
-                <aside className="h-fit rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60">
+                <aside className="h-fit rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark">
 
                     <h3 className="flex items-center gap-2 font-bold text-blossom-text dark:text-blossom-text-dark">
                         <LayoutGrid size={17} className="text-blossom-gold dark:text-blossom-gold-dark" />
                         Danh sách câu
                     </h3>
 
-                    <div className="mt-4 grid grid-cols-5 gap-2">
+                    <div className="mt-3 max-h-72 overflow-y-auto p-1" tabIndex={0} role="region" aria-label="Cuộn danh sách câu hỏi">
+                        <div className="grid grid-cols-5 gap-2">
 
                         {filtered.map((q, qIndex) => (
                             <button
                                 key={questionKey(q)}
                                 onClick={() => go(qIndex)}
+                                aria-current={qIndex === index ? 'step' : undefined}
                                 className={`relative aspect-square rounded-lg text-xs font-bold transition-all hover:scale-[1.02] active:scale-[0.985] ${
                                     qIndex === index
-                                        ? 'bg-blossom-accent text-white dark:bg-blossom-accent-dark'
+                                        ? 'bg-blossom-accent text-white dark:bg-blossom-accent-dark dark:text-blossom-bg-dark'
                                         : 'bg-blossom-card-soft text-blossom-muted hover:text-blossom-text dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark dark:hover:text-blossom-text-dark'
                                 } ${
                                     bookmarks.includes(questionKey(q))
@@ -295,6 +301,7 @@ export default function Practice({
                                 {qIndex + 1}
                             </button>
                         ))}
+                        </div>
 
                     </div>
 

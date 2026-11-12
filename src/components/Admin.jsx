@@ -239,7 +239,7 @@ export default function Admin({
 
             <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
 
-                <section className="rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-6">
+                <section className="rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark sm:p-6">
 
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 
@@ -296,7 +296,7 @@ export default function Admin({
 
                         <button
                             onClick={importData}
-                            className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-blossom-accent px-4 py-3 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
+                            className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-blossom-accent px-4 py-3 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover dark:bg-blossom-accent-dark dark:text-blossom-bg-dark dark:hover:bg-blossom-accent-dark-hover"
                         >
                             <Upload size={17} />
                             Cập nhật ngân hàng câu hỏi
@@ -315,7 +315,7 @@ export default function Admin({
 
                 <aside className="h-fit space-y-4">
 
-                    <div className="rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60">
+                    <div className="rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark">
 
                         <h2 className="flex items-center gap-2 font-bold text-blossom-text dark:text-blossom-text-dark">
                             <ListChecks size={18} className="text-blossom-gold dark:text-blossom-gold-dark" />

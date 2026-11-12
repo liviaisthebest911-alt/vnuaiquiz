@@ -1,179 +1,74 @@
 import {
-    BrainCircuit,
-    Database,
-    GraduationCap,
-    Layers,
-    Library,
-    LayoutDashboard,
-    Menu,
-    PenLine,
-    UserRound,
-    X,
+    BookOpen, BrainCircuit, ChevronRight, Database, GraduationCap,
+    Layers, Library, LayoutDashboard, Menu, PenLine, UserRound, X,
 } from 'lucide-react'
-
 import { useState } from 'react'
-
 import { useTheme } from '../hooks/useTheme'
 import ThemeToggle from './ThemeToggle'
-import AppBackground from './AppBackground'
 
-const navItems = [
-    {
-        id: 'dashboard',
-        label: 'Tổng quan',
-        icon: LayoutDashboard,
-    },
-    {
-        id: 'practice',
-        label: 'Ôn tập',
-        icon: GraduationCap,
-    },
-    {
-        id: 'flashcard',
-        label: 'Flashcard',
-        icon: Layers,
-    },
-    {
-        id: 'exam',
-        label: 'Thi thử',
-        icon: PenLine,
-    },
-    {
-        id: 'materials',
-        label: 'Tài liệu',
-        icon: Library,
-    },
-    {
-        id: 'admin',
-        label: 'Quản lý dữ liệu',
-        icon: Database,
-    },
-    {
-        id: 'account',
-        label: 'Tài khoản',
-        icon: UserRound,
-    },
+const learning = [
+    { id: 'dashboard', label: 'Tổng quan', icon: LayoutDashboard },
+    { id: 'subjects', label: 'Môn học', icon: BookOpen },
+    { id: 'practice', label: 'Ôn tập', icon: GraduationCap },
+    { id: 'flashcard', label: 'Flashcard', icon: Layers },
+    { id: 'exam', label: 'Thi thử', icon: PenLine },
+    { id: 'materials', label: 'Tài liệu', icon: Library },
 ]
+const settings = [
+    { id: 'admin', label: 'Quản lý dữ liệu', icon: Database },
+    { id: 'account', label: 'Tài khoản', icon: UserRound },
+]
+const adminLabels = { 'exam-admin': 'Quản trị đề thi', 'library-admin': 'Quản trị tài liệu', 'stats-admin': 'Thống kê quản trị' }
 
-export default function Layout({
-                                   page,
-                                   setPage,
-                                   children,
-                               }) {
+export default function Layout({ page, setPage, children }) {
     const [open, setOpen] = useState(false)
     const { isDark, toggleTheme } = useTheme()
+    const label = [...learning, ...settings].find(({ id }) => id === page)?.label ?? adminLabels[page] ?? 'Trang hiện tại'
 
-    const navigate = (id) => {
+    function navigate(id) {
         setPage(id)
         setOpen(false)
     }
 
+    const navigation = (items) => items.map(({ id, label, icon: Icon }) => (
+        <button key={id} type="button" title={label} onClick={() => navigate(id)}
+                aria-current={page === id ? 'page' : undefined} className="workspace-nav-item">
+            <Icon size={19} strokeWidth={1.8} aria-hidden="true" />
+            <span>{label}</span>
+        </button>
+    ))
+
     return (
-        // Nền trong suốt để lộ gradient của <body> (index.css) + AppBackground orbs
-        <div className="min-h-screen text-blossom-text dark:text-blossom-text-dark">
-            <AppBackground />
-
-            {/* ==================================================================
-                HEADER — tối giản: viền mỏng thay vì shadow, không backdrop-blur nặng
-               ================================================================== */}
-            <header className="sticky top-0 z-40 border-b border-blossom-border bg-blossom-bg/90 backdrop-blur-sm dark:border-blossom-border-dark dark:bg-blossom-bg-dark/90">
-                <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-
-                    {/* Logo / tên dự án */}
-                    <button
-                        onClick={() => navigate('dashboard')}
-                        className="flex items-center gap-3 text-left transition-transform hover:scale-[1.015] active:scale-[0.985]"
-                    >
-                        <div className="grid h-10 w-10 place-items-center rounded-xl bg-blossom-accent text-white dark:bg-blossom-accent-dark">
-                            <BrainCircuit size={22} />
-                        </div>
-
-                        <div>
-                            <div className="text-sm font-bold text-blossom-accent dark:text-blossom-accent-dark">
-                                VNU DIGITAL & AI
-                            </div>
-
-                            <div className="text-xs text-blossom-muted dark:text-blossom-muted-dark">
-                                Ôn tập & Thi thử
-                            </div>
-                        </div>
+        <div className="workspace">
+            <a className="skip-link" href="#noi-dung">Đến nội dung chính</a>
+            <header className="workspace-rail">
+                <div className="workspace-brand-row">
+                    <button type="button" className="workspace-brand" onClick={() => navigate('dashboard')}>
+                        <span className="workspace-mark"><BrainCircuit size={23} strokeWidth={1.7} aria-hidden="true" /></span>
+                        <span className="workspace-brand-text"><strong>VNU Quiz</strong><small>Không gian học tập</small></span>
                     </button>
-
-                    {/* Thanh điều hướng — gọn nhẹ */}
-                    {/* md → lg: chỉ icon (7 mục không vừa 768px), nhãn vẫn là tên truy cập của nút */}
-                    <nav className="hidden items-center gap-1 md:flex">
-                        {navItems.map(({ id, label, icon: Icon }) => (
-                            <button
-                                key={id}
-                                title={label}
-                                onClick={() => navigate(id)}
-                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all hover:scale-[1.015] active:scale-[0.985] ${
-                                    page === id
-                                        ? 'bg-blossom-accent/10 text-blossom-accent dark:bg-blossom-accent-dark/15 dark:text-blossom-accent-dark'
-                                        : 'text-blossom-muted hover:bg-blossom-card-soft hover:text-blossom-text dark:text-blossom-muted-dark dark:hover:bg-blossom-card-soft-dark dark:hover:text-blossom-text-dark'
-                                }`}
-                            >
-                                <Icon size={17} aria-hidden="true" />
-                                <span className="sr-only lg:not-sr-only">{label}</span>
-                            </button>
-                        ))}
-                    </nav>
-
-                    {/* Vùng bên phải: ThemeToggle (luôn hiện) + nút menu mobile */}
-                    <div className="flex items-center gap-3">
-                        <ThemeToggle
-                            isDark={isDark}
-                            onToggle={toggleTheme}
-                        />
-
-                        <button
-                            onClick={() => setOpen((value) => !value)}
-                            className="rounded-lg p-2 text-blossom-muted transition-transform hover:scale-[1.02] hover:bg-blossom-card-soft active:scale-[0.985] dark:text-blossom-muted-dark dark:hover:bg-blossom-card-soft-dark md:hidden"
-                            aria-label="Mở menu"
-                        >
+                    <div className="workspace-mobile-tools">
+                        <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
+                        <button type="button" aria-label="Mở menu" aria-controls="workspace-nav" aria-expanded={open}
+                                className="workspace-menu" onClick={() => setOpen(!open)}>
                             {open ? <X size={22} /> : <Menu size={22} />}
                         </button>
                     </div>
                 </div>
-
-                {open && (
-                    <div className="border-t border-blossom-border px-4 py-3 dark:border-blossom-border-dark md:hidden">
-                        <div className="space-y-1">
-                            {navItems.map(({ id, label, icon: Icon }) => (
-                                <button
-                                    key={id}
-                                    onClick={() => navigate(id)}
-                                    className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
-                                        page === id
-                                            ? 'bg-blossom-accent/10 text-blossom-accent dark:bg-blossom-accent-dark/15 dark:text-blossom-accent-dark'
-                                            : 'text-blossom-muted hover:bg-blossom-card-soft dark:text-blossom-muted-dark dark:hover:bg-blossom-card-soft-dark'
-                                    }`}
-                                >
-                                    <Icon size={18} />
-                                    {label}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-                )}
+                <nav id="workspace-nav" aria-label="Điều hướng chính" className={`workspace-nav${open ? ' is-open' : ''}`}
+                     onKeyDown={(event) => { if (event.key === 'Escape') setOpen(false) }}>
+                    <div className="workspace-nav-group">{navigation(learning)}</div>
+                    <div className="workspace-nav-group workspace-nav-settings">{navigation(settings)}</div>
+                </nav>
+                <div className="workspace-rail-note">VNU Digital & AI</div>
             </header>
-
-            {/* ==================================================================
-                MAIN CONTENT
-               ================================================================== */}
-            <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-                {children}
-            </main>
-
-            {/* ==================================================================
-                FOOTER — tối giản
-               ================================================================== */}
-            <footer className="border-t border-blossom-border dark:border-blossom-border-dark">
-                <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-4 py-6 text-center text-xs text-blossom-muted dark:text-blossom-muted-dark sm:flex-row sm:justify-between sm:px-6 lg:px-8">
-                    <span>© {new Date().getFullYear()} VNU Digital & AI Quiz</span>
-                    <span>Dữ liệu được lưu cục bộ trên trình duyệt của bạn.</span>
+            <div className="workspace-content">
+                <div className="workspace-topbar">
+                    <span>Không gian học tập <ChevronRight size={14} aria-hidden="true" /> <strong>{label}</strong></span>
+                    <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
                 </div>
-            </footer>
+                <main id="noi-dung" className="workspace-main" tabIndex={-1}>{children}</main>
+            </div>
         </div>
     )
 }

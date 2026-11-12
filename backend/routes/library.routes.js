@@ -2,7 +2,7 @@
 // Nội dung chưa xuất bản (của tài liệu, môn hoặc chương) → 404 cho guest/user; editor/admin xem trước được.
 import express from 'express';
 import pool from '../config/db.js';
-import { hasRole, optionalAuth, UUID } from '../middleware/auth.js';
+import { hasRole, optionalAuth, requireAuth, UUID } from '../middleware/auth.js';
 import { HttpError, validationError } from '../middleware/errors.js';
 import { createSignedUrl } from '../services/storage.js';
 
@@ -100,6 +100,37 @@ router.get('/materials/:id/view', async (req, res) => {
 router.get('/materials/:id/download', async (req, res) => {
   const m = await findMaterial(req);
   res.json({ data: await signed(m, m.original_filename) });
+});
+
+export const favoriteMaterialRoutes = express.Router();
+favoriteMaterialRoutes.use(requireAuth);
+
+favoriteMaterialRoutes.get('/', async (req, res) => {
+  const { rows } = await pool.query(`
+    ${MATERIAL_SELECT} join public.material_favorites f on f.material_id = m.id
+     where f.user_id = $1 and ${VISIBLE} order by f.created_at desc, m.id`, [req.user.id]);
+  res.json({ data: rows.map(publicMaterial) });
+});
+
+favoriteMaterialRoutes.put('/:id', async (req, res) => {
+  const id = req.params.id;
+  if (!UUID.test(id)) throw notFound();
+  const { rowCount } = await pool.query(`
+    with visible as (select m.id ${MATERIAL_FROM} where m.id = $2 and ${VISIBLE}),
+    saved as (
+      insert into public.material_favorites (user_id, material_id) select $1, id from visible
+      on conflict do nothing
+    )
+    select 1 from visible`, [req.user.id, id]);
+  if (!rowCount) throw notFound();
+  res.sendStatus(204);
+});
+
+favoriteMaterialRoutes.delete('/:id', async (req, res) => {
+  const id = req.params.id;
+  if (!UUID.test(id)) throw notFound();
+  await pool.query('delete from public.material_favorites where user_id = $1 and material_id = $2', [req.user.id, id]);
+  res.sendStatus(204);
 });
 
 export default router;

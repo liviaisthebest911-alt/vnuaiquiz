@@ -1,12 +1,41 @@
 import express from 'express';
-import { audit, withTx } from '../config/db.js';
+import pool, { audit, withTx } from '../config/db.js';
 import { hasRole, requireAuth, requireRole, UUID } from '../middleware/auth.js';
 import { HttpError, validationError } from '../middleware/errors.js';
 import libraryAdmin from './admin.library.routes.js';
+import examsAdmin from './admin.exams.routes.js';
 
 const router = express.Router();
 router.use(requireAuth, requireRole('editor'));   // mọi /admin/*: tối thiểu editor
 router.use(libraryAdmin);                          // môn/chương/tài liệu – đăng ký trước route quy trình duyệt chung
+router.use(examsAdmin);
+
+router.get('/stats', async (_req, res) => {
+  const { rows: [stats] } = await pool.query(`
+    with content as (
+      select 'subjects' as type, status, count(*)::int n from public.subjects group by status
+      union all select 'materials', status, count(*)::int from public.materials group by status
+      union all select 'questions', status, count(*)::int from public.questions group by status
+      union all select 'exams', status, count(*)::int from public.exams group by status
+    ), content_groups as (
+      select type, jsonb_object_agg(status, n) by_status from content group by type
+    ), attempts as (
+      select (submitted_at at time zone 'Asia/Ho_Chi_Minh')::date::text as "day", count(*)::int as count
+        from public.exam_attempts
+       where submitted_at >= ((clock_timestamp() at time zone 'Asia/Ho_Chi_Minh')::date - 29)::timestamp at time zone 'Asia/Ho_Chi_Minh'
+       group by 1 order by 1
+    ), top_materials as (
+      select m.id, m.title, count(*)::int count
+        from public.material_favorites f join public.materials m on m.id = f.material_id
+       group by m.id order by count desc, m.id limit 5
+    )
+    select (select count(*)::int from public.users) users_count,
+           (select count(*)::int from public.users where created_at >= now() - interval '7 days') new_users_count,
+           coalesce((select jsonb_object_agg(type, by_status) from content_groups), '{}') content,
+           coalesce((select json_agg(a order by a."day") from attempts a), '[]') attempts_by_day,
+           coalesce((select json_agg(m order by m.count desc, m.id) from top_materials m), '[]') top_materials`);
+  res.json({ data: stats });
+});
 
 // Quy trình duyệt (API_SPECIFICATION.md §1b). Bảng → tên trạng thái "ẩn" (câu hỏi dùng 'archived').
 // topics không có cột status nên không nằm trong quy trình.

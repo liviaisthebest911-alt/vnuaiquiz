@@ -4,7 +4,10 @@ import { ipKeyGenerator, rateLimit } from 'express-rate-limit';
 import quizRoutes from './routes/quiz.routes.js';
 import meRoutes from './routes/me.routes.js';
 import adminRoutes from './routes/admin.routes.js';
-import libraryRoutes from './routes/library.routes.js';
+import libraryRoutes, { favoriteMaterialRoutes } from './routes/library.routes.js';
+import studyRoutes from './routes/study.routes.js';
+import dashboardRoutes from './routes/dashboard.routes.js';
+import examsRoutes from './routes/exams.routes.js';
 import { errorHandler, HttpError, notFound } from './middleware/errors.js';
 
 const app = express();
@@ -33,6 +36,10 @@ const limiter = rateLimit({
 });
 const v1 = express.Router();
 v1.use(limiter);
+v1.use(studyRoutes);
+v1.use(dashboardRoutes);
+v1.use(examsRoutes);
+v1.use('/me/favorites/materials', favoriteMaterialRoutes);
 v1.use('/me', meRoutes);
 v1.use('/admin', adminRoutes);
 v1.use(libraryRoutes);

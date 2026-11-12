@@ -46,6 +46,7 @@ export default function AdminLibrary() {
     const [newChapter, setNewChapter] = useState('')
     const [up, setUp] = useState(emptyUpload)
     const [file, setFile] = useState(null)
+    const [editing, setEditing] = useState(null)
     const fail = (err) => setMessage({ error: true, text: err.message })
 
     const reload = useCallback(async () => {
@@ -229,7 +230,8 @@ export default function AdminLibrary() {
                 {materials.length === 0 && <p className={muted}>Chưa có tài liệu.</p>}
                 <ul className="divide-y divide-blossom-border dark:divide-blossom-border-dark">
                     {materials.map((m) => (
-                        <li key={m.id} className="flex flex-wrap items-center gap-2 py-2">
+                        <li key={m.id} className="py-2">
+                            <div className="flex flex-wrap items-center gap-2">
                             <div className="mr-auto min-w-0">
                                 <div className="font-medium">{m.title}</div>
                                 <div className={muted}>
@@ -243,7 +245,26 @@ export default function AdminLibrary() {
                                     <Eye size={14} /> Xem
                                 </button>
                             )}
+                            {(me.role === 'admin' || m.status === 'draft') && <button type="button" className={small} disabled={busy}
+                                onClick={() => setEditing({ id: m.id, title: m.title, description: m.description ?? '' })}>Sửa thông tin</button>}
                             <Workflow type="materials" item={m} role={me.role} run={run} busy={busy} />
+                            </div>
+                            {editing?.id === m.id && <form className="mt-3 grid gap-2" onSubmit={(event) => {
+                                event.preventDefault()
+                                act(async () => {
+                                    await api(`/admin/materials/${m.id}`, { method: 'PATCH', body: { title: editing.title, description: editing.description } })
+                                    setEditing(null)
+                                }, 'Đã cập nhật thông tin tài liệu.')
+                            }}>
+                                <label className="text-sm">Tiêu đề tài liệu<input className={input} required maxLength={300} value={editing.title}
+                                    onChange={(event) => setEditing({ ...editing, title: event.target.value })} /></label>
+                                <label className="text-sm">Mô tả tài liệu<textarea className={input} maxLength={2000} value={editing.description}
+                                    onChange={(event) => setEditing({ ...editing, description: event.target.value })} /></label>
+                                <div className="flex gap-2">
+                                    <button type="submit" className={small} disabled={busy}>Lưu thay đổi</button>
+                                    <button type="button" className={small} disabled={busy} onClick={() => setEditing(null)}>Hủy</button>
+                                </div>
+                            </form>}
                         </li>
                     ))}
                 </ul>

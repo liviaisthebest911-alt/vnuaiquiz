@@ -13,6 +13,11 @@ test('trả lời hiện giải thích và ghi nhận tiến độ đúng câu',
     await page.getByRole('button', { name: ch1q1.options[ch1q1.answer] }).click()
     await expect(page.getByText(ch1q1.explanation)).toBeVisible()
     expect(await readStorage(page, 'vnu-ai-quiz:progress.v2')).toEqual([questionKey(ch1q1)])
+
+    await navigate(page, 'Tổng quan')
+    await expect(page.getByText('1/200 câu')).toBeVisible()
+    await page.getByRole('button', { name: 'Ôn tiếp' }).click()
+    await expect(page.getByText(questions[1].question, { exact: true })).toBeVisible()
 })
 
 test('bookmark được lưu theo khoá chương và còn sau khi tải lại', async ({ page }) => {

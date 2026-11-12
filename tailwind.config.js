@@ -10,7 +10,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: [
-                    '"Plus Jakarta Sans"',
+                    '"DM Sans"',
                     'Inter',
                     'ui-sans-serif',
                     'system-ui',
@@ -19,55 +19,32 @@ export default {
             },
 
             colors: {
-                // ------------------------------------------------------------------
-                // Bảng màu "Minimalist & Luxurious" — Rose Water pastel + Champagne
-                // Gold. Giữ nguyên tên token `blossom.*` để không phải sửa lại
-                // className ở từng component — chỉ đổi GIÁ TRỊ màu bên dưới.
-                // ------------------------------------------------------------------
                 blossom: {
-                    // Light mode
-                    bg: '#FAF9F9',            // Trắng sữa / xám cực nhạt
-                    card: '#FFFFFF',           // Nền card (dùng kèm /60 + backdrop-blur ở component để glass)
-                    'card-soft': '#FDF2F4',    // Card phụ — hồng phấn rất nhạt (rose-50)
-                    border: '#F1E4E7',         // Viền tinh tế, gần như vô hình
-                    text: '#334155',           // Charcoal (slate-700) — không dùng đen tuyền
-                    muted: '#6B7280',          // Xám nhạt (gray-500) cho văn bản phụ
-
-                    // Dark mode — giữ tinh thần sang trọng, nền than nhẹ ánh hồng
-                    'bg-dark': '#221A1D',
-                    'card-dark': '#2A2023',
-                    'card-soft-dark': '#332528',
-                    'border-dark': '#3D2E32',
-                    'text-dark': '#F4E9EC',
-                    'muted-dark': '#B9A5AB',
-
-                    // Primary — hồng pastel thanh lịch (rose-200 → rose-300)
-                    accent: '#FDA4AF',
-                    'accent-hover': '#FB7185',
-                    'accent-dark': '#FDA4AF',
-                    'accent-dark-hover': '#FECDD3',
-
-                    // Điểm nhấn sang trọng — vàng đồng nhạt (Champagne Gold)
-                    gold: '#C9A66B',
-                    'gold-soft': '#E8D9BC',
-                    'gold-dark': '#D8BE8C',
+                    bg: '#f5f5ee',
+                    card: '#fffef8',
+                    'card-soft': '#e7efde',
+                    border: '#dce1d5',
+                    text: '#202920',
+                    muted: '#556254',
+                    'bg-dark': '#151d17',
+                    'card-dark': '#202a21',
+                    'card-soft-dark': '#293e2d',
+                    'border-dark': '#39483a',
+                    'text-dark': '#e9efe5',
+                    'muted-dark': '#b6c3b4',
+                    accent: '#25563b',
+                    'accent-hover': '#1e4731',
+                    'accent-dark': '#a7cd8f',
+                    'accent-dark-hover': '#c3e5a6',
+                    gold: '#825f2d',
+                    'gold-soft': '#eee2cc',
+                    'gold-dark': '#e6c58e',
                 },
             },
-
-            // Bo góc sâu hơn — cảm giác cao cấp, "thở" hơn
-            borderRadius: {
-                DEFAULT: '12px',
-                lg: '16px',
-                xl: '20px',
-                '2xl': '28px',
-                '3xl': '32px',
-            },
-
-            // Đổ bóng như ánh sáng mờ lan toả, không phải bóng đen thô
+            borderRadius: { DEFAULT: '7px', lg: '9px', xl: '12px', '2xl': '15px', '3xl': '16px' },
             boxShadow: {
-                soft: '0 10px 40px -8px rgba(31, 41, 55, 0.10)',
-                'soft-dark': '0 10px 40px -8px rgba(0, 0, 0, 0.5)',
-                glow: '0 0 0 1px rgba(255,255,255,0.4), 0 12px 30px -10px rgba(201, 166, 107, 0.25)',
+                soft: '0 8px 24px -14px rgba(27, 49, 35, .3)',
+                'soft-dark': '0 8px 24px -14px rgba(0, 0, 0, .45)',
             },
 
             keyframes: {

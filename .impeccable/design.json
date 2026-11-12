@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-12T13:23:14Z",
+  "title": "Design System: VNU Quiz",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Xanh rừng",
+        "tonalRamp": ["oklch(15% 0.028 157)", "oklch(26% 0.047 157)", "oklch(38% 0.061 157)", "oklch(50% 0.070 157)", "oklch(62% 0.070 157)", "oklch(74% 0.064 157)", "oklch(86% 0.042 157)", "oklch(95% 0.019 157)"]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Xanh rừng khi rê chuột",
+        "tonalRamp": ["oklch(15% 0.026 158)", "oklch(26% 0.040 158)", "oklch(38% 0.053 158)", "oklch(50% 0.060 158)", "oklch(62% 0.060 158)", "oklch(74% 0.055 158)", "oklch(86% 0.036 158)", "oklch(95% 0.016 158)"]
+      },
+      "primary-dark": {
+        "role": "primary",
+        "displayName": "Xanh nhạt cho nút chính",
+        "tonalRamp": ["oklch(15% 0.028 134)", "oklch(26% 0.050 134)", "oklch(38% 0.075 134)", "oklch(50% 0.093 134)", "oklch(62% 0.093 134)", "oklch(74% 0.085 134)", "oklch(86% 0.056 134)", "oklch(95% 0.025 134)"]
+      },
+      "primary-dark-hover": {
+        "role": "primary",
+        "displayName": "Xanh nhạt khi rê chuột",
+        "tonalRamp": ["oklch(15% 0.028 131)", "oklch(26% 0.050 131)", "oklch(38% 0.075 131)", "oklch(50% 0.091 131)", "oklch(62% 0.091 131)", "oklch(74% 0.083 131)", "oklch(86% 0.055 131)", "oklch(95% 0.025 131)"]
+      },
+      "rail": {
+        "role": "primary",
+        "displayName": "Nền thanh bên",
+        "tonalRamp": ["oklch(15% 0.013 158)", "oklch(26% 0.020 158)", "oklch(38% 0.026 158)", "oklch(50% 0.030 158)", "oklch(62% 0.030 158)", "oklch(74% 0.027 158)", "oklch(86% 0.018 158)", "oklch(95% 0.008 158)"]
+      },
+      "rail-dark": {
+        "role": "primary",
+        "displayName": "Nền thanh bên chế độ tối",
+        "tonalRamp": ["oklch(15% 0.009 154)", "oklch(26% 0.013 154)", "oklch(38% 0.017 154)", "oklch(50% 0.020 154)", "oklch(62% 0.020 154)", "oklch(74% 0.018 154)", "oklch(86% 0.012 154)", "oklch(95% 0.005 154)"]
+      },
+      "rail-text": {
+        "role": "neutral",
+        "displayName": "Chữ trên thanh bên",
+        "tonalRamp": ["oklch(15% 0.009 143)", "oklch(26% 0.013 143)", "oklch(38% 0.017 143)", "oklch(50% 0.020 143)", "oklch(62% 0.020 143)", "oklch(74% 0.018 143)", "oklch(86% 0.012 143)", "oklch(95% 0.005 143)"]
+      },
+      "lime": {
+        "role": "primary",
+        "displayName": "Xanh non",
+        "tonalRamp": ["oklch(15% 0.028 122)", "oklch(26% 0.050 122)", "oklch(38% 0.075 122)", "oklch(50% 0.090 122)", "oklch(62% 0.090 122)", "oklch(74% 0.082 122)", "oklch(86% 0.054 122)", "oklch(95% 0.024 122)"]
+      },
+      "lime-hover": {
+        "role": "primary",
+        "displayName": "Xanh non khi rê chuột",
+        "tonalRamp": ["oklch(15% 0.025 120)", "oklch(26% 0.039 120)", "oklch(38% 0.051 120)", "oklch(50% 0.059 120)", "oklch(62% 0.059 120)", "oklch(74% 0.053 120)", "oklch(86% 0.035 120)", "oklch(95% 0.016 120)"]
+      },
+      "hero": {
+        "role": "primary",
+        "displayName": "Nền môn đang học",
+        "tonalRamp": ["oklch(15% 0.020 160)", "oklch(26% 0.030 160)", "oklch(38% 0.040 160)", "oklch(50% 0.046 160)", "oklch(62% 0.046 160)", "oklch(74% 0.041 160)", "oklch(86% 0.027 160)", "oklch(95% 0.012 160)"]
+      },
+      "hero-text": {
+        "role": "neutral",
+        "displayName": "Chữ khối môn đang học",
+        "tonalRamp": ["oklch(15% 0.006 120)", "oklch(26% 0.009 120)", "oklch(38% 0.012 120)", "oklch(50% 0.014 120)", "oklch(62% 0.014 120)", "oklch(74% 0.012 120)", "oklch(86% 0.008 120)", "oklch(95% 0.004 120)"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Nền giấy",
+        "tonalRamp": ["oklch(15% 0.004 107)", "oklch(26% 0.006 107)", "oklch(38% 0.008 107)", "oklch(50% 0.009 107)", "oklch(62% 0.009 107)", "oklch(74% 0.008 107)", "oklch(86% 0.006 107)", "oklch(95% 0.002 107)"]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Mặt thẻ",
+        "tonalRamp": ["oklch(15% 0.003 99)", "oklch(26% 0.005 99)", "oklch(38% 0.007 99)", "oklch(50% 0.008 99)", "oklch(62% 0.008 99)", "oklch(74% 0.007 99)", "oklch(86% 0.005 99)", "oklch(95% 0.002 99)"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Mực",
+        "tonalRamp": ["oklch(15% 0.009 145)", "oklch(26% 0.014 145)", "oklch(38% 0.018 145)", "oklch(50% 0.021 145)", "oklch(62% 0.021 145)", "oklch(74% 0.019 145)", "oklch(86% 0.012 145)", "oklch(95% 0.006 145)"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Mực nhạt",
+        "tonalRamp": ["oklch(15% 0.012 143)", "oklch(26% 0.018 143)", "oklch(38% 0.024 143)", "oklch(50% 0.027 143)", "oklch(62% 0.027 143)", "oklch(74% 0.025 143)", "oklch(86% 0.016 143)", "oklch(95% 0.007 143)"]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Đường viền",
+        "tonalRamp": ["oklch(15% 0.007 125)", "oklch(26% 0.011 125)", "oklch(38% 0.015 125)", "oklch(50% 0.017 125)", "oklch(62% 0.017 125)", "oklch(74% 0.015 125)", "oklch(86% 0.010 125)", "oklch(95% 0.005 125)"]
+      },
+      "soft-green": {
+        "role": "primary",
+        "displayName": "Xanh lót",
+        "tonalRamp": ["oklch(15% 0.010 128)", "oklch(26% 0.016 128)", "oklch(38% 0.021 128)", "oklch(50% 0.024 128)", "oklch(62% 0.024 128)", "oklch(74% 0.022 128)", "oklch(86% 0.014 128)", "oklch(95% 0.007 128)"]
+      },
+      "paper-dark": {
+        "role": "neutral",
+        "displayName": "Nền chế độ tối",
+        "tonalRamp": ["oklch(15% 0.007 153)", "oklch(26% 0.011 153)", "oklch(38% 0.014 153)", "oklch(50% 0.017 153)", "oklch(62% 0.017 153)", "oklch(74% 0.015 153)", "oklch(86% 0.010 153)", "oklch(95% 0.004 153)"]
+      },
+      "panel-dark": {
+        "role": "neutral",
+        "displayName": "Mặt thẻ chế độ tối",
+        "tonalRamp": ["oklch(15% 0.009 148)", "oklch(26% 0.014 148)", "oklch(38% 0.019 148)", "oklch(50% 0.022 148)", "oklch(62% 0.022 148)", "oklch(74% 0.020 148)", "oklch(86% 0.013 148)", "oklch(95% 0.006 148)"]
+      },
+      "ink-dark": {
+        "role": "neutral",
+        "displayName": "Mực chế độ tối",
+        "tonalRamp": ["oklch(15% 0.006 132)", "oklch(26% 0.010 132)", "oklch(38% 0.013 132)", "oklch(50% 0.015 132)", "oklch(62% 0.015 132)", "oklch(74% 0.013 132)", "oklch(86% 0.009 132)", "oklch(95% 0.004 132)"]
+      },
+      "muted-dark": {
+        "role": "neutral",
+        "displayName": "Mực nhạt chế độ tối",
+        "tonalRamp": ["oklch(15% 0.011 142)", "oklch(26% 0.017 142)", "oklch(38% 0.022 142)", "oklch(50% 0.025 142)", "oklch(62% 0.025 142)", "oklch(74% 0.023 142)", "oklch(86% 0.015 142)", "oklch(95% 0.007 142)"]
+      },
+      "line-dark": {
+        "role": "neutral",
+        "displayName": "Đường viền chế độ tối",
+        "tonalRamp": ["oklch(15% 0.013 147)", "oklch(26% 0.020 147)", "oklch(38% 0.026 147)", "oklch(50% 0.030 147)", "oklch(62% 0.030 147)", "oklch(74% 0.028 147)", "oklch(86% 0.018 147)", "oklch(95% 0.008 147)"]
+      },
+      "soft-green-dark": {
+        "role": "primary",
+        "displayName": "Xanh lót chế độ tối",
+        "tonalRamp": ["oklch(15% 0.017 150)", "oklch(26% 0.026 150)", "oklch(38% 0.035 150)", "oklch(50% 0.040 150)", "oklch(62% 0.040 150)", "oklch(74% 0.036 150)", "oklch(86% 0.024 150)", "oklch(95% 0.011 150)"]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Viền tiêu điểm",
+        "tonalRamp": ["oklch(15% 0.028 150)", "oklch(26% 0.050 150)", "oklch(38% 0.075 150)", "oklch(50% 0.086 150)", "oklch(62% 0.086 150)", "oklch(74% 0.078 150)", "oklch(86% 0.052 150)", "oklch(95% 0.023 150)"]
+      },
+      "on-primary": {
+        "role": "neutral",
+        "displayName": "Chữ trên nút chính",
+        "tonalRamp": ["oklch(15% 0.000 0)", "oklch(26% 0.000 0)", "oklch(38% 0.000 0)", "oklch(50% 0.000 0)", "oklch(62% 0.000 0)", "oklch(74% 0.000 0)", "oklch(86% 0.000 0)", "oklch(95% 0.000 0)"]
+      },
+      "warning-surface": {
+        "role": "secondary",
+        "displayName": "Nền cảnh báo",
+        "tonalRamp": ["oklch(15% 0.014 78)", "oklch(26% 0.022 78)", "oklch(38% 0.029 78)", "oklch(50% 0.033 78)", "oklch(62% 0.033 78)", "oklch(74% 0.030 78)", "oklch(86% 0.020 78)", "oklch(95% 0.009 78)"]
+      },
+      "warning-text": {
+        "role": "secondary",
+        "displayName": "Chữ cảnh báo",
+        "tonalRamp": ["oklch(15% 0.028 61)", "oklch(26% 0.047 61)", "oklch(38% 0.062 61)", "oklch(50% 0.071 61)", "oklch(62% 0.071 61)", "oklch(74% 0.065 61)", "oklch(86% 0.043 61)", "oklch(95% 0.019 61)"]
+      },
+      "warning-surface-dark": {
+        "role": "secondary",
+        "displayName": "Nền cảnh báo chế độ tối",
+        "tonalRamp": ["oklch(15% 0.011 67)", "oklch(26% 0.018 67)", "oklch(38% 0.023 67)", "oklch(50% 0.027 67)", "oklch(62% 0.027 67)", "oklch(74% 0.024 67)", "oklch(86% 0.016 67)", "oklch(95% 0.007 67)"]
+      },
+      "warning-text-dark": {
+        "role": "secondary",
+        "displayName": "Chữ cảnh báo chế độ tối",
+        "tonalRamp": ["oklch(15% 0.028 77)", "oklch(26% 0.050 77)", "oklch(38% 0.070 77)", "oklch(50% 0.081 77)", "oklch(62% 0.081 77)", "oklch(74% 0.073 77)", "oklch(86% 0.048 77)", "oklch(95% 0.022 77)"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Tiêu đề trang",
+        "purpose": "Mở đầu màn hình."
+      },
+      "headline": {
+        "displayName": "Tên môn nổi bật",
+        "purpose": "Dẫn khối tiến độ ở Tổng quan."
+      },
+      "title": {
+        "displayName": "Tiêu đề nhóm",
+        "purpose": "Giúp tìm nhanh môn học, công cụ và lịch sử."
+      },
+      "body": {
+        "displayName": "Nội dung",
+        "purpose": "Dùng cho thao tác và hàng dữ liệu."
+      },
+      "label": {
+        "displayName": "Nhãn phụ",
+        "purpose": "Dùng cho số câu, mô tả ngắn và trạng thái."
+      }
+    },
+    "shadows": [
+      {
+        "name": "soft",
+        "value": "0 8px 24px -14px rgba(27, 49, 35, .3)",
+        "purpose": "Mặt flashcard và hộp thoại kết quả thi thử."
+      },
+      {
+        "name": "soft-dark",
+        "value": "0 8px 24px -14px rgba(0, 0, 0, .45)",
+        "purpose": "Bóng mềm trong chế độ tối."
+      }
+    ],
+    "motion": [
+      {
+        "name": "navigation",
+        "value": "140ms",
+        "purpose": "Chuyển màu chữ và nền ở điều hướng."
+      },
+      {
+        "name": "theme-toggle",
+        "value": "180ms ease-out",
+        "purpose": "Nút gạt sáng và tối."
+      },
+      {
+        "name": "flashcard-flip",
+        "value": "600ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Lật mặt flashcard."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Nút chính",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Hành động chính trong biểu mẫu và vùng học.",
+      "html": "<button class=\"ds-primary\" type=\"button\">Lưu</button>",
+      "css": ".ds-primary { font-family: \"DM Sans\", Inter, ui-sans-serif, system-ui, sans-serif; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; border: 0; border-radius: 12px; background: #25563b; color: #fff; font-size: 14px; line-height: 20px; font-weight: 600; transition: background-color 150ms; }\n.ds-primary:hover { background: #1e4731; }\n.ds-primary:focus-visible { outline: 2px solid var(--focus, #457a51); outline-offset: 4px; }\n.ds-primary:disabled { opacity: .6; cursor: not-allowed; }\n:host-context(.dark) .ds-primary { background: #a7cd8f; color: #151d17; }\n:host-context(.dark) .ds-primary:hover { background: #c3e5a6; }"
+    },
+    {
+      "name": "Nút phụ",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Hành động bổ trợ trong biểu mẫu.",
+      "html": "<button class=\"ds-secondary\" type=\"button\">Làm tiếp</button>",
+      "css": ".ds-secondary { font-family: \"DM Sans\", Inter, ui-sans-serif, system-ui, sans-serif; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; border: 1px solid var(--line, #dce1d5); border-radius: 12px; background: transparent; color: var(--ink, #202920); font-size: 14px; line-height: 20px; font-weight: 500; transition: background-color 150ms; }\n.ds-secondary:hover { background: var(--soft-green, #e7efde); }\n.ds-secondary:focus-visible { outline: 2px solid var(--focus, #457a51); outline-offset: 4px; }\n.ds-secondary:disabled { opacity: .6; cursor: not-allowed; }"
+    },
+    {
+      "name": "Nút trong hàng",
+      "kind": "button",
+      "refersTo": "button-small",
+      "description": "Thao tác gọn trong danh sách và bảng quản trị.",
+      "html": "<button class=\"ds-small\" type=\"button\">Gửi duyệt</button>",
+      "css": ".ds-small { font-family: \"DM Sans\", Inter, ui-sans-serif, system-ui, sans-serif; display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid var(--line, #dce1d5); border-radius: 9px; background: transparent; color: var(--ink, #202920); font-size: 12px; line-height: 16px; font-weight: 500; transition: background-color 150ms; }\n.ds-small:hover { background: var(--soft-green, #e7efde); }\n.ds-small:focus-visible { outline: 2px solid var(--focus, #457a51); outline-offset: 4px; }\n.ds-small:disabled { opacity: .6; cursor: not-allowed; }"
+    },
+    {
+      "name": "Nút ôn tiếp",
+      "kind": "button",
+      "refersTo": "button-study",
+      "description": "Hành động chính trong khối môn đang học.",
+      "html": "<div class=\"ds-study-backdrop\"><button class=\"ds-study\" type=\"button\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z\"/></svg> Ôn tiếp <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg></button></div>",
+      "css": ".ds-study-backdrop { padding: 14px; border-radius: 16px; background: var(--hero, #183627); }\n.ds-study { font-family: \"DM Sans\", Inter, ui-sans-serif, system-ui, sans-serif; display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 9px 14px; border: 0; border-radius: 9px; background: var(--lime, #d9edaa); color: #18291f; font-size: 14px; font-weight: 700; }\n.ds-study:hover { background: #ecf8cc; }\n.ds-study:focus-visible { outline: 2px solid #f1fad5; outline-offset: 4px; }\n.ds-study svg:last-child { margin-left: 12px; }"
+    },
+    {
+      "name": "Trường nhập",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Trường nhập văn bản trong biểu mẫu.",
+      "html": "<label class=\"ds-field\">Tiêu đề<input type=\"text\" placeholder=\"Nhập tiêu đề tài liệu\"></label>",
+      "css": ".ds-field { font-family: \"DM Sans\", Inter, ui-sans-serif, system-ui, sans-serif; display: grid; gap: 4px; color: var(--ink, #202920); font-size: 14px; line-height: 20px; }\n.ds-field input { font: inherit; padding: 10px 16px; border: 1px solid var(--line, #dce1d5); border-radius: 12px; background: transparent; color: inherit; }\n.ds-field input::placeholder { color: var(--muted, #556254); }\n.ds-field input:focus { outline: none; border-color: #25563b; box-shadow: 0 0 0 2px rgb(37 86 59 / .3); }"
+    },
+    {
+      "name": "Nhãn trạng thái",
+      "kind": "chip",
+      "refersTo": "status-chip",
+      "description": "Trạng thái của tài liệu trong quy trình duyệt.",
+      "html": "<div class=\"ds-status-group\"><span class=\"ds-status ds-status-published\">Đã xuất bản</span> <span class=\"ds-status ds-status-review\">Chờ duyệt</span> <span class=\"ds-status\">Nháp</span></div>",
+      "css": ".ds-status-group { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }\n.ds-status { font-family: \"DM Sans\", Inter, ui-sans-serif, system-ui, sans-serif; padding: 2px 8px; border-radius: 999px; background: rgb(85 98 84 / .15); color: var(--muted, #556254); font-size: 12px; line-height: 16px; font-weight: 500; }\n.ds-status-published { background: rgb(16 185 129 / .15); color: #047857; }\n.ds-status-review { background: rgb(245 158 11 / .15); color: #b45309; }\n:host-context(.dark) .ds-status-published { color: #6ee7b7; }\n:host-context(.dark) .ds-status-review { color: #fcd34d; }"
+    },
+    {
+      "name": "Điều hướng chính",
+      "kind": "nav",
+      "refersTo": "navigation-item",
+      "description": "Điều hướng với biểu tượng và mục trang hiện tại.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Điều hướng chính\"><button type=\"button\" aria-current=\"page\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"7\" height=\"9\" x=\"3\" y=\"3\" rx=\"1\"/><rect width=\"7\" height=\"5\" x=\"14\" y=\"3\" rx=\"1\"/><rect width=\"7\" height=\"9\" x=\"14\" y=\"12\" rx=\"1\"/><rect width=\"7\" height=\"5\" x=\"3\" y=\"16\" rx=\"1\"/></svg> Tổng quan</button><button type=\"button\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 7v14M3 18V5a1 1 0 0 1 1-1h3a5 5 0 0 1 5 5 5 5 0 0 1 5-5h3a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-4a4 4 0 0 0-4 2 4 4 0 0 0-4-2H4a1 1 0 0 1-1-1Z\"/></svg> Môn học</button></nav>",
+      "css": ".ds-nav { font-family: \"DM Sans\", Inter, ui-sans-serif, system-ui, sans-serif; display: grid; gap: 4px; padding: 15px; border-radius: 9px; background: var(--rail, #18291f); color: var(--rail-text, #d7e2d6); }\n.ds-nav button { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 8px 12px; border: 0; border-radius: 9px; background: transparent; color: inherit; font: inherit; font-size: 14px; font-weight: 600; text-align: left; transition: background-color 140ms, color 140ms; }\n.ds-nav button svg { width: 19px; height: 19px; flex: none; stroke-width: 1.8; }\n.ds-nav button:hover { background: #2b4333; color: #fff; }\n.ds-nav button[aria-current=\"page\"] { background: var(--lime, #d9edaa); color: #193325; }\n.ds-nav button:focus-visible { outline: 2px solid #f1fad5; outline-offset: 4px; }"
+    },
+    {
+      "name": "Thẻ nội dung",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Bề mặt chung cho các nhóm nội dung.",
+      "html": "<section class=\"ds-panel\"><strong>Tài liệu</strong><p>Chưa có tài liệu công khai.</p></section>",
+      "css": ".ds-panel { font-family: \"DM Sans\", Inter, ui-sans-serif, system-ui, sans-serif; padding: 20px; border: 1px solid var(--line, #dce1d5); border-radius: 15px; background: var(--panel, #fffef8); color: var(--ink, #202920); }\n.ds-panel p { margin: 4px 0 0; color: var(--muted, #556254); font-size: 14px; line-height: 20px; }\n@media (min-width: 640px) { .ds-panel { padding: 24px; } }"
+    },
+    {
+      "name": "Danh sách môn",
+      "kind": "card",
+      "refersTo": "course-list",
+      "description": "Hàng mở môn học với tên và số câu hỏi.",
+      "html": "<div class=\"ds-course-list\"><button class=\"ds-course-row\" type=\"button\"><span class=\"ds-course-icon\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 7v14M3 18V5a1 1 0 0 1 1-1h3a5 5 0 0 1 5 5 5 5 0 0 1 5-5h3a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-4a4 4 0 0 0-4 2 4 4 0 0 0-4-2H4a1 1 0 0 1-1-1Z\"/></svg></span><span class=\"ds-course-title\"><strong>Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo</strong><small>200 câu hỏi</small></span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"/></svg></button></div>",
+      "css": ".ds-course-list { border: 1px solid var(--line, #dce1d5); border-radius: 13px; background: var(--panel, #fffef8); overflow: hidden; }\n.ds-course-row { font-family: \"DM Sans\", Inter, ui-sans-serif, system-ui, sans-serif; display: flex; align-items: center; width: 100%; min-height: 64px; gap: 12px; padding: 13px; border: 0; background: transparent; color: var(--green, #25563b); text-align: left; }\n.ds-course-row:hover { background: var(--soft-green, #e7efde); }\n.ds-course-row:focus-visible { outline: 2px solid var(--focus, #457a51); outline-offset: -3px; }\n.ds-course-row > svg { flex: none; }\n.ds-course-icon { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 8px; background: var(--soft-green, #e7efde); }\n.ds-course-icon svg { width: 20px; height: 20px; }\n.ds-course-title { min-width: 0; flex: 1; }\n.ds-course-title strong { display: block; color: var(--ink, #202920); font-size: 14px; line-height: 1.35; }\n.ds-course-title small { display: block; margin-top: 4px; color: var(--muted, #556254); font-size: 12px; }"
+    },
+    {
+      "name": "Tiến độ ôn tập",
+      "kind": "custom",
+      "refersTo": "progress",
+      "description": "Số câu đã ôn trên tổng số câu và thanh tiến độ.",
+      "html": "<div class=\"ds-progress\"><div><span>Tiến độ ôn tập</span><strong>40/200 câu</strong></div><progress aria-label=\"Tiến độ ôn tập\" value=\"20\" max=\"100\">20%</progress></div>",
+      "css": ".ds-progress { font-family: \"DM Sans\", Inter, ui-sans-serif, system-ui, sans-serif; padding: 14px; border-radius: 16px; background: var(--hero, #183627); }\n.ds-progress div { display: flex; justify-content: space-between; gap: 12px; max-width: 340px; color: #c9dac9; font-size: 13px; }\n.ds-progress strong { color: #f3f7e8; font-variant-numeric: tabular-nums; }\n.ds-progress progress { display: block; width: 100%; max-width: 340px; height: 6px; margin-top: 8px; overflow: hidden; border: 0; border-radius: 999px; background: #54705d; color: var(--lime, #d9edaa); }\n.ds-progress progress::-webkit-progress-bar { background: #54705d; }\n.ds-progress progress::-webkit-progress-value { background: var(--lime, #d9edaa); }\n.ds-progress progress::-moz-progress-bar { background: var(--lime, #d9edaa); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Không gian học tập VNU",
+    "overview": "Giao diện phục vụ thao tác học hằng ngày (Operate). Thanh điều hướng xanh rừng tạo khung cố định, vùng làm việc dùng nền giấy sáng hoặc nền xanh sẫm khi bật chế độ tối. Tiêu đề, hàng nội dung và đường phân cách giúp sinh viên tìm mục cần dùng khi lướt nhanh.\n\nỞ trang Tổng quan, tên môn đang học, số câu đã ôn trên tổng số câu và nút ôn nằm chung một khối. Ảnh minh họa do ImageGen tạo mô tả một góc bàn học trong thư viện và được dùng làm nền trang trí.",
+    "keyCharacteristics": [
+      "Điều hướng cố định, vùng nội dung có đường phân cách mảnh.",
+      "Hỗ trợ hai chế độ sáng và tối.",
+      "Môn đang học và hành động ôn tiếp được ưu tiên ở Tổng quan."
+    ],
+    "rules": [],
+    "dos": [
+      "Do Hiển thị tên môn đang học và số câu đã ôn từ dữ liệu hiện có.",
+      "Do Duy trì viền tiêu điểm khi dùng bàn phím và tôn trọng cài đặt giảm chuyển động."
+    ],
+    "donts": [
+      "Don't Đặt tác vụ phụ ngang mức ưu tiên với nút ôn trong khối môn đang học."
+    ]
+  }
+}

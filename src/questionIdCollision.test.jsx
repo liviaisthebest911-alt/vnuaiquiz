@@ -3,6 +3,7 @@
 import { afterEach, beforeEach, describe, expect, test } from 'vitest'
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import App from './App'
+import { MemoryRouter } from 'react-router-dom'
 import defaultQuestions from './data/questions.json'
 import { migrateLegacyIds, questionKey } from './utils/questionKey'
 
@@ -27,7 +28,7 @@ const currentQuestion = () => (screen.queryByText('Câu hỏi A?') ? 'A' : 'B')
 const optionButton = (text) => screen.getByRole('button', { name: new RegExp(text) })
 
 async function startExam() {
-    render(<App />)
+    render(<MemoryRouter><App /></MemoryRouter>)
     nav('Thi thử')
     await findTitle('Thi thử 30 phút')
     fireEvent.click(screen.getByRole('button', { name: /Bắt đầu làm bài/ }))
@@ -120,7 +121,7 @@ describe('Thi thử – câu cùng id ở hai chương', () => {
 describe('Ôn tập – bookmark và tiến độ', () => {
     test('F. Bookmark câu id 1 chương 1 không đánh dấu câu id 1 chương 2', async () => {
         seedBank(bank({ sameAnswer: true }))
-        render(<App />)
+        render(<MemoryRouter><App /></MemoryRouter>)
         nav('Ôn tập')
         await findTitle('Ôn tập theo chương')
 
@@ -135,7 +136,7 @@ describe('Ôn tập – bookmark và tiến độ', () => {
 
     test('tiến độ chỉ ghi nhận đúng câu đã làm', async () => {
         seedBank(bank({ sameAnswer: true }))
-        render(<App />)
+        render(<MemoryRouter><App /></MemoryRouter>)
         nav('Ôn tập')
         await findTitle('Ôn tập theo chương')
         fireEvent.click(optionButton('A-đúng'))
@@ -148,7 +149,7 @@ describe('dữ liệu cũ trong localStorage', () => {
         seedBank(bank({ sameAnswer: true }))
         localStorage.setItem('vnu-ai-quiz:bookmarks', '[1]')
         localStorage.setItem('vnu-ai-quiz:progress', '[1]')
-        render(<App />)
+        render(<MemoryRouter><App /></MemoryRouter>)
         nav('Ôn tập')
         await findTitle('Ôn tập theo chương')
         expect(screen.getByRole('button', { name: /Đánh dấu câu khó/ })).toBeTruthy()
@@ -163,7 +164,7 @@ describe('dữ liệu cũ trong localStorage', () => {
         const unique = [{ id: 5, chapter: 1, chapterName: 'C1', question: 'Câu năm?', options: ['x', 'y'], answer: 0, explanation: 'e' }]
         seedBank(unique)
         localStorage.setItem('vnu-ai-quiz:bookmarks', '[5]')
-        render(<App />)
+        render(<MemoryRouter><App /></MemoryRouter>)
         expect(JSON.parse(localStorage.getItem('vnu-ai-quiz:bookmarks.v2'))).toEqual(['CNSAI:c1:q5'])
         expect(screen.getByText('Câu đã đánh dấu').closest('div').parentElement.textContent).toMatch(/1/)
     })
