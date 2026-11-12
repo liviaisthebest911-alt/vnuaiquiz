@@ -14,9 +14,7 @@ export default function ThemeToggle({ isDark, onToggle }) {
             }
             className="theme-toggle"
         >
-            <span className="theme-toggle__thumb">
-                {isDark ? <Moon size={11} /> : <Sun size={11} />}
-            </span>
+            {isDark ? <Sun size={19} strokeWidth={1.8} aria-hidden="true" /> : <Moon size={19} strokeWidth={1.8} aria-hidden="true" />}
         </button>
     )
 }

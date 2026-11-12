@@ -24,7 +24,7 @@ export default function DataGuideModal() {
       {isOpen && (
         // Lớp nền mờ tối - KHÔNG có onClick để tránh đóng khi click ra ngoài
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[rgb(18_27_37/.45)] backdrop-blur-sm px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -33,28 +33,27 @@ export default function DataGuideModal() {
           {/* Hộp thoại - dùng stopPropagation phòng trường hợp sau này thêm onClick cho lớp nền */}
           <motion.div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-2xl border border-rose-100"
+            className="w-full max-w-sm rounded-2xl border border-blossom-border bg-blossom-card p-6 text-blossom-text shadow-soft"
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
           >
-            <h2 className="text-lg font-semibold text-gray-900 mb-2">
+            <h2 className="mb-2 text-lg font-extrabold">
               Hướng dẫn nạp dữ liệu
             </h2>
 
-            <p className="text-sm text-gray-600 leading-relaxed mb-6">
+            <p className="mb-6 text-sm leading-relaxed text-blossom-muted">
               Để có câu hỏi làm bài, vui lòng điều hướng vào mục{" "}
-              <span className="font-medium text-gray-800">Quản lý dữ liệu</span>,
+              <span className="font-semibold text-blossom-text">Quản lý dữ liệu</span>,
               sau đó bấm chọn{" "}
-              <span className="font-medium text-gray-800">Khôi phục mẫu</span>.
+              <span className="font-semibold text-blossom-text">Khôi phục mẫu</span>.
             </p>
 
             <div className="flex justify-end">
               <button
                 onClick={handleClose}
-                className="px-5 py-2 rounded-lg bg-rose-500 text-white text-sm font-medium
-                           hover:bg-rose-600 active:scale-95 transition-all shadow-sm"
+                className="min-h-[44px] rounded-full bg-blossom-accent px-6 text-sm font-bold text-[rgb(var(--c-on-cta))] transition-all hover:bg-blossom-accent-hover active:scale-95"
               >
                 OK
               </button>

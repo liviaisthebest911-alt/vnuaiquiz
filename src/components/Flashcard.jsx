@@ -42,7 +42,7 @@ export default function Flashcard({ questions }) {
 
     if (!card) {
         return (
-            <div className="rounded-2xl border border-blossom-border bg-blossom-card p-10 text-center text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:text-blossom-muted-dark">
+            <div className="study-empty justify-center p-10">
                 Chưa có câu hỏi để tạo flashcard.
             </div>
         )
@@ -52,11 +52,11 @@ export default function Flashcard({ questions }) {
         <div className="mx-auto max-w-2xl space-y-5">
 
             <div className="flex flex-col gap-1 text-center">
-                <span className="text-xs font-semibold uppercase tracking-wider text-blossom-accent dark:text-blossom-accent-dark">
-                    Flashcard Mode
+                <span className="text-xs font-bold uppercase tracking-wider text-lilac-ink">
+                    Flashcard
                 </span>
 
-                <h1 className="text-2xl font-medium text-blossom-text dark:text-blossom-text-dark">
+                <h1 className="text-3xl font-extrabold text-blossom-text">
                     Thẻ ghi nhớ nhanh
                 </h1>
 
@@ -75,12 +75,12 @@ export default function Flashcard({ questions }) {
                     }`}
                 >
                     {/* Mặt trước: câu hỏi */}
-                    <div className="flashcard-face absolute inset-0 flex flex-col justify-between rounded-2xl border border-blossom-border bg-blossom-card p-6 shadow-soft dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:shadow-soft-dark">
-                        <div className="rounded-lg bg-blossom-card-soft px-3 py-1.5 text-xs font-semibold text-blossom-accent dark:bg-blossom-card-soft-dark dark:text-blossom-accent-dark">
+                    <div className="flashcard-face absolute inset-0 flex flex-col justify-between rounded-3xl border border-blossom-border bg-blossom-card p-6 shadow-soft">
+                        <div className="chip chip-cloud self-start">
                             {card.chapterName}
                         </div>
 
-                        <div className="text-lg font-bold leading-7 text-blossom-text dark:text-blossom-text-dark">
+                        <div className="font-display text-xl font-extrabold leading-8 text-blossom-text">
                             {card.question}
                         </div>
 
@@ -90,16 +90,16 @@ export default function Flashcard({ questions }) {
                     </div>
 
                     {/* Mặt sau: đáp án đúng + giải thích */}
-                    <div className="flashcard-face flashcard-face--back flex flex-col justify-between rounded-2xl border border-blossom-accent/30 bg-blossom-accent/10 p-6 dark:border-blossom-accent-dark/30 dark:bg-blossom-accent-dark/15">
-                        <div className="text-xs font-semibold text-blossom-accent dark:text-blossom-accent-dark">
+                    <div className="flashcard-face flashcard-face--back flex flex-col justify-between rounded-3xl border border-lilac bg-lilac p-6">
+                        <div className="text-xs font-bold uppercase tracking-wider text-lilac-ink">
                             Đáp án đúng
                         </div>
 
-                        <div className="text-lg font-bold leading-7 text-blossom-text dark:text-blossom-text-dark">
+                        <div className="font-display text-xl font-extrabold leading-8 text-blossom-text">
                             {card.options[card.answer]}
                         </div>
 
-                        <div className="rounded-lg bg-blossom-card/70 p-3 text-sm leading-6 text-blossom-text/85 dark:bg-blossom-card-dark/60 dark:text-blossom-text-dark/85">
+                        <div className="rounded-2xl bg-blossom-card/80 p-3 text-sm leading-6 text-blossom-text">
                             {card.explanation}
                         </div>
                     </div>
@@ -110,7 +110,7 @@ export default function Flashcard({ questions }) {
 
                 <button
                     onClick={goPrev}
-                    className="inline-flex items-center gap-2 rounded-xl border border-blossom-border px-4 py-2.5 text-sm font-medium text-blossom-text transition-all hover:scale-[1.015] hover:bg-blossom-card-soft active:scale-[0.985] dark:border-blossom-border-dark dark:text-blossom-text-dark dark:hover:bg-blossom-card-soft-dark"
+                    className="inline-flex min-h-[48px] items-center gap-2 rounded-full border border-blossom-border bg-blossom-card px-4 text-sm font-semibold text-blossom-text transition-all hover:scale-[1.02] hover:border-cloud active:scale-[0.97]"
                 >
                     <ArrowLeft size={17} />
                     Trước
@@ -118,7 +118,7 @@ export default function Flashcard({ questions }) {
 
                 <button
                     onClick={reshuffle}
-                    className="inline-flex items-center gap-2 rounded-xl bg-blossom-card-soft px-4 py-2.5 text-sm font-medium text-blossom-text transition-all hover:scale-[1.015] active:scale-[0.985] dark:bg-blossom-card-soft-dark dark:text-blossom-text-dark"
+                    className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-lilac px-4 text-sm font-semibold text-lilac-ink transition-all hover:scale-[1.02] active:scale-[0.97]"
                 >
                     <Shuffle size={17} />
                     {/* < 640px: chỉ hiện icon để 4 nút vừa một hàng (360px); nhãn vẫn là tên truy cập */}
@@ -127,7 +127,7 @@ export default function Flashcard({ questions }) {
 
                 <button
                     onClick={() => setFlipped((v) => !v)}
-                    className="inline-flex items-center gap-2 rounded-xl bg-blossom-card-soft px-4 py-2.5 text-sm font-medium text-blossom-text transition-all hover:scale-[1.015] active:scale-[0.985] dark:bg-blossom-card-soft-dark dark:text-blossom-text-dark"
+                    className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-lilac px-4 text-sm font-semibold text-lilac-ink transition-all hover:scale-[1.02] active:scale-[0.97]"
                 >
                     <RotateCw size={17} />
                     <span className="sr-only sm:not-sr-only">Lật thẻ</span>
@@ -135,7 +135,7 @@ export default function Flashcard({ questions }) {
 
                 <button
                     onClick={goNext}
-                    className="inline-flex items-center gap-2 rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover active:scale-[0.985] dark:bg-blossom-accent-dark dark:text-blossom-bg-dark dark:hover:bg-blossom-accent-dark-hover"
+                    className="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-blossom-accent px-5 text-sm font-bold text-[rgb(var(--c-on-cta))] transition-all hover:scale-[1.02] hover:bg-blossom-accent-hover active:scale-[0.97]"
                 >
                     Tiếp
                     <ArrowRight size={17} />

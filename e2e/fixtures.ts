@@ -30,14 +30,21 @@ export { expect }
 
 export const heading1 = (page: Page, name: string | RegExp) => page.getByRole('heading', { level: 1, name })
 
-// Điều hướng bằng menu desktop (≥ 768px) hoặc menu di động.
+export const tabBar = (page: Page) => page.getByRole('navigation', { name: 'Điều hướng nhanh' })
+
+// Điều hướng bằng menu bên (≥ 768px) hoặc thanh tab dưới / bảng "Thêm" trên di động.
 export async function navigate(page: Page, label: string) {
     const desktopNav = page.locator('header nav')
     if (await desktopNav.isVisible()) {
         await desktopNav.getByRole('button', { name: label, exact: true }).click()
+        return
+    }
+    const tab = tabBar(page).getByRole('button', { name: label, exact: true })
+    if (await tab.count()) {
+        await tab.click()
     } else {
-        await page.getByRole('button', { name: 'Mở menu' }).click()
-        await page.locator('header').getByRole('button', { name: label, exact: true }).last().click()
+        await tabBar(page).getByRole('button', { name: 'Thêm', exact: true }).click()
+        await page.getByRole('dialog', { name: 'Thêm' }).getByRole('button', { name: label, exact: true }).click()
     }
 }
 

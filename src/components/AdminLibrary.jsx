@@ -20,9 +20,9 @@ function actionsFor(status, role) {
 }
 
 function Status({ status }) {
-    const tone = status === 'published' ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300'
-        : status === 'in_review' ? 'bg-amber-500/15 text-amber-700 dark:text-amber-300'
-            : 'bg-blossom-muted/15 text-blossom-muted dark:text-blossom-muted-dark'
+    const tone = status === 'published' ? 'bg-cloud-strong text-cloud-ink'
+        : status === 'in_review' ? 'bg-lilac text-lilac-ink'
+            : 'bg-blossom-muted/15 text-blossom-muted'
     return <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${tone}`}>{STATUS[status] ?? status}</span>
 }
 

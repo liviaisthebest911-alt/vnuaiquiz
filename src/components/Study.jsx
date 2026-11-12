@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import { ArrowLeft, ArrowRight, BookOpen, Bookmark, BookmarkCheck, Check, Layers, RotateCcw, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpen, Bookmark, BookmarkCheck, CircleAlert, CircleCheck, LayoutGrid, Layers, RotateCcw } from 'lucide-react'
 import { api, apiConfigured } from '../lib/api'
 import { useStudyData } from '../hooks/useStudyData'
 import { card, input, muted, Notice, primary, secondary } from './ui'
 import { localSubject } from './Dashboard'
+import Mascot from './Mascot'
+import QuestionMap from './QuestionMap'
 
 function StudyStatus({ request }) {
     if (request.loading) return <p role="status" className="study-empty">Đang tải…</p>
@@ -11,15 +13,18 @@ function StudyStatus({ request }) {
     return null
 }
 
-export function Subjects({ code, questions, onStudy, onNavigate, session }) {
+export function Subjects({ code, questions, onStudy, onNavigate, session, localMode = false }) {
     const path = code ? `/subjects/${encodeURIComponent(code)}` : '/subjects'
-    const request = useStudyData(apiConfigured ? path : null, session?.user.id)
+    const remote = apiConfigured && !localMode
+    const request = useStudyData(remote ? path : null, session?.user.id)
     const localChapters = [...new Map(questions.map((q) => [q.chapter, q.chapterName])).entries()]
         .sort(([a], [b]) => a - b)
         .map(([position, title]) => ({ id: position, title, position }))
     const local = { ...localSubject, chapters: localChapters }
-    const subject = code ? (apiConfigured ? request.data : code === local.code ? local : null) : null
-    const subjects = apiConfigured ? request.data : [local]
+    const subject = code ? (remote ? request.data : code === local.code ? local : null) : null
+    const subjects = remote ? request.data : [local]
+    // ?local=1: môn trên thiết bị → mở ôn tập cục bộ (subject null) thay vì môn trên máy chủ
+    const studyCode = localMode ? null : code
 
     if (code) {
         return (
@@ -31,8 +36,8 @@ export function Subjects({ code, questions, onStudy, onNavigate, session }) {
                 {subject && <>
                     {subject.description && <p className={muted}>{subject.description}</p>}
                     <div className="flex flex-wrap gap-2">
-                        <button type="button" className={primary} onClick={() => onStudy('practice', code, true)}>Ôn tập <ArrowRight size={16} /></button>
-                        <button type="button" className={secondary} onClick={() => onStudy('flashcard', code)}><Layers size={16} /> Flashcard</button>
+                        <button type="button" className={primary} onClick={() => onStudy('practice', studyCode, true)}>Ôn tập <ArrowRight size={16} /></button>
+                        <button type="button" className={secondary} onClick={() => onStudy('flashcard', studyCode)}><Layers size={16} /> Flashcard</button>
                         {subject.id && <button type="button" className={secondary} onClick={() => onNavigate('materials', subject.id)}>Tài liệu của môn</button>}
                     </div>
                     <div className="study-section-heading"><h2>Chương học</h2></div>
@@ -40,12 +45,12 @@ export function Subjects({ code, questions, onStudy, onNavigate, session }) {
                         <ul className="study-rows">
                             {subject.chapters.map((chapter) => (
                                 <li key={chapter.id}>
-                                    <button type="button" className="study-row" onClick={() => onStudy('practice', code, true, false, chapter.id)}>
-                                        <span className="study-row-icon"><BookOpen size={19} /></span>
+                                    <button type="button" className="study-row lift" onClick={() => onStudy('practice', studyCode, true, false, chapter.id)}>
+                                        <span className="study-row-icon tile-icon"><BookOpen size={19} aria-hidden="true" /></span>
                                         <span className="study-row-text"><strong>{chapter.title}</strong>
                                             {chapter.question_count !== undefined && <small>{chapter.question_count} câu hỏi</small>}
                                         </span>
-                                        <ArrowRight size={16} />
+                                        <ArrowRight className="go" size={16} aria-hidden="true" />
                                     </button>
                                 </li>
                             ))}
@@ -64,10 +69,10 @@ export function Subjects({ code, questions, onStudy, onNavigate, session }) {
             {subjects?.length > 0 && <ul className="study-rows">
                 {subjects.map((subject) => (
                     <li key={subject.code}>
-                        <button type="button" className="study-row" onClick={() => onStudy('subjects', subject.code)}>
-                            <span className="study-row-icon"><BookOpen size={19} /></span>
+                        <button type="button" className="study-row lift" onClick={() => onStudy('subjects', subject.code)}>
+                            <span className="study-row-icon tile-icon"><BookOpen size={19} aria-hidden="true" /></span>
                             <span className="study-row-text"><strong>{subject.name}</strong><small>{subject.chapters.length} chương{subject.material_count > 0 ? ` · ${subject.material_count} tài liệu` : ''}</small></span>
-                            <ArrowRight size={16} />
+                            <ArrowRight className="go" size={16} aria-hidden="true" />
                         </button>
                     </li>
                 ))}
@@ -150,6 +155,7 @@ function StudySession({ questions, flashcard, resume }) {
     const [saved, setSaved] = useState(() => new Set(questions.filter((question) => question.bookmarked).map((question) => question.id)))
     const [saving, setSaving] = useState(new Set())
     const [bookmarkError, setBookmarkError] = useState(null)
+    const [mapOpen, setMapOpen] = useState(false)
     const question = questions[index]
     const isSaved = saved.has(question.id)
 
@@ -178,17 +184,26 @@ function StudySession({ questions, flashcard, resume }) {
 
     return (
         <section className={`${card} study-question`}>
-            <div className="study-question-top">
-                <span className={muted}>Câu {index + 1}/{questions.length}</span>
-                <button type="button" className={secondary} aria-pressed={isSaved} disabled={saving.has(question.id)} onClick={toggleBookmark}>
-                    {isSaved ? <BookmarkCheck size={17} /> : <Bookmark size={17} />} {isSaved ? 'Đã đánh dấu' : 'Đánh dấu câu khó'}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <span className="font-bold tabular-nums">Câu {index + 1}<span className="font-medium text-blossom-muted">/{questions.length}</span></span>
+                <span className="bar order-last w-full sm:order-none sm:w-auto sm:flex-1" aria-hidden="true"><i style={{ width: `${(index + 1) / questions.length * 100}%` }} /></span>
+                <button type="button" className={secondary} aria-expanded={mapOpen} aria-controls="study-map" onClick={() => setMapOpen(!mapOpen)}>
+                    <LayoutGrid size={17} aria-hidden="true" /> Danh sách câu
+                </button>
+                <button type="button" className={`${secondary} ml-auto ${isSaved ? '!border-petal-line !bg-petal-soft !text-petal-ink' : ''}`} aria-pressed={isSaved} disabled={saving.has(question.id)} onClick={toggleBookmark}>
+                    {isSaved ? <BookmarkCheck size={17} aria-hidden="true" /> : <Bookmark size={17} aria-hidden="true" />} {isSaved ? 'Đã đánh dấu' : 'Đánh dấu câu khó'}
                 </button>
             </div>
+            {mapOpen && <div className="rounded-2xl border border-blossom-border bg-blossom-bg p-3">
+                <QuestionMap id="study-map" current={index} showMarked
+                             items={questions.map((item) => ({ key: item.id, answered: item.answered, marked: saved.has(item.id) }))}
+                             onSelect={(position) => { setIndex(position); setMapOpen(false) }} />
+            </div>}
             <Notice message={bookmarkError} />
             <StudyQuestion key={question.id} question={question} flashcard={flashcard} />
-            <div className="study-question-top">
-                <button type="button" className={secondary} disabled={index === 0} onClick={() => setIndex(index - 1)}><ArrowLeft size={16} /> Câu trước</button>
-                <button type="button" className={secondary} disabled={index === questions.length - 1} onClick={() => setIndex(index + 1)}>Câu tiếp <ArrowRight size={16} /></button>
+            <div className="grid grid-cols-2 gap-3 sm:flex sm:items-center sm:justify-between">
+                <button type="button" className={secondary} disabled={index === 0} onClick={() => setIndex(index - 1)}><ArrowLeft size={16} aria-hidden="true" /> Câu trước</button>
+                <button type="button" className={primary} disabled={index === questions.length - 1} onClick={() => setIndex(index + 1)}>Câu tiếp <ArrowRight size={16} aria-hidden="true" /></button>
             </div>
         </section>
     )
@@ -226,8 +241,8 @@ function StudyQuestion({ question, flashcard }) {
 
     return (
         <form onSubmit={submit} className="space-y-4">
-            <h2 className="text-xl font-bold leading-relaxed">{question.content}</h2>
-            <fieldset className="space-y-2" disabled={busy || Boolean(answer)}>
+            <h2 className="text-xl font-extrabold leading-relaxed sm:text-[23px]">{question.content}</h2>
+            <fieldset className="space-y-3" disabled={busy || Boolean(answer)}>
                 <legend className={`mb-2 ${muted}`}>{flashcard ? 'Các lựa chọn' : multiple ? 'Chọn tất cả đáp án đúng' : 'Chọn một đáp án'}</legend>
                 {question.options.map((option) => {
                     const right = correct.includes(option.id)
@@ -236,17 +251,23 @@ function StudyQuestion({ question, flashcard }) {
                         <label key={option.id} className={`study-option${right ? ' is-correct' : wrong ? ' is-wrong' : ''}`}>
                             {!flashcard && <input name="answer" type={multiple ? 'checkbox' : 'radio'} checked={selected.includes(option.id)} onChange={() => choose(option.id)} />}
                             <span>{option.content}</span>
-                            {right && <Check aria-label="Đáp án đúng" size={17} />}
-                            {wrong && <X aria-label="Lựa chọn sai" size={17} />}
+                            {right && <CircleCheck aria-label="Đáp án đúng" size={20} />}
+                            {wrong && <CircleAlert aria-label="Lựa chọn sai" size={20} />}
                         </label>
                     )
                 })}
             </fieldset>
             <Notice message={error} />
-            {answer && <p role="status" className="font-semibold">{answer.is_correct ? 'Trả lời đúng' : 'Chưa đúng'}</p>}
+            {answer && <div role="status" className={`study-feedback ${answer.is_correct ? 'is-correct' : 'is-wrong'}`}>
+                <Mascot size={56} mood={answer.is_correct ? 'success' : 'encourage'} />
+                <div className="min-w-0 flex-1 space-y-1">
+                    <p className="study-feedback-title">{answer.is_correct ? 'Trả lời đúng' : 'Chưa đúng'}</p>
+                    <p className="text-sm text-blossom-muted">{answer.is_correct ? 'Giỏi lắm, sang câu tiếp nào!' : 'Không sao đâu, đọc lời giải rồi thử câu tiếp nhé.'}</p>
+                </div>
+            </div>}
             {(answer || revealed) && explanation && <p className="study-explanation">{explanation}</p>}
             {flashcard ? (
-                <button type="button" className={primary} onClick={() => setRevealed(!revealed)}>{revealed ? <><RotateCcw size={16} /> Ẩn đáp án</> : 'Lật xem đáp án'}</button>
+                <button type="button" className={primary} onClick={() => setRevealed(!revealed)}>{revealed ? <><RotateCcw size={16} aria-hidden="true" /> Ẩn đáp án</> : 'Lật xem đáp án'}</button>
             ) : !answer && (
                 <button type="submit" className={primary} disabled={selected.length === 0 || busy}>{busy ? 'Đang chấm…' : 'Kiểm tra đáp án'}</button>
             )}

@@ -4,6 +4,7 @@ import { api } from '../lib/api'
 import { useStudyData } from '../hooks/useStudyData'
 import { useExamTimer } from '../features/exam/useExamTimer'
 import { card, muted, Notice, primary, secondary } from './ui'
+import Mascot from './Mascot'
 
 function RequestStatus({ request }) {
     if (request.loading) return <p className="study-empty" role="status">Đang tải…</p>
@@ -66,8 +67,8 @@ export function ServerExams({ examId, session, navigateTo, onSignIn }) {
             {exam.data?.length === 0 && <p className="study-empty">Chưa có đề thi đã xuất bản.</p>}
             {exam.data?.length > 0 && <ul className="study-rows">
                 {exam.data.map((item) => <li key={item.id}>
-                    <button type="button" className="study-row" onClick={() => navigateTo(`/exams/${item.id}`)}>
-                        <span className="study-row-icon"><ClipboardList size={20} /></span>
+                    <button type="button" className="study-row lift" onClick={() => navigateTo(`/exams/${item.id}`)}>
+                        <span className="study-row-icon tile-icon tone-petal"><ClipboardList size={20} aria-hidden="true" /></span>
                         <span className="study-row-text"><strong>{item.title}</strong><small>{item.subject_name} · {item.question_count} câu · {item.duration_minutes} phút</small></span>
                         <ArrowRight size={16} />
                     </button>
@@ -79,7 +80,7 @@ export function ServerExams({ examId, session, navigateTo, onSignIn }) {
                 {history.data?.length === 0 && <p className="study-empty">Bạn chưa làm đề thi nào bằng tài khoản này.</p>}
                 {history.data?.length > 0 && <ul className="study-rows">
                     {history.data.map((item) => <li key={item.id}>
-                        <button type="button" className="study-row" onClick={() => navigateTo(`/attempts/${item.id}`)}>
+                        <button type="button" className="study-row lift" onClick={() => navigateTo(`/attempts/${item.id}`)}>
                             <span className="study-row-text"><strong>{item.title}</strong><small>{new Date(item.started_at).toLocaleString('vi-VN')}</small></span>
                             <span className={muted}>{item.status === 'in_progress' ? 'Mở lượt làm' : `${item.score} điểm`}</span>
                             <ArrowRight size={16} />
@@ -162,7 +163,7 @@ function ActiveAttempt({ attempt, onSubmit, onExpire }) {
                 <div className="study-question-top"><span className={muted}>Câu {index + 1}/{attempt.questions.length}</span>
                     <span className="study-clock" aria-label="Thời gian còn lại"><Clock size={16} /> {clock}</span>
                 </div>
-                <h2 className="text-xl font-bold">{current.content}</h2>
+                <h2 className="text-xl font-extrabold leading-relaxed sm:text-[23px]">{current.content}</h2>
                 <fieldset className="space-y-2" disabled={busy || remaining <= 0}>
                     <legend className={`mb-2 ${muted}`}>{multiple ? 'Chọn tất cả đáp án đúng' : 'Chọn một đáp án'}</legend>
                     {current.options.map((option) => <button type="button" key={option.id} aria-pressed={ids.includes(option.id)}
@@ -173,7 +174,7 @@ function ActiveAttempt({ attempt, onSubmit, onExpire }) {
                 <Notice message={error} />
                 <div className="study-question-top">
                     <button type="button" className={secondary} disabled={index === 0 || busy} onClick={() => setIndex(index - 1)}>Câu trước</button>
-                    <button type="button" className={secondary} disabled={index === attempt.questions.length - 1 || busy} onClick={() => setIndex(index + 1)}>Câu tiếp</button>
+                    <button type="button" className={primary} disabled={index === attempt.questions.length - 1 || busy} onClick={() => setIndex(index + 1)}>Câu tiếp</button>
                 </div>
             </section>
             <aside className={`${card} space-y-4 self-start`} aria-label="Điều hướng bài thi">
@@ -201,16 +202,17 @@ function ActiveAttempt({ attempt, onSubmit, onExpire }) {
 function AttemptResult({ attempt }) {
     return (
         <>
-            <div className={`${card} flex flex-wrap items-baseline gap-4`}>
-                <strong className="text-3xl">{attempt.score}/{attempt.max_score} điểm</strong>
+            <div className={`${card} flex flex-wrap items-center gap-4`}>
+                <Mascot size={56} mood={Number(attempt.score) * 2 >= Number(attempt.max_score) ? 'success' : 'encourage'} />
+                <strong className="font-display text-3xl font-extrabold">{attempt.score}/{attempt.max_score} điểm</strong>
                 <span>{attempt.correct_count}/{attempt.questions.length} câu đúng</span>
                 {attempt.status === 'expired' && <span className={muted}>Bài đã chốt khi hết giờ.</span>}
             </div>
             <section className="space-y-3">
-                <h2 className="text-xl font-bold">Xem lại bài làm</h2>
+                <h2 className="text-xl font-extrabold">Xem lại bài làm</h2>
                 {attempt.questions.map((question, index) => (
                     <details key={question.id} className={card}>
-                        <summary className="cursor-pointer font-semibold">Câu {index + 1} · {question.selected_option_ids.length === 0 ? 'Bỏ trống' : question.is_correct ? 'Đúng' : 'Sai'}</summary>
+                        <summary className="cursor-pointer font-semibold">Câu {index + 1} · <span className={`chip ${question.selected_option_ids.length === 0 ? 'chip-quiet' : question.is_correct ? 'chip-cloud' : 'chip-petal'}`}>{question.selected_option_ids.length === 0 ? 'Bỏ trống' : question.is_correct ? 'Đúng' : 'Sai'}</span></summary>
                         <p className="my-3">{question.content}</p>
                         <ul className="space-y-1 text-sm">
                             {question.options.map((option) => <li key={option.id}>

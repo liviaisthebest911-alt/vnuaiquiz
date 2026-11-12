@@ -183,7 +183,7 @@ export default function App() {
                 )
 
             case 'subjects':
-                return <Subjects code={code} questions={questions} onStudy={openStudy} onNavigate={setPage} session={session} />
+                return <Subjects code={code} questions={questions} onStudy={openStudy} onNavigate={setPage} session={session} localMode={params.has('local')} />
 
             case 'exam':
                 if (apiConfigured && !params.has('local')) return <ServerExams examId={segment} session={session}
@@ -240,6 +240,7 @@ export default function App() {
                         onNavigate={setPage}
                         onStudy={openStudy}
                         onOpenMaterial={(id) => navigate(`/materials/${encodeURIComponent(id)}`)}
+                        onChooseChapter={(subjectCode, local) => navigate(`/subjects/${encodeURIComponent(subjectCode)}${local ? '?local=1' : ''}`)}
                     />
                 )
 
@@ -250,6 +251,7 @@ export default function App() {
         <Layout
             page={page === 'attempt' ? 'exam' : page}
             setPage={setPage}
+            session={session}
         >
             <div key={`${pathname}${search}`} className="workspace-page">{renderPage()}</div>
         </Layout>

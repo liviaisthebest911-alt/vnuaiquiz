@@ -23,7 +23,8 @@ const nav = (label) => fireEvent.click(screen.getAllByRole('button', { name: lab
 const findTitle = (text) => screen.findByRole('heading', { level: 1, name: text }, { timeout: 3000 })
 const aside = () => document.querySelector('aside')
 const gridButtons = () => within(aside()).getAllByRole('button', { name: /^\d+$/ })
-const answeredCells = () => gridButtons().filter((b) => /emerald/.test(b.className))
+// ô hiện màu "đã trả lời" = đã trả lời và không phải câu đang xem (câu đang xem tô màu riêng)
+const answeredCells = () => gridButtons().filter((b) => b.dataset.answered === 'true' && !b.hasAttribute('aria-current'))
 const currentQuestion = () => (screen.queryByText('Câu hỏi A?') ? 'A' : 'B')
 const optionButton = (text) => screen.getByRole('button', { name: new RegExp(text) })
 

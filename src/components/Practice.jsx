@@ -3,13 +3,17 @@ import {
     BookmarkCheck,
     ChevronLeft,
     ChevronRight,
+    CircleAlert,
     CircleCheck,
-    CircleX,
     LayoutGrid,
 } from 'lucide-react'
 
 import { useMemo, useState } from 'react'
 import { questionKey } from '../utils/questionKey'
+import Mascot from './Mascot'
+import QuestionMap from './QuestionMap'
+
+const pill = 'inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full text-sm font-semibold transition-transform hover:scale-[1.02] active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100'
 
 export default function Practice({
                                      questions,
@@ -42,6 +46,7 @@ export default function Practice({
         return Math.max(0, initial.findIndex((question) => !completed.has(questionKey(question))))
     })
     const [selected, setSelected] = useState(null)
+    const [mapOpen, setMapOpen] = useState(false)
 
     const filtered = useMemo(
         () =>
@@ -55,6 +60,8 @@ export default function Practice({
 
     const current = filtered[index] || null
     const answered = selected !== null
+    const done = new Set(progress)
+    const marked = new Set(bookmarks)
 
     const chooseChapter = (value) => {
         setChapter(value)
@@ -74,148 +81,139 @@ export default function Practice({
         onMarkProgress(questionKey(current))
     }
 
-    // Trạng thái màu cho từng đáp án — dùng tông hồng/xanh lá/đỏ nhẹ, không rực rỡ
     const optionClass = (optionIndex) => {
-        if (!answered) {
-            return 'border-blossom-border bg-blossom-card hover:border-blossom-accent/50 hover:bg-blossom-card-soft dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:hover:bg-blossom-card-soft-dark'
-        }
-
-        if (optionIndex === current.answer) {
-            return 'border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300'
-        }
-
-        if (optionIndex === selected) {
-            return 'border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-300'
-        }
-
-        return 'border-blossom-border bg-blossom-card text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark'
+        if (!answered) return ''
+        if (optionIndex === current.answer) return ' is-correct'
+        if (optionIndex === selected) return ' is-wrong'
+        return ' opacity-60'
     }
 
     if (!current) {
         return (
-            <div className="rounded-2xl border border-blossom-border bg-blossom-card p-10 text-center text-blossom-muted dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:text-blossom-muted-dark">
+            <div className="study-empty justify-center p-10">
+                <Mascot size={48} />
                 Chưa có câu hỏi để ôn tập.
             </div>
         )
     }
 
+    const isMarked = marked.has(questionKey(current))
+    const correct = selected === current.answer
+    const map = (id) => (
+        <QuestionMap id={id} current={index} showMarked
+                     items={filtered.map((q) => ({ key: questionKey(q), answered: done.has(questionKey(q)), marked: marked.has(questionKey(q)) }))}
+                     onSelect={(position) => { go(position); setMapOpen(false) }} />
+    )
+
     return (
-        <div className="space-y-5">
+        <div className="space-y-6">
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-
-                    <h1 className="text-3xl font-bold tracking-tight text-blossom-text dark:text-blossom-text-dark">
+                    <h1 className="text-3xl font-extrabold text-blossom-text sm:text-[34px]">
                         Ôn tập theo chương
                     </h1>
-
-                    <p className="mt-1 text-sm text-blossom-muted dark:text-blossom-muted-dark">
+                    <p className="mt-1 text-blossom-muted">
                         Chọn đáp án để xem ngay kết quả và lời giải.
                     </p>
                 </div>
 
-                <select
-                    aria-label="Chương ôn tập"
-                    value={chapter}
-                    onChange={(e) => chooseChapter(e.target.value)}
-                    className="rounded-xl border border-blossom-border bg-blossom-card px-3 py-2.5 text-sm font-medium text-blossom-text outline-none transition-colors focus:border-blossom-accent focus:ring-2 focus:ring-blossom-accent/20 dark:border-blossom-border-dark dark:bg-blossom-card-dark dark:text-blossom-text-dark dark:focus:border-blossom-accent-dark dark:focus:ring-blossom-accent-dark/20"
-                >
-                    <option value="all">Tất cả chương</option>
+                <label className="grid w-full min-w-0 gap-1.5 text-[13px] font-semibold text-blossom-muted sm:w-80 sm:flex-none">
+                    Chương
+                    <select
+                        aria-label="Chương ôn tập"
+                        value={chapter}
+                        onChange={(e) => chooseChapter(e.target.value)}
+                        className="min-h-[48px] w-full min-w-0 rounded-xl border border-blossom-border bg-blossom-card px-3.5 text-[15px] font-medium text-blossom-text outline-none transition-colors focus:border-cloud-deep focus:ring-2 focus:ring-cloud-deep/25"
+                    >
+                        <option value="all">Tất cả chương</option>
 
-                    {chapterOptions.map(([value, label]) => (
-                        <option key={value} value={value}>
-                            {label}
-                        </option>
-                    ))}
-                </select>
+                        {chapterOptions.map(([value, label]) => (
+                            <option key={value} value={value}>
+                                {label}
+                            </option>
+                        ))}
+                    </select>
+                </label>
             </div>
 
-            <div className="grid items-start gap-5 lg:grid-cols-[minmax(0,1fr)_280px]">
+            <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
 
-                <section className="rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark sm:p-7">
+                <section aria-label="Câu hỏi" className="study-question rounded-2xl border border-blossom-border bg-blossom-card p-4 sm:p-7">
 
-                    <div className="flex items-center justify-between gap-4">
-                        <div className="text-sm text-blossom-muted dark:text-blossom-muted-dark">
-                            Câu {index + 1}/{filtered.length}
-                        </div>
-
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-x-4">
+                        <span className="font-bold tabular-nums">
+                            Câu {index + 1}<span className="font-medium text-blossom-muted">/{filtered.length}</span>
+                        </span>
+                        <span className="bar order-last w-full sm:order-none sm:w-auto sm:flex-1" aria-hidden="true">
+                            <i style={{ width: `${(index + 1) / filtered.length * 100}%` }} />
+                        </span>
+                        <button type="button" aria-expanded={mapOpen} aria-controls="practice-map-mobile" onClick={() => setMapOpen(!mapOpen)}
+                                className={`${pill} border border-blossom-border px-3 lg:hidden`}>
+                            <LayoutGrid size={17} aria-hidden="true" />
+                            Danh sách câu
+                        </button>
                         <button
+                            type="button"
+                            aria-label={isMarked ? 'Đã đánh dấu' : 'Đánh dấu câu khó'}
+                            aria-pressed={isMarked}
                             onClick={() =>
                                 onToggleBookmark(questionKey(current))
                             }
-                            className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all hover:scale-[1.015] active:scale-[0.985] ${
-                                bookmarks.includes(questionKey(current))
-                                    ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300'
-                                    : 'bg-blossom-card-soft text-blossom-muted hover:text-blossom-text dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark dark:hover:text-blossom-text-dark'
-                            }`}
+                            className={`${pill} ml-auto min-w-[44px] border px-3 sm:px-4 ${isMarked ? 'border-petal-line bg-petal-soft text-petal-ink' : 'border-blossom-border text-blossom-text'}`}
                         >
-                            {bookmarks.includes(questionKey(current)) ? (
-                                <BookmarkCheck size={17} />
+                            {isMarked ? (
+                                <BookmarkCheck size={17} aria-hidden="true" />
                             ) : (
-                                <Bookmark size={17} />
+                                <Bookmark size={17} aria-hidden="true" />
                             )}
 
-                            {bookmarks.includes(questionKey(current))
-                                ? 'Đã đánh dấu'
-                                : 'Đánh dấu câu khó'}
+                            <span className="hidden sm:inline">
+                                {isMarked
+                                    ? 'Đã đánh dấu'
+                                    : 'Đánh dấu câu khó'}
+                            </span>
                         </button>
                     </div>
 
-                    <div className="mt-6 rounded-xl bg-blossom-card-soft p-4 text-xs font-semibold text-blossom-accent dark:bg-blossom-card-soft-dark dark:text-blossom-accent-dark">
-                        {current.chapterName}
-                    </div>
+                    {mapOpen && <div className="rounded-2xl border border-blossom-border bg-blossom-bg p-3 lg:hidden">{map('practice-map-mobile')}</div>}
 
-                    <h2 className="mt-5 text-xl font-bold leading-8 text-blossom-text dark:text-blossom-text-dark">
+                    <span className="chip chip-lilac justify-self-start">
+                        {current.chapterName}
+                    </span>
+
+                    <h2 className="text-xl font-extrabold leading-relaxed sm:text-[23px]">
                         {current.question}
                     </h2>
 
-                    <div className="mt-6 space-y-3">
+                    <div className="space-y-3">
 
                         {current.options.map(
                             (option, optionIndex) => (
                                 <button
-                                    key={option}
+                                    type="button"
+                                    key={`${questionKey(current)}-${optionIndex}`}
+                                    onClick={() => handleAnswer(optionIndex)}
                                     disabled={answered}
-                                    onClick={() =>
-                                        handleAnswer(optionIndex)
-                                    }
-                                    className={`flex w-full items-start gap-3 rounded-xl border p-4 text-left text-sm font-medium transition-all ${
-                                        !answered ? 'hover:scale-[1.008]' : ''
-                                    } ${optionClass(
-                                        optionIndex,
-                                    )} ${
-                                        answered &&
-                                        optionIndex === current.answer
-                                            ? 'animate-pop'
-                                            : ''
-                                    }`}
+                                    className={`study-option w-full text-left text-[15px] font-medium disabled:cursor-default${optionClass(optionIndex)}`}
                                 >
-                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-blossom-card text-xs font-bold ring-1 ring-blossom-border dark:bg-blossom-card-dark dark:ring-blossom-border-dark">
-                    {String.fromCharCode(
-                        65 + optionIndex,
-                    )}
-                  </span>
+                                    <span className={`grid h-8 w-8 flex-none place-items-center rounded-[10px] border text-[13px] font-bold ${
+                                        answered && optionIndex === current.answer ? 'border-blossom-accent bg-blossom-accent text-[rgb(var(--c-on-cta))]' : 'border-blossom-border bg-blossom-card'}`}>
+                                        {String.fromCharCode(65 + optionIndex)}
+                                    </span>
 
-                                    <span className="pt-1">
-                    {option}
-                  </span>
+                                    <span>{option}</span>
 
                                     {answered &&
                                         optionIndex ===
                                         current.answer && (
-                                            <CircleCheck
-                                                size={20}
-                                                className="ml-auto mt-1 shrink-0 text-emerald-600 dark:text-emerald-400"
-                                            />
+                                            <CircleCheck size={20} className="flex-none" aria-label="Đáp án đúng" />
                                         )}
 
                                     {answered &&
                                         optionIndex === selected &&
                                         optionIndex !== current.answer && (
-                                            <CircleX
-                                                size={20}
-                                                className="ml-auto mt-1 shrink-0 text-rose-600 dark:text-rose-400"
-                                            />
+                                            <CircleAlert size={20} className="flex-none" aria-label="Bạn chọn, chưa đúng" />
                                         )}
                                 </button>
                             ),
@@ -223,91 +221,57 @@ export default function Practice({
                     </div>
 
                     {answered && (
-                        <div
-                            className={`mt-6 rounded-xl border p-5 animate-fade-in-up ${
-                                selected === current.answer
-                                    ? 'border-emerald-200 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-950/30'
-                                    : 'border-rose-200 bg-rose-50 dark:border-rose-800 dark:bg-rose-950/30'
-                            }`}
-                        >
-                            <div className="font-bold text-blossom-text dark:text-blossom-text-dark">
-                                {selected === current.answer
-                                    ? 'Chính xác!'
-                                    : 'Chưa đúng'}
-                            </div>
-
-                            <div className="mt-1 text-sm text-blossom-text/80 dark:text-blossom-text-dark/80">
-                                Đáp án đúng:{' '}
-                                <strong>
-                                    {current.options[current.answer]}
-                                </strong>
-                            </div>
-
-                            <div className="mt-4 border-t border-black/5 pt-4 text-sm leading-6 text-blossom-text/80 dark:border-white/10 dark:text-blossom-text-dark/80">
-                                <strong>Lời giải thích:</strong>{' '}
-                                {current.explanation}
+                        <div role="status" className={`study-feedback ${correct ? 'is-correct' : 'is-wrong'}`}>
+                            <Mascot size={56} mood={correct ? 'success' : 'encourage'} />
+                            <div className="min-w-0 flex-1 space-y-1.5">
+                                <div className="study-feedback-title">
+                                    {correct ? 'Chính xác!' : 'Chưa đúng'}
+                                </div>
+                                <p className="text-sm text-blossom-muted">{correct ? 'Giỏi lắm, sang câu tiếp nào!' : 'Không sao đâu, đọc lời giải rồi thử câu tiếp nhé.'}</p>
+                                <div className="text-sm">
+                                    Đáp án đúng:{' '}
+                                    <strong>
+                                        {current.options[current.answer]}
+                                    </strong>
+                                </div>
+                                <div className={`mt-2 border-t pt-3 text-sm leading-6 ${correct ? 'border-cloud' : 'border-petal-line'}`}>
+                                    <strong>Lời giải thích:</strong>{' '}
+                                    {current.explanation}
+                                </div>
                             </div>
                         </div>
                     )}
 
-                    <div className="mt-7 flex items-center justify-between gap-3">
-
+                    <div className="grid grid-cols-2 gap-3 sm:flex sm:items-center sm:justify-between">
                         <button
+                            type="button"
                             disabled={index === 0}
                             onClick={() => go(index - 1)}
-                            className="inline-flex items-center gap-2 rounded-xl border border-blossom-border px-4 py-2.5 text-sm font-medium text-blossom-text transition-all hover:scale-[1.015] hover:bg-blossom-card-soft disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:border-blossom-border-dark dark:text-blossom-text-dark dark:hover:bg-blossom-card-soft-dark"
+                            className={`${pill} min-h-[48px] border border-blossom-border bg-blossom-card px-4 text-blossom-text`}
                         >
-                            <ChevronLeft size={17} />
+                            <ChevronLeft size={17} aria-hidden="true" />
                             Câu trước
                         </button>
-
                         <button
+                            type="button"
                             disabled={index === filtered.length - 1}
                             onClick={() => go(index + 1)}
-                            className="inline-flex items-center gap-2 rounded-xl bg-blossom-accent px-4 py-2.5 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:bg-blossom-accent-dark dark:text-blossom-bg-dark dark:hover:bg-blossom-accent-dark-hover"
+                            className={`${pill} min-h-[48px] bg-blossom-accent px-4 font-bold text-[rgb(var(--c-on-cta))] hover:bg-blossom-accent-hover`}
                         >
                             Câu tiếp
-                            <ChevronRight size={17} />
+                            <ChevronRight size={17} aria-hidden="true" />
                         </button>
-
                     </div>
                 </section>
-
-                <aside className="h-fit rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark">
-
-                    <h3 className="flex items-center gap-2 font-bold text-blossom-text dark:text-blossom-text-dark">
-                        <LayoutGrid size={17} className="text-blossom-gold dark:text-blossom-gold-dark" />
-                        Danh sách câu
-                    </h3>
-
-                    <div className="mt-3 max-h-72 overflow-y-auto p-1" tabIndex={0} role="region" aria-label="Cuộn danh sách câu hỏi">
-                        <div className="grid grid-cols-5 gap-2">
-
-                        {filtered.map((q, qIndex) => (
-                            <button
-                                key={questionKey(q)}
-                                onClick={() => go(qIndex)}
-                                aria-current={qIndex === index ? 'step' : undefined}
-                                className={`relative aspect-square rounded-lg text-xs font-bold transition-all hover:scale-[1.02] active:scale-[0.985] ${
-                                    qIndex === index
-                                        ? 'bg-blossom-accent text-white dark:bg-blossom-accent-dark dark:text-blossom-bg-dark'
-                                        : 'bg-blossom-card-soft text-blossom-muted hover:text-blossom-text dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark dark:hover:text-blossom-text-dark'
-                                } ${
-                                    bookmarks.includes(questionKey(q))
-                                        ? 'ring-2 ring-amber-300 ring-offset-1 dark:ring-offset-blossom-card-dark'
-                                        : ''
-                                }`}
-                            >
-                                {qIndex + 1}
-                            </button>
-                        ))}
-                        </div>
-
+                <aside className="hidden rounded-2xl border border-blossom-border bg-blossom-card p-5 lg:block">
+                    <div className="mb-3 flex items-center justify-between gap-2">
+                        <h3 className="flex items-center gap-2 font-extrabold">
+                            <LayoutGrid size={17} className="text-cloud-ink" aria-hidden="true" />
+                            Danh sách câu
+                        </h3>
+                        <span className="text-[13px] text-blossom-muted">{filtered.filter((q) => done.has(questionKey(q))).length} đã làm</span>
                     </div>
-
-                    <div className="mt-4 text-xs text-blossom-muted dark:text-blossom-muted-dark">
-                        Viền vàng = câu đã đánh dấu.
-                    </div>
+                    {map('practice-map')}
                 </aside>
             </div>
         </div>

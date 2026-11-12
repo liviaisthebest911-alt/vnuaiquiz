@@ -1,208 +1,174 @@
 ---
 name: VNU Quiz
-description: Không gian ôn tập để sinh viên thấy môn đang học và vào ôn tiếp.
+description: "A Little Space for Learning" – không gian ôn tập Cute Academic để sinh viên thấy môn đang học và vào ôn tiếp.
 colors:
-  primary: "#25563b"
-  primary-hover: "#1e4731"
-  primary-dark: "#a7cd8f"
-  primary-dark-hover: "#c3e5a6"
-  rail: "#18291f"
-  rail-dark: "#121c15"
-  rail-text: "#d7e2d6"
-  lime: "#d9edaa"
-  lime-hover: "#ecf8cc"
-  hero: "#183627"
-  hero-text: "#f5f8ee"
-  paper: "#f5f5ee"
-  panel: "#fffef8"
-  ink: "#202920"
-  muted: "#556254"
-  line: "#dce1d5"
-  soft-green: "#e7efde"
-  paper-dark: "#151d17"
-  panel-dark: "#202a21"
-  ink-dark: "#e9efe5"
-  muted-dark: "#b6c3b4"
-  line-dark: "#39483a"
-  soft-green-dark: "#293e2d"
-  focus: "#457a51"
-  on-primary: "#ffffff"
-  warning-surface: "#f9ead4"
-  warning-text: "#603b18"
-  warning-surface-dark: "#3c3024"
-  warning-text-dark: "#ffdaa4"
+  sky: "#A9D8F5"
+  sky-soft: "#E5F4FC"
+  sky-strong: "#D4ECFA"
+  deep: "#527F9E"
+  link: "#44708E"
+  petal: "#F5C9D6"
+  petal-soft: "#FCE8EE"
+  petal-line: "#EBB3C4"
+  petal-ink: "#9A4A63"
+  lilac: "#E9E3F8"
+  lilac-ink: "#5B4E8C"
+  bg: "#F7FAFD"
+  surface: "#FFFFFF"
+  ink: "#283746"
+  muted: "#627280"
+  line: "#E5EDF3"
+  cta: "#283746"
+  cta-hover: "#1D2A37"
+  on-cta: "#FFFFFF"
+  bg-dark: "#121B25"
+  surface-dark: "#1B2632"
+  soft-dark: "#1D3242"
+  line-dark: "#2C3B4B"
+  ink-dark: "#E8F1F8"
+  muted-dark: "#A5B4C2"
+  cta-dark: "#A9D8F5"
+  on-cta-dark: "#13202C"
+  hero-dark: "#1F3B52"
 typography:
   display:
-    fontFamily: '"DM Sans", Inter, ui-sans-serif, system-ui, sans-serif'
-    fontSize: "clamp(2.05rem, 4vw, 3.1rem)"
-    fontWeight: 760
-    lineHeight: 1.15
-    letterSpacing: "-.035em"
-  headline:
-    fontFamily: '"DM Sans", Inter, ui-sans-serif, system-ui, sans-serif'
-    fontSize: "clamp(1.65rem, 3.1vw, 2.55rem)"
-    fontWeight: 720
-    lineHeight: 1.18
-    letterSpacing: "-.035em"
-  title:
-    fontSize: "22px"
-    fontWeight: 750
+    fontFamily: 'Nunito, "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif'
+    fontSize: "clamp(1.6rem, 3vw, 2.4rem)"
+    fontWeight: 800
     lineHeight: 1.2
-    letterSpacing: "-.025em"
+    letterSpacing: "-.01em"
+  headline:
+    fontFamily: 'Nunito, "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif'
+    fontSize: "clamp(1.25rem, 2.2vw, 1.55rem)"
+    fontWeight: 800
+    lineHeight: 1.25
+  title:
+    fontFamily: 'Nunito, "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif'
+    fontSize: "22px"
+    fontWeight: 800
+    lineHeight: 1.2
   body:
-    fontSize: "14px"
-    lineHeight: "20px"
+    fontFamily: '"Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif'
+    fontSize: "15px"
+    lineHeight: 1.5
   label:
-    fontSize: "12px"
-    lineHeight: "16px"
+    fontFamily: '"Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif'
+    fontSize: "12–13px"
+    fontWeight: 700
 rounded:
-  base: "7px"
-  icon: "8px"
-  lg: "9px"
-  xl: "12px"
-  rows: "13px"
-  2xl: "15px"
-  3xl: "16px"
+  base: "8px"
+  lg: "10px"
+  xl: "14px"
+  2xl: "20px"
+  3xl: "24px"
   full: "999px"
 spacing:
   inline: "8px"
   row-gap: "12px"
-  field-inline: "16px"
   panel: "20px"
-  panel-sm: "24px"
-  section: "26px"
+  panel-sm: "26px"
+  section: "28px"
+motion:
+  fast: "150ms"
+  base: "220ms"
+  ease-out: "cubic-bezier(.2, .8, .2, 1)"
 components:
   button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
-    rounded: "{rounded.xl}"
-    padding: "10px 16px"
-  button-primary-hover:
-    backgroundColor: "{colors.primary-hover}"
+    backgroundColor: "{colors.cta}"
+    textColor: "{colors.on-cta}"
+    rounded: "{rounded.full}"
+    padding: "0 20px; min-height 44px"
   button-primary-dark:
-    backgroundColor: "{colors.primary-dark}"
-    textColor: "{colors.paper-dark}"
-  button-primary-dark-hover:
-    backgroundColor: "{colors.primary-dark-hover}"
+    backgroundColor: "{colors.cta-dark}"
+    textColor: "{colors.on-cta-dark}"
   button-secondary:
-    rounded: "{rounded.xl}"
-    padding: "10px 16px"
-  button-secondary-hover:
-    backgroundColor: "{colors.soft-green}"
-  button-small:
-    typography: "{typography.label}"
-    rounded: "{rounded.lg}"
-    padding: "6px 10px"
-  button-study:
-    backgroundColor: "{colors.lime}"
-    textColor: "{colors.rail}"
-    rounded: "{rounded.lg}"
-    padding: "9px 14px"
-  button-study-hover:
-    backgroundColor: "{colors.lime-hover}"
+    backgroundColor: "{colors.surface}"
+    rounded: "{rounded.full}"
+    border: "1px {colors.line} → {colors.sky} khi hover"
   input:
-    typography: "{typography.body}"
     rounded: "{rounded.xl}"
-    padding: "10px 16px"
-  status-chip:
+    padding: "10px 16px; min-height 46px"
+    focus: "viền {colors.deep} + vòng 2px"
+  chip:
     typography: "{typography.label}"
     rounded: "{rounded.full}"
-    padding: "2px 8px"
-  navigation-item:
-    textColor: "{colors.rail-text}"
-    rounded: "{rounded.lg}"
-    padding: "8px 12px"
   navigation-item-current:
-    backgroundColor: "{colors.lime}"
-    textColor: "#193325"
-  panel:
-    backgroundColor: "{colors.panel}"
+    backgroundColor: "{colors.sky-strong}"
+    rounded: "{rounded.xl}"
+  card:
+    backgroundColor: "{colors.surface}"
+    border: "1px {colors.line}"
     rounded: "{rounded.2xl}"
-    padding: "{spacing.panel}"
-  panel-dark:
-    backgroundColor: "{colors.panel-dark}"
-  course-list:
-    backgroundColor: "{colors.panel}"
-    rounded: "{rounded.rows}"
-  course-feature:
-    backgroundColor: "{colors.hero}"
-    textColor: "{colors.hero-text}"
+  course-block:
+    backgroundColor: "{colors.sky}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.3xl}"
-    padding: "clamp(22px, 3.3vw, 43px)"
+    padding: "26px 32px"
   progress:
-    backgroundColor: "#54705d"
-    rounded: "{rounded.full}"
-    height: "6px"
+    backgroundColor: "rgba(255,255,255,.65)"
+    fill: "{colors.ink}"
+    height: "10px"
+  mascot:
+    background: "#FCFCFC"
+    shape: "tròn, viền 4px {colors.sky-soft}"
+    maxSize: "112px (không phóng to ảnh gốc)"
 ---
 
 # Design System — VNU Quiz
 
 ## Overview
 
-**Creative North Star: "Không gian học tập VNU"**
+**Creative North Star: "A Little Space for Learning" – Cute Academic, Soft Pastel, Modern Minimalism.**
 
-Giao diện phục vụ thao tác học hằng ngày (Operate). Thanh điều hướng xanh rừng tạo khung cố định, vùng làm việc dùng nền giấy sáng hoặc nền xanh sẫm khi bật chế độ tối. Tiêu đề, hàng nội dung và đường phân cách giúp sinh viên tìm mục cần dùng khi lướt nhanh.
+Không gian học cá nhân, trong trẻo, dễ chịu khi dùng lâu: dễ thương nhưng không trẻ con. Xanh da trời là màu chủ đạo, hồng pastel là điểm nhấn, lavender cho flashcard và thẻ phụ. Mascot (ảnh gốc chủ dự án cung cấp, `src/assets/mascot.png`) xuất hiện nhỏ và có chủ đích.
 
-Ở trang Tổng quan, tên môn đang học, số câu đã ôn trên tổng số câu và nút ôn nằm chung một khối. Ảnh minh họa do ImageGen tạo mô tả một góc bàn học trong thư viện và được dùng làm nền trang trí.
+Ở Tổng quan, tên môn đang học, số câu đã làm (một thanh tiến độ duy nhất), nút **Ôn tiếp** và liên kết **Chọn chương** nằm chung một khối gọn.
 
 **Key Characteristics**
 
-- Điều hướng cố định, vùng nội dung có đường phân cách mảnh.
-- Hỗ trợ hai chế độ sáng và tối.
-- Môn đang học và hành động ôn tiếp được ưu tiên ở Tổng quan.
+- Một lớp token duy nhất: biến CSS kênh RGB trong `src/workspace.css` (`--c-*`), Tailwind đọc lại qua `tailwind.config.js` (`blossom-*`, `cloud`, `petal`, `lilac`). Biến tự đổi dưới `.dark`.
+- Hai chế độ sáng/tối áp dụng cho mọi trang, hộp thoại, form và bảng.
+- Chuyển động nhẹ, tắt khi `prefers-reduced-motion`.
 
 ## Colors
 
-### Primary
-
-- **Xanh rừng** dùng cho thanh điều hướng, khối môn đang học và nút chính trên nền sáng.
-- **Xanh non** dùng cho mục điều hướng hiện tại, nút ôn và phần đã hoàn thành trên thanh tiến độ. Nút chính thông thường dùng xanh nhạt trên nền tối.
-
-### Secondary
-
-- **Hổ phách** báo tình trạng cần chú ý, như lỗi tải dữ liệu hoặc tài liệu đang chờ duyệt. Nhãn văn bản mô tả trạng thái cùng với màu.
-
-### Neutral
-
-- **Giấy** là nền vùng làm việc. **Mặt thẻ** là nền danh sách và nhóm nội dung.
-- **Mực** dùng cho tiêu đề và nội dung chính. **Mực nhạt** dùng cho thông tin bổ trợ. **Đường viền** phân cách các nhóm và hàng.
-- Chế độ tối đổi nền, chữ, đường viền, trạng thái tương tác và cảnh báo. Khối môn đang học giữ nền xanh rừng và chữ sáng.
+- **Xanh trời** (`sky`, `sky-soft`, `sky-strong`, `deep`): nền khối môn học, mục điều hướng đang chọn, trạng thái “đúng”/“đã làm”, vạch tiến độ.
+- **Hồng pastel** (`petal*`): chip “Môn đang học”, trạng thái “sai”, câu đã đánh dấu, cảnh báo thời gian thi.
+- **Lavender** (`lilac*`): mặt sau flashcard, chip chương, cảnh báo nhẹ.
+- **Trung tính**: nền `bg`, thẻ `surface`, chữ `ink`, chữ phụ `muted`, viền `line`.
+- Hex của brief giữ cho nền và viền. Chữ phụ (#81909C → #627280) và chữ liên kết (#527F9E → #44708E) được đậm hơn để đạt WCAG AA 4.5:1.
+- Nút chính: navy + chữ trắng (sáng); xanh trời + chữ navy đậm (tối).
 
 ## Typography
 
-Dùng DM Sans, với Inter và các phông sans-serif hệ thống làm dự phòng. Tiêu đề trang dùng cỡ linh hoạt theo viewport. Tên môn cho phép xuống dòng và có chiều rộng tối đa 24ch trong khối Tổng quan.
-
-- **Tiêu đề trang** (760) mở đầu màn hình.
-- **Tên môn nổi bật** (720) dẫn khối tiến độ ở Tổng quan.
-- **Tiêu đề nhóm** (22px, 750) giúp tìm nhanh môn học, công cụ và lịch sử.
-- **Nội dung** (14px) dùng cho thao tác và hàng dữ liệu. **Nhãn phụ** (12–13px) dùng cho số câu, mô tả ngắn và trạng thái.
-- Tiến độ, số liệu tổng hợp và đồng hồ thi dùng chữ số cùng chiều rộng.
+Nunito (700–800) cho tiêu đề h1–h3 và số liệu; Be Vietnam Pro (400–700) cho nội dung – cả hai hỗ trợ đầy đủ dấu tiếng Việt. Tiến độ, số liệu và đồng hồ thi dùng chữ số cùng chiều rộng.
 
 ## Layout
 
-Vùng nội dung rộng tối đa 1360px. Màn hình từ 1024px dùng thanh bên 232px. Từ 768 đến 1023px, thanh bên rộng 76px và chỉ hiển thị biểu tượng, với nhãn vẫn có thể đọc qua công nghệ hỗ trợ. Dưới 768px, thanh đầu trang mở menu theo yêu cầu.
-
-Tổng quan dùng khoảng cách 26px giữa các khối, giảm còn 21px trên điện thoại. Hai cột môn học và công cụ chuyển thành một cột trên điện thoại. Ảnh của khối môn học nằm bên phải trên màn hình rộng và chuyển xuống dưới nút ôn trên điện thoại.
+Vùng nội dung tối đa 1180px. Từ 1024px: thanh bên trắng 248px (nhóm “Học tập” / “Cài đặt”) + thanh trên có breadcrumb, nút sáng/tối, chip tài khoản. 768–1023px: thanh bên 80px chỉ icon. Dưới 768px: thanh trên gọn (logo, sáng/tối, tài khoản) và **thanh tab dưới** cố định: Tổng quan, Ôn tập, Thi thử, Tài liệu, Thêm (bảng “Thêm” chứa Môn học, Flashcard, Quản lý dữ liệu, Tài khoản). Nội dung chừa đáy `96px + safe-area` để thanh tab không che nút (đã có E2E kiểm tra nút “Câu tiếp”).
 
 ## Elevation & Depth
 
-Thẻ nội dung và danh sách chủ yếu dùng màu nền, đường viền và khoảng cách để phân lớp. Bóng mềm xuất hiện ở mặt flashcard và hộp thoại kết quả thi thử.
+Phân lớp bằng nền, viền 1px và khoảng cách. Bóng mềm chỉ xuất hiện khi hover thẻ và ở flashcard/hộp thoại. Không glassmorphism, không gradient trang trí.
 
 ## Shapes
 
-Góc bo nhẹ cho điều hướng và nút ôn (9px). Trường nhập và nút dùng chung bo 12px, danh sách môn 13px, thẻ 15px và khối môn đang học 16px. Thanh tiến độ và nhãn trạng thái dùng góc bo tròn.
+Nút và chip bo tròn hoàn toàn. Trường nhập 14px, thẻ 20px, khối môn học và flashcard 24px. Ô danh sách câu 12px.
 
 ## Components
 
-- **Nút** dùng động từ tiếng Việt. Nút chính dùng nền xanh, nút phụ dùng đường viền, nút nhỏ dùng cho thao tác trong hàng. Nút ôn trong Tổng quan hiển thị “Ôn tiếp” khi đã trả lời câu hỏi và “Ôn tập ngay” khi chưa bắt đầu.
-- **Trường nhập** dùng nền trong suốt và đường viền mảnh. Khi nhận tiêu điểm, đường viền và vòng sáng đổi màu.
-- **Điều hướng** ghép biểu tượng nét và nhãn. Mục đang mở có nền xanh non và thuộc tính `aria-current="page"`.
-- **Danh sách môn** gom các hàng dưới cùng một viền. Mỗi hàng có biểu tượng, tên môn, số câu hỏi và số câu đã ôn nếu có.
-- **Tiến độ ôn tập** dùng thanh 6px và dòng số đã ôn trên tổng số câu. Khối ảnh nằm ngoài nội dung cần đọc.
-- **Nhãn trạng thái** dùng chữ ngắn trên nền màu dịu cho quy trình duyệt tài liệu.
+- **Nút**: chính (navy/xanh trời), phụ (viền), nhỏ. Hover scale 1.02, nhấn 0.97, `focus-visible` viền xanh 2px. Vùng chạm ≥ 44px.
+- **Thẻ có thể bấm** (`.lift`, `button.study-row`): hover nhấc 4px, viền chuyển xanh trời, bóng nhẹ, icon phóng 1.08, mũi tên trượt 4px.
+- **Khối môn đang học**: chip hồng, tên môn, một thanh tiến độ + “x/y câu đã làm”, nút Ôn tiếp (“Ôn tập ngay” khi chưa làm), “Chọn chương” mở trang chương của đúng môn đang học (môn trên thiết bị → `?local=1`). Có đốm sáng theo con trỏ trên thiết bị có hover.
+- **Đáp án**: đã chọn = viền xanh đậm; đúng = nền xanh nhạt + icon check; sai = nền hồng nhạt + icon cảnh báo. Ô phản hồi có mascot và lời động viên.
+- **Danh sách câu** (`QuestionMap`): đang làm (nền nút chính), đã làm (xanh nhạt), đã đánh dấu (vòng hồng). Trên di động mở bằng nút “Danh sách câu” cạnh bộ đếm.
+- **Mascot** (`Mascot.jsx`): ảnh gốc, chỉ cắt khung bằng CSS và chỉ thu nhỏ (≤ 112px). Trạng thái chuyển động: `greet` (Tổng quan), `success`/`encourage` (phản hồi, kết quả thi), `loading`. Hover nghiêng đầu. Không tự vẽ biến thể.
+- **Chuyển trang**: fade + trượt 10px, 220ms.
 
 ## Do's and Don'ts
 
-- **Do** Hiển thị tên môn đang học và số câu đã ôn từ dữ liệu hiện có.
-- **Do** Duy trì viền tiêu điểm khi dùng bàn phím và tôn trọng cài đặt giảm chuyển động.
-- **Don't** Đặt tác vụ phụ ngang mức ưu tiên với nút ôn trong khối môn đang học.
+- **Do** Hiển thị tên môn và tiến độ từ dữ liệu thật; số liệu minh hoạ chỉ dùng trong mockup.
+- **Do** Dùng token (`blossom-*`, `cloud`, `petal`, `lilac`, `--c-*`) thay cho mã màu cứng.
+- **Do** Giữ viền tiêu điểm bàn phím và tôn trọng giảm chuyển động.
+- **Don't** Phóng to ảnh mascot, đặt mascot nhiều hơn một lần trên một vùng, hoặc che nội dung trên di động.
+- **Don't** Dùng hồng và xanh với tỷ lệ ngang nhau; xanh là chủ đạo.
