@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "test": "node --test",
+    "db:seed": "node db/seed/import-legacy-questions.js",
+    "db:set-role": "node db/seed/set-role.js"
   },
   "keywords": [],
   "author": "",
@@ -16,11 +19,18 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "express-rate-limit": "8.7.1",
+    "jose": "6.2.13",
     "multer": "^2.3.0",
     "pdf-parse": "^2.4.5",
     "pg": "^8.23.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
+  },
+  "overrides": {
+    "nodemon": {
+      "minimatch": "^11.0.1"
+    }
   }
 }

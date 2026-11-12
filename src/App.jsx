@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import defaultQuestions from './data/questions.json'
 
@@ -8,13 +8,13 @@ import Practice from './components/Practice'
 import Flashcard from './components/Flashcard'
 import Exam from './components/Exam'
 import Admin from './components/Admin'
+import Account from './components/Account'
+import Materials from './components/Materials'
+import AdminLibrary from './components/AdminLibrary'
 import Pagetransition from './components/Pagetransition'
-import ExamLobby from './features/exam/components/ExamLobby'
-import ExamRoom from './features/exam/components/ExamRoom'
-import ExamReport from './features/exam/components/ExamReport'
-import { buildThptqgExam } from './features/exam/examData'
 
 import { storage, toggleInArray } from './utils/storage'
+import { questionKey } from './utils/questionKey'
 
 export default function App() {
     const [page, setPage] = useState('dashboard')
@@ -28,12 +28,12 @@ export default function App() {
     })
 
     const [bookmarks, setBookmarks] = useState(() => {
-        const saved = storage.getBookmarks()
+        const saved = storage.getBookmarks(questions)
         return Array.isArray(saved) ? saved : []
     })
 
     const [progress, setProgress] = useState(() => {
-        const saved = storage.getProgress()
+        const saved = storage.getProgress(questions)
         return Array.isArray(saved) ? saved : []
     })
 
@@ -41,10 +41,6 @@ export default function App() {
         const saved = storage.getHistory()
         return Array.isArray(saved) ? saved : []
     })
-
-    const thptqgExam = useMemo(() => buildThptqgExam(), [])
-    const [thptqgStage, setThptqgStage] = useState('lobby') // lobby | room | report
-    const [thptqgSubmission, setThptqgSubmission] = useState(null) // { result, questions, answers }
 
     useEffect(() => {
         storage.setQuestions(questions)
@@ -62,19 +58,20 @@ export default function App() {
         storage.setHistory(history)
     }, [history])
 
-    function handleToggleBookmark(id) {
+    // bookmarks/progress lưu questionKey (môn:chương:id), không phải id trần
+    function handleToggleBookmark(key) {
         setBookmarks((current) =>
-            toggleInArray(current, id),
+            toggleInArray(current, key),
         )
     }
 
-    function handleProgress(id) {
+    function handleProgress(key) {
         setProgress((current) => {
-            if (current.includes(id)) {
+            if (current.includes(key)) {
                 return current
             }
 
-            return [...current, id]
+            return [...current, key]
         })
     }
 
@@ -85,16 +82,16 @@ export default function App() {
 
         setQuestions(newQuestions)
 
-        const validIds = new Set(
-            newQuestions.map((question) => question.id),
+        const validKeys = new Set(
+            newQuestions.map(questionKey),
         )
 
         setBookmarks((current) =>
-            current.filter((id) => validIds.has(id)),
+            current.filter((key) => validKeys.has(key)),
         )
 
         setProgress((current) =>
-            current.filter((id) => validIds.has(id)),
+            current.filter((key) => validKeys.has(key)),
         )
     }
 
@@ -158,6 +155,15 @@ export default function App() {
                     />
                 )
 
+            case 'materials':
+                return <Materials />
+
+            case 'library-admin':
+                return <AdminLibrary />
+
+            case 'account':
+                return <Account onNavigate={setPage} />
+
             case 'dashboard':
             default:
                 return (
@@ -170,38 +176,6 @@ export default function App() {
                     />
                 )
 
-
-            case 'thptqg':
-                if (thptqgStage === 'room') {
-                    return (
-                        <ExamRoom
-                            exam={thptqgExam}
-                            onSubmit={(submission) => {
-                                setThptqgSubmission(submission)
-                                setThptqgStage('report')
-                            }}
-                        />
-                    )
-                }
-                if (thptqgStage === 'report' && thptqgSubmission) {
-                    return (
-                        <ExamReport
-                            result={thptqgSubmission.result}
-                            questions={thptqgSubmission.questions}
-                            answers={thptqgSubmission.answers}
-                            onRetry={() => {
-                                setThptqgSubmission(null)
-                                setThptqgStage('lobby')
-                            }}
-                        />
-                    )
-                }
-                return (
-                    <ExamLobby
-                        exam={thptqgExam}
-                        onStart={() => setThptqgStage('room')}
-                    />
-                )
         }
     }
 

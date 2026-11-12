@@ -12,6 +12,7 @@ import {
 } from 'lucide-react'
 
 import confetti from 'canvas-confetti'
+import { questionKey } from '../utils/questionKey'
 
 import {
     useEffect,
@@ -166,6 +167,8 @@ export default function Exam({
         () =>
             examQuestions.map((q, index) => ({
                 ...q,
+                // id chỉ duy nhất trong chương → đáp án phải gắn với questionKey
+                key: questionKey(q),
                 number: index + 1,
             })),
         [examQuestions],
@@ -176,7 +179,7 @@ export default function Exam({
             preparedQuestions.reduce(
                 (sum, q) =>
                     sum +
-                    (answers[q.id] === q.answer
+                    (answers[q.key] === q.answer
                         ? 1
                         : 0),
                 0,
@@ -430,10 +433,10 @@ export default function Exam({
 
                     {preparedQuestions.map((q) => (
                         <ReviewItem
-                            key={q.id}
+                            key={q.key}
                             question={q}
                             answer={
-                                result.answers[q.id] ?? null
+                                result.answers[q.key] ?? null
                             }
                         />
                     ))}
@@ -493,7 +496,7 @@ export default function Exam({
                     {q.options.map(
                         (option, optionIndex) => {
                             const selected =
-                                answers[q.id] === optionIndex
+                                answers[q.key] === optionIndex
 
                             return (
                                 <button
@@ -502,7 +505,7 @@ export default function Exam({
                                         setAnswers(
                                             (old) => ({
                                                 ...old,
-                                                [q.id]:
+                                                [q.key]:
                                                 optionIndex,
                                             }),
                                         )
@@ -589,14 +592,14 @@ export default function Exam({
                     {preparedQuestions.map(
                         (item, index) => (
                             <button
-                                key={item.id}
+                                key={item.key}
                                 onClick={() =>
                                     setCurrent(index)
                                 }
                                 className={`aspect-square rounded-lg text-xs font-bold transition-all hover:scale-[1.02] active:scale-[0.985] ${
                                     current === index
                                         ? 'bg-blossom-accent text-white dark:bg-blossom-accent-dark'
-                                        : answers[item.id] !== undefined
+                                        : answers[item.key] !== undefined
                                             ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300'
                                             : 'bg-blossom-card-soft text-blossom-muted hover:text-blossom-text dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark dark:hover:text-blossom-text-dark'
                                 }`}

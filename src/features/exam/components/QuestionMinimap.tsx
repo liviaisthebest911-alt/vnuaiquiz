@@ -1,4 +1,7 @@
-import { Question, UserAnswerRecord } from '../types';
+// Dùng chung cho mọi bài thi trắc nghiệm: chỉ cần id câu hỏi và trạng thái trả lời.
+type QuestionStatus = 'UNANSWERED' | 'ANSWERED' | 'FLAGGED';
+interface Question { id: string | number }
+interface UserAnswerRecord { status: QuestionStatus }
 
 interface Props {
     questions: Question[];

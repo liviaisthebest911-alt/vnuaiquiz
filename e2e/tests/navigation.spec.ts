@@ -1,0 +1,22 @@
+import { expect, heading1, navigate, PAGES, test } from '../fixtures'
+
+test('điều hướng qua mọi trang bằng menu', async ({ page }) => {
+    await page.goto('/')
+    for (const { nav, title } of PAGES) {
+        await navigate(page, nav)
+        await expect(heading1(page, title)).toBeVisible()
+    }
+    await navigate(page, 'Tổng quan')
+    await expect(page.getByRole('heading', { name: 'Lịch sử thi thử' })).toBeVisible()
+})
+
+// App chưa có URL theo trang (router ở P2) → tải lại luôn về Dashboard; điều cần đảm bảo là không lỗi.
+for (const { nav, title } of PAGES) {
+    test(`tải lại khi đang ở "${nav}" không lỗi`, async ({ page }) => {
+        await page.goto('/')
+        await navigate(page, nav)
+        await expect(heading1(page, title)).toBeVisible()
+        await page.reload()
+        await expect(page.getByRole('heading', { name: 'Lịch sử thi thử' })).toBeVisible()
+    })
+}

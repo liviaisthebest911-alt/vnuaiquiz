@@ -9,6 +9,7 @@ import {
 } from 'lucide-react'
 
 import { useMemo, useState } from 'react'
+import { questionKey } from '../utils/questionKey'
 
 export default function Practice({
                                      questions,
@@ -62,7 +63,7 @@ export default function Practice({
         if (answered || !current) return
 
         setSelected(optionIndex)
-        onMarkProgress(current.id)
+        onMarkProgress(questionKey(current))
     }
 
     // Trạng thái màu cho từng đáp án — dùng tông hồng/xanh lá/đỏ nhẹ, không rực rỡ
@@ -136,21 +137,21 @@ export default function Practice({
 
                         <button
                             onClick={() =>
-                                onToggleBookmark(current.id)
+                                onToggleBookmark(questionKey(current))
                             }
                             className={`inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all hover:scale-[1.015] active:scale-[0.985] ${
-                                bookmarks.includes(current.id)
+                                bookmarks.includes(questionKey(current))
                                     ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300'
                                     : 'bg-blossom-card-soft text-blossom-muted hover:text-blossom-text dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark dark:hover:text-blossom-text-dark'
                             }`}
                         >
-                            {bookmarks.includes(current.id) ? (
+                            {bookmarks.includes(questionKey(current)) ? (
                                 <BookmarkCheck size={17} />
                             ) : (
                                 <Bookmark size={17} />
                             )}
 
-                            {bookmarks.includes(current.id)
+                            {bookmarks.includes(questionKey(current))
                                 ? 'Đã đánh dấu'
                                 : 'Đánh dấu câu khó'}
                         </button>
@@ -279,14 +280,14 @@ export default function Practice({
 
                         {filtered.map((q, qIndex) => (
                             <button
-                                key={q.id}
+                                key={questionKey(q)}
                                 onClick={() => go(qIndex)}
                                 className={`relative aspect-square rounded-lg text-xs font-bold transition-all hover:scale-[1.02] active:scale-[0.985] ${
                                     qIndex === index
                                         ? 'bg-blossom-accent text-white dark:bg-blossom-accent-dark'
                                         : 'bg-blossom-card-soft text-blossom-muted hover:text-blossom-text dark:bg-blossom-card-soft-dark dark:text-blossom-muted-dark dark:hover:text-blossom-text-dark'
                                 } ${
-                                    bookmarks.includes(q.id)
+                                    bookmarks.includes(questionKey(q))
                                         ? 'ring-2 ring-amber-300 ring-offset-1 dark:ring-offset-blossom-card-dark'
                                         : ''
                                 }`}
