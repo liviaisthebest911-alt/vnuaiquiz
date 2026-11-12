@@ -20,6 +20,21 @@ describe('api()', () => {
         expect(init.headers).toEqual({ Authorization: 'Bearer tok', 'Content-Type': 'application/json' })
     })
 
+    test("VITE_API_URL='/' → gọi /api/v1 cùng domain; để trống → chưa cấu hình", async () => {
+        vi.stubEnv('VITE_API_URL', '/')
+        const fetch = vi.fn(async () => new Response('{"data":[]}', { status: 200 }))
+        vi.stubGlobal('fetch', fetch)
+        const mod = await import('./api')
+        expect(mod.apiConfigured).toBe(true)
+        await mod.api('/subjects')
+        expect(fetch.mock.calls[0][0]).toBe('/api/v1/subjects')
+        vi.resetModules()
+        vi.stubEnv('VITE_API_URL', '')
+        const empty = await import('./api')
+        expect(empty.apiConfigured).toBe(false)
+        await expect(empty.api('/subjects')).rejects.toThrow('Chưa cấu hình VITE_API_URL')
+    })
+
     test('lỗi server → Error mang message, status, code', async () => {
         vi.stubEnv('VITE_API_URL', 'https://api.example.com')
         vi.stubGlobal('fetch', async () => new Response(
