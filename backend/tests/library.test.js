@@ -30,7 +30,7 @@ describe('P4: kho tài liệu', { skip: !BASE && 'đặt TEST_DATABASE_URL để
       headers: { ...(t && { authorization: `Bearer ${t}` }), ...(body && { 'content-type': 'application/json' }) },
       body: body && JSON.stringify(body),
     });
-    return { status: res.status, body: await res.json() };
+    return { status: res.status, body: res.status === 204 ? null : await res.json() };
   };
   // Luồng upload như trình duyệt: xin URL → PUT thẳng Storage → finalize.
   const upload = async (as, { bytes = PDF, filename = 'Giáo trình chương 1.pdf', mime = 'application/pdf', putType, ...meta }) => {
@@ -188,6 +188,132 @@ describe('P4: kho tài liệu', { skip: !BASE && 'đặt TEST_DATABASE_URL để
     assert.equal((await call('GET', `/materials/${randomUUID()}`)).status, 404);
     assert.equal((await call('GET', '/materials/abc')).status, 404);
     assert.equal((await call('GET', `/materials/${ids.material}`, { token: 'rác' })).status, 401, 'token sai không bị hạ xuống khách');
+  });
+
+  test('tài liệu đã lưu thuộc tài khoản, lưu/bỏ lưu lặp lại được, ẩn thì biến mất', async () => {
+    const path = '/me/favorites/materials';
+    const id = ids.material;
+    assert.equal((await call('GET', path)).status, 401);
+    for (let repeat = 0; repeat < 2; repeat++) assert.equal((await call('PUT', `${path}/${id}`, { as: 'user' })).status, 204);
+    assert.deepEqual((await call('GET', path, { as: 'user' })).body.data.map((m) => m.id), [id]);
+    assert.deepEqual((await call('GET', path, { as: 'editor' })).body.data, []);
+    await call('POST', `/admin/materials/${id}/hide`, { as: 'admin' });
+    try {
+      assert.deepEqual((await call('GET', path, { as: 'user' })).body.data, []);
+      assert.equal((await call('PUT', `${path}/${id}`, { as: 'editor' })).status, 404);
+    } finally {
+      await call('POST', `/admin/materials/${id}/unhide`, { as: 'admin' });
+    }
+    for (let repeat = 0; repeat < 2; repeat++) assert.equal((await call('DELETE', `${path}/${id}`, { as: 'user' })).status, 204);
+  });
+
+  test('metadata tài liệu: admin sửa được tài liệu đã xuất bản, editor bị chặn, không đổi trạng thái', async () => {
+    const path = `/admin/materials/${ids.material}`;
+    const body = { title: 'Giáo trình đã cập nhật', status: 'draft' };
+    assert.equal((await call('PATCH', path, { as: 'editor', body })).body.error.code, 'CONTENT_NOT_EDITABLE');
+    assert.equal((await call('PATCH', path, { as: 'admin', body: { title: '' } })).status, 422);
+    const updated = (await call('PATCH', path, { as: 'admin', body })).body.data;
+    assert.deepEqual([updated.title, updated.status, updated.storage_path], [body.title, 'published', undefined]);
+    assert.equal((await call('GET', `/materials/${ids.material}`)).body.data.title, body.title);
+  });
+
+  test('ôn tập chấm trên server, lọc câu theo người học và cập nhật Dashboard', async () => {
+    const { id } = await one(`with q as (
+      insert into questions (subject_id, chapter_id, type, content, explanation, status)
+      values ($1, $2, 'multiple_choice', 'Câu hỏi thử', 'Giải thích thử', 'published') returning id
+    ), opts as (
+      insert into question_options (question_id, position, content, is_correct)
+      select q.id, p, p::text, p < 3 from q cross join generate_series(1, 3) p
+    ) select id from q`, [ids.subject, ids.ch1]);
+    ids.practiceQuestion = id;
+    const path = `/practice/questions?subject_id=${ids.subject}`;
+    assert.equal((await call('GET', path)).status, 401);
+    const subject = await call('GET', '/subjects/cnsai2');
+    assert.equal(subject.body.data.chapters[0].question_count, 1);
+    const practice = (await call('GET', path, { as: 'user' })).body.data[0];
+    assert.equal(practice.id, id);
+    assert.equal(practice.explanation, undefined);
+    assert.ok(practice.options.every((o) => o.is_correct === undefined));
+    const cards = (await call('GET', `/flashcards?subject_id=${ids.subject}`, { as: 'user' })).body.data;
+    assert.equal(cards[0].explanation, 'Giải thích thử');
+    const [a, b] = practice.options.map((o) => o.id);
+    const answer = (options) => call('POST', '/practice/answers', { as: 'user', body: { question_id: id, selected_option_ids: options } });
+    assert.equal((await answer([randomUUID()])).status, 422);
+    assert.equal((await answer([a])).body.data.is_correct, false);
+    assert.deepEqual((await answer([b, a])).body.data.correct_option_ids, [a, b]);
+    assert.equal((await answer([b, a])).body.data.is_correct, true);
+    assert.equal((await call('PUT', `/me/bookmarks/${id}`, { as: 'user' })).status, 204);
+    assert.equal((await call('GET', `${path}&bookmarked=true`, { as: 'user' })).body.data[0].id, id);
+    assert.deepEqual((await call('GET', `${path}&bookmarked=true`, { as: 'editor' })).body.data, []);
+    const guest = (await call('GET', '/dashboard')).body.data;
+    const dashboard = (await call('GET', '/dashboard', { as: 'user' })).body.data;
+    assert.equal(guest.subjects.find((s) => s.id === ids.subject).answered_count, undefined);
+    assert.equal(dashboard.subjects[0].id, ids.subject);
+    assert.equal(dashboard.subjects[0].answered_count, 1);
+
+    // "Ôn tiếp": resume=true mở nhóm chứa câu chưa làm đầu tiên, không phải nhóm 1.
+    const { id: next } = await one(`with q as (
+      insert into questions (subject_id, chapter_id, type, content, status)
+      values ($1, $2, 'single_choice', 'Câu chưa làm', 'published') returning id
+    ), opts as (
+      insert into question_options (question_id, position, content, is_correct)
+      select q.id, p, p::text, p = 1 from q cross join generate_series(1, 2) p
+    ) select id from q`, [ids.subject, ids.ch1]);
+    const resumed = (await call('GET', `${path}&limit=1&resume=true`, { as: 'user' })).body;
+    assert.deepEqual([resumed.meta.page, resumed.data[0].id, resumed.data[0].answered], [2, next, false]);
+    const fresh = (await call('GET', `${path}&limit=1&resume=true`, { as: 'editor' })).body;
+    assert.deepEqual([fresh.meta.page, fresh.data[0].id], [1, id]);
+    await db.query("update questions set status = 'archived' where id = $1", [next]);
+  });
+
+  test('thi phía server: phân quyền, lưu lựa chọn, giới hạn lượt và chốt bài idempotent', async () => {
+    const create = { subject_id: ids.subject, title: 'Đề thi kiểm tra', duration_minutes: 10, max_attempts: 2, shuffle_options: true };
+    assert.equal((await call('POST', '/admin/exams', { as: 'user', body: create })).status, 403);
+    const draft = await call('POST', '/admin/exams', { as: 'editor', body: create });
+    assert.equal(draft.status, 201);
+    const exam = draft.body.data.id;
+    const questions = `/admin/exams/${exam}/questions`;
+    const selections = [{ question_id: ids.practiceQuestion, position: 1, points: 2 }];
+    assert.equal((await call('PUT', questions, { as: 'editor', body: selections })).status, 204);
+    assert.equal((await call('GET', `/exams/${exam}`)).status, 404);
+    await publish('exams', exam);
+
+    const start = () => call('POST', `/exams/${exam}/attempts`, { as: 'user' });
+    const started = await Promise.all([start(), start()]);
+    assert.deepEqual(started.map((r) => r.status).sort(), [200, 201]);
+    const { id } = started[0].body.data;
+    assert.equal(started[1].body.data.id, id);
+    const path = `/attempts/${id}`;
+    assert.equal((await call('GET', path, { as: 'editor' })).status, 404);
+    const question = (await call('GET', path, { as: 'user' })).body.data.questions[0];
+    assert.equal(question.correct_option_ids, undefined);
+    assert.equal(question.explanation, undefined);
+    const correct = (await db.query('select id from question_options where question_id = $1 and is_correct', [question.id])).rows.map((o) => o.id);
+    const save = (attemptPath, selected_option_ids) => call('PUT', `${attemptPath}/answers/${question.id}`, { as: 'user', body: { selected_option_ids } });
+    assert.equal((await save(path, correct)).status, 204);
+    const resumed = (await call('GET', path, { as: 'user' })).body.data;
+    assert.deepEqual(resumed.questions[0].selected_option_ids, correct);
+    assert.deepEqual(resumed.questions[0].options, question.options);
+
+    const finish = () => call('POST', `${path}/submit`, { as: 'user' });
+    const first = (await finish()).body.data;
+    assert.deepEqual([first.status, first.score, first.correct_count], ['submitted', '10.00', 1]);
+    assert.equal(first.questions[0].correct_option_ids.length, 2);
+    assert.equal((await finish()).body.data.submitted_at, first.submitted_at);
+    assert.equal((await save(path, [])).status, 409);
+    assert.equal((await call('PUT', questions, { as: 'editor', body: selections })).body.error.code, 'EXAM_LOCKED');
+
+    const next = (await start()).body.data.id;
+    await db.query("update exam_attempts set deadline_at = now() - interval '1 second' where id = $1", [next]);
+    assert.equal((await save(`/attempts/${next}`, correct)).body.error.code, 'ATTEMPT_CLOSED');
+    const expired = (await call('GET', `/attempts/${next}`, { as: 'user' })).body.data;
+    assert.deepEqual([expired.status, expired.score], ['expired', '0.00']);
+    assert.equal((await start()).body.error.code, 'EXAM_UNAVAILABLE');
+    assert.equal((await call('GET', '/me/attempts', { as: 'user' })).body.data.length, 2);
+    assert.equal((await call('GET', '/admin/stats', { as: 'user' })).status, 403);
+    const stats = (await call('GET', '/admin/stats', { as: 'editor' })).body.data;
+    assert.equal(stats.content.exams.published, 1);
+    assert.equal(stats.attempts_by_day.reduce((sum, day) => sum + day.count, 0), 2);
   });
 
   test('phân quyền: guest/user không tạo môn, chương, URL upload, tài liệu; editor không tự xuất bản', async () => {

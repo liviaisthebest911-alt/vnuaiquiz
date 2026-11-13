@@ -63,6 +63,8 @@ P3 và P4 độc lập, làm song song được nếu có 2 người. **Sau P2 �
 
 ## P3 – Môn học, câu hỏi, luyện tập
 
+- Đã triển khai ở local: danh mục và chi tiết môn, luyện tập chấm phía server, flashcard, đánh dấu câu và tiếp tục từ câu chưa làm. Công cụ quản lý ngân hàng câu hỏi phía server vẫn là phần tiếp theo của P3.
+
 - API mục §3 và §5 của `API_SPECIFICATION.md`.
 - Frontend: `/subjects`, `/subjects/:code`; `Practice.jsx` và `Flashcard.jsx` lấy dữ liệu từ API, chọn môn trước rồi chương; bookmark/tiến độ lưu server, bắt đầu mới (không chuyển dữ liệu `localStorage` cũ – id không xác định được chương; dữ liệu cũ giữ nguyên trong trình duyệt).
 - Quy trình duyệt (`API_SPECIFICATION.md §1b`) dùng chung cho mọi loại nội dung.
@@ -70,6 +72,8 @@ P3 và P4 độc lập, làm song song được nếu có 2 người. **Sau P2 �
 - **Kiểm tra:** practice không lộ đáp án trước khi trả lời; khoá sửa câu đã có bài làm; import lại cùng file không tạo câu trùng.
 
 ## P4 – Tài liệu 🟡 *(mốc 1 xong trong workspace 2026-11-11 – đã xác minh trên staging 2026-11-12; chưa commit, chưa deploy)*
+
+- Bổ sung ở local: chi tiết tài liệu có URL, yêu thích theo tài khoản và sửa tiêu đề/mô tả từ trang quản trị. Thay/xoá file Storage, ảnh đại diện và dọn upload dở vẫn còn trong P4.
 
 **Mốc 1 – admin tạo môn/chương, tải PDF lên, xuất bản; sinh viên tìm, lọc, xem, tải (đã làm):**
 - Backend: `services/storage.js` (Storage REST bằng `fetch` + `SUPABASE_SECRET_KEY`, không thêm dependency); `routes/library.routes.js` (`GET /subjects`, `/material-categories`, `/materials` – tìm theo tiêu đề, lọc môn/chương/loại, phân trang; `/materials/:id`, `/view`, `/download` – signed URL 5 phút); `routes/admin.library.routes.js` (`GET/POST /admin/subjects`, `POST /admin/subjects/:id/chapters`, `POST /admin/materials/upload-url`, `POST/GET /admin/materials`); `optionalAuth`; chuyển trạng thái `publish` (admin: draft → published một bước). Xuất bản dùng lại quy trình duyệt P2; mọi thao tác ghi `audit_logs` trong cùng transaction.
@@ -86,11 +90,15 @@ P3 và P4 độc lập, làm song song được nếu có 2 người. **Sau P2 �
 
 ## P5 – Đề thi đại học
 
+- Đã triển khai ở local: tạo đề nháp và chọn câu thủ công, quy trình duyệt, làm đề đã xuất bản, tự lưu từng câu, khôi phục khi tải lại, chốt theo hạn server, chấm điểm và xem lịch sử. Còn rút câu theo quy tắc, nhân bản và thống kê theo từng đề.
+
 - API §6: tạo đề (thủ công + rút ngẫu nhiên theo chương/độ khó), xuất bản, làm bài với hạn nộp phía server, lưu từng câu, chấm điểm, xem lại theo `answer_visibility`, lịch sử.
 - Frontend: viết lại `Exam.jsx` thành `/exams/:id` + `/attempts/:id`, dùng lại timer/minimap/score ring; tự động lưu, khôi phục khi tải lại trang; đồng bộ đồng hồ theo `server_now`.
 - **Kiểm tra (quan trọng nhất):** chấm điểm single/multiple; nộp sau hạn bị chốt; không xem được attempt của người khác (IDOR); trộn câu ổn định trong cùng attempt; `max_attempts`; nộp hai lần idempotent.
 
 ## P6 – Admin CMS hoàn chỉnh & Dashboard
+
+- Đã triển khai ở local: Dashboard ưu tiên môn vừa ôn và tài liệu mới. Trang Thống kê quản trị hiển thị tài khoản, nội dung theo trạng thái, lượt thi theo ngày và tài liệu được lưu nhiều. Còn quản lý người dùng/vai trò, xem audit log và hoạt động gần đây theo tài khoản.
 
 - Quản lý người dùng/vai trò, audit log, `/admin/stats`, thống kê kết quả từng đề.
 - Dashboard mới theo `GET /dashboard`: tổng môn/tài liệu/đề, số bài đã làm, tiến độ theo môn, tài liệu mới, đề có thể luyện, hoạt động gần đây.

@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 
 import './index.css'
+import './workspace.css'
 import App from './App'
 
 class ErrorBoundary extends React.Component {
@@ -57,7 +59,7 @@ ReactDOM.createRoot(
 ).render(
     <React.StrictMode>
         <ErrorBoundary>
-            <App />
+            <BrowserRouter><App /></BrowserRouter>
         </ErrorBoundary>
     </React.StrictMode>,
 )

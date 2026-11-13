@@ -27,7 +27,7 @@ test('thi 30 phút từ bắt đầu đến nộp bài, lưu lịch sử', async
     expect(await page.locator('body').innerText()).toMatch(/Bài đã làm\s*1/)
 })
 
-test('minimap: 40 ô, ô đã trả lời chuyển xanh, bấm ô để nhảy câu', async ({ page }) => {
+test('minimap: 40 ô, ô đã trả lời đổi màu, bấm ô để nhảy câu', async ({ page }) => {
     await page.goto('/')
     await startExam(page)
     await expect(examGrid(page)).toHaveCount(40)
@@ -36,7 +36,7 @@ test('minimap: 40 ô, ô đã trả lời chuyển xanh, bấm ô để nhảy c
     await examGrid(page).nth(4).click()
     await expect(page.getByText('Câu 5/40')).toBeVisible()
     await expect(examGrid(page).nth(4)).toHaveClass(/bg-blossom-accent/)
-    await expect(examGrid(page).nth(0)).toHaveClass(/emerald/)
+    await expect(examGrid(page).nth(0)).toHaveAttribute('data-answered', 'true')
 })
 
 // Regression lỗi id trùng (P0.1 đo được 6/10 đề sai): đề 40 câu rút ngẫu nhiên gần như luôn có câu cùng id
@@ -48,7 +48,7 @@ test('trả lời 1 câu chỉ đánh dấu đúng 1 câu (không lan sang câu 
         if (round > 0) await page.getByRole('button', { name: /Làm đề mới/ }).click()
         await examOptions(page).first().click()
         await page.getByRole('button', { name: 'Câu tiếp' }).click()
-        await expect(examAside(page).locator('button[class*="emerald"]')).toHaveCount(1)
+        await expect(examAside(page).locator('button[data-answered="true"]:not([aria-current])')).toHaveCount(1)
         await expect(examAside(page).getByText(/^1\s*\/\s*40$/)).toBeVisible()
         await submitExam(page)
     }

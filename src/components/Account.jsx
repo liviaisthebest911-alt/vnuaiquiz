@@ -147,9 +147,13 @@ function Profile({ email, onNavigate }) {
             )}
             <Notice message={message} />
             {['editor', 'admin'].includes(me?.role) && onNavigate && (
-                <button type="button" onClick={() => onNavigate('library-admin')} className={`${primary} mr-2`}>
-                    <Library size={16} /> Quản trị tài liệu
-                </button>
+                <div className="flex flex-wrap gap-2">
+                    <button type="button" onClick={() => onNavigate('library-admin')} className={primary}>
+                        <Library size={16} /> Quản trị tài liệu
+                    </button>
+                    <button type="button" onClick={() => onNavigate('exam-admin')} className={secondary}>Quản trị đề thi</button>
+                    <button type="button" onClick={() => onNavigate('stats-admin')} className={secondary}>Thống kê quản trị</button>
+                </div>
             )}
             <button type="button" onClick={() => supabase.auth.signOut()} className={secondary}>
                 <LogOut size={16} /> Đăng xuất

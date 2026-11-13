@@ -1,179 +1,135 @@
 import {
-    BrainCircuit,
-    Database,
-    GraduationCap,
-    Layers,
-    Library,
-    LayoutDashboard,
-    Menu,
-    PenLine,
-    UserRound,
-    X,
+    BookOpen, ChevronRight, Database, GraduationCap,
+    Layers, Library, LayoutDashboard, Menu, PenLine, UserRound,
 } from 'lucide-react'
-
-import { useState } from 'react'
-
+import { useEffect, useRef, useState } from 'react'
 import { useTheme } from '../hooks/useTheme'
 import ThemeToggle from './ThemeToggle'
-import AppBackground from './AppBackground'
 
-const navItems = [
-    {
-        id: 'dashboard',
-        label: 'Tổng quan',
-        icon: LayoutDashboard,
-    },
-    {
-        id: 'practice',
-        label: 'Ôn tập',
-        icon: GraduationCap,
-    },
-    {
-        id: 'flashcard',
-        label: 'Flashcard',
-        icon: Layers,
-    },
-    {
-        id: 'exam',
-        label: 'Thi thử',
-        icon: PenLine,
-    },
-    {
-        id: 'materials',
-        label: 'Tài liệu',
-        icon: Library,
-    },
-    {
-        id: 'admin',
-        label: 'Quản lý dữ liệu',
-        icon: Database,
-    },
-    {
-        id: 'account',
-        label: 'Tài khoản',
-        icon: UserRound,
-    },
+const learning = [
+    { id: 'dashboard', label: 'Tổng quan', icon: LayoutDashboard },
+    { id: 'subjects', label: 'Môn học', icon: BookOpen },
+    { id: 'practice', label: 'Ôn tập', icon: GraduationCap },
+    { id: 'flashcard', label: 'Flashcard', icon: Layers },
+    { id: 'exam', label: 'Thi thử', icon: PenLine },
+    { id: 'materials', label: 'Tài liệu', icon: Library },
 ]
+const settings = [
+    { id: 'admin', label: 'Quản lý dữ liệu', icon: Database },
+    { id: 'account', label: 'Tài khoản', icon: UserRound },
+]
+const adminLabels = { 'exam-admin': 'Quản trị đề thi', 'library-admin': 'Quản trị tài liệu', 'stats-admin': 'Thống kê quản trị' }
+// Thanh tab dưới (di động): 4 lối chính + "Thêm" chứa phần còn lại
+const tabIds = ['dashboard', 'practice', 'exam', 'materials']
+const all = [...learning, ...settings]
+const tabs = tabIds.map((id) => all.find((item) => item.id === id))
+const more = all.filter(({ id }) => !tabIds.includes(id))
 
-export default function Layout({
-                                   page,
-                                   setPage,
-                                   children,
-                               }) {
-    const [open, setOpen] = useState(false)
+function Brand({ onClick }) {
+    return (
+        <button type="button" className="workspace-brand" onClick={onClick}>
+            <span className="workspace-mark"><GraduationCap size={22} strokeWidth={1.8} aria-hidden="true" /></span>
+            <span className="workspace-brand-text"><strong>VNU Quiz<i aria-hidden="true">.</i></strong><small>Một góc nhỏ để học</small></span>
+        </button>
+    )
+}
+
+export default function Layout({ page, setPage, session, children }) {
+    const [moreOpen, setMoreOpen] = useState(false)
+    const moreButton = useRef(null)
+    const sheet = useRef(null)
     const { isDark, toggleTheme } = useTheme()
+    const label = all.find(({ id }) => id === page)?.label ?? adminLabels[page] ?? 'Trang hiện tại'
+    const fullName = session?.user.user_metadata?.full_name
+    const firstName = typeof fullName === 'string' ? fullName.trim().split(/\s+/).at(-1) : ''
+    const accountLabel = session ? firstName || 'Tài khoản' : session === null ? 'Đăng nhập' : 'Tài khoản'
+    const moreActive = more.some(({ id }) => id === page) || page in adminLabels
 
-    const navigate = (id) => {
+    useEffect(() => {
+        if (moreOpen) sheet.current?.querySelector('button')?.focus()
+    }, [moreOpen])
+
+    function navigate(id) {
         setPage(id)
-        setOpen(false)
+        if (moreOpen) {
+            setMoreOpen(false)
+            moreButton.current?.focus()
+        }
     }
 
+    function closeMore() {
+        setMoreOpen(false)
+        moreButton.current?.focus()
+    }
+
+    const navigation = (items) => items.map(({ id, label, icon: Icon }) => (
+        <button key={id} type="button" title={label} onClick={() => navigate(id)}
+                aria-current={page === id ? 'page' : undefined} className="workspace-nav-item">
+            <Icon size={20} strokeWidth={1.8} aria-hidden="true" />
+            <span>{label}</span>
+        </button>
+    ))
+
     return (
-        // Nền trong suốt để lộ gradient của <body> (index.css) + AppBackground orbs
-        <div className="min-h-screen text-blossom-text dark:text-blossom-text-dark">
-            <AppBackground />
-
-            {/* ==================================================================
-                HEADER — tối giản: viền mỏng thay vì shadow, không backdrop-blur nặng
-               ================================================================== */}
-            <header className="sticky top-0 z-40 border-b border-blossom-border bg-blossom-bg/90 backdrop-blur-sm dark:border-blossom-border-dark dark:bg-blossom-bg-dark/90">
-                <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-
-                    {/* Logo / tên dự án */}
-                    <button
-                        onClick={() => navigate('dashboard')}
-                        className="flex items-center gap-3 text-left transition-transform hover:scale-[1.015] active:scale-[0.985]"
-                    >
-                        <div className="grid h-10 w-10 place-items-center rounded-xl bg-blossom-accent text-white dark:bg-blossom-accent-dark">
-                            <BrainCircuit size={22} />
-                        </div>
-
-                        <div>
-                            <div className="text-sm font-bold text-blossom-accent dark:text-blossom-accent-dark">
-                                VNU DIGITAL & AI
-                            </div>
-
-                            <div className="text-xs text-blossom-muted dark:text-blossom-muted-dark">
-                                Ôn tập & Thi thử
-                            </div>
-                        </div>
-                    </button>
-
-                    {/* Thanh điều hướng — gọn nhẹ */}
-                    {/* md → lg: chỉ icon (7 mục không vừa 768px), nhãn vẫn là tên truy cập của nút */}
-                    <nav className="hidden items-center gap-1 md:flex">
-                        {navItems.map(({ id, label, icon: Icon }) => (
-                            <button
-                                key={id}
-                                title={label}
-                                onClick={() => navigate(id)}
-                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all hover:scale-[1.015] active:scale-[0.985] ${
-                                    page === id
-                                        ? 'bg-blossom-accent/10 text-blossom-accent dark:bg-blossom-accent-dark/15 dark:text-blossom-accent-dark'
-                                        : 'text-blossom-muted hover:bg-blossom-card-soft hover:text-blossom-text dark:text-blossom-muted-dark dark:hover:bg-blossom-card-soft-dark dark:hover:text-blossom-text-dark'
-                                }`}
-                            >
-                                <Icon size={17} aria-hidden="true" />
-                                <span className="sr-only lg:not-sr-only">{label}</span>
-                            </button>
-                        ))}
-                    </nav>
-
-                    {/* Vùng bên phải: ThemeToggle (luôn hiện) + nút menu mobile */}
-                    <div className="flex items-center gap-3">
-                        <ThemeToggle
-                            isDark={isDark}
-                            onToggle={toggleTheme}
-                        />
-
-                        <button
-                            onClick={() => setOpen((value) => !value)}
-                            className="rounded-lg p-2 text-blossom-muted transition-transform hover:scale-[1.02] hover:bg-blossom-card-soft active:scale-[0.985] dark:text-blossom-muted-dark dark:hover:bg-blossom-card-soft-dark md:hidden"
-                            aria-label="Mở menu"
-                        >
-                            {open ? <X size={22} /> : <Menu size={22} />}
+        <div className="workspace">
+            <a className="skip-link" href="#noi-dung">Đến nội dung chính</a>
+            <header className="workspace-rail">
+                <Brand onClick={() => navigate('dashboard')} />
+                <nav id="workspace-nav" aria-label="Điều hướng chính" className="workspace-nav">
+                    <div className="workspace-nav-group">
+                        <p className="workspace-nav-label">Học tập</p>
+                        {navigation(learning)}
+                    </div>
+                    <div className="workspace-nav-group workspace-nav-settings">
+                        <p className="workspace-nav-label">Cài đặt</p>
+                        {navigation(settings)}
+                    </div>
+                </nav>
+                <div className="workspace-rail-note">VNU Digital & AI</div>
+            </header>
+            <div className="workspace-content">
+                <div className="workspace-topbar">
+                    <Brand onClick={() => navigate('dashboard')} />
+                    <span className="workspace-crumbs">Không gian học tập <ChevronRight size={14} aria-hidden="true" /> <strong>{label}</strong></span>
+                    <div className="workspace-actions">
+                        <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
+                        <button type="button" className="account-chip" aria-current={page === 'account' ? 'page' : undefined} onClick={() => navigate('account')}>
+                            <span className="account-chip-avatar"><UserRound size={18} strokeWidth={1.8} aria-hidden="true" /></span>
+                            <span>{accountLabel}</span>
                         </button>
                     </div>
                 </div>
-
-                {open && (
-                    <div className="border-t border-blossom-border px-4 py-3 dark:border-blossom-border-dark md:hidden">
-                        <div className="space-y-1">
-                            {navItems.map(({ id, label, icon: Icon }) => (
-                                <button
-                                    key={id}
-                                    onClick={() => navigate(id)}
-                                    className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
-                                        page === id
-                                            ? 'bg-blossom-accent/10 text-blossom-accent dark:bg-blossom-accent-dark/15 dark:text-blossom-accent-dark'
-                                            : 'text-blossom-muted hover:bg-blossom-card-soft dark:text-blossom-muted-dark dark:hover:bg-blossom-card-soft-dark'
-                                    }`}
-                                >
-                                    <Icon size={18} />
-                                    {label}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-                )}
-            </header>
-
-            {/* ==================================================================
-                MAIN CONTENT
-               ================================================================== */}
-            <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-                {children}
-            </main>
-
-            {/* ==================================================================
-                FOOTER — tối giản
-               ================================================================== */}
-            <footer className="border-t border-blossom-border dark:border-blossom-border-dark">
-                <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-4 py-6 text-center text-xs text-blossom-muted dark:text-blossom-muted-dark sm:flex-row sm:justify-between sm:px-6 lg:px-8">
-                    <span>© {new Date().getFullYear()} VNU Digital & AI Quiz</span>
-                    <span>Dữ liệu được lưu cục bộ trên trình duyệt của bạn.</span>
+                <main id="noi-dung" className="workspace-main" tabIndex={-1}>{children}</main>
+            </div>
+            <nav className="workspace-tabbar" aria-label="Điều hướng nhanh">
+                {tabs.map(({ id, label, icon: Icon }) => (
+                    <button key={id} type="button" className="workspace-tab" aria-current={page === id ? 'page' : undefined} onClick={() => navigate(id)}>
+                        <span className="workspace-tab-pill"><Icon size={20} strokeWidth={1.8} aria-hidden="true" /></span>{label}
+                    </button>
+                ))}
+                <button ref={moreButton} type="button" className="workspace-tab" aria-haspopup="dialog" aria-expanded={moreOpen}
+                        aria-current={moreActive && !moreOpen ? 'page' : undefined} onClick={() => setMoreOpen(!moreOpen)}>
+                    <span className="workspace-tab-pill"><Menu size={20} strokeWidth={1.8} aria-hidden="true" /></span>Thêm
+                </button>
+            </nav>
+            {moreOpen && <>
+                <div className="workspace-sheet-backdrop" onClick={closeMore} />
+                <div ref={sheet} className="workspace-sheet" role="dialog" aria-modal="true" aria-label="Thêm"
+                     onKeyDown={(event) => {
+                         if (event.key === 'Escape') closeMore()
+                         if (event.key !== 'Tab') return
+                         // Giữ focus trong hộp thoại: Tab ở mục cuối → mục đầu, Shift+Tab ở mục đầu → mục cuối
+                         const items = sheet.current.querySelectorAll('button')
+                         const edge = event.shiftKey ? items[0] : items[items.length - 1]
+                         if (document.activeElement === edge) {
+                             event.preventDefault()
+                             ;(event.shiftKey ? items[items.length - 1] : items[0]).focus()
+                         }
+                     }}>
+                    <h2>Thêm</h2>
+                    {navigation(more)}
                 </div>
-            </footer>
+            </>}
         </div>
     )
 }

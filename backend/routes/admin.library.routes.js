@@ -6,7 +6,7 @@ import { ipKeyGenerator, rateLimit } from 'express-rate-limit';
 import pool, { audit, withTx } from '../config/db.js';
 import { HttpError, validationError } from '../middleware/errors.js';
 import { createUploadUrl, readHead, removeObject } from '../services/storage.js';
-import { UUID } from '../middleware/auth.js';
+import { hasRole, UUID } from '../middleware/auth.js';
 import { MATERIAL_SELECT } from './library.routes.js';
 
 const router = express.Router();
@@ -193,6 +193,49 @@ router.get('/materials', async (req, res) => {
   const { rows } = await pool.query(
     `${MATERIAL_SELECT} ${where.length ? `where ${where.join(' and ')}` : ''} order by m.created_at desc limit 200`, params);
   res.json({ data: rows.map(adminMaterial) });
+});
+
+router.patch('/materials/:id', async (req, res) => {
+  const id = req.params.id;
+  if (!UUID.test(id)) throw new HttpError(404, 'NOT_FOUND', 'Không tìm thấy tài liệu.');
+  const body = req.body ?? {};
+  const changes = {};
+  if (Object.hasOwn(body, 'title')) {
+    changes.title = str(body.title, 300, { required: true });
+    if (changes.title === undefined) throw validationError('Tiêu đề là bắt buộc, tối đa 300 ký tự.');
+  }
+  if (Object.hasOwn(body, 'description')) {
+    changes.description = str(body.description, 2000);
+    if (changes.description === undefined) throw validationError('Mô tả không được dài quá 2000 ký tự.');
+  }
+  for (const key of ['subject_id', 'chapter_id', 'topic_id', 'category_id']) {
+    if (!Object.hasOwn(body, key)) continue;
+    const value = body[key];
+    if (value === null && (key === 'chapter_id' || key === 'topic_id')) changes[key] = null;
+    else if (typeof value === 'string' && UUID.test(value)) changes[key] = value;
+    else throw validationError('Thông tin phân loại tài liệu không hợp lệ.', { [key]: 'uuid' });
+  }
+  const fields = Object.keys(changes);
+  if (!fields.length) throw validationError('Chưa chọn thông tin cần cập nhật.');
+
+  try {
+    const material = await withTx(async (db) => {
+      const { rows: [current] } = await db.query('select status from public.materials where id = $1 for update', [id]);
+      if (!current) throw new HttpError(404, 'NOT_FOUND', 'Không tìm thấy tài liệu.');
+      if (current.status !== 'draft' && !hasRole(req.user, 'admin')) {
+        throw new HttpError(409, 'CONTENT_NOT_EDITABLE', 'Biên tập viên chỉ có thể sửa tài liệu nháp.');
+      }
+      const assignments = fields.map((field, index) => `${field} = $${index + 2}`).join(', ');
+      await db.query(`update public.materials set ${assignments} where id = $1`, [id, ...Object.values(changes)]);
+      await audit(db, req.user.id, 'update', 'materials', id, { fields });
+      const { rows: [updated] } = await db.query(`${MATERIAL_SELECT} where m.id = $1`, [id]);
+      return updated;
+    });
+    res.json({ data: adminMaterial(material) });
+  } catch (error) {
+    if (error.code === '23503') throw validationError('Môn, chương, chủ đề hoặc danh mục không hợp lệ.');
+    throw error;
+  }
 });
 
 export default router;

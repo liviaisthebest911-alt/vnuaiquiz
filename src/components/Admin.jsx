@@ -239,7 +239,7 @@ export default function Admin({
 
             <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
 
-                <section className="rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60 sm:p-6">
+                <section className="rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark sm:p-6">
 
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 
@@ -268,7 +268,7 @@ export default function Admin({
                             setText(e.target.value)
                         }
                         spellCheck={false}
-                        className="mt-4 min-h-[520px] w-full rounded-xl border border-blossom-border bg-[#241621] p-4 font-mono text-xs leading-6 text-blossom-text-dark outline-none transition-colors focus:border-blossom-accent focus:ring-2 focus:ring-blossom-accent/30 dark:border-blossom-border-dark dark:focus:border-blossom-accent-dark dark:focus:ring-blossom-accent-dark/30"
+                        className="mt-4 min-h-[520px] w-full rounded-xl border border-blossom-border bg-[#1B2632] p-4 font-mono text-xs leading-6 text-[#E8F1F8] outline-none transition-colors focus:border-blossom-accent focus:ring-2 focus:ring-blossom-accent/30 dark:border-blossom-border-dark dark:focus:border-blossom-accent-dark dark:focus:ring-blossom-accent-dark/30"
                     />
 
                     {message && (
@@ -276,8 +276,8 @@ export default function Admin({
                             className={`mt-4 flex items-start gap-2 rounded-xl border p-3 text-sm animate-fade-in-up ${
                                 message.type ===
                                 'success'
-                                    ? 'border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-300'
-                                    : 'border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-800 dark:bg-rose-950/30 dark:text-rose-300'
+                                    ? 'border-cloud bg-cloud-soft text-cloud-ink'
+                                    : 'border-petal-line bg-petal-soft text-petal-ink'
                             }`}
                         >
                             {message.type === 'success' ? (
@@ -296,7 +296,7 @@ export default function Admin({
 
                         <button
                             onClick={importData}
-                            className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-blossom-accent px-4 py-3 text-sm font-bold text-white transition-all hover:scale-[1.015] hover:bg-blossom-accent-hover dark:bg-blossom-accent-dark dark:hover:bg-blossom-accent-dark-hover"
+                            className="inline-flex min-h-[48px] flex-1 items-center justify-center gap-2 rounded-full bg-blossom-accent px-4 text-sm font-bold text-[rgb(var(--c-on-cta))] transition-all hover:scale-[1.02] hover:bg-blossom-accent-hover active:scale-[0.97]"
                         >
                             <Upload size={17} />
                             Cập nhật ngân hàng câu hỏi
@@ -315,7 +315,7 @@ export default function Admin({
 
                 <aside className="h-fit space-y-4">
 
-                    <div className="rounded-2xl border card-accent border-white/40 bg-blossom-card/60 backdrop-blur-sm p-5 dark:border-white/10 dark:bg-blossom-card-dark/60">
+                    <div className="rounded-2xl border border-blossom-border bg-blossom-card p-5 dark:border-blossom-border-dark dark:bg-blossom-card-dark">
 
                         <h2 className="flex items-center gap-2 font-bold text-blossom-text dark:text-blossom-text-dark">
                             <ListChecks size={18} className="text-blossom-gold dark:text-blossom-gold-dark" />

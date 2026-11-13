@@ -1,24 +1,29 @@
 import { supabase } from './supabase'
 
-const BASE = import.meta.env.VITE_API_URL?.replace(/\/+$/, '')
+// '/' = API cùng domain với trang (gọi /api/v1/... tương đối); để trống = chưa cấu hình.
+const RAW = import.meta.env.VITE_API_URL
+const BASE = RAW ? RAW.replace(/\/+$/, '') : undefined
 
-export const apiConfigured = Boolean(BASE)
+export const apiConfigured = BASE !== undefined
 
 // Gọi backend /api/v1, tự gắn access token (getSession tự làm mới token hết hạn).
 // Lỗi → Error có message tiếng Việt từ server + status/code để UI phân nhánh.
-export async function api(path, { method = 'GET', body } = {}) {
-    if (!BASE) throw new Error('Chưa cấu hình VITE_API_URL.')
+export async function api(path, { method = 'GET', body, signal } = {}) {
+    if (BASE === undefined) throw new Error('Chưa cấu hình VITE_API_URL.')
     const token = supabase ? (await supabase.auth.getSession()).data.session?.access_token : undefined
     const res = await fetch(`${BASE}/api/v1${path}`, {
         method,
+        ...(signal && { signal }),
         headers: {
             ...(token && { Authorization: `Bearer ${token}` }),
             ...(body !== undefined && { 'Content-Type': 'application/json' }),
         },
         body: body === undefined ? undefined : JSON.stringify(body),
-    }).catch(() => {
+    }).catch((error) => {
+        if (signal?.aborted) throw error
         throw new Error('Không kết nối được máy chủ. Kiểm tra mạng và thử lại.')
     })
+    if (res.status === 204) return null
     const data = await res.json().catch(() => null)
     if (!res.ok) {
         const err = new Error(data?.error?.message || `Lỗi máy chủ (${res.status}).`)
@@ -26,5 +31,6 @@ export async function api(path, { method = 'GET', body } = {}) {
         err.code = data?.error?.code
         throw err
     }
+    if (data === null) throw new Error('Máy chủ trả về dữ liệu không hợp lệ.')
     return data
 }
