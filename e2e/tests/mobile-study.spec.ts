@@ -69,6 +69,27 @@ for (const width of [360, 390]) {
             await expect(page.getByText('Câu 2/40')).toBeVisible()
         })
 
+        test('menu Thêm giữ focus bàn phím trong hộp thoại; Esc đóng và trả focus về nút Thêm', async ({ page }) => {
+            await page.goto('/')
+            const more = tabBar(page).getByRole('button', { name: 'Thêm' })
+            await more.click()
+            const sheet = page.getByRole('dialog', { name: 'Thêm' })
+            const items = ['Môn học', 'Flashcard', 'Quản lý dữ liệu', 'Tài khoản'].map((name) => sheet.getByRole('button', { name, exact: true }))
+            await expect(items[0]).toBeFocused()
+            for (const item of [...items.slice(1), items[0]]) { // Tab đi hết vòng rồi quay về mục đầu
+                await page.keyboard.press('Tab')
+                await expect(item).toBeFocused()
+            }
+            await page.keyboard.press('Shift+Tab')
+            await expect(items[3]).toBeFocused()
+            await page.keyboard.press('Shift+Tab')
+            await expect(items[2]).toBeFocused()
+            await page.keyboard.press('Escape')
+            await expect(sheet).toBeHidden()
+            await expect(more).toBeFocused()
+            await expect(more).toHaveAttribute('aria-expanded', 'false')
+        })
+
         test('menu Thêm mở được các trang còn lại và đóng bằng Escape', async ({ page }) => {
             await page.goto('/')
             await tabBar(page).getByRole('button', { name: 'Thêm' }).click()

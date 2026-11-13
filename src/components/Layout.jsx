@@ -115,7 +115,17 @@ export default function Layout({ page, setPage, session, children }) {
             {moreOpen && <>
                 <div className="workspace-sheet-backdrop" onClick={closeMore} />
                 <div ref={sheet} className="workspace-sheet" role="dialog" aria-modal="true" aria-label="Thêm"
-                     onKeyDown={(event) => { if (event.key === 'Escape') closeMore() }}>
+                     onKeyDown={(event) => {
+                         if (event.key === 'Escape') closeMore()
+                         if (event.key !== 'Tab') return
+                         // Giữ focus trong hộp thoại: Tab ở mục cuối → mục đầu, Shift+Tab ở mục đầu → mục cuối
+                         const items = sheet.current.querySelectorAll('button')
+                         const edge = event.shiftKey ? items[0] : items[items.length - 1]
+                         if (document.activeElement === edge) {
+                             event.preventDefault()
+                             ;(event.shiftKey ? items[items.length - 1] : items[0]).focus()
+                         }
+                     }}>
                     <h2>Thêm</h2>
                     {navigation(more)}
                 </div>
